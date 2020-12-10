@@ -1,0 +1,17 @@
+.footer_container{
+    border: 1px solid black;
+    background-color: #f6f3f3;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    bottom: -10px;
+}
+
+footer > h5{
+    font-size: 12px;
+    font-weight: 300;
+    width: 60%;
+    
+    margin: auto;
+    margin-top: 20px;
+}
