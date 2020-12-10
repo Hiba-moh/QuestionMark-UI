@@ -1,0 +1,39 @@
+.signup_container{
+    width: 40%;
+    height: 40vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+   
+   
+}
+.signup_title > h2 {
+    font-weight: 500;
+   
+}
+.signup_form > form {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup_form > form > input{
+    margin-bottom: 0.4rem;
+    font-size: 0.7rem;
+}
+
+.signup_form_btn > button{
+    background-color: #D12F2F;
+    border: 1px solid red;
+    border-radius: 0px;
+    color: cornsilk;
+    margin-top: 1.2rem;
+}
+.signup_form_btn > button:hover{
+    background-color: #f6f3f3;
+    color: black;
+    outline: none;
+
+}

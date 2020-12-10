@@ -1,0 +1,14 @@
+header{
+    height: 90px;
+}
+.header_container {
+    border: 1px solid black;
+    display: flex;
+    justify-content: left;
+    background-color: #f6f3f3;
+}
+.header_logo > img {
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 130px;  
+}
