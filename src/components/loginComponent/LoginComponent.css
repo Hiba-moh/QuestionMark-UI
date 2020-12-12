@@ -7,7 +7,21 @@
     margin-top: 5rem;
 }
 
-.login_form{
+.login_form > form {
+  
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.login_form_btn > button{
+    background-color: #d12f2f;
+    color: white;
+}
+
+/* .login_form{
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -16,19 +30,19 @@
     flex-direction: column;
     padding-bottom: 3rem;
     
-}
+} */
 
 .login_title > h2 {
     font-weight: 500; 
-    /* margin-bottom: -0px; */
-}
+     margin-bottom: -0px;
+} 
 
-.login_form > form >input{
+/* .login_form > form >input{
     margin-bottom: 0.4rem;
     font-size: 0.7rem;
-}
+} */
 
-.login_form_btn > button{
+/* .login_form_btn > button{
     background-color: #D12F2F;
     border: 1px solid red;
     border-radius: 0px;
@@ -37,7 +51,7 @@
     margin-top: 1rem;
    
   
-}
+} */
 
 .login_form_btn > button:hover{
     background-color: #f6f3f3;
@@ -46,8 +60,8 @@
 
 }
 .login_btn_links > p {
-    font-size: 0.4rem;
-    width: 50%;
+    
+    width: 20rem;
     margin: auto;
     margin-top: 0.1rem;
    
