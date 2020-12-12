@@ -21,13 +21,13 @@
 
 .signup_form > form > input{
     margin-bottom: 0.4rem;
-    font-size: 0.7rem;
+    /* font-size: 0.7rem; */
 }
 
 .signup_form_btn > button{
     background-color: #D12F2F;
     border: 1px solid red;
-    border-radius: 0px;
+    border-radius: 4px;
     color: cornsilk;
     margin-top: 1.2rem;
 }

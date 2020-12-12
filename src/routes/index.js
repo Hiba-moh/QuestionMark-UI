@@ -5,6 +5,7 @@ import Login from '../pages/login/Login';
 import AllQuestions from '../pages/allquestions/AllQuestions';
 import Answered from '../pages/answered/Answered';
 import UnAnswered from '../pages/unanswered/UnAnswered';
+import ReplyPage from '../pages/replyPage/ReplyPage';
 
 export default () => {
   return (
@@ -15,6 +16,7 @@ export default () => {
         <Route path="/allquestions" component={AllQuestions} />
         <Route path="/answered" component={Answered} />
         <Route path="/unAnswered" component={UnAnswered} />
+        <Route path="/replypage" component={ReplyPage} />
 
       </BrowserRouter>
     </div>
