@@ -6,6 +6,7 @@ import AllQuestions from '../pages/allquestions/AllQuestions';
 import Answered from '../pages/answered/Answered';
 import UnAnswered from '../pages/unanswered/UnAnswered';
 import ReplyPage from '../pages/replyPage/ReplyPage';
+import AskQuestion from '../pages/askquestion/AskQuestion'
 
 export default () => {
   return (
@@ -17,8 +18,10 @@ export default () => {
         <Route path="/answered" component={Answered} />
         <Route path="/unAnswered" component={UnAnswered} />
         <Route path="/replypage" component={ReplyPage} />
+        <Route path="/askquestion" component={AskQuestion} />
 
       </BrowserRouter>
     </div>
   );
 };
+
