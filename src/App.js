@@ -12,15 +12,7 @@ function App () {
       <Footer />
 
     </div>
-    // <Router>
-    //   <div className="App">
-    //     <Header />
-    //     <Switch>
-    //       <Route path='/pages/signup' component = {Signup}/>
-    //     </Switch>
-    //     <Footer />
-    //   </div>
-    // </Router>
+    
   )
 
 }
