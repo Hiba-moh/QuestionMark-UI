@@ -1,5 +1,6 @@
 import React from 'react'
 import './SidebarComponent.css';
+import {Link} from 'react-router-dom';
 import Avatar from '../../assets/images/avatar.png';
 
 function SidebarComponent() {
@@ -14,10 +15,8 @@ function SidebarComponent() {
                 <hr/>
             </div>
             <div className="sidebar_links">
-                <p>empty links</p>
-                <p>empty links</p>
-                <p>empty links</p>
-                
+                 <p><Link to="/Answered">Answered questions</Link></p>
+               <p><Link to="/UnAnswered"> UnAnswered questions </Link></p>   
             </div>
             
         </div>
