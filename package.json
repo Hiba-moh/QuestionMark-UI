@@ -20,12 +20,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -38,5 +32,17 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000",
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "src/**/*.stories.js"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  }
 }
