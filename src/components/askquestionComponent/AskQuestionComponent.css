@@ -1,0 +1,232 @@
+
+.first-section{
+    display:flex;
+    justify-content: space-evenly;
+    /* border:2px solid red; */
+    width:95%;
+    margin:auto;
+}
+
+.heading{
+    font-size:3.5rem;
+}
+
+.logout-btn{
+    background-color: #D12F2F;
+    width:6rem;
+    height:2.3rem;
+    margin:auto 0;
+    color:white;
+    font-size: 1.2rem;
+    border:#D12F2F;
+    /* padding:1rem; */
+}
+
+.second-section{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* border:2px solid red; */
+    width:100%;
+    margin:5rem auto;
+    padding:1rem;
+}
+
+.module
+{
+    font-size:2rem;
+    background-color: #F6F3F3;
+    border-color:#F6F3F3;
+    width:30%;
+}
+
+.title
+{
+    border-color:#F6F3F3;
+    font-size:2rem;
+    background-color: #F6F3F3;
+    width:60%;
+}
+
+.title-module
+{
+    width:100%;
+    display: flex;
+    justify-content: space-evenly;
+    /* border:2px solid blue; */
+}
+
+.text-post
+{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    margin: auto;
+    /* border:2px solid blue; */
+}
+
+.ques-text
+{
+    border-color:#b8b6b6;
+    font-size:2rem;
+    background-color: #F6F3F3;
+    height:19rem;   
+    /* width:100%; */
+}
+
+.post-btn
+{
+    background-color: #D12F2F;
+    width:6rem;
+    height:2.3rem;
+    margin:auto 0;
+    color:white;
+    font-size: 1.2rem;
+    border:#D12F2F;
+    margin:1rem auto;
+}
+
+
+.container
+{
+    display :flex;
+    flex-direction: row;
+    
+}
+
+
+.left-section{
+    /* border:2px solid red; */
+    width:18%;
+    background-color: #D12F2F;
+    color:white;
+    font: 2rem ubuntu,Verdana,Arial,sans-serif;
+    
+}
+
+.side-button
+{
+    background-color: #D12F2F;
+    border:none;
+    font: 1.4rem/1.56 ubuntu,Verdana,Arial,sans-serif;
+    color: white;
+}
+
+.side-button:hover{
+    color:rgb(18, 217, 243);
+}
+.right-section
+{
+    margin:auto;
+    width:70%;
+}
+.profile-pic
+{
+    margin:1rem;
+    width:50%;
+    border-radius:40%;
+}
+/* =======================================================
+ */
+
+
+ /* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(156, 137, 137); /* Black fallback color */
+    background-color: rgba(63, 57, 57, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+
+
+  .overlay-hidden {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  
+
+
+  /* Position the content inside the overlay */
+  .overlay-content {
+    position: relative;
+    top: 5%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    color:white;
+  }
+  
+  /* The navigation links inside the overlay */
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+  
+
+
+.question-list
+{
+    list-style-type: none;
+}
+
+.question
+{
+    background-color: #D12F2F;
+    width:70%;
+    margin:1rem auto;
+    padding:1rem;
+    
+}
+
+.question:hover{
+    color:red;
+    background-color: rgb(39, 218, 173);
+}
+
+
+
+
+
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
