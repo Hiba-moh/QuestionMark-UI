@@ -17,7 +17,7 @@ textarea{
     background-color: #f6f3f3;
     border: 1px solid #f6f3f3;
     width: 100%;
-    height: 30vh;
+    height: 40vh;
 }
 .textarea_form_label > label{
     font-weight: 400;
@@ -25,9 +25,9 @@ textarea{
 }
 .textarea_form_label{
     background-color: #f6f3f3;
-    width: 98.5%;
+    width: 25%;
     border-radius: 3px;
-    margin: auto;
+    margin-left: 0%;
     text-align: start;
     font-size: 1.5rem;
     color: darkgray;
