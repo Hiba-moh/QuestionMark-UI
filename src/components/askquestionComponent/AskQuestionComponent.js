@@ -44,7 +44,7 @@ function AskQuestionQuestion()
     // If expand variable is true then we choose the class which has width as 100%, it makes the slider visible on the screen.
     expand? (overlayclass="overlay"):(overlayclass="overlay-hidden")
 
-    
+
     return(
      
     <div className="container">
