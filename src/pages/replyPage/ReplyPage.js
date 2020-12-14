@@ -2,6 +2,7 @@ import React from 'react'
 import './ReplyPage.css';
 import SidebarComponent from '../../components/sidebarComponent/SidebarComponent'
 import TextareaComponent from '../../components/textareaComponent/TextareaComponent';
+import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
 
 
 function ReplyPage() {
@@ -16,12 +17,13 @@ function ReplyPage() {
                     <h2>Reply to the question</h2>
                 </div>
                 <div className="reply_btn">
-                    <button>Logout</button>
+                    <ButtonComponent label="Logout"/>
                 </div>
 
                 </div>
                 <div className="reply_textarea_container">
                     <TextareaComponent subtitle="Title of the question" description="Enter your reply here..."/>
+                    <ButtonComponent label="reply"/>
                 </div>
     
                 

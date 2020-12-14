@@ -1,0 +1,9 @@
+.button_container > button{
+    background-color: #d12f2f;
+    color: white;
+}
+.button_container > button:hover{
+    background-color: #f6f3f3;
+    border: 1px solid red;
+    color: black;
+}
