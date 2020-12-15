@@ -1,6 +1,8 @@
 import React from 'react'
 import TextareaComponent from '../../components/textareaComponent/TextareaComponent';
 import './SelectedQuestionPage.css';
+import {Link} from 'react-router-dom';
+import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
 
 function SelectedQuestionPage() {
     return (
@@ -10,8 +12,11 @@ function SelectedQuestionPage() {
                     <h2>Title of the question</h2>
                 </div>
                 <div className="selected_title_btn">
-                    <button>Ask Question</button>
+                    <ButtonComponent label="Ask question" />
                 </div>
+            </div>
+            <div className="selected_link">
+            <p><Link to="/replypage">Add reply</Link></p>
             </div>
             <div className="selected_textarea">
                 <TextareaComponent subtitle="username" description="Question details here..."/>
