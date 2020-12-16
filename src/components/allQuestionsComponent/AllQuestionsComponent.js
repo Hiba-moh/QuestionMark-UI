@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import '../allQuestionsComponent/AllQuestionsComponent.css';
 import {Link, useHistory} from 'react-router-dom';
+import SelectedQuestionPage
+  from '../../pages/selectedQuestionPage/SelectedQuestionPage';
 
 const AllQuestionsComponent = () => {
   const [list, setList] = useState ([]);
@@ -145,7 +147,9 @@ const AllQuestionsComponent = () => {
           <div class="allquestions1">
             {modulequestions.map (question => (
               <div class="question1">
-                <a href="/Unanswerd">{question.question}</a>
+                <Link to={`/selectedquestionpage/${question.id}`}>
+                  {question.question}
+                </Link>
               </div>
             ))}
 

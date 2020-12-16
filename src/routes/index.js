@@ -22,7 +22,7 @@ export default () => {
         <Route path="/unAnswered" component={UnAnswered} />
         <Route path="/replypage" component={ReplyPage} />
         <Route path="/askquestion" component={AskQuestion} />
-        <Route path="/selectedquestionpage" component={SelectedQuestionPage} />
+        <Route path="/selectedquestionpage/:id" component={SelectedQuestionPage} />
 
       </BrowserRouter>
     </div>
