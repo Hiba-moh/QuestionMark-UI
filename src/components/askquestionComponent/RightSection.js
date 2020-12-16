@@ -1,8 +1,12 @@
 import React,{useState} from 'react';
 import './AskQuestionComponent.css'
+import Modules from './Modules';
 
 function RightSection()
 {
+    // This is a state variable which will store the value selected from drop down menu and then it will be sent to post request.
+    let [selectedModule,setSelectedModule]=useState("");
+
     return(
         <div className="right-section">
             <div className="first-section">
@@ -12,7 +16,7 @@ function RightSection()
             <form className="second-section">
                 <div className="title-module">
                     <input className="title" name="title" type="text" placeholder="Title of the question" required />
-                    <input className="module"name="title" type="text" placeholder="Module" required />
+                    <Modules setSelectedModule={setSelectedModule}/>
                 </div>
 
                 <div className="text-post">
