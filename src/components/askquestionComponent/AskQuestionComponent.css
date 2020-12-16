@@ -32,12 +32,12 @@
     padding:1rem;
 }
 
-.module
+#modules
 {
     font-size:2rem;
-    background-color: #F6F3F3;
-    border-color:#F6F3F3;
-    width:30%;
+    background-color: #D12F2F;
+    border-color:#d3cece;
+    color:rgb(252, 253, 253);
 }
 
 .title
