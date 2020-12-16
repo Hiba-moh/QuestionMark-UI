@@ -6,9 +6,10 @@ import AllQuestions from '../pages/allquestions/AllQuestions';
 import Answered from '../pages/answered/Answered';
 import UnAnswered from '../pages/unanswered/UnAnswered';
 import ReplyPage from '../pages/replyPage/ReplyPage';
-import AskQuestion from '../pages/askquestion/AskQuestion';
+import AskQuestion from '../pages/askquestion/AskQuestion'
+import SelectedQuestionPage from '../pages/selectedQuestionPage/SelectedQuestionPage';
 
-/* eslint-plugin-disable react */
+
 
 export default () => {
   return (
@@ -21,6 +22,7 @@ export default () => {
         <Route path="/unAnswered" component={UnAnswered} />
         <Route path="/replypage" component={ReplyPage} />
         <Route path="/askquestion" component={AskQuestion} />
+        <Route path="/selectedquestionpage" component={SelectedQuestionPage} />
 
       </BrowserRouter>
     </div>
