@@ -18,14 +18,16 @@ textarea{
     border: 1px solid #f6f3f3;
     width: 100%;
     height: 40vh;
+    font-size: 1.3rem;  
 }
 .textarea_form_label > label{
     font-weight: 400;
+    font-weight: bold;
     color: grey;
 }
 .textarea_form_label{
     background-color: #f6f3f3;
-    width: 25%;
+    width: 26%;
     border-radius: 3px;
     margin-left: 0%;
     text-align: start;
