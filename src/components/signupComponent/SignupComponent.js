@@ -1,28 +1,85 @@
-import React from 'react'
-import './SignupComponent.css';
+import React, { useState } from 'react'
+import './LoginComponent.css';
+import { useHistory, Link } from 'react-router-dom';
 
-function SignupComponent() {
+
+
+function LoginComponent(props) {
+
+    const [logUsername, setLogUsername] = useState("");
+    const [logPassword, setLogPassword] = useState("");
+
+    const history = useHistory();
+
+    const details = {
+        username: logUsername, 
+         password: logPassword
+    
+     };
+
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(details)
+    }
+
+   
+     const handleSubmit =  (e)  => {
+        e.preventDefault();
+        fetch('https://question-mark-api.herokuapp.com/login', options)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+
+
+            if(data.success === false){
+                //localStorage.setItem("token", JSON.stringify(data)); //stores token in local storage
+                history.push('/signup');
+                
+            }else{
+                history.push('/allquestions');
+               
+            }  
+        })
+        .catch(e => {
+            console.error(e);
+        })   
+    }
+   
+    const handleLogUsername = (e) => {
+        setLogUsername(e.target.value);
+    }
+
+    const handleLogPassword = (e) => {
+        setLogPassword(e.target.value);
+    }
+    
     return (
-        <div className="signupComponent_container">
-             <div className="signup_title">
-               <h2>Sign up</h2>
-           </div>
-           <div className="signup_form">
-               <form>
-                   <input name="username" type="text" placeholder="Username" required/>
-                   <input name="password" type="password" placeholder="Password" required/>
-                   <input name="confirm" type="password" placeholder="Confirm password" />
-                   <input name="email" type="email" placeholder="email" required/>
-                   <input name="role" type="text" placeholder="Student/Teacher" required/>
-                   <div className="signup_form_btn">
-                       <button type="submit">Register</button>
-                   </div>
-               </form>
-           </div>
-           
+        <div className="login_container">
+            <div className="login_title">
+                <h2>Log In</h2>
+            </div>
+            <div className="login_form">
+                <form onSubmit={handleSubmit}>
+                    <input name="username" type="text" placeholder="Username" onChange={handleLogUsername} required /> 
+                    <input name="password" type="password" placeholder="Password" onChange={handleLogPassword} required /> 
+                    <div className="login_form_btn">
+                        <button type="submit">Login</button>
+                    </div>
+                    <div className="login_btn_links">
+                        <p><Link to="/signup">Sign up | Forgot password?</Link></p>
+                    </div>
+                </form>
+            </div>
             
         </div>
     )
 }
 
-export default SignupComponent
+export default LoginComponent
+
+

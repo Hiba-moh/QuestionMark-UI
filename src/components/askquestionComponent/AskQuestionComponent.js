@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import ListOfQuestions from "./ListOfQuestions"
 import './AskQuestionComponent.css'
+import LeftSection from './LeftSection';
+import RightSection from './RightSection';
 
 function AskQuestionQuestion()
 {
@@ -44,45 +46,12 @@ function AskQuestionQuestion()
     // If expand variable is true then we choose the class which has width as 100%, it makes the slider visible on the screen.
     expand? (overlayclass="overlay"):(overlayclass="overlay-hidden")
 
-    
     return(
      
     <div className="container">
 
-        <div className="left-section">
-            <div id="myNav" class={overlayclass}>
-            
-            <button className="closebtn" onClick={closeNav}>&times;</button>
-                <div className="overlay-content">
-                    <h1>List of {selectedOption} </h1>
-                    <ListOfQuestions questions={listOfQues} />
-                </div>
-            </div>
-            <img alt="Profile pic"className="profile-pic" src="https://images.immediate.co.uk/production/volatile/sites/3/2018/05/IRON-2008-d7a2706.jpg?quality=90&resize=768,574"></img>
-            <p>{user.name}</p>
-            <button className="side-button" onClick={setAnsweredQUes}>Answered question</button>
-            <button className="side-button" onClick={setUnAnsweredQues}>UnAnswered Question</button>
-        </div>
-
-
-
-        <div className="right-section">
-            <div className="first-section">
-                <h1 className="heading">Ask Question</h1>
-                <button className="logout-btn">Logout</button>
-            </div>
-            <div className="second-section">
-                <form className="title-module">
-                    <input className="title" name="title" type="text" placeholder="Title of the question" required />
-                    <input className="module"name="title" type="text" placeholder="Module" required />
-                </form>
-
-                <form className="text-post">
-                    <textarea className="ques-text"name="title" type="text" placeholder="Type your question here" required/>
-                    <input className="post-btn" type="submit" value="Post"/>
-                </form>
-            </div>
-        </div>
+       <LeftSection overlayclass={overlayclass} closeNav={closeNav} selectedOption={selectedOption} listOfQues={listOfQues} user={user} setAnsweredQUes={setAnsweredQUes} setUnAnsweredQues={setUnAnsweredQues}/>
+       <RightSection/>
        
     </div>)
 }
