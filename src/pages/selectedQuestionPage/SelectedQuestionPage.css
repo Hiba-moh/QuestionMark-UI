@@ -1,0 +1,59 @@
+.selected_container {
+    height: 100vh;
+
+}
+
+.selected_titleandbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.selected_link {
+
+    height: 2rem;
+}
+.selected_link > p {
+    color: blue;
+    width: 12%;
+    height: 2rem;
+    margin-left: 82%;
+    
+}
+
+.selected_title{
+    width: 65%;
+    text-align: left;  
+    margin-right: 3rem;
+}
+
+.selected_title > h2 {
+    font-weight: 400;
+}
+
+.selected_title_btn{
+    width: 15%; 
+}
+
+.selected_title_btn > button {
+    background-color: #D12F2F;
+    border: 1px solid red;
+    width: 150px;
+    border-radius: 4px;
+    color: white;
+}
+
+.selected_title_btn > button:hover {
+    background-color: #f6f3f3;
+    border: 1px solid red;
+    color: black;
+}
+
+
+.selected_textarea{
+    width: 84%;
+    /* background-color: #f6f3f3; */
+    margin: auto;
+}

@@ -1,0 +1,43 @@
+.reply_container{
+    height: 90vh;
+    display: flex;
+}
+.reply_body{
+    width: 80%;
+    height: 80vh;
+
+}
+.reply_sidebar{
+    width: 20%;
+    height: 80vh;
+}
+.reply_titleandbtn_container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.reply_title > h2{
+    font-weight: 400;
+    
+}
+
+.reply_btn > button {
+    background-color: #D12F2F;
+    border: 1px solid red;
+    color: antiquewhite;
+ 
+}
+.reply_btn > button:hover {
+    background-color: #f6f3f3;
+    border: 1px solid red;
+    color: black;
+}
+
+.reply_textarea_container{
+    width: 80%;
+    margin: auto;
+}
