@@ -24,7 +24,7 @@ function RightSection()
                 <button className="logout-btn">Logout</button>
             </div>
             {displayForm?
-                <form className="second-section">
+                <form className="second-section" onSubmit={submitted}>
                     <div className="title-module">
                         <input className="title" name="title" type="text" placeholder="Title of the question" required />
                         <Modules setSelectedModule={setSelectedModule}/>
@@ -32,7 +32,7 @@ function RightSection()
 
                     <div className="text-post">
                         <textarea className="ques-text"name="title" type="text" placeholder="Type your question here" required/>
-                        <input  onClick={submitted}className="post-btn" type="submit" value="Post"/>
+                        <input className="post-btn" type="submit" value="Post" />
                     </div>
                 </form>
                 :
