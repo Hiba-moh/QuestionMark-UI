@@ -8,7 +8,7 @@ import UnAnswered from '../pages/unanswered/UnAnswered';
 import ReplyPage from '../pages/replyPage/ReplyPage';
 import AskQuestion from '../pages/askquestion/AskQuestion'
 import SelectedQuestionPage from '../pages/selectedQuestionPage/SelectedQuestionPage';
-
+import Overview from '../pages/overview/Overview'
 
 
 export default () => {
@@ -23,6 +23,8 @@ export default () => {
         <Route path="/replypage" component={ReplyPage} />
         <Route path="/askquestion" component={AskQuestion} />
         <Route path="/selectedquestionpage" component={SelectedQuestionPage} />
+        <Route path="/overview" component={Overview} />
+
 
       </BrowserRouter>
     </div>
