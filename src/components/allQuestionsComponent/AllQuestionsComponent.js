@@ -11,7 +11,7 @@ const AllQuestionsComponent = () => {
   const [input, setInput] = useState ('');
   const history = useHistory ();
   useEffect (() => {
-    fetch (`https://api-test111.herokuapp.com/allquestions`)
+    fetch (`https://question-mark-api.herokuapp.com/allquestions`)
       .then (res => {
         console.log (res);
         if (!res.ok) {

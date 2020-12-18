@@ -12,7 +12,9 @@ function SelectedQuestionPage({match}) {
 
   useEffect (
     () => {
-      fetch (`https://api-test111.herokuapp.com/selectedquestionpage/${id}`)
+      fetch (
+        `https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`
+      )
         .then (res => {
           console.log (res);
           if (!res.ok) {
