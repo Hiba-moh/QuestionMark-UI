@@ -42,16 +42,16 @@
     font-size: 0.7rem;
 } */
 
-/* .login_form_btn > button{
+.login_form_btn > button{
     background-color: #D12F2F;
     border: 1px solid red;
-    border-radius: 0px;
+    border-radius: 4px;
     color: cornsilk;
     width: 5rem;
     margin-top: 1rem;
    
   
-} */
+}
 
 .login_form_btn > button:hover{
     background-color: #f6f3f3;
@@ -60,8 +60,7 @@
 
 }
 .login_btn_links > p {
-    
-    width: 20rem;
+    width: 9rem;
     margin: auto;
     margin-top: 0.1rem;
    
