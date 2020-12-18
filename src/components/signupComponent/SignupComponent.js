@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Axios from 'axios';
 import './SignupComponent.css';
 import { useHistory } from 'react-router-dom';
 
@@ -14,16 +13,16 @@ function SignupComponent() {
 
     const history = useHistory();
 
-    const register = () => {
-        Axios.post('https://question-mark-api.herokuapp.com/register', {
-            username: name, 
-            password: password,
-            email: email
-        }).then((response) => {
-            console.log(response);
-        })
+    // const register = () => {
+    //     Axios.post('https://question-mark-api.herokuapp.com/register', {
+    //         username: name, 
+    //         password: password,
+    //         email: email
+    //     }).then((response) => {
+    //         console.log(response);
+    //     })
 
-    };
+    // };
 
     const details = {
        username: name, 
