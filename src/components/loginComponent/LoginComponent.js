@@ -6,7 +6,7 @@ import { useHistory, Link } from 'react-router-dom';
 function LoginComponent(props) {
 
     const [logUsername, setLogUsername] = useState("");
-    const [logPassword, setLogPassword] = useState("");
+    const [logPassword, setLogPassword] = useState("");  
     const history = useHistory();
 
     const details = {
