@@ -7,7 +7,7 @@ import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
-  const [pageData_question, setPageData_question] = useState ([]);
+  const [pageData_question, setPageData_question] = useState ({});
   const [pageData_answer, setPageData_answer] = useState ([]);
 
   useEffect (
@@ -22,7 +22,8 @@ function SelectedQuestionPage({match}) {
         })
         .then (data => {
           setPageData_question (data.question[0]);
-          setPageData_answer (data.answer[0]);
+          setPageData_answer (data.answer);
+          console.log ('here is answers array', pageData_answer);
         })
         .catch (error => {
           console.error (error);
@@ -30,15 +31,6 @@ function SelectedQuestionPage({match}) {
     },
     [match]
   );
-
-  const isThereAnswers = () => {
-    if (pageData_question.answered > 0) {
-      for (let i = 0; i < pageData_answer.length; i++) {
-        console.log (pageData_answer[i]);
-        return <h3>{pageData_answer[i].answer}</h3>;
-      }
-    } else return '';
-  };
 
   return (
     <div className="selected_container">
@@ -69,10 +61,15 @@ function SelectedQuestionPage({match}) {
               pageData_question.question_date +
               `\n \nQuestion : ` +
               pageData_question.question
-            // isThereAnswers ()
-            // <div>{pageData_answer.answer} </div>
           }
         />
+        <div>
+          {pageData_answer.map (answer => (
+            <div class="question1">
+              {answer.answer}
+            </div>
+          ))}
+        </div>
 
       </div>
 
