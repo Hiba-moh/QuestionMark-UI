@@ -98,7 +98,7 @@ const AllQuestionsComponent = () => {
               name="search"
               type="text"
               onChange={handleSearch}
-              placeholder="SEARCH HERE ..."
+              placeholder="SEARCH HERE ... "
             />
             {/* <button class="searchbtn">SEARCH</button> */}
           </form>
