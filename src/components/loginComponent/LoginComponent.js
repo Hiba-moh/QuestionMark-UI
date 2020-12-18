@@ -1,20 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import './LoginComponent.css';
 import { useHistory, Link } from 'react-router-dom';
-
 
 
 function LoginComponent(props) {
 
     const [logUsername, setLogUsername] = useState("");
     const [logPassword, setLogPassword] = useState("");
-
     const history = useHistory();
 
     const details = {
         username: logUsername, 
          password: logPassword
-    
      };
 
     const options = {
@@ -29,7 +26,7 @@ function LoginComponent(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3003/login', options)
+        fetch('https://question-mark-api.herokuapp.com/login', options)
         .then(response => {
             return response.json();
         })
@@ -81,34 +78,6 @@ function LoginComponent(props) {
     )
 }
 
-export default LoginComponent
+export default LoginComponent;
 
 
-
-// import React from 'react'
-// import './LoginComponent.css';
-
-// function LoginComponent() {
-//     return (
-//         <div className="login_container">
-//             <div className="login_title">
-//                 <h2>Log In</h2>
-//             </div>
-//             <div className="login_form">
-//                 <form>
-//                     <input name="username" type="text" placeholder="Username" required /> 
-//                     <input name="password" type="password" placeholder="Password" required /> 
-//                     <div className="login_form_btn">
-//                         <button type="submit">Login</button>
-//                     </div>
-//                     <div className="login_btn_links">
-//                         <p>Sign up | Forgot password?</p>
-//                     </div>
-//                 </form>
-//             </div>
-            
-//         </div>
-//     )
-// }
-
-// export default LoginComponent
