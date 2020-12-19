@@ -3,12 +3,15 @@ import '../allQuestionsComponent/AllQuestionsComponent.css';
 import {Link, useHistory} from 'react-router-dom';
 import SelectedQuestionPage
   from '../../pages/selectedQuestionPage/SelectedQuestionPage';
+import pdf from '../allQuestionsComponent/download.png';
+import jsPDF from 'jspdf';
 
 const AllQuestionsComponent = () => {
   const [list, setList] = useState ([]);
   const [filter, setFilter] = useState ([]);
   const [modulequestions, setModulequestions] = useState ([]);
   const [input, setInput] = useState ('');
+  const [qAnswers, setQAnswers] = useState ([]);
   const history = useHistory ();
   useEffect (() => {
     fetch (`https://question-mark-api.herokuapp.com/allquestions`)
@@ -23,6 +26,7 @@ const AllQuestionsComponent = () => {
         setModulequestions (data.allquestions);
         setList (data.allquestions);
         setFilter (data.filter);
+        setQAnswers (data.q_answers);
       })
       .catch (error => {
         console.error (error);
@@ -88,9 +92,26 @@ const AllQuestionsComponent = () => {
     setModulequestions (filtered);
   };
 
+  const jsPDFGenerator = () => {
+    var doc = new jsPDF ('p', 'pt');
+
+    var i = 1;
+    var j = 2;
+    qAnswers.map (question => {
+      doc.text (20, 30 * i, question.question + '\n' + question.answer);
+      i += 2;
+    });
+
+    doc.setFont ('courier');
+    doc.save ('AllQuestions');
+  };
+
   return (
     <div>
       <div class="search-container">
+        <a href="" onClick={jsPDFGenerator}>
+          <img src={pdf} />
+        </a>
         <div class="form1">
           <form>
             <input
@@ -142,13 +163,13 @@ const AllQuestionsComponent = () => {
             })}
           </select>
         </div>
-
+        <img src="" />
         <div class="allquestions-container">
           <div class="allquestions1">
             {modulequestions.map (question => (
               <div class="question1">
                 <Link to={`/selectedquestionpage/${question.id}`}>
-                  {question.question}
+                  {question.question_title}
                 </Link>
               </div>
             ))}

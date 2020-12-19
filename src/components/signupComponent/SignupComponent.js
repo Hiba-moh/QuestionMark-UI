@@ -56,7 +56,7 @@ function SignupComponent() {
             return response.json();
         })
         .then(data => {
-           data ? console.log({success: true}) : console.log({success: false});
+           data ? console.log({success: true}) : console.log({success: false});      
            if(data.success === true){
             localStorage.setItem("token", JSON.stringify(data)); 
             history.push('/login');
@@ -95,3 +95,8 @@ function SignupComponent() {
 }
 
 export default SignupComponent;
+
+
+
+
+
