@@ -3,6 +3,8 @@ import ListOfQuestions from "./ListOfQuestions"
 import './AskQuestionComponent.css'
 import LeftSection from './LeftSection';
 import RightSection from './RightSection';
+import Footer from '../footerComponent/Footer';
+// import Footer from './components/footerComponent/Footer';
 
 function AskQuestionQuestion()
 {
@@ -47,13 +49,16 @@ function AskQuestionQuestion()
     expand? (overlayclass="overlay"):(overlayclass="overlay-hidden")
 
     return(
-     
-    <div className="container">
+        <div>
+            <div className="container">
 
-       <LeftSection overlayclass={overlayclass} closeNav={closeNav} selectedOption={selectedOption} listOfQues={listOfQues} user={user} setAnsweredQUes={setAnsweredQUes} setUnAnsweredQues={setUnAnsweredQues}/>
-       <RightSection/>
-       
-    </div>)
+            <LeftSection overlayclass={overlayclass} closeNav={closeNav} selectedOption={selectedOption} listOfQues={listOfQues} user={user} setAnsweredQUes={setAnsweredQUes} setUnAnsweredQues={setUnAnsweredQues}/>
+            <RightSection/>
+            </div>
+            <Footer />
+        </div>
+    
+    )
 }
 
 export default AskQuestionQuestion;
