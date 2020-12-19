@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import { Link } from "react-router-dom";
 import './AskQuestionComponent.css'
 import Modules from './Modules';
 
@@ -21,7 +22,10 @@ function RightSection()
         <div className="right-section">
             <div className="first-section">
                 <h1 className="heading">Ask Question</h1>
-                <button className="logout-btn">Logout</button>
+                
+                <Link to="/allquestions"> 
+                  <button className="logout-btn">Logout</button>
+                </Link>
             </div>
             {displayForm?
                 <form className="second-section" onSubmit={submitted}>
