@@ -5,53 +5,38 @@
     display: flex;
     flex-direction: column;
     margin-top: 5rem;
+
 }
+.login_form > form > input {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+} 
 
 .login_form > form {
-  
     display: flex;
     flex-direction: column;
     width: 50%;
     margin: auto;
     margin-top: 50px;
+  
 }
 
 .login_form_btn > button{
     background-color: #d12f2f;
+    border: 1px solid red;
+    width: 6rem;
+    height: 1.5rem;
+    border-radius: 4px;
     color: white;
+    font-size: 1rem;
+    margin-top: 15px;
 }
 
-/* .login_form{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 3rem;
-    
-} */
 
 .login_title > h2 {
     font-weight: 400; 
      margin-bottom: -0px;
 } 
-
-/* .login_form > form >input{
-    margin-bottom: 0.4rem;
-    font-size: 0.7rem;
-} */
-
-.login_form_btn > button{
-    background-color: #D12F2F;
-    border: 1px solid red;
-    border-radius: 4px;
-    color: cornsilk;
-    width: 5rem;
-    margin-top: 1rem;
-   
-  
-}
 
 .login_form_btn > button:hover{
     background-color: #f6f3f3;
@@ -60,7 +45,7 @@
 
 }
 .login_btn_links > p {
-    width: 9rem;
+    width: 10rem;
     margin: auto;
     margin-top: 0.1rem;
    
@@ -71,3 +56,41 @@
     cursor: pointer;
    
 }
+
+@media screen and (max-width: 800px) {
+    #signup_link{
+        font-size: 12px;
+    }
+    .login_btn_links > p {
+        width: 8rem;
+    }
+    .login_form_btn > button{
+        width: 4rem;
+        font-size: 0.9rem;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+     
+      .login_btn_links > p {
+        width: 6rem;
+    }
+    .login_form_btn > button{
+        width: 4rem;
+        font-size: 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 450px){
+     
+      #signup_link{
+        font-size: 10px;
+    }
+    .login_btn_links > p {
+        width: 4rem;
+    }
+    .login_form_btn > button{
+        height: 1.2rem;
+        font-size: 0.8rem;
+    }
+  }

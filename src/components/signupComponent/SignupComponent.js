@@ -10,18 +10,10 @@ function SignupComponent() {
     const [confirm, setConfirm] = useState("");
     const [email, setEmail] = useState("");
     const [role, setRole] = useState("");
+
     const history = useHistory();
 
-    // const register = () => {
-    //     Axios.post('https://question-mark-api.herokuapp.com/register', {
-    //         username: name, 
-    //         password: password,
-    //         email: email
-    //     }).then((response) => {
-    //         console.log(response);
-    //     })
-
-    // };
+   
 
     const details = {
        username: name, 
@@ -56,7 +48,7 @@ function SignupComponent() {
         setRole(e.target.value);
     }
 
-  
+   // https://lowly-foam-badger.glitch.me/creatures
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch('https://question-mark-api.herokuapp.com/register', options)
@@ -64,8 +56,7 @@ function SignupComponent() {
             return response.json();
         })
         .then(data => {
-           data ? console.log({success: true}) : console.log({success: false});  
-                
+           data ? console.log({success: true}) : console.log({success: false});      
            if(data.success === true){
             localStorage.setItem("token", JSON.stringify(data)); 
             history.push('/login');
@@ -104,5 +95,8 @@ function SignupComponent() {
 }
 
 export default SignupComponent;
+
+
+
 
 
