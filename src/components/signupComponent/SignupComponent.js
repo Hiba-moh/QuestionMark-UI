@@ -10,6 +10,8 @@ function SignupComponent() {
     const [confirm, setConfirm] = useState("");
     const [email, setEmail] = useState("");
     const [role, setRole] = useState("");
+    const [regFailedMessage, setRegFailedMessage] = useState("");
+    const [successfullyRegistered, setSuccessfullyRegistered] = useState("");
 
     const history = useHistory();
 
@@ -59,9 +61,12 @@ function SignupComponent() {
            data ? console.log({success: true}) : console.log({success: false});      
            if(data.success === true){
             localStorage.setItem("token", JSON.stringify(data)); 
-            history.push('/login');
+            setSuccessfullyRegistered(data.message);
+            setTimeout(history.push('/login'), 2000);
+            
            }else{
-            console.log('Registration failed');
+            console.log(data.errorArray);
+            setRegFailedMessage(data.errorArray[0].message);
            }
            
         })
@@ -87,6 +92,9 @@ function SignupComponent() {
                        <button  type="submit">Register</button>
                    </div>
                </form>
+           </div>
+           <div className="signup_successfull_message">
+               <p>{regFailedMessage}</p>
            </div>
            
             
