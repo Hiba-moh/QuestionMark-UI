@@ -69,7 +69,7 @@ function LoginComponent(props) {
                         <button type="submit">Login</button>
                     </div>
                     <div className="login_btn_links">
-                        <p><Link to="/signup">Sign up | Forgot password?</Link></p>
+                        <p id="signup_link"><Link to="/signup">Sign up | Forgot password?</Link></p>
                     </div>
                 </form>
             </div>
