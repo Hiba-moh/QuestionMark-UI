@@ -9,11 +9,11 @@ width: 40rem;
 height: 2rem;
 font-size: 1.2rem;
 }
-.searchbox-only:focus{
+.searchbox-onlyH:focus{
 outline-style: none;
 }
 
-.searchbtn{
+.searchbtnH{
     margin-left: 1rem;
     height: 3rem;
 width: 8rem;
@@ -54,7 +54,7 @@ justify-content: center;
     margin-left: 4rem;
 }
 
-#page-heading{
+#page-headingH{
     text-align: left;
     padding-top: 2rem;
 }
