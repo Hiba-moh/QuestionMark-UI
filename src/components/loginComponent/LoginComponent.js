@@ -7,6 +7,7 @@ function LoginComponent(props) {
 
     const [logUsername, setLogUsername] = useState("");
     const [logPassword, setLogPassword] = useState("");  
+    const [failedLoginMessage, setFailedLoginMessage] = useState("");
     const history = useHistory();
 
     const details = {
@@ -35,8 +36,8 @@ function LoginComponent(props) {
 
 
             if(data.success === false){
-                //localStorage.setItem("token", JSON.stringify(data)); //stores token in local storage
-                history.push('/signup');
+                localStorage.setItem("token", JSON.stringify(data)); //stores token in local storage
+                setFailedLoginMessage(data.message);
                 
             }else{
                 history.push('/allquestions');
@@ -69,9 +70,12 @@ function LoginComponent(props) {
                         <button type="submit">Login</button>
                     </div>
                     <div className="login_btn_links">
-                        <p><Link to="/signup">Sign up | Forgot password?</Link></p>
+                        <p id="signup_link"><Link to="/signup">Sign up | Forgot password?</Link></p>
                     </div>
                 </form>
+            </div>
+            <div className="login_response_message">
+                <p>{failedLoginMessage}</p>
             </div>
             
         </div>

@@ -5,29 +5,31 @@
     display: flex;
     flex-direction: column;
     margin-top: 5rem;
-   
-   
 }
+
 .signup_title > h2 {
-    font-weight: 400;
-   
+    font-weight: 400; 
 }
+
 .signup_form > form {
-    width: 70%;
+    width: 50%;
     margin: auto;
     display: flex;
-    flex-direction: column;   
+    flex-direction: column; 
 }
 
 .signup_form > form > input{
     margin-bottom: 0.4rem;
-    /* font-size: 0.7rem; */
+    font-size: 0.7rem;
 }
 
 .signup_form_btn > button{
     background-color: #D12F2F;
     border: 1px solid red;
     border-radius: 4px;
+    width: 6rem;
+    height: 1.5rem;
+    font-size: 1rem;
     color: cornsilk;
     margin-top: 1.2rem;
 }
@@ -37,3 +39,29 @@
     outline: none;
 
 }
+
+@media screen and (max-width: 800px) {
+ 
+   .signup_form_btn > button{
+    width: 4rem;
+    font-size: 0.9rem;
+}
+  }
+
+  @media screen and (max-width: 650px) {
+   
+    .signup_form_btn > button{
+        width: 4rem;
+        font-size: 0.8rem;
+    }
+    
+  }
+
+  @media screen and (max-width: 450px){
+   
+    .signup_form_btn > button{
+        height: 1.2rem;
+        font-size: 0.8rem;
+    }
+     
+  }
