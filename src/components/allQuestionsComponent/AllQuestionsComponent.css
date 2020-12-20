@@ -28,7 +28,7 @@ color: black;
   text-align: center;
   text-decoration: none;
 }
-.askq-btn:hover{
+.askq-btnH:hover{
   background-color: #ffffff;
   cursor: pointer;   
 }
@@ -70,7 +70,7 @@ justify-content: center;
     align-items: center;
     height: 3rem;
     width: 15rem;
-    border
+    
     }
 .ulH .liH a{
     width: 100%;
@@ -88,7 +88,7 @@ text-decoration: none;
   display: inline-block;
 }
 
-.ulH .liH a:hover, .ul .li a:active {
+.ulH .liH a:hover, .ulH .liH a:active {
   background-color: #D12F2F;
   color: white;
 }
@@ -114,7 +114,7 @@ text-decoration: none;
     padding:1rem;
     border: 2px solid #D12F2F;
 }
-.question1:hover{
+.question1H:hover{
     background-color: hsl(0, 66%, 83%);
 }
 .link-filterH{
