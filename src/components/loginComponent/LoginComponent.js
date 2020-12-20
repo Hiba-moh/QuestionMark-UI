@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './LoginComponent.css';
 import { useHistory, Link } from 'react-router-dom';
+import NormalHeaderComponent from '../normalHeaderComponent/NormalHeaderComponent';
 
 
 function LoginComponent(props) {
@@ -58,7 +59,12 @@ function LoginComponent(props) {
     }
     
     return (
-        <div className="login_container">
+        <div className="login_outer_container">
+            <div className="login_header">
+                <NormalHeaderComponent />
+            </div>
+
+            <div className="login_container">
             <div className="login_title">
                 <h2>Log In</h2>
             </div>
@@ -79,6 +85,9 @@ function LoginComponent(props) {
             </div>
             
         </div>
+
+        </div>
+        
     )
 }
 
