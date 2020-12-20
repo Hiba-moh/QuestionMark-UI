@@ -108,14 +108,14 @@ const AllQuestionsComponent = () => {
 
   return (
     <div>
-      <div class="search-container">
+      <div class="search-containerH">
         <a href="" onClick={jsPDFGenerator}>
           <img src={pdf} />
         </a>
-        <div class="form1">
+        <div class="form1H">
           <form>
             <input
-              class="searchbox-only"
+              class="searchbox-onlyH"
               name="search"
               type="text"
               onChange={handleSearch}
@@ -124,10 +124,10 @@ const AllQuestionsComponent = () => {
             {/* <button class="searchbtn">SEARCH</button> */}
           </form>
         </div>
-        <div class="form2">
+        <div class="form2H">
           <form>
             <button
-              class="askq-btn"
+              class="askq-btnH"
               onClick={() => {
                 history.push ('/askquestion');
               }}
@@ -138,20 +138,20 @@ const AllQuestionsComponent = () => {
         </div>
       </div>
 
-      <div className="bodyContent">
+      <div className="bodyContentH">
         <h1 id="page-heading">ALL QUESTIONS</h1>
 
-        <div className="link-filter">
-          <ul className="ul">
-            <li className="li">
+        <div className="link-filterH">
+          <ul className="ulH">
+            <li className="liH">
               {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
             </li>
             |
-            <li className="li">
+            <li className="liH">
               {' '}<Link to="/UnAnswered"> UNANSWERED QUESTIONS </Link>
             </li>
             |
-            <li className="li">
+            <li className="liH">
               <Link to="/allquestions">ALL QUESTIONS</Link>
             </li>
           </ul>
@@ -164,10 +164,10 @@ const AllQuestionsComponent = () => {
           </select>
         </div>
         <img src="" />
-        <div class="allquestions-container">
-          <div class="allquestions1">
+        <div class="allquestions-containerH">
+          <div class="allquestions1H">
             {modulequestions.map (question => (
-              <div class="question1">
+              <div class="question1H">
                 <Link to={`/selectedquestionpage/${question.id}`}>
                   {question.question_title}
                 </Link>
