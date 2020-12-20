@@ -3,11 +3,16 @@ import './ReplyPage.css';
 import SidebarComponent from '../../components/sidebarComponent/SidebarComponent'
 import TextareaComponent from '../../components/textareaComponent/TextareaComponent';
 import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
+import Header from '../../components/headerComponent/Header'
 
 
 function ReplyPage() {
     return (
-        <div className="reply_container">
+        <div className="reply_outer_container">
+            <div className="reply_header">
+                <Header />
+            </div>
+            <div className="reply_container">
             <div className="reply_sidebar">
               <SidebarComponent />
             </div>
@@ -29,6 +34,9 @@ function ReplyPage() {
                 
             </div>
         </div>
+
+        </div>
+        
     )
 }
 
