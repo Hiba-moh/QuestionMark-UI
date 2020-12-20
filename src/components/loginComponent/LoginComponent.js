@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './LoginComponent.css';
 import { useHistory, Link } from 'react-router-dom';
+import NormalHeaderComponent from '../normalHeaderComponent/NormalHeaderComponent';
 
 
 function LoginComponent(props) {
 
     const [logUsername, setLogUsername] = useState("");
-    const [logPassword, setLogPassword] = useState("");
+    const [logPassword, setLogPassword] = useState("");  
+    const [failedLoginMessage, setFailedLoginMessage] = useState("");
     const history = useHistory();
 
     const details = {
@@ -35,8 +37,8 @@ function LoginComponent(props) {
 
 
             if(data.success === false){
-                //localStorage.setItem("token", JSON.stringify(data)); //stores token in local storage
-                history.push('/signup');
+                localStorage.setItem("token", JSON.stringify(data)); //stores token in local storage
+                setFailedLoginMessage(data.message);
                 
             }else{
                 history.push('/allquestions');
@@ -57,7 +59,12 @@ function LoginComponent(props) {
     }
     
     return (
-        <div className="login_container">
+        <div className="login_outer_container">
+            <div className="login_header">
+                <NormalHeaderComponent />
+            </div>
+
+            <div className="login_container">
             <div className="login_title">
                 <h2>Log In</h2>
             </div>
@@ -69,12 +76,18 @@ function LoginComponent(props) {
                         <button type="submit">Login</button>
                     </div>
                     <div className="login_btn_links">
-                        <p><Link to="/signup">Sign up | Forgot password?</Link></p>
+                        <p id="signup_link"><Link to="/signup">Sign up | Forgot password?</Link></p>
                     </div>
                 </form>
             </div>
+            <div className="login_response_message">
+                <p>{failedLoginMessage}</p>
+            </div>
             
         </div>
+
+        </div>
+        
     )
 }
 
