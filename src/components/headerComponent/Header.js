@@ -16,22 +16,22 @@ function Header() {
               <div className="navbar_container">
                     <nav>
                         <ul>
-                            <li><Link to="/allquestions" style={{
+                            <li><p><Link to="/allquestions" style={{
                                 textDecoration: 'none',
                                 color: 'black'
-                                }}>Home</Link></li>
-                            <li><Link to="/askquestion" style={{
+                                }}>Home</Link></p></li>
+                            <li><p><Link to="/askquestion" style={{
                                 textDecoration: 'none',
                                 color: 'black'
-                                }}>Ask a question</Link></li>
-                            <li><Link to="/askquestion" style={{
+                                }}>Ask a question</Link></p></li>
+                            <li><p><Link to="/askquestion" style={{
                                 textDecoration: 'none',
                                 color: 'black'
-                                }}>About</Link></li>
-                            <li><Link to="/askquestion" style={{
+                                }}>About</Link></p></li>
+                            <li><p><Link to="/askquestion" style={{
                                 textDecoration: 'none',
                                 color: 'black'
-                                }}>Contact</Link></li> 
+                                }}>Contact</Link></p></li> 
                         </ul>
                     </nav>
             
