@@ -5,7 +5,7 @@ import SelectedQuestionPage
   from '../../pages/selectedQuestionPage/SelectedQuestionPage';
 import pdf from '../allQuestionsComponent/download.png';
 import jsPDF from 'jspdf';
-
+import icon from '../allQuestionsComponent/click.jpg';
 const AllQuestionsComponent = () => {
   const [list, setList] = useState ([]);
   const [filter, setFilter] = useState ([]);
@@ -107,10 +107,10 @@ const AllQuestionsComponent = () => {
   };
 
   return (
-    <div>
-      <div class="search-containerH">
+    <div className="body-containerH">
+      <div className="search-containerH">
         <a href="" onClick={jsPDFGenerator}>
-          <img src={pdf} />
+          <img id="img-pdf" src={pdf} />
         </a>
         <div class="form1H">
           <form>
@@ -138,10 +138,10 @@ const AllQuestionsComponent = () => {
         </div>
       </div>
 
-      <div className="bodyContentH">
-        <h1 id="page-heading">ALL QUESTIONS</h1>
-
-        <div className="link-filterH">
+      <div className="col-linksH"><img src={icon} /></div>
+      <div className="to-divide-2divs">
+        <div className="col-and-search-containerH">
+          {' '}<h5 id="pdf-download">DOWNLOAD</h5>
           <ul className="ulH">
             <li className="liH">
               {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
@@ -152,28 +152,37 @@ const AllQuestionsComponent = () => {
             </li>
             |
             <li className="liH">
-              <Link to="/allquestions">ALL QUESTIONS</Link>
+              {' '}<Link to="/allquestions">ALL QUESTIONS</Link>
+            </li>
+            |
+            <li className="liH">
+              <Link to="/askquestion">ASK QUESTION</Link>
             </li>
           </ul>
-
-          <select id="moduleSelector" onChange={changeHandler}>
-            <option value="default">FILTER BY MODULE</option>
-            {filter.map (item => {
-              return <option value={item.id}>{item.module}</option>;
-            })}
-          </select>
         </div>
-        <img src="" />
-        <div class="allquestions-containerH">
-          <div class="allquestions1H">
-            {modulequestions.map (question => (
-              <div class="question1H">
-                <Link to={`/selectedquestionpage/${question.id}`}>
-                  {question.question_title}
-                </Link>
-              </div>
-            ))}
+        <div className="bodyContentH">
+          <h1 id="page-headingH">ALL QUESTIONS</h1>
+          <div className="link-filterH">
 
+            <select id="moduleSelectorH" onChange={changeHandler}>
+              <option value="default">FILTER BY MODULE</option>
+              {filter.map (item => {
+                return <option value={item.id}>{item.module}</option>;
+              })}
+            </select>
+          </div>
+          <img src="" />
+          <div class="allquestions-containerH">
+            <div class="allquestions1H">
+              {modulequestions.map (question => (
+                <div class="question1H">
+                  <Link to={`/selectedquestionpage/${question.id}`}>
+                    {question.question_title}
+                  </Link>
+                </div>
+              ))}
+
+            </div>
           </div>
         </div>
       </div>
