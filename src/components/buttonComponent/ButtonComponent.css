@@ -1,8 +1,8 @@
 .button_container > button{
-    background-color:#D12F2F;
-width: 12rem;
-height: 3rem;
-color: black;
+  background-color:#D12F2F;
+  width: 12rem;
+  height: 3rem;
+  color: black;
   border: 2px solid #D12F2F;
   padding: 10px 20px;
   text-align: center;
@@ -10,7 +10,8 @@ color: black;
 
 }
 .button_container > button:hover{
-background-color: #ffffff;
+  background-color: #ffffff;
   cursor: pointer;   
+  
 
 }
