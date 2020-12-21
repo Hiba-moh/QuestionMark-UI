@@ -4,7 +4,7 @@ header{
     display: flex;
     justify-content: space-between;
     position: fixed;
-    background-color: #D12F2F;
+    background-color: #575757;
     box-shadow:  5px 5px 5px gray;
 }
 .header_container {
@@ -44,7 +44,7 @@ nav > ul > li:hover {
     color: black;
     list-style-type: none;
     /* font-size: 1.3rem; */
-    background-color: #2ED1D1;
+    background-color: #d12f2f;
     border-radius: 3rem;  
     border: 2px solid white;
 }
