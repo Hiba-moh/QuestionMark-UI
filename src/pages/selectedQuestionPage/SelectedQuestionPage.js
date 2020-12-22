@@ -4,6 +4,7 @@ import TextareaComponent
 import './SelectedQuestionPage.css';
 import {Link} from 'react-router-dom';
 import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
+import Header from '../../components/allQuestionsComponent/Header';
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
@@ -35,46 +36,49 @@ function SelectedQuestionPage({match}) {
   );
 
   return (
-    <div className="selected_container">
-      <div className="selected_titleandbtn">
-        <div className="selected_title">
-          <h2>Title : {pageData_question.question_title}</h2>
+    <div>
+      <Header />
+      <div className="selected_container">
+        <div className="selected_titleandbtn">
+          <div className="selected_title">
+            <h2>Title : {pageData_question.question_title}</h2>
+          </div>
+          <div className="selected_title_btn">
+            <ButtonComponent label="Ask question" />
+          </div>
         </div>
-        <div className="selected_title_btn">
-          <ButtonComponent label="Ask question" />
+        <div className="selected_link">
+          <p><Link to="/replypage">Add reply</Link></p>
+        </div>
+        <div className="selected_textarea">
+          <TextareaComponent
+            subtitle={
+              'ASKED BY : ' +
+                pageData_question.name +
+                ' ' +
+                `\n ` +
+                ' | ' +
+                pageData_question.answered +
+                ' Answers'
+            }
+            description={
+              `Date question posted : ` +
+                pageData_question.question_date +
+                `\n \nQuestion : ` +
+                pageData_question.question
+            }
+            answer={
+              <div>
+                {pageData_answer.map (answer => (
+                  <div class="question1">
+                    {answer.answer}
+                  </div>
+                ))}
+              </div>
+            }
+          />
         </div>
       </div>
-      <div className="selected_link">
-        <p><Link to="/replypage">Add reply</Link></p>
-      </div>
-      <div className="selected_textarea">
-        <TextareaComponent
-          subtitle={
-            'ASKED BY : ' +
-              pageData_question.name +
-              ' ' +
-              `\n ` +
-              ' | ' +
-              pageData_question.answered +
-              ' Answers'
-          }
-          description={
-            `Date question posted : ` +
-              pageData_question.question_date +
-              `\n \nQuestion : ` +
-              pageData_question.question
-          }
-        />
-        <div>
-          {pageData_answer.map (answer => (
-            <div class="question1">
-              {answer.answer}
-            </div>
-          ))}
-        </div>
-
-      </div>
-
     </div>
   );
 }
