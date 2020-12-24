@@ -5,6 +5,7 @@ import './SelectedQuestionPage.css';
 import {Link} from 'react-router-dom';
 import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
 
+
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
   const [pageData_question, setPageData_question] = useState ({});
@@ -41,7 +42,7 @@ function SelectedQuestionPage({match}) {
           <h2>Title : {pageData_question.question_title}</h2>
         </div>
         <div className="selected_title_btn">
-          <ButtonComponent label="Ask question" />
+          <ButtonComponent routeUrl="/askquestion" label="Ask question" />
         </div>
       </div>
       <div className="selected_link">
@@ -69,6 +70,7 @@ function SelectedQuestionPage({match}) {
           {pageData_answer.map (answer => (
             <div class="question1">
               {answer.answer}
+
             </div>
           ))}
         </div>
