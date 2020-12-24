@@ -1,14 +1,45 @@
 header{
     height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+
 }
 .header_container {
-    border: 1px solid black;
     display: flex;
     justify-content: left;
     background-color: #f6f3f3;
+    
 }
 .header_logo > img {
     margin-top: 15px;
     margin-left: 10px;
-    width: 130px;  
+    width: 130px; 
+}
+.header_navbar{
+    width: 70%; 
+}
+
+nav > ul{
+    height: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav > ul > li {
+    list-style-type: none;
+    font-size: 0.8rem;  
+}
+nav > ul > li > p{
+    width: 140px;
+}
+
+nav > ul > li > p:hover {
+    list-style-type: none;
+    font-size: 1rem;
+    background-color: #D12F2F;
+    border-radius: 0px;
+    transition: ease-in 0.7s; 
 }

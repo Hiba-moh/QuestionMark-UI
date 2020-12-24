@@ -1,9 +1,17 @@
 .button_container > button{
-    background-color: #d12f2f;
-    color: white;
+  background-color:#D12F2F;
+  width: 12rem;
+  height: 3rem;
+  color: black;
+  border: 2px solid #D12F2F;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+
 }
 .button_container > button:hover{
-    background-color: #f6f3f3;
-    border: 1px solid red;
-    color: black;
+  background-color: #ffffff;
+  cursor: pointer;   
+  
+
 }
