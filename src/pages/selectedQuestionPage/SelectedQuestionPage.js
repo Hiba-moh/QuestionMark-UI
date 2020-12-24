@@ -12,7 +12,7 @@ function SelectedQuestionPage() {
                     <h2>Title of the question</h2>
                 </div>
                 <div className="selected_title_btn">
-                    <ButtonComponent label="Ask question" />
+                    <ButtonComponent routeUrl="/askquestion" label="Ask question" />
                 </div>
             </div>
             <div className="selected_link">
