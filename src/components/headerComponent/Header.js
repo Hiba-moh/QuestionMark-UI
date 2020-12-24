@@ -28,10 +28,10 @@ function Header() {
                                 textDecoration: 'none',
                                 color: 'black'
                                 }}>About</Link></p></li>
-                            <li><p><Link to="/askquestion" style={{
+                            <li><p><Link to="/login" style={{
                                 textDecoration: 'none',
                                 color: 'black'
-                                }}>Contact</Link></p></li> 
+                                }}>Logout</Link></p></li> 
                         </ul>
                     </nav>
             
