@@ -2,16 +2,17 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../allQuestionsComponent/AllQuestionsComponent.css';
 import {Link, useHistory} from 'react-router-dom';
-import SelectedQuestionPage
-  from '../../pages/selectedQuestionPage/SelectedQuestionPage';
 import pdf from '../allQuestionsComponent/download.png';
 import jsPDF from 'jspdf';
-import icon from '../allQuestionsComponent/click.jpg';
+import rate from '../allQuestionsComponent/rate.png';
 import Pagination from '../../components/allQuestionsComponent/Pagination';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
 
 const AllQuestionsComponent = () => {
   const [loading, setLoading] = useState (false);
   const [currentPage, setCurrentPage] = useState (1);
+  const [questionRate, setQuestionRate] = useState (0);
   const [questionsPerPage] = useState (5);
   const [list, setList] = useState ([]);
   const [filter, setFilter] = useState ([]);
@@ -129,44 +130,34 @@ const AllQuestionsComponent = () => {
   return (
     <div>
       <div className="search-containerH">
-        <a href="" onClick={jsPDFGenerator}>
-          <img id="img-pdf" src={pdf} />
-        </a>
-        <div className="form1H">
-          <form>
-            <input
-              className="searchbox-onlyH"
-              name="search"
-              type="text"
-              onChange={handleSearch}
-              placeholder="SEARCH HERE ... "
-            />
-            {/* <button class="searchbtn">SEARCH</button> */}
-          </form>
-        </div>
 
-        <div className="form2H">
-          <form>
+        <input
+          className="searchbox-onlyH"
+          name="search"
+          type="text"
+          onChange={handleSearch}
+          placeholder="SEARCH HERE ... "
+        />
+        {/* <button class="searchbtn">SEARCH</button> */}
 
-            <select id="moduleSelectorH" onChange={changeHandler}>
-              <option value="default">FILTER BY MODULE</option>
-              {filter.map (item => {
-                return (
-                  <option key={item.id} value={item.id}>{item.module}</option>
-                );
-              })}
-            </select>
+        <select id="moduleSelectorH" onChange={changeHandler}>
+          <option value="default">FILTER BY MODULE</option>
+          {filter.map (item => {
+            return <option key={item.id} value={item.id}>{item.module}</option>;
+          })}
+        </select>
 
-          </form>
-        </div>
       </div>
 
       <div className="body-containerH">
 
+        <a href="" onClick={jsPDFGenerator}>
+          <img id="img-pdf" src={pdf} />
+        </a>;
+
         <div className="col-linksH" />
         <div className="to-divide-2divs">
           <div className="col-and-search-containerH">
-            {' '}<h5 id="pdf-download">DOWNLOAD</h5>
             <ul className="ulH">
               <li className="liH">
                 {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
@@ -190,16 +181,24 @@ const AllQuestionsComponent = () => {
             <div className="link-filterH" />
             <img src="" />
             <div class="allquestions-containerH">
-              <div class="allquestions1H">
-                {currentQuestions.map (question => (
-                  <div key={question.id} class="question1H">
+
+              {currentQuestions.map (question => (
+                <div key={question.id} class="question1H">
+                  <div>
+                    {/* {setQuestionRate(question.rate)} */}
                     <Link to={`/selectedquestionpage/${question.id}`}>
                       {question.question_title}
                     </Link>
                   </div>
-                ))}
+                  <div className="questionDetails">
+                    <a id="linkForRate" href="" onClick={() => {}}>
+                      <img id="rateIcon" src={rate} /><h5>{question.rate}</h5>
+                    </a>
+                    <h4>Views: {question.views}</h4>
+                  </div>
+                </div>
+              ))}
 
-              </div>
             </div>
 
             <div>

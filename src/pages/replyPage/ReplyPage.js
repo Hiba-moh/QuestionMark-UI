@@ -1,43 +1,61 @@
-import React from 'react'
+import React from 'react';
 import './ReplyPage.css';
-import SidebarComponent from '../../components/sidebarComponent/SidebarComponent'
-import TextareaComponent from '../../components/textareaComponent/TextareaComponent';
-import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
-import Header from '../../components/headerComponent/Header'
+import SidebarComponent
+  from '../../components/sidebarComponent/SidebarComponent';
+import Header from '../../components/allQuestionsComponent/Header';
+import Footer from '../../components/footerComponent/Footer';
+import {useState} from 'react/cjs/react.development';
+import {mockComponent} from 'react-dom/test-utils';
+import moment from 'moment';
+import axios from 'axios';
 
+function ReplyPage({match}) {
+  const id = match.params.id;
+  const [answer, SetAnswer] = useState ('');
 
-function ReplyPage() {
-    return (
-        <div className="reply_outer_container">
-            <div className="reply_header">
-                <Header />
-            </div>
-            <div className="reply_container">
-            <div className="reply_sidebar">
-              <SidebarComponent />
-            </div>
-            <div className="reply_body">
-                <div className="reply_titleandbtn_container">
-                <div className="reply_title">
-                    <h2>Reply to the question</h2>
-                </div>
-                <div className="reply_btn">
-                    <ButtonComponent label="Logout"/>
-                </div>
+  const onSubmit = async e => {
+    e.preventDefault ();
+    try {
+      const data = {
+        question_id: id,
+        reply: answer,
+        user_id: 1,
+        date: moment ().format ('DD/MM/YYYY'),
+      };
+      axios
+        .post (`https://question-mark-api.herokuapp.com/replypage`, data)
+        .then (response => console.log (response))
+        .catch (error => console.log (error));
+    } catch (err) {
+      console.error (err);
+    }
+  };
 
-                </div>
-                <div className="reply_textarea_container">
-                    <TextareaComponent subtitle="Title of the question" description="Enter your reply here..."/>
-                    <ButtonComponent label="reply"/>
-                </div>
-    
-                
-            </div>
+  return (
+    <div className="ReplyPageContainer">
+      <Header />
+      <div className="reply-container">
+        <SidebarComponent />
+        <div className="replyBody">
+          <h2>Reply to question ....</h2>
+          <form id="ReplyForm" onSubmit={onSubmit}>
+            <label for="QuestionReply">Add your reply here ...</label>
+
+            <textarea
+              id="QReply"
+              name="Qreply"
+              rows="10"
+              cols="150"
+              value={answer}
+              onChange={e => SetAnswer (e.target.value)}
+            />
+            <input id="ReplySubmitbtn" type="submit" value="reply" />
+          </form>
         </div>
-
-        </div>
-        
-    )
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
-export default ReplyPage
+export default ReplyPage;

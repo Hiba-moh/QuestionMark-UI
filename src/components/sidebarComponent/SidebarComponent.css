@@ -1,10 +1,11 @@
 .sidebar_container{
     border: 1px solid #f6f3f3;
-    width: 100%;
-    height: 79vh;
+    width: 20%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     padding-top: 1.5rem;
+    background-color: chartreuse;
 }
 hr {
     width: 60%;
