@@ -267,3 +267,11 @@ align-items: center;
     background-color: #F5F5F5;
     color: black;
 } */
+
+.switch-q{
+    display: flex;
+    align-items: center;
+}
+.switch-q img{
+    margin-right: 2rem;
+}
