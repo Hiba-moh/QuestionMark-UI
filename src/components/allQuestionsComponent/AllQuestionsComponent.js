@@ -4,10 +4,10 @@ import '../allQuestionsComponent/AllQuestionsComponent.css';
 import {Link, useHistory} from 'react-router-dom';
 import pdf from '../allQuestionsComponent/download.png';
 import jsPDF from 'jspdf';
-import rate from '../allQuestionsComponent/rate.png';
 import Pagination from '../../components/allQuestionsComponent/Pagination';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import RateComponent from './RateComponent';
 
 const AllQuestionsComponent = () => {
   const [loading, setLoading] = useState (false);
@@ -190,10 +190,11 @@ const AllQuestionsComponent = () => {
                       {question.question_title}
                     </Link>
                   </div>
-                  <div className="questionDetails">
-                    <a id="linkForRate" href="" onClick={() => {}}>
-                      <img id="rateIcon" src={rate} /><h5>{question.rate}</h5>
-                    </a>
+                  <div className="questionDetails" key={question.id}>
+
+                    {/* rate here */}
+                    <RateComponent keyId={question.id} rate={question.rate} />
+
                     <h4>Views: {question.views}</h4>
                   </div>
                 </div>

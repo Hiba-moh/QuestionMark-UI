@@ -13,19 +13,45 @@ function ReplyPage({match}) {
   const id = match.params.id;
   const [answer, SetAnswer] = useState ('');
 
-  const onSubmit = async e => {
+  const onSubmitForm = async e => {
     e.preventDefault ();
     try {
       const data = {
         question_id: id,
         reply: answer,
         user_id: 1,
-        date: moment ().format ('DD/MM/YYYY'),
+        date: moment ().format ('YYYY/MM/DD'),
       };
-      axios
-        .post (`https://question-mark-api.herokuapp.com/replypage`, data)
-        .then (response => console.log (response))
-        .catch (error => console.log (error));
+      // axios
+      //   .post (`https://question-mark-api.herokuapp.com/replypage`, data)
+      //   .then (response => console.log (response))
+      //   .catch (error => console.log (error));
+
+      // axios.post (
+      //   `https://question-mark-api.herokuapp.com/replypage`,
+      //   JSON.stringify (data),
+      //   {
+      //     withCredentials: false,
+      //     transformRequest: [
+      //       (data, headers) => {
+      //         delete headers.post['Content-Type'];
+      //         return data;
+      //       },
+      //     ],
+      //   }
+      // );
+      console.log (data);
+      const response = await fetch (
+        'https://question-mark-api.herokuapp.com/replypage',
+        {
+          method: 'POST',
+          body: JSON.stringify (data),
+          mode: 'cors',
+          // cache: 'no-cache',
+          headers: {'Content-Type': 'application/json'},
+        }
+      );
+      console.log (response);
     } catch (err) {
       console.error (err);
     }
@@ -38,7 +64,7 @@ function ReplyPage({match}) {
         <SidebarComponent />
         <div className="replyBody">
           <h2>Reply to question ....</h2>
-          <form id="ReplyForm" onSubmit={onSubmit}>
+          <form id="ReplyForm" onSubmit={onSubmitForm}>
             <label for="QuestionReply">Add your reply here ...</label>
 
             <textarea
@@ -49,7 +75,7 @@ function ReplyPage({match}) {
               value={answer}
               onChange={e => SetAnswer (e.target.value)}
             />
-            <input id="ReplySubmitbtn" type="submit" value="reply" />
+            <input id="ReplySubmitbtn" type="submit" value="Submit" />
           </form>
         </div>
       </div>
