@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './LoginComponent.css';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, withRouter } from 'react-router-dom';
 import NormalHeaderComponent from '../normalHeaderComponent/NormalHeaderComponent';
+import {AuthContext} from '../../AuthContext';
 
 
 function LoginComponent(props) {
+    const [isAuth, setIsAuth] = useContext(AuthContext);
 
     const [logUsername, setLogUsername] = useState("");
     const [logPassword, setLogPassword] = useState("");  
@@ -57,6 +59,10 @@ function LoginComponent(props) {
     const handleLogPassword = (e) => {
         setLogPassword(e.target.value);
     }
+
+    const handleAuth = () =>{
+        setIsAuth(true);
+    }
     
     return (
         <div className="login_outer_container">
@@ -73,7 +79,7 @@ function LoginComponent(props) {
                     <input name="username" type="text" placeholder="Username" onChange={handleLogUsername} required /> 
                     <input name="password" type="password" placeholder="Password" onChange={handleLogPassword} required /> 
                     <div className="login_form_btn">
-                        <button type="submit">Login</button>
+                        <button onClick={handleAuth} type="submit">Login</button>
                     </div>
                     <div className="login_btn_links">
                         <p id="signup_link"><Link to="/signup">Sign up | Forgot password?</Link></p>
@@ -91,6 +97,6 @@ function LoginComponent(props) {
     )
 }
 
-export default LoginComponent;
+export default withRouter(LoginComponent);
 
 
