@@ -43,7 +43,7 @@ function LoginComponent(props) {
                 setFailedLoginMessage(data.message);
                 
             }else{
-                history.push('/allquestions');
+                history.push('/replypage');
                
             }  
         })
