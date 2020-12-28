@@ -1,11 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import Axios from 'axios';
 import './ReplyPage.css';
 import SidebarComponent from '../../components/sidebarComponent/SidebarComponent'
 import TextareaComponent from '../../components/textareaComponent/TextareaComponent';
 import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
 import Header from '../../components/headerComponent/Header'
 import {AuthContext} from '../../AuthContext';
+require('dotenv').config();
 
+console.log(process.env);
 
 function ReplyPage() {
 
@@ -23,16 +26,16 @@ function ReplyPage() {
             }]
         }]
     }
-
+   
     async function handleSlackMessage(){
-        let res = await Axios.post('https://hooks.slack.com/services/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', JSON.stringify(data), {
+        let res = await Axios.post(process.env.REACT_APP_API_KEY, JSON.stringify(data), {
             withCredentials: false,
             transformRequest: [(data, headers) => {
                 delete headers.post["Content-Type"]
                 return data;
             }]
         })
-        res.status === 200 ? (alert('Sending Slack notification...')):(alert('Error sending message'));
+        res.status === 200 ? (alert('Sent Slack notification...')):(alert('Error sending message'));
         
        
     }
@@ -59,7 +62,8 @@ function ReplyPage() {
                 </div>
                 <div className="reply_textarea_container">
                     <TextareaComponent subtitle="Title of the question" description="Enter your reply here..."/>
-                    <ButtonComponent label="reply"/>
+                    {/* <ButtonComponent label="reply"/> */}
+                    <button onClick={handleSlackMessage }>Reply</button>
                 </div>
     
                 
