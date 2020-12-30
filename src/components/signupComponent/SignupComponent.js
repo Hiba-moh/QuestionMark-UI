@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import './SignupComponent.css';
+
 import { useHistory } from 'react-router-dom';
 import NormalHeaderComponent from '../normalHeaderComponent/NormalHeaderComponent';
 
@@ -110,11 +111,7 @@ function SignupComponent() {
         </div>
        
     )
+
 }
 
 export default SignupComponent;
-
-
-
-
-

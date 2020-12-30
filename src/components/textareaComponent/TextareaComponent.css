@@ -4,7 +4,7 @@
     width: 70px;
     color: antiquewhite;
 } */
-.textarea_form_btn > button{
+/* .textarea_form_btn > button{
     background-color: #d12f2f;
     color: white;
 }
@@ -37,4 +37,53 @@ textarea{
     margin-bottom: 5px;
     padding-left: 5px;
   
+} */
+
+ 
+.allsqures{
+            margin-bottom: 4rem;
+
+} 
+
+#q-titleH{
+    font-size: 2rem;
+    display: flex;
+    background-color: unset;
+    width :30rem;
+    height: auto;
+    padding: 4rem 0 4rem 2rem;
+    background-color: lightslategrey;
+    margin: 4rem 0 4rem 0;
+            box-shadow: 3px 3px 3px;
+
+}
+
+#q-descriptionH{
+    font-size: 1.5rem;
+    display: flex;
+    width: 30rem;
+    height: auto;
+            padding: 4rem 0 4rem 2rem ;
+
+    /* word-wrap: break-word; */
+        background-color: #575757;
+            margin: 4rem 0 4rem 0;
+            box-shadow: 3px 3px 3px;
+
+
+}
+
+#q-answerH{
+    font-size: 1.5rem;
+    display: flex;
+    width: 30rem;
+    height: auto;
+            padding: 4rem 0 4rem 2rem;
+
+    /* word-wrap: break-word; */
+        background-color: #d12f2f;
+            margin: 4rem 0 4rem 0;
+            box-shadow: 3px 3px 3px;
+
+
 }

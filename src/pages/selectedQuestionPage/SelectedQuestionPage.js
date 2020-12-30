@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import TextareaComponent
-  from '../../components/textareaComponent/TextareaComponent';
 import './SelectedQuestionPage.css';
 import {Link} from 'react-router-dom';
-import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
+import Header from '../../components/allQuestionsComponent/Header';
+import countapi from 'countapi-js';
+import LeftSideMenu from '../allquestions/LeftSideMenu';
 
 
 function SelectedQuestionPage({match}) {
@@ -35,7 +35,12 @@ function SelectedQuestionPage({match}) {
     [match]
   );
 
+  // countapi.visits ().then (result => {
+  //   console.log (result.value);
+  // });
+
   return (
+
     <div className="selected_container">
       <div className="selected_titleandbtn">
         <div className="selected_title">
@@ -72,11 +77,22 @@ function SelectedQuestionPage({match}) {
               {answer.answer}
 
             </div>
-          ))}
+            <div id="q-descriptionH">
+              <h3>The Question:</h3>
+              <div>{pageData_question.question}</div>
+            </div>
+            {pageData_question.answers > 0 &&
+              <div id="q-answerH">
+                <h3>The Answers: </h3>
+                {pageData_answer.map (answer => (
+                  <div class="question1H">
+                    {answer.answer}
+                  </div>
+                ))}
+              </div>}
+          </div>
         </div>
-
       </div>
-
     </div>
   );
 }
