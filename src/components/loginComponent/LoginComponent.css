@@ -1,13 +1,44 @@
-.login_container{
-    width: 40%;
-    height: 35vh;
-    margin: auto;
+.login_outer_container{
+    display: flex;
+    height: 100vh;
+}
+.form-group{
     display: flex;
     flex-direction: column;
-    margin-top: 10rem;
-
+    justify-content: center;
+    width: 20rem;
+    margin-top: 3rem;
 }
 
+.login_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    margin: auto;
+    padding-bottom: 8%;
+}
+#loginImg{
+    width:3rem;
+    height: auto;
+    margin-bottom: 2rem;
+    padding-right: 1rem;
+}
+
+#exampleInputEmail1{
+margin: 1rem 0 1rem 0;
+}
+#loginBTN{
+    align-self:center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+#signup_link{
+    align-self: center;
+}
+/* 
 .login_form > form > input {
     font-size: 0.7rem;
     margin-bottom: 0.4rem;
@@ -20,8 +51,8 @@
     margin: auto;
     margin-top: 50px;
   
-}
-
+} */
+/* 
 .login_form_btn > button{
     background-color: #d12f2f;
     border: 1px solid red;
@@ -31,32 +62,21 @@
     color: white;
     font-size: 1rem;
     margin-top: 15px;
-}
+} */
 
 
 .login_title > h2 {
     font-weight: 400; 
      margin-bottom: -0px;
 } 
-
+/* 
 .login_form_btn > button:hover{
     background-color: #f6f3f3;
     color: black;
     outline: none;
 
-}
-.login_btn_links > p {
-    width: 10rem;
-    margin: auto;
-    margin-top: 0.1rem;
-   
-    
-}
+} */
 
-.login_btn_links:hover > p {
-    cursor: pointer;
-   
-}
 
 @media screen and (max-width: 800px) {
     #signup_link{
