@@ -10,14 +10,17 @@ import moment from 'moment';
 import axios from 'axios';
 import '../../components/replyComponent/UserAnswered';
 import '../../components/replyComponent/UserAsked';
+
 function ReplyPage({match}) {
   const id = match.params.id;
   const [answer, SetAnswer] = useState ('');
   const [questionReply, SetQuestionReply] = useState ('');
+
   const questionToReplyById = axios
     .get (`https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`)
     .then (response => SetQuestionReply (response.data.question[0].question))
     .catch (error => console.log (error));
+
   const onSubmitForm = async e => {
     // e.preventDefault ();
     try {
@@ -27,19 +30,8 @@ function ReplyPage({match}) {
         user_id: 1,
         date: moment ().format ('YYYY/MM/DD'),
       };
-      // axios.post (
-      //   `https://question-mark-api.herokuapp.com/replypage`,
-      //   JSON.stringify (data),
-      //   {
-      //     withCredentials: false,
-      //     transformRequest: [
-      //       (data, headers) => {
-      //         delete headers.post['Content-Type'];
-      //         return data;
-      //       },
-      //     ],
-      //   }
-      // );
+
+      
       console.log (data);
       const response = await fetch (
         'https://question-mark-api.herokuapp.com/replypage',
@@ -52,19 +44,52 @@ function ReplyPage({match}) {
         }
       );
       console.log (response);
+
+      //SLACK MESSAGE
+      const data2 = {
+        channel: "#questionmark_forum",
+        attachments: [{
+            color: "danger",
+            fields: [{
+                title: "Question No.5007 username: @user Topic: TESTING123",
+                value: "Your question has a reply. Please sign in to the question forum to check your answer.",
+                short: false
+            }]
+        }]
+    }
+
+        
+    
+    let res = await Axios.post(process.env.REACT_APP_API_KEY, JSON.stringify(data2), {
+        withCredentials: false,
+        transformRequest: [(data2, headers) => {
+            delete headers.post["Content-Type"]
+            return data2;
+        }]
+    })
+    res.status === 200 ? (alert('Sent Slack notification...')):(alert('Error sending message'));
+
+
+    
+
     } catch (err) {
       console.error (err);
     }
   };
+
   // const questionToReply = async id => {
   //   const res = await fetch`https://question-mark-api.herokuapp.com//selectedquestionpage/${id}`;
+
   //   const resObj = await res.json ();
   //   console.log ('question to reply = ', resObj.question[0].question);
+
   //   SetQuestionReply (resObj.question.question[0].question);
   // };
+
   // useEffect (() => {
   //   questionToReply (id);
   // }, []);
+
   return (
     <div className="ReplyPageContainer">
       <Header />
@@ -78,6 +103,7 @@ function ReplyPage({match}) {
           </h2>
           <form id="ReplyForm" onSubmit={onSubmitForm}>
             <label for="QuestionReply">Add your reply here ...</label>
+
             <textarea
               id="QReply"
               name="Qreply"
@@ -94,4 +120,5 @@ function ReplyPage({match}) {
     </div>
   );
 }
+
 export default ReplyPage;

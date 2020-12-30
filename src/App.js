@@ -28,25 +28,6 @@ function App () {
           <Routes />
           <Footer /> */}
 
-          
-           
-            <BrowserRouter>
-                <Route path="/signup" component={SignUp} />
-                
-                <Route path="/login" component={Login} />
-                {/* <Route path="/replypage" component={ReplyPage} /> */}
-                {/* <Route path="/selectedquestionpage" component={SelectedQuestionPage} /> */}
-                <ProtectedRoutes path="/allquestions" component={AllQuestions} />
-                <ProtectedRoutes path="/answered" component={Answered} />
-                <ProtectedRoutes path="/unAnswered" component={UnAnswered}  />
-                <ProtectedRoutes path="/askquestion" component={AskQuestion} />  
-                <ProtectedRoutes path="/replypage" component={ReplyPage} />
-                <Route exact path="/selectedquestionpage/:id" component={SelectedQuestionPage} />
-            
-            </BrowserRouter>
-
-
-
         <BrowserRouter>
           <Route path="/signup" component={SignUp} />
 
