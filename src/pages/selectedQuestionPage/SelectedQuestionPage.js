@@ -5,6 +5,9 @@ import Header from '../../components/allQuestionsComponent/Header';
 import countapi from 'countapi-js';
 import LeftSideMenu from '../allquestions/LeftSideMenu';
 import loginImg from '../../assets/images/login.png'
+
+
+
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
   const [pageData_question, setPageData_question] = useState ({});
@@ -39,23 +42,33 @@ function SelectedQuestionPage({match}) {
     <div>
       <Header />
       <div className="selected_containerH">
+
+
         <div className="selected_titleH">
           <h4>Title : {pageData_question.question_title}</h4>
         </div>
+
+
         <div className="selected_textareaH">
           <div className="sideMenueContainer">
             <LeftSideMenu />
           </div>
           <div className="selectedQuestionAndAnswers">
             <div className="askedBy-NoAnswers-Reply">
+
               <div id="q-title-answersNo">
                 <div>Asked by: {pageData_question.name}</div>
                 <div>Date: {pageData_question.question_date}</div>
                 <div>NO.Answers: {pageData_question.answers} </div>
+
+
               </div>
               <div className="selected_reply_linkH">
+
                 <Link to={`/replypage/${pageData_question.id}`}>Add reply</Link>
               </div>
+
+
             </div>
             <div id="q-descriptionH">
               <h3>The Question:</h3>

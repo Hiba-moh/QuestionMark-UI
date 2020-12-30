@@ -4,6 +4,7 @@ import {useHistory, Link, withRouter} from 'react-router-dom';
 import NormalHeaderComponent
   from '../normalHeaderComponent/NormalHeaderComponent';
 import {AuthContext} from '../../AuthContext';
+import loginImg from '../../assets/images/login.png'
 
 function LoginComponent (props) {
   const [isAuth, setIsAuth] = useContext (AuthContext);
@@ -39,7 +40,7 @@ function LoginComponent (props) {
           localStorage.setItem ('token', JSON.stringify (data)); //stores token in local storage
           setFailedLoginMessage (data.message);
         } else {
-          history.push ('/replypage');
+          history.push ('/allquestions');
         }
       })
       .catch (e => {
@@ -60,41 +61,49 @@ function LoginComponent (props) {
   };
 
   return (
+    <>
+    <NormalHeaderComponent />
     <div className="login_outer_container">
-      <div className="login_header">
-        <NormalHeaderComponent />
-      </div>
+    
 
-      <div className="login_container">
-        <div className="login_title">
-          <h2>Log In</h2>
-        </div>
-        <div className="login_form">
-          <form onSubmit={handleSubmit}>
+      <div className="login_form">
+        <img src={loginImg} id='loginImg'></img>
+        <h2>Log In</h2>
+
+        <form onSubmit={handleSubmit}>
+          <div class="form-group">
             <input
               name="username"
-              type="text"
+              type="username"
               placeholder="Username"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
               onChange={handleLogUsername}
               required
             />
             <input
               name="password"
               type="password"
+              class="form-control"
+              id="exampleInputPassword1"
               placeholder="Password"
               onChange={handleLogPassword}
               required
             />
-            <div className="login_form_btn">
-              <button onClick={handleAuth} type="submit">Login</button>
-            </div>
-            <div className="login_btn_links">
+           
+              <button id='loginBTN' className="btn btn-danger" onClick={handleAuth} type="submit">
+                Login
+              </button>
+            
+
               <p id="signup_link">
                 <Link to="/signup">Sign up | Forgot password?</Link>
               </p>
-            </div>
-          </form>
-        </div>
+           
+          </div>
+
+        </form>
         <div className="login_response_message">
           <p>{failedLoginMessage}</p>
         </div>
@@ -102,6 +111,7 @@ function LoginComponent (props) {
       </div>
 
     </div>
+    </>
   );
 }
 
