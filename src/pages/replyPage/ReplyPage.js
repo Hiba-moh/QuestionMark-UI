@@ -31,19 +31,6 @@ function ReplyPage({match}) {
         date: moment ().format ('YYYY/MM/DD'),
       };
 
-      // axios.post (
-      //   `https://question-mark-api.herokuapp.com/replypage`,
-      //   JSON.stringify (data),
-      //   {
-      //     withCredentials: false,
-      //     transformRequest: [
-      //       (data, headers) => {
-      //         delete headers.post['Content-Type'];
-      //         return data;
-      //       },
-      //     ],
-      //   }
-      // );
       console.log (data);
       const response = await fetch (
         'https://question-mark-api.herokuapp.com/replypage',
@@ -55,24 +42,12 @@ function ReplyPage({match}) {
           headers: {'Content-Type': 'application/json'},
         }
       );
+      //slack message
       console.log (response);
     } catch (err) {
       console.error (err);
     }
   };
-
-  // const questionToReply = async id => {
-  //   const res = await fetch`https://question-mark-api.herokuapp.com//selectedquestionpage/${id}`;
-
-  //   const resObj = await res.json ();
-  //   console.log ('question to reply = ', resObj.question[0].question);
-
-  //   SetQuestionReply (resObj.question.question[0].question);
-  // };
-
-  // useEffect (() => {
-  //   questionToReply (id);
-  // }, []);
 
   return (
     <div className="ReplyPageContainer">
