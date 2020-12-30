@@ -1,21 +1,29 @@
 .signup_container{
-    width: 40%;
-    height: 40vh;
+    width: 100%;
+    height: 100vh;
     margin: auto;
     display: flex;
     flex-direction: column;
-    margin-top: 5rem;
+  
+}
+
+.signupComponent_container{
+    width: 40%;
+    margin: auto;
+    
 }
 
 .signup_title > h2 {
-    font-weight: 400; 
+    font-weight: 400;
+    margin-top: 10rem; 
 }
 
 .signup_form > form {
-    width: 50%;
+    width: 45%;
     margin: auto;
     display: flex;
     flex-direction: column; 
+    
 }
 
 .signup_form > form > input{
