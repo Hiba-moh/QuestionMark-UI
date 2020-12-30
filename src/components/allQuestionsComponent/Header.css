@@ -23,9 +23,12 @@ width: auto;
     justify-content: space-evenly;
     align-items: center;
     margin-right: 4rem;
+    align-self: center;
+    margin-top: 1rem;
 }
 
 .ul-lined-list .lined-list{
+        text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,13 +37,18 @@ width: auto;
     width: 14rem;
     height: 3rem;
     text-align: center;
-    color: white;
-      transition: 800ms;
+      /* transition: 800ms; */
 }
 
+.ul-lined-list .lined-list a{
+color: white;
+text-decoration: none;
+      transition: 800ms;
 
-.ul-lined-list .lined-list:hover {
-    color: #d12f2f;
+}
+
+.ul-lined-list .lined-list a:hover {
+    /* color: #d12f2f; */
     list-style-type: none;
 text-decoration:overline #d12f2f 4px;
 transform: scale(1.3);

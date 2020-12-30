@@ -44,7 +44,7 @@ function SelectedQuestionPage({match}) {
       <div className="selected_containerH">
 
         <div className="selected_titleH">
-          <h2>Title : {pageData_question.question_title}</h2>
+          <h4>Title : {pageData_question.question_title}</h4>
         </div>
 
         <div className="selected_textareaH">
@@ -70,16 +70,15 @@ function SelectedQuestionPage({match}) {
               <h3>The Question:</h3>
               <div>{pageData_question.question}</div>
             </div>
-
-            <div id="q-answerH">
-              <h3>The Answer: </h3>
-              {pageData_answer.map (answer => (
-                <div class="question1H">
-                  {answer.answer}
-                </div>
-              ))}
-            </div>
-
+            {pageData_question.answers > 0 &&
+              <div id="q-answerH">
+                <h3>The Answers: </h3>
+                {pageData_answer.map (answer => (
+                  <div class="question1H">
+                    {answer.answer}
+                  </div>
+                ))}
+              </div>}
           </div>
         </div>
       </div>

@@ -28,17 +28,18 @@ const RateComponent = props => {
     }
   };
   return (
-    <a
-      id="linkForRate"
-      href=""
-      onClick={e => {
-        changeRate (e);
-      }}
-    >
-      <img className="rateIcon" id={props.key} src={rateIcon} />
-
-      <h5>{rate}</h5>
-    </a>
+    <div className="rateAndImg">
+      <a
+        id="linkForRate"
+        href=""
+        onClick={e => {
+          changeRate (e);
+        }}
+      >
+        <img className="rateIcon" id={props.key} src={rateIcon} />
+        <h5>{rate}</h5>
+      </a>
+    </div>
   );
 };
 

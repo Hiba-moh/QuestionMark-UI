@@ -9,6 +9,8 @@ import ReplyPage from '../pages/replyPage/ReplyPage';
 import AskQuestion from '../pages/askquestion/AskQuestion';
 import SelectedQuestionPage
   from '../pages/selectedQuestionPage/SelectedQuestionPage';
+import UserAnswered from '../components/replyComponent/UserAnswered';
+import UserAsked from '../components/replyComponent/UserAsked';
 
 export default () => {
   return (
@@ -20,6 +22,8 @@ export default () => {
         <Route path="/answered" component={Answered} />
         <Route path="/unAnswered" component={UnAnswered} />
         <Route path="/replypage/:id" component={ReplyPage} />
+        <Route path="/userAnswered/" component={UserAnswered} />
+        <Route path="/userAsked" component={UserAsked} />
         <Route path="/askquestion" component={AskQuestion} />
         <Route
           path="/selectedquestionpage/:id"

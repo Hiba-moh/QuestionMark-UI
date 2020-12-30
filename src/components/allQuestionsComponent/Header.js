@@ -11,46 +11,22 @@ function Header () {
 
       <ul className="ul-lined-list">
         <li className="lined-list">
-          <Link
-            to="/allquestions"
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-            }}
-          >
+          <Link to="/allquestions">
             Home
           </Link>
         </li>
         <li className="lined-list">
-          <Link
-            to="/askquestion"
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-            }}
-          >
+          <Link to="/askquestion">
             Ask question
           </Link>
         </li>
         <li className="lined-list">
-          <Link
-            to="/askquestion"
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-            }}
-          >
+          <Link to="/askquestion">
             About
           </Link>
         </li>
         <li className="lined-list">
-          <Link
-            to="/askquestion"
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-            }}
-          >
+          <Link to="/askquestion">
             Contact
           </Link>
         </li>

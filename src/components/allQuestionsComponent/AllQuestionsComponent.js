@@ -104,13 +104,14 @@ const AllQuestionsComponent = () => {
   };
 
   const jsPDFGenerator = () => {
-    var doc = new jsPDF ('p', 'pt');
+    var doc = new jsPDF ('L', 'pt');
 
     var i = 1;
     var j = 2;
     qAnswers.map (question => {
-      doc.text (20, 30 * i, question.question + '\n' + question.answer);
+      doc.text (20, 30, question.question + '\n' + question.answer);
       i += 2;
+      doc.addPage ();
     });
 
     doc.setFont ('courier');
@@ -180,7 +181,7 @@ const AllQuestionsComponent = () => {
 
         <a href="" onClick={jsPDFGenerator}>
           <img id="img-pdf" src={pdf} />
-        </a>;
+        </a>
 
         <div className="col-linksH" />
         <div className="to-divide-2divs">
@@ -225,7 +226,7 @@ const AllQuestionsComponent = () => {
                     {/* rate here */}
                     <RateComponent keyId={question.id} rate={question.rate} />
 
-                    <h4>Views: {question.views}</h4>
+                    <h5>Views: {question.views}</h5>
                   </div>
                 </div>
               ))}
