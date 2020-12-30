@@ -1,3 +1,4 @@
+
 import React, {useContext} from 'react'
 import Axios from 'axios';
 import './ReplyPage.css';
@@ -70,9 +71,21 @@ function ReplyPage() {
             </div>
         </div>
 
+            <textarea
+              id="QReply"
+              name="Qreply"
+              rows="10"
+              cols="150"
+              value={answer}
+              onChange={e => SetAnswer (e.target.value)}
+            />
+            <input id="ReplySubmitbtn" type="submit" value="Submit" />
+          </form>
         </div>
-        
-    )
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
-export default ReplyPage
+export default ReplyPage;

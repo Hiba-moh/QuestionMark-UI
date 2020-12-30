@@ -1,42 +1,61 @@
+
 import React, { useState, useContext } from 'react';
 import './LoginComponent.css';
 import { useHistory, Link, withRouter } from 'react-router-dom';
 import NormalHeaderComponent from '../normalHeaderComponent/NormalHeaderComponent';
 import {AuthContext} from '../../AuthContext';
 
+function LoginComponent (props) {
+  const [logUsername, setLogUsername] = useState ('');
+  const [logPassword, setLogPassword] = useState ('');
+  const [failedLoginMessage, setFailedLoginMessage] = useState ('');
+  const history = useHistory ();
 
 function LoginComponent(props) {
     const [isAuth, setIsAuth] = useContext(AuthContext);
 
-    const [logUsername, setLogUsername] = useState("");
-    const [logPassword, setLogPassword] = useState("");  
-    const [failedLoginMessage, setFailedLoginMessage] = useState("");
-    const history = useHistory();
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify (details),
+  };
 
-    const details = {
-        username: logUsername, 
-         password: logPassword
-     };
+  const handleSubmit = e => {
+    // e.preventDefault();
+    fetch ('https://question-mark-api.herokuapp.com/login', options)
+      .then (response => {
+        return response.json ();
+      })
+      .then (data => {
+        console.log (data);
 
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(details)
-    }
+        if (data.success === false) {
+          localStorage.setItem ('token', JSON.stringify (data)); //stores token in local storage
+          setFailedLoginMessage (data.message);
+        } else {
+          history.push ('/allquestions');
+        }
+      })
+      .catch (e => {
+        console.error (e);
+      });
+  };
 
-   
+  const handleLogUsername = e => {
+    setLogUsername (e.target.value);
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        fetch('https://question-mark-api.herokuapp.com/login', options)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
+  const handleLogPassword = e => {
+    setLogPassword (e.target.value);
+  };
 
+  return (
+    <div className="login_outer_container">
+      <div className="login_header">
+        <NormalHeaderComponent />
+      </div>
 
             if(data.success === false){
                 localStorage.setItem("token", JSON.stringify(data)); //stores token in local storage
@@ -86,17 +105,23 @@ function LoginComponent(props) {
                     </div>
                 </form>
             </div>
-            <div className="login_response_message">
-                <p>{failedLoginMessage}</p>
+            <div className="login_btn_links">
+              <p id="signup_link">
+                <Link to="/signup">Sign up | Forgot password?</Link>
+              </p>
             </div>
-            
+          </form>
+        </div>
+        <div className="login_response_message">
+          <p>{failedLoginMessage}</p>
         </div>
 
-        </div>
-        
-    )
-}
 
 export default withRouter(LoginComponent);
 
 
+    </div>
+  );
+}
+
+export default LoginComponent;

@@ -1,43 +1,45 @@
-.reply_container{
-    height: 90vh;
+.reply-container{
+    width: 100%;
+    height: 100vh;
     display: flex;
-}
-.reply_body{
-    width: 80%;
-    height: 80vh;
-
-}
-.reply_sidebar{
-    width: 20%;
-    height: 80vh;
-}
-.reply_titleandbtn_container{
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5rem;
+background-color: #d12f2f;
 }
 
-.reply_title > h2{
-    font-weight: 400;
+.replyBody{
+    display: flex;
+  flex-direction: column;
+    width: 100%;
+    align-items: center; 
+    margin-top: 2rem;
+    padding-top: 3rem;
+    background-color: #F5F5F5;
+}
+#QReply{
+    font-size: 2rem;
+    padding: 2rem 2rem 2rem 2rem;
+    width: 60%;
+    background-color:#dbdbdb;
+    border: none;
     
 }
-
-.reply_btn > button {
-    background-color: #D12F2F;
-    border: 1px solid red;
-    color: antiquewhite;
- 
+#QReply:focus{
+    background-color: #F5F5F5;
+    border: none;
+    outline: none;
+    box-shadow: 3px 3px 3px 3px #b9b7b7;
 }
-.reply_btn > button:hover {
-    background-color: #f6f3f3;
-    border: 1px solid red;
-    color: black;
+#ReplyForm{
+    display: flex;
+    flex-direction: column;        
+    align-items: center;
+}
+#ReplySubmitbtn{
+    width:6rem;
+    height: 2rem;
+    margin-top: 4rem;
 }
 
-.reply_textarea_container{
-    width: 80%;
-    margin: auto;
+#ReplySubmitbtn:focus{
+    background-color: #dbdbdb;
+
 }
