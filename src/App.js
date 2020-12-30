@@ -39,7 +39,7 @@ function App() {
                 <ProtectedRoutes path="/unAnswered" component={UnAnswered}  />
                 <ProtectedRoutes path="/askquestion" component={AskQuestion} />  
                 <ProtectedRoutes path="/replypage" component={ReplyPage} />
-                <ProtectedRoutes path="/selectedquestionpage" component={SelectedQuestionPage} />
+                <Route exact path="/selectedquestionpage/:id" component={SelectedQuestionPage} />
             
             </BrowserRouter>
 
