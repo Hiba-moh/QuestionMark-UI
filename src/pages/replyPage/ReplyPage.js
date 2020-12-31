@@ -10,6 +10,7 @@ import moment from 'moment';
 import axios from 'axios';
 import '../../components/replyComponent/UserAnswered';
 import '../../components/replyComponent/UserAsked';
+import TextEditor from '../../components/replyComponent/TextEditor';
 
 function ReplyPage({match}) {
   const id = match.params.id;
@@ -62,7 +63,8 @@ function ReplyPage({match}) {
           </h2>
           <form id="ReplyForm" onSubmit={onSubmitForm}>
             <label for="QuestionReply">Add your reply here ...</label>
-
+            <TextEditor SetAnswer={SetAnswer} />
+            {/* 
             <textarea
               id="QReply"
               name="Qreply"
@@ -70,7 +72,7 @@ function ReplyPage({match}) {
               cols="150"
               value={answer}
               onChange={e => SetAnswer (e.target.value)}
-            />
+            /> */}
             <input id="ReplySubmitbtn" type="submit" value="Submit" />
           </form>
         </div>
