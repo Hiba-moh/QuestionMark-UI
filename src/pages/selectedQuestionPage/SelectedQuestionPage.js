@@ -4,11 +4,17 @@ import {Link} from 'react-router-dom';
 import Header from '../../components/allQuestionsComponent/Header';
 import countapi from 'countapi-js';
 import LeftSideMenu from '../allquestions/LeftSideMenu';
+import ReactHtmlParse from 'react-html-parser';
+import {addLanguage, highlight} from 'illuminate-js';
+import {javascript} from 'illuminate-js/lib/languages';
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
   const [pageData_question, setPageData_question] = useState ({});
   const [pageData_answer, setPageData_answer] = useState ([]);
+
+  addLanguage ('javascript', javascript);
+  addLanguage ('js', javascript);
 
   useEffect (
     () => {
@@ -68,14 +74,19 @@ function SelectedQuestionPage({match}) {
             </div>
             <div id="q-descriptionH">
               <h3>The Question:</h3>
-              <div>{pageData_question.question}</div>
+              <p>{pageData_question.question}</p>
+              {/* <h6>{pageData_question.question_date}</h6>
+              <h6>askedBy:{pageData_question.name}</h6> */}
             </div>
             {pageData_question.answers > 0 &&
               <div id="q-answerH">
                 <h3>The Answers: </h3>
                 {pageData_answer.map (answer => (
-                  <div class="question1H">
-                    {answer.answer}
+                  <div class="answer-details">
+                    <p id="pAnswers"> {ReactHtmlParse (answer.answer)}</p>
+                    <h6>{answer.answer_date}</h6>
+                    <h6>answered by:</h6>
+                    <hr id="hrBreak" />
                   </div>
                 ))}
               </div>}
