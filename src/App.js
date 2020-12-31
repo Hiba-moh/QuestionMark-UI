@@ -31,7 +31,7 @@ function App () {
         <BrowserRouter>
           <Route path="/signup" component={SignUp} />
 
-          <Route path="/login" component={Login} />
+          <Route exact path="/" component={Login} />
           {/* <Route path="/replypage" component={ReplyPage} /> */}
           {/* <Route path="/selectedquestionpage" component={SelectedQuestionPage} /> */}
           <ProtectedRoutes path="/allquestions" component={AllQuestions} />
