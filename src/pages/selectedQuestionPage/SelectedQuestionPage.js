@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './SelectedQuestionPage.css';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import Header from '../../components/allQuestionsComponent/Header';
 import countapi from 'countapi-js';
 import LeftSideMenu from '../allquestions/LeftSideMenu';
@@ -89,4 +89,4 @@ function SelectedQuestionPage({match}) {
     </div>
   );
 }
-export default SelectedQuestionPage;
+export default withRouter(SelectedQuestionPage);

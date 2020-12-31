@@ -40,8 +40,8 @@ function App () {
           <ProtectedRoutes path="/UserAsked" component={UserAsked} />;
           <ProtectedRoutes path="/UserAnswered" component={UserAnswered} />;
           <ProtectedRoutes path="/askquestion" component={AskQuestion} />
-          <Route exact path="/replypage/:id" component={ReplyPage} />
-          <Route
+          <ProtectedRoutes exact path="/replypage/:id" component={ReplyPage} />
+          <ProtectedRoutes
             exact
             path="/selectedquestionpage/:id"
             component={SelectedQuestionPage}
