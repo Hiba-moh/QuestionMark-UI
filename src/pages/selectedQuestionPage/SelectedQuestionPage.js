@@ -89,4 +89,4 @@ function SelectedQuestionPage({match}) {
     </div>
   );
 }
-export default withRouter(SelectedQuestionPage);
+export default SelectedQuestionPage;

@@ -10,7 +10,7 @@ import moment from 'moment';
 import axios from 'axios';
 import '../../components/replyComponent/UserAnswered';
 import '../../components/replyComponent/UserAsked';
-import {withRouter} from 'react-router-dom';
+//import {withRouter} from 'react-router-dom';
 import {AuthContext} from '../../AuthContext';
 
 
@@ -137,4 +137,4 @@ async function handleSlackMessage(){
     </div>
   );
 }
-export default withRouter(ReplyPage);
+export default ReplyPage;

@@ -6,7 +6,8 @@ import './App.css';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import SignUp from './pages/signup/Signup';
 import Login from './pages/login/Login';
-import ReplyPage from './pages/replyPage/ReplyPage';
+//import ReplyPage from './pages/replyPage/ReplyPage';
+import ReplyPage from './pages/replyPage/ReplyPage'
 import SelectedQuestionPage
   from './pages/selectedQuestionPage/SelectedQuestionPage';
 import AllQuestions from './pages/allquestions/AllQuestions';
