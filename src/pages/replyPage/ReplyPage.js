@@ -11,6 +11,7 @@ import axios from 'axios';
 import '../../components/replyComponent/UserAnswered';
 import '../../components/replyComponent/UserAsked';
 import TextEditor from '../../components/replyComponent/TextEditor';
+import {useHistory, Link, withRouter} from 'react-router-dom';
 
 function ReplyPage({match}) {
   const id = match.params.id;
@@ -82,4 +83,4 @@ function ReplyPage({match}) {
   );
 }
 
-export default ReplyPage;
+export default withRouter (ReplyPage);

@@ -26,8 +26,8 @@ function Header () {
           </Link>
         </li>
         <li className="lined-list">
-          <Link to="/askquestion">
-            Contact
+          <Link to="/">
+            Logout
           </Link>
         </li>
       </ul>
