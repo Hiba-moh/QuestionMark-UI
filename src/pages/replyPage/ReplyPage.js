@@ -15,6 +15,8 @@ import {AuthContext} from '../../AuthContext';
 
 
 
+import TextEditor from '../../components/replyComponent/TextEditor';
+import {useHistory, Link, withRouter} from 'react-router-dom';
 
 function ReplyPage({match}) {
   const id = match.params.id;
@@ -52,6 +54,7 @@ function ReplyPage({match}) {
       //     ],
       //   }
       // );
+
       console.log (data);
       const response = await axios.post(
         'https://question-mark-api.herokuapp.com/replypage',
@@ -65,11 +68,14 @@ function ReplyPage({match}) {
       ).then(response => {
           console.log(response);
       })
+      
+      //slack message
       console.log (response);
     } catch (err) {
       console.error (err);
     }
   };
+
   // const questionToReply = async id => {
   //   const res = await fetch`https://question-mark-api.herokuapp.com//selectedquestionpage/${id}`;
   //   const resObj = await res.json ();
@@ -107,6 +113,8 @@ async function handleSlackMessage(){
   const handleSubmit = () => {
     console.log("clicked submit button!");
   }
+
+
   return (
     <div className="ReplyPageContainer">
       <Header />
@@ -120,6 +128,10 @@ async function handleSlackMessage(){
           </h2>
           <form id="ReplyForm" >
             <label for="QuestionReply">Add your reply here ...</label>
+
+            <TextEditor SetAnswer={SetAnswer} />
+            {/* 
+
             <textarea
               id="QReply"
               name="Qreply"
@@ -127,9 +139,10 @@ async function handleSlackMessage(){
               cols="150"
               value={answer}
               onChange={e => SetAnswer (e.target.value)}
-            />
-            <input id="ReplySubmitbtn" type="submit" value="Submit" onClick={()=> console.log('button clicked!')} />
-            {/* <button onClick={handleSubmit}>Submit</button> */}
+
+            /> */}
+            <input id="ReplySubmitbtn" type="submit" value="Submit" />
+
           </form>
         </div>
       </div>
@@ -137,4 +150,7 @@ async function handleSlackMessage(){
     </div>
   );
 }
-export default ReplyPage;
+
+
+export default withRouter (ReplyPage);
+

@@ -32,6 +32,7 @@ function Header () {
         </li>
         <li className="lined-list">
           <Link to="/login" onClick={() => setIsAuth(false)}>
+
             Logout
           </Link>
         </li>

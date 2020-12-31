@@ -113,30 +113,59 @@ margin-top: 8rem;
     display: flex;
     flex-direction: column;
     font-size: 1.5rem;
-    width: 70%;
+    width: 80%;
     height: auto;
             padding: 2rem 4rem 4rem 4rem ;
 margin-top: 4rem;
 
     /* word-wrap: break-word; */
-        background-color: #f5f5f5;
+                        background-color: transparent;
+
+        border: 1px solid #575757;
             /* margin: 4rem 4rem 10rem 0; */
             box-shadow: 3px 3px 3px;
 
 }
+#q-descriptionH h6{
+    font-style: italic;
+}
+/* 
+.question1H{
+    display: flex;
+    flex-direction: column;
+} */
 
+.answer-details{
+    display: flex;
+    flex-direction: column;
 
+}
+.answer-details h6{
+    align-self: flex-end;
+    font-style: italic;
+}
 #q-answerH{
     display: flex;
     flex-direction: column;
     font-size: 1.5rem;
     display: flex;
-    width: 70%;
+    width: 80%;
     height: auto;
             padding: 2rem 4rem 4rem 4rem;
     /* word-wrap: break-word; */
-        background-color: #f5f5f5;
+                background-color: transparent;
+
+                border: 1px solid #575757;
+
             margin: 2rem 0 4rem 0;
             box-shadow: 3px 3px 3px;
 
+}
+#pAnswers{
+    text-align: left;
+    margin-top: 2rem;
+}
+#hrBreak{
+    border: 1px solid #dad7d7;
+    width: 70%;
 }

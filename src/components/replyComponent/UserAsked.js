@@ -31,7 +31,7 @@ const UserAsked = () => {
   };
 
   const questionsList = async () => {
-    const res = await fetch`https://question-mark-api.herokuapp.com/userAsked/1`;
+    const res = await fetch`https://question-mark-api.herokuapp.com/userAsked/5`;
 
     const resArray = await res.json ();
     SetUserQuestions (resArray);
