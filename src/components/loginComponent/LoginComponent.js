@@ -7,7 +7,11 @@ import {AuthContext} from '../../AuthContext';
 import loginImg from '../../assets/images/login.png'
 
 function LoginComponent (props) {
-  const [isAuth, setIsAuth] = useContext (AuthContext);
+  //const [isAuth, setIsAuth] = useContext (AuthContext);
+  const {isAuth, greet, idNumber} = useContext(AuthContext); 
+   const [isAuthValue, setIsAuthValue] = isAuth;
+   const [greetValue, setGreetValue] = greet; 
+   const [idNumberValue, setIdNumberValue] = idNumber;
 
   const [logUsername, setLogUsername] = useState ('');
   const [logPassword, setLogPassword] = useState ('');
@@ -27,15 +31,16 @@ function LoginComponent (props) {
     body: JSON.stringify (details),
   };
 
-  const handleSubmit = e => {
+    const handleSubmit = async (e) => {
     e.preventDefault ();
-    fetch ('https://question-mark-api.herokuapp.com/login', options)
+   await fetch ('https://question-mark-api.herokuapp.com/login', options)
       .then (response => {
-        return response.json ();
+        return response.json();
+    
       })
       .then (data => {
-        console.log (data);
-
+        
+         console.log(data);
         if (data.success === false) {
           localStorage.setItem ('token', JSON.stringify (data)); //stores token in local storage
           setFailedLoginMessage (data.message);
@@ -57,7 +62,7 @@ function LoginComponent (props) {
   };
 
   const handleAuth = () => {
-    setIsAuth (true);
+    setIsAuthValue(true);
   };
 
   return (

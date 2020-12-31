@@ -22,7 +22,11 @@ function ReplyPage({match}) {
   const id = match.params.id;
   const [answer, SetAnswer] = useState ('');
   const [questionReply, SetQuestionReply] = useState ('');
-  const [isAuth, setIsAuth] = useContext(AuthContext);
+  //const [isAuth, setIsAuth] = useContext(AuthContext);
+  const {isAuth, greet, idNumber} = useContext(AuthContext); 
+  const [isAuthValue, setIsAuthValue] = isAuth;
+  const [greetValue, setGreetValue] = greet; 
+  const [idNumberValue, setIdNumberValue] = idNumber;
 
 
   //DISPLAYS THE QUESTION ON REPLYPAGE
@@ -152,5 +156,5 @@ async function handleSlackMessage(){
 }
 
 
-export default withRouter (ReplyPage);
+export default withRouter(ReplyPage);
 
