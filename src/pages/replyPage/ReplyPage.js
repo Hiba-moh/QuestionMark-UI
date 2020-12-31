@@ -1,76 +1,71 @@
-
-import React, {useContext} from 'react'
-import Axios from 'axios';
+import React, {useEffect} from 'react';
 import './ReplyPage.css';
-import SidebarComponent from '../../components/sidebarComponent/SidebarComponent'
-import TextareaComponent from '../../components/textareaComponent/TextareaComponent';
-import ButtonComponent from '../../components/buttonComponent/ButtonComponent';
-import Header from '../../components/headerComponent/Header'
-import {AuthContext} from '../../AuthContext';
-require('dotenv').config();
+import SidebarComponent
+  from '../../components/sidebarComponent/SidebarComponent';
+import Header from '../../components/allQuestionsComponent/Header';
+import Footer from '../../components/footerComponent/Footer';
+import {useState} from 'react/cjs/react.development';
+import {mockComponent} from 'react-dom/test-utils';
+import moment from 'moment';
+import axios from 'axios';
+import '../../components/replyComponent/UserAnswered';
+import '../../components/replyComponent/UserAsked';
+import TextEditor from '../../components/replyComponent/TextEditor';
+import {useHistory, Link, withRouter} from 'react-router-dom';
 
-console.log(process.env);
+function ReplyPage({match}) {
+  const id = match.params.id;
+  const [answer, SetAnswer] = useState ('');
+  const [questionReply, SetQuestionReply] = useState ('');
 
-function ReplyPage() {
+  const questionToReplyById = axios
+    .get (`https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`)
+    .then (response => SetQuestionReply (response.data.question[0].question))
+    .catch (error => console.log (error));
 
-    const [isAuth, setIsAuth] = useContext(AuthContext);
+  const onSubmitForm = async e => {
+    // e.preventDefault ();
+    try {
+      const data = {
+        question_id: id,
+        reply: answer,
+        user_id: 1,
+        date: moment ().format ('YYYY/MM/DD'),
+      };
 
-    //CONTAINS BODY OF SLACK MESSAGE
-    const data = {
-        channel: "#questionmark_forum",
-        attachments: [{
-            color: "danger",
-            fields: [{
-                title: "Question No.5006 username: @Sadat Topic: TESTING123",
-                value: "Your question has a reply. Please sign in to the question forum to check your answer.",
-                short: false
-            }]
-        }]
+      console.log (data);
+      const response = await fetch (
+        'https://question-mark-api.herokuapp.com/replypage',
+        {
+          method: 'POST',
+          body: JSON.stringify (data),
+          mode: 'cors',
+          // cache: 'no-cache',
+          headers: {'Content-Type': 'application/json'},
+        }
+      );
+      //slack message
+      console.log (response);
+    } catch (err) {
+      console.error (err);
     }
-   
-    async function handleSlackMessage(){
-        let res = await Axios.post(process.env.REACT_APP_API_KEY, JSON.stringify(data), {
-            withCredentials: false,
-            transformRequest: [(data, headers) => {
-                delete headers.post["Content-Type"]
-                return data;
-            }]
-        })
-        res.status === 200 ? (alert('Sent Slack notification...')):(alert('Error sending message'));
-        
-       
-    }
+  };
 
-    return (
-        <div className="reply_outer_container">
-            <div className="reply_header">
-                <Header />
-            </div>
-            <div className="reply_container">
-            <div className="reply_sidebar">
-              <SidebarComponent />
-            </div>
-            <div className="reply_body">
-                <div className="reply_titleandbtn_container">
-                <div className="reply_title">
-                    <h2>Reply to the question</h2>
-                </div>
-                <div className="reply_btn">
-                    {/* <ButtonComponent label="Logout"/> */}
-                    <button onClick={()=> setIsAuth(false)}>Logout</button>
-                </div>
-
-                </div>
-                <div className="reply_textarea_container">
-                    <TextareaComponent subtitle="Title of the question" description="Enter your reply here..."/>
-                    {/* <ButtonComponent label="reply"/> */}
-                    <button onClick={handleSlackMessage }>Reply</button>
-                </div>
-    
-                
-            </div>
-        </div>
-
+  return (
+    <div className="ReplyPageContainer">
+      <Header />
+      <div className="reply-container">
+        <SidebarComponent />
+        <div className="replyBody">
+          <h2>
+            Reply to the question:
+            {' '}
+            <h4><small class="text-muted">{questionReply}</small></h4>
+          </h2>
+          <form id="ReplyForm" onSubmit={onSubmitForm}>
+            <label for="QuestionReply">Add your reply here ...</label>
+            <TextEditor SetAnswer={SetAnswer} />
+            {/* 
             <textarea
               id="QReply"
               name="Qreply"
@@ -78,7 +73,7 @@ function ReplyPage() {
               cols="150"
               value={answer}
               onChange={e => SetAnswer (e.target.value)}
-            />
+            /> */}
             <input id="ReplySubmitbtn" type="submit" value="Submit" />
           </form>
         </div>
@@ -88,4 +83,4 @@ function ReplyPage() {
   );
 }
 
-export default ReplyPage;
+export default withRouter (ReplyPage);

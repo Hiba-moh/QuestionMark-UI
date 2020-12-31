@@ -4,12 +4,17 @@ import {Link} from 'react-router-dom';
 import Header from '../../components/allQuestionsComponent/Header';
 import countapi from 'countapi-js';
 import LeftSideMenu from '../allquestions/LeftSideMenu';
-
+import ReactHtmlParse from 'react-html-parser';
+import {addLanguage, highlight} from 'illuminate-js';
+import {javascript} from 'illuminate-js/lib/languages';
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
   const [pageData_question, setPageData_question] = useState ({});
   const [pageData_answer, setPageData_answer] = useState ([]);
+
+  addLanguage ('javascript', javascript);
+  addLanguage ('js', javascript);
 
   useEffect (
     () => {
@@ -40,53 +45,48 @@ function SelectedQuestionPage({match}) {
   // });
 
   return (
+    <div>
+      <Header />
+      <div className="selected_containerH">
 
-    <div className="selected_container">
-      <div className="selected_titleandbtn">
-        <div className="selected_title">
-          <h2>Title : {pageData_question.question_title}</h2>
+        <div className="selected_titleH">
+          <h4>Title : {pageData_question.question_title}</h4>
         </div>
-        <div className="selected_title_btn">
-          <ButtonComponent routeUrl="/askquestion" label="Ask question" />
-        </div>
-      </div>
-      <div className="selected_link">
-        <p><Link to="/replypage">Add reply</Link></p>
-      </div>
-      <div className="selected_textarea">
-        <TextareaComponent
-          subtitle={
-            'ASKED BY : ' +
-              pageData_question.name +
-              ' ' +
-              `\n ` +
-              ' | ' +
-              pageData_question.answered +
-              ' Answers'
-          }
-          description={
-            `Date question posted : ` +
-              pageData_question.question_date +
-              `\n \nQuestion : ` +
-              pageData_question.question
-          }
-        />
-        <div>
-          {pageData_answer.map (answer => (
-            <div class="question1">
-              {answer.answer}
+
+        <div className="selected_textareaH">
+          <div className="sideMenueContainer">
+            <LeftSideMenu />
+          </div>
+          <div className="selectedQuestionAndAnswers">
+            <div className="askedBy-NoAnswers-Reply">
+
+              <div id="q-title-answersNo">
+                <div>Asked by: {pageData_question.name}</div>
+                <div>Date: {pageData_question.question_date}</div>
+                <div>NO.Answers: {pageData_question.answers} </div>
+
+              </div>
+              <div className="selected_reply_linkH">
+
+                <Link to={`/replypage/${pageData_question.id}`}>Add reply</Link>
+              </div>
 
             </div>
             <div id="q-descriptionH">
               <h3>The Question:</h3>
-              <div>{pageData_question.question}</div>
+              <p>{pageData_question.question}</p>
+              {/* <h6>{pageData_question.question_date}</h6>
+              <h6>askedBy:{pageData_question.name}</h6> */}
             </div>
             {pageData_question.answers > 0 &&
               <div id="q-answerH">
                 <h3>The Answers: </h3>
                 {pageData_answer.map (answer => (
-                  <div class="question1H">
-                    {answer.answer}
+                  <div class="answer-details">
+                    <p id="pAnswers"> {ReactHtmlParse (answer.answer)}</p>
+                    <h6>{answer.answer_date}</h6>
+                    <h6>answered by:</h6>
+                    <hr id="hrBreak" />
                   </div>
                 ))}
               </div>}
