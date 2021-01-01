@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import Header from '../../components/allQuestionsComponent/Header';
 import Footer from '../../components/footerComponent/Footer';
 import userAnswered from '../replyComponent/userAnswered.css';
+import ReactHtmlParse from 'react-html-parser';
 import EditAnswer from './EditAnswer';
 
 const UserAnswered = () => {
@@ -61,7 +62,7 @@ const UserAnswered = () => {
               {userAnswers.map (item => (
                 <tr key={item.id}>
                   <td>{item.question}</td>
-                  <td>{item.answer}</td>
+                  <td>{ReactHtmlParse (item.answer)}</td>
                   <td><EditAnswer answerDetails={item} /></td>
                   <td>
                     <button
