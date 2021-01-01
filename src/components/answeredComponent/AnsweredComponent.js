@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import '../allQuestionsComponent/AllQuestionsComponent.css';
+import '../answeredComponent/AnsweredComponent.css';
 import {Link, useHistory} from 'react-router-dom';
 
 const AllQuestionsComponent = () => {
@@ -90,37 +90,35 @@ const AllQuestionsComponent = () => {
 
   return (
     <div>
-      <div className="search-container">
-        <div className="form1">
+      <div className="d-flex p-2 answered-search-container">
+        <div className="form-group answered-form-group">
           <form>
-            <input
-              className="searchbox-only"
-              name="search"
-              type="text"
-              onChange={handleSearch}
-              placeholder="SEARCH HERE ..."
-            />
-            {/* <button class="searchbtn">SEARCH</button> */}
+            <div className="input-group-prepend input-group mb-3 answered-input-group">
+              <input
+                className="form-control searchbox-only"
+                name="search"
+                type="text"
+                onChange={handleSearch}
+                placeholder="SEARCH HERE ..."
+              />
+
+              <select id="Answered-moduleSelector" onChange={changeHandler}>
+                <option value="default">FILTER BY MODULE</option>
+                {filter.map (item => {
+                  return <option value={item.id}>{item.module}</option>;
+                })}
+              </select>
+
+            </div>
           </form>
         </div>
-        <div className="form2">
-          <form>
-            <button
-              className="askq-btn"
-              onClick={() => {
-                history.push ('/askquestion');
-              }}
-            >
-              ASK QUESTION
-            </button>
-          </form>
-        </div>
+
       </div>
 
-      <div className="bodyContent">
-        <h1 id="page-heading">ANSWERED QUESTIONS</h1>
+      <div className="Answered-bodyContent">
+        <h1 id="Answered-page-heading">ANSWERED QUESTIONS</h1>
 
-        <div className="link-filter">
+        <div className="Answered-side-ul">
           <ul className="ul">
             <li className="li">
               {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
@@ -135,26 +133,19 @@ const AllQuestionsComponent = () => {
             </li>
           </ul>
 
-          <select id="moduleSelector" onChange={changeHandler}>
-            <option value="default">FILTER BY MODULE</option>
-            {filter.map (item => {
-              return <option value={item.id}>{item.module}</option>;
-            })}
-          </select>
         </div>
 
-        <div className="allquestions-container">
-          <div className="allquestions1">
-            {modulequestions.map (answer => (
-              <div className="question1">
-                <div>
-                  {' '}  <h3 className="answer-header">  {answer.question}</h3>
-                </div>
-                <div>  <p className="answer-only"> {answer.answer}</p></div>
-              </div>
-            ))}
+        <div className="Answered-questions-container">
 
-          </div>
+          {modulequestions.map (answer => (
+            <div className="one-Answered">
+              <div className="one-Answered-question">
+                {' '}{answer.question}
+              </div>
+              <div className="one-Answered-answer"> {answer.answer}</div>
+            </div>
+          ))}
+
         </div>
       </div>
     </div>
