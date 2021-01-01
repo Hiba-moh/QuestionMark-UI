@@ -7,8 +7,8 @@ const Pagination = ({questionsPerPage, totalQuestions, paginate}) => {
   return (
     <div>
       <ul className="paginationUl">
-        {pageNumbers.map (number => (
-          <li className="paginationLi" key={Number}>
+        {pageNumbers.map ((number, index) => (
+          <li key={index} className="paginationLi">
             <a
               onClick={() => {
                 paginate (number);

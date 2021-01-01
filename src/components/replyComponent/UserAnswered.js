@@ -41,8 +41,6 @@ const UserAnswered = () => {
     answersList ();
   }, []);
 
-  console.log (userAnswers);
-
   return (
     <Fragment>
       <div className="userAnswersContainer">
@@ -59,11 +57,6 @@ const UserAnswered = () => {
               </tr>
             </thead>
             <tbody>
-              {/* <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td> */}
 
               {userAnswers.map (item => (
                 <tr key={item.id}>

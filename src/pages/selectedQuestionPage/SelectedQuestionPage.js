@@ -24,7 +24,6 @@ function SelectedQuestionPage({match}) {
         `https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`
       )
         .then (res => {
-          console.log (res);
           if (!res.ok) {
             throw Error (res.status + ' _ ' + res.url);
           }
@@ -33,7 +32,6 @@ function SelectedQuestionPage({match}) {
         .then (data => {
           setPageData_question (data.question[0]);
           setPageData_answer (data.answer);
-          console.log ('here is answers array', pageData_answer);
         })
         .catch (error => {
           console.error (error);
@@ -74,15 +72,13 @@ function SelectedQuestionPage({match}) {
             </div>
             <div id="q-descriptionH">
               <h3>The Question:</h3>
-              <p>{pageData_question.question}</p>
-              {/* <h6>{pageData_question.question_date}</h6>
-              <h6>askedBy:{pageData_question.name}</h6> */}
+              <div>{pageData_question.question}</div>
             </div>
             {pageData_question.answers > 0 &&
               <div id="q-answerH">
                 <h3>The Answers: </h3>
-                {pageData_answer.map (answer => (
-                  <div className="answer-details">
+                {pageData_answer.map ((answer, index) => (
+                  <div key={index} className="answer-details">
                     <p id="pAnswers"> {ReactHtmlParse (answer.answer)}</p>
                     <h6>{answer.answer_date}</h6>
                     <h6>answered by:</h6>

@@ -55,7 +55,6 @@ const AllQuestionsComponent = () => {
         }
       }
       setModulequestions (filtered);
-      // console.log (modulequestions);
     }
   };
 
@@ -170,8 +169,8 @@ const AllQuestionsComponent = () => {
 
         <select id="moduleSelectorH" onChange={changeHandler}>
           <option value="default">FILTER BY MODULE</option>
-          {filter.map (item => {
-            return <option key={item.id} value={item.id}>{item.module}</option>;
+          {filter.map ((item, index) => {
+            return <option key={index} value={item.id}>{item.module}</option>;
           })}
         </select>
 
@@ -210,18 +209,21 @@ const AllQuestionsComponent = () => {
             <img src="" />
             <div className="allquestions-containerH">
 
-              {currentQuestions.map (question => (
-                <div key={question.id} className="question1H">
-                  <div className="switch-q">
+              {currentQuestions.map ((question, index) => (
+                <div key={index} className="question1H">
+                  <div key={index + 1} className="switch-q">
 
                     {renderSwitch (question.module_id)}
 
                     {/* {setQuestionRate(question.rate)} */}
-                    <Link to={`/selectedquestionpage/${question.id}`}>
+                    <Link
+                      key={index + 3}
+                      to={`/selectedquestionpage/${question.id}`}
+                    >
                       {question.question_title}
                     </Link>
                   </div>
-                  <div className="questionDetails" key={question.id}>
+                  <div className="questionDetails">
 
                     {/* rate here */}
                     <RateComponent keyId={question.id} rate={question.rate} />

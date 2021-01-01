@@ -41,8 +41,6 @@ const UserAsked = () => {
     questionsList ();
   }, []);
 
-  console.log (userQuestions);
-
   return (
     <Fragment>
       <div className="userAnswersContainer">
@@ -59,18 +57,12 @@ const UserAsked = () => {
               </tr>
             </thead>
             <tbody>
-              {/* <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td> */}
 
-              {userQuestions.map (item => (
-                <tr>
+              {userQuestions.map ((item, index) => (
+                <tr key={index}>
                   <td>{item.question}</td>
                   <td>{item.answers}</td>
                   <td><EditQuestion questionDetails={item} /></td>
-                  {/* {item.answers == 0? */}
                   <td>
                     <button
                       className="btn-danger"
@@ -81,7 +73,6 @@ const UserAsked = () => {
                       Delete
                     </button>
                   </td>
-                  {/* : <h6>Undeletable</h6>} */}
                 </tr>
               ))}
 
