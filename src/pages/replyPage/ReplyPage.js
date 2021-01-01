@@ -30,7 +30,7 @@ function ReplyPage({match}) {
     .catch (error => console.log (error));
 
   const onSubmitForm = async e => {
-    e.preventDefault ();
+    // e.preventDefault ();
     try {
       const data = {
         question_id: id,

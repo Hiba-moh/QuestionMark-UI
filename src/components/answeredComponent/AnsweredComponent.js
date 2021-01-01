@@ -114,9 +114,11 @@ const AllQuestionsComponent = () => {
         </div>
 
       </div>
+      <h1 id="Answered-page-heading">ANSWERED QUESTIONS</h1>
 
-      <div className="Answered-bodyContent">
-        <h1 id="Answered-page-heading">ANSWERED QUESTIONS</h1>
+      <div className="Answered-side-menu"> side menu </div>
+
+      <div className=" d-flex p-2 Answered-bodyContent">
 
         <div className="Answered-side-ul">
           <ul className="ul">
@@ -134,18 +136,19 @@ const AllQuestionsComponent = () => {
           </ul>
 
         </div>
+        <div className=" d-flex p-2 Answered-question-outer-container">
+          <div className="Answered-questions-container">
 
-        <div className="Answered-questions-container">
-
-          {modulequestions.map (answer => (
-            <div className="one-Answered">
-              <div className="one-Answered-question">
-                {' '}{answer.question}
+            {modulequestions.map (answer => (
+              <div className="one-Answered">
+                <div className="one-Answered-question">
+                  {' '}{answer.question}
+                </div>
+                <div className="one-Answered-answer"> {answer.answer}</div>
               </div>
-              <div className="one-Answered-answer"> {answer.answer}</div>
-            </div>
-          ))}
+            ))}
 
+          </div>
         </div>
       </div>
     </div>

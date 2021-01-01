@@ -8,35 +8,57 @@
     margin: auto;
 }
 .answered-input-group{
-    background-color: olivedrab;
+    background-color:silver;
 }
 #Answered-page-heading{
     background-color: palegreen;
 }
 .Answered-bodyContent{
-    background-color: orchid;
+    /* flex */
+    margin: auto;
+    width: 80%;
+    background-color:#575757;
+}
+.Answered-question-outer-container{
+    /* flex */
+margin: auto;
+margin-top: 2rem;
+    background-color: seagreen;
+    width: 60%;
 }
 .Answered-side-ul{
+    display: flex;
+    margin:auto;
+    margin-top: 4rem;
     background-color: palegoldenrod;
+    width:20%;
+    height: 100%;
 }
 .Answered-questions-container{
     margin: auto;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    /* margin-right: 3rem; */
     background-color: powderblue;
-    width: 90%;
+    width: 80%;
 }
+
 .one-Answered{
     margin: auto;
-    width: 70%;
+    width: 90%;
     background-color: springgreen;
 }
 .one-Answered-question{
+        margin-top: 2rem;
     background-color: slategray;
     box-shadow: 3px 3px 3px;
 }
 .one-Answered-answer{
     background-color: teal;
         box-shadow: 3px 3px 3px;
-    margin-bottom: 2rem;
 
+}
+.Answered-side-menu{
+    background-color: salmon;
+    /* width: 30%; */
+    height: 100%;
 }
