@@ -49,7 +49,7 @@ const UserAsked = () => {
         <Header />
         <div className="userAnswersBodyContainer">
           <h1>Questions You Asked</h1>
-          <table class="table table-responsive table-striped table-striped mt-5">
+          <table className="table table-responsive table-striped table-striped mt-5">
             <thead>
               <tr>
                 <th>Your Question</th>

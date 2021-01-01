@@ -13,8 +13,6 @@ import '../../components/replyComponent/UserAsked';
 //import {withRouter} from 'react-router-dom';
 import {AuthContext} from '../../AuthContext';
 
-
-
 import TextEditor from '../../components/replyComponent/TextEditor';
 import {useHistory, Link, withRouter} from 'react-router-dom';
 
@@ -23,11 +21,10 @@ function ReplyPage({match}) {
   const [answer, SetAnswer] = useState ('');
   const [questionReply, SetQuestionReply] = useState ('');
   //const [isAuth, setIsAuth] = useContext(AuthContext);
-  const {isAuth, greet, idNumber} = useContext(AuthContext); 
+  const {isAuth, greet, idNumber} = useContext (AuthContext);
   const [isAuthValue, setIsAuthValue] = isAuth;
-  const [greetValue, setGreetValue] = greet; 
+  const [greetValue, setGreetValue] = greet;
   const [idNumberValue, setIdNumberValue] = idNumber;
-
 
   //DISPLAYS THE QUESTION ON REPLYPAGE
   const questionToReplyById = axios
@@ -35,7 +32,7 @@ function ReplyPage({match}) {
     .then (response => SetQuestionReply (response.data.question[0].question))
     .catch (error => console.log (error));
 
-    //POSTS THE ANSWER TO THE BACKEND
+  //POSTS THE ANSWER TO THE BACKEND
   const onSubmitForm = async e => {
     // e.preventDefault ();
     try {
@@ -60,19 +57,18 @@ function ReplyPage({match}) {
       // );
 
       console.log (data);
-      const response = await axios.post(
-        'https://question-mark-api.herokuapp.com/replypage',
-        {
+      const response = await axios
+        .post ('https://question-mark-api.herokuapp.com/replypage', {
           method: 'POST',
           body: JSON.stringify (data),
           mode: 'cors',
           // cache: 'no-cache',
           headers: {'Content-Type': 'application/json'},
-        }
-      ).then(response => {
-          console.log(response);
-      })
-      
+        })
+        .then (response => {
+          console.log (response);
+        });
+
       //slack message
       console.log (response);
     } catch (err) {
@@ -90,34 +86,43 @@ function ReplyPage({match}) {
   //   questionToReply (id);
   // }, []);
   const data = {
-    channel: "#questionmark_forum",
-    attachments: [{
-        color: "danger",
-        fields: [{
-            title: "Question No.5007 username: @user Topic: TESTING123",
-            value: "Your question has a reply. Please sign in to the question forum to check your answer.",
-            short: false
-        }]
-    }]
-}
+    channel: '#questionmark_forum',
+    attachments: [
+      {
+        color: 'danger',
+        fields: [
+          {
+            title: 'Question No.5007 username: @user Topic: TESTING123',
+            value: 'Your question has a reply. Please sign in to the question forum to check your answer.',
+            short: false,
+          },
+        ],
+      },
+    ],
+  };
 
-async function handleSlackMessage(){
-    let res = await Axios.post(process.env.REACT_APP_API_KEY, JSON.stringify(data), {
+  async function handleSlackMessage () {
+    let res = await Axios.post (
+      process.env.REACT_APP_API_KEY,
+      JSON.stringify (data),
+      {
         withCredentials: false,
-        transformRequest: [(data, headers) => {
-            delete headers.post["Content-Type"]
+        transformRequest: [
+          (data, headers) => {
+            delete headers.post['Content-Type'];
             return data;
-        }]
-    })
-    res.status === 200 ? (alert('Sent Slack notification...')):(alert('Error sending message'));
-    
-   
-}
-
-  const handleSubmit = () => {
-    console.log("clicked submit button!");
+          },
+        ],
+      }
+    );
+    res.status === 200
+      ? alert ('Sent Slack notification...')
+      : alert ('Error sending message');
   }
 
+  const handleSubmit = () => {
+    console.log ('clicked submit button!');
+  };
 
   return (
     <div className="ReplyPageContainer">
@@ -128,9 +133,9 @@ async function handleSlackMessage(){
           <h2>
             Reply to the question:
             {' '}
-            <h4><small class="text-muted">{questionReply}</small></h4>
+            <h4><small className="text-muted">{questionReply}</small></h4>
           </h2>
-          <form id="ReplyForm" >
+          <form id="ReplyForm">
             <label for="QuestionReply">Add your reply here ...</label>
 
             <TextEditor SetAnswer={SetAnswer} />
@@ -155,6 +160,4 @@ async function handleSlackMessage(){
   );
 }
 
-
-export default withRouter(ReplyPage);
-
+export default withRouter (ReplyPage);

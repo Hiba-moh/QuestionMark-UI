@@ -90,11 +90,11 @@ const AllQuestionsComponent = () => {
 
   return (
     <div>
-      <div class="search-container">
-        <div class="form1">
+      <div className="search-container">
+        <div className="form1">
           <form>
             <input
-              class="searchbox-only"
+              className="searchbox-only"
               name="search"
               type="text"
               onChange={handleSearch}
@@ -103,10 +103,10 @@ const AllQuestionsComponent = () => {
             {/* <button class="searchbtn">SEARCH</button> */}
           </form>
         </div>
-        <div class="form2">
+        <div className="form2">
           <form>
             <button
-              class="askq-btn"
+              className="askq-btn"
               onClick={() => {
                 history.push ('/askquestion');
               }}
@@ -143,10 +143,10 @@ const AllQuestionsComponent = () => {
           </select>
         </div>
 
-        <div class="allquestions-container">
-          <div class="allquestions1">
+        <div className="allquestions-container">
+          <div className="allquestions1">
             {modulequestions.map (answer => (
-              <div class="question1">
+              <div className="question1">
                 <div>
                   {' '}  <h3 className="answer-header">  {answer.question}</h3>
                 </div>

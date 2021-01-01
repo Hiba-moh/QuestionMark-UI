@@ -4,8 +4,7 @@ import {Link, withRouter} from 'react-router-dom';
 import Header from '../../components/allQuestionsComponent/Header';
 import countapi from 'countapi-js';
 import LeftSideMenu from '../allquestions/LeftSideMenu';
-import loginImg from '../../assets/images/login.png'
-
+import loginImg from '../../assets/images/login.png';
 
 import ReactHtmlParse from 'react-html-parser';
 import {addLanguage, highlight} from 'illuminate-js';
@@ -50,11 +49,9 @@ function SelectedQuestionPage({match}) {
       <Header />
       <div className="selected_containerH">
 
-
         <div className="selected_titleH">
           <h4>Title : {pageData_question.question_title}</h4>
         </div>
-
 
         <div className="selected_textareaH">
           <div className="sideMenueContainer">
@@ -68,13 +65,11 @@ function SelectedQuestionPage({match}) {
                 <div>Date: {pageData_question.question_date}</div>
                 <div>NO.Answers: {pageData_question.answers} </div>
 
-
               </div>
               <div className="selected_reply_linkH">
 
                 <Link to={`/replypage/${pageData_question.id}`}>Add reply</Link>
               </div>
-
 
             </div>
             <div id="q-descriptionH">
@@ -87,7 +82,7 @@ function SelectedQuestionPage({match}) {
               <div id="q-answerH">
                 <h3>The Answers: </h3>
                 {pageData_answer.map (answer => (
-                  <div class="answer-details">
+                  <div className="answer-details">
                     <p id="pAnswers"> {ReactHtmlParse (answer.answer)}</p>
                     <h6>{answer.answer_date}</h6>
                     <h6>answered by:</h6>
@@ -101,4 +96,4 @@ function SelectedQuestionPage({match}) {
     </div>
   );
 }
-export default withRouter(SelectedQuestionPage);
+export default withRouter (SelectedQuestionPage);

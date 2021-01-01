@@ -27,25 +27,25 @@ const EditQuestion = ({questionDetails}) => {
 
       <button
         type="button"
-        class="btn btn-warning"
+        className="btn btn-warning"
         data-toggle="modal"
         data-target={`#id${questionDetails.id}`}
       >
         Edit
       </button>
       {/* id= id21 */}
-      <div class="modal" id={`id${questionDetails.id}`}>
-        <div class="modal-dialog">
-          <div class="modal-content">
+      <div className="modal" id={`id${questionDetails.id}`}>
+        <div className="modal-dialog">
+          <div className="modal-content">
 
-            <div class="modal-header">
-              <h4 class="modal-title">Edit Question</h4>
-              <button type="button" class="close" data-dismiss="modal">
+            <div className="modal-header">
+              <h4 className="modal-title">Edit Question</h4>
+              <button type="button" className="close" data-dismiss="modal">
                 &times;
               </button>
             </div>
 
-            <div class="modal-body">
+            <div className="modal-body">
               <textarea
                 className="secondary"
                 rows="10"
@@ -57,17 +57,21 @@ const EditQuestion = ({questionDetails}) => {
               />
             </div>
 
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-warning"
+                className="btn btn-warning"
                 data-dismiss="modal"
                 onClick={() => editText (questionDetails.id)}
               >
                 Edit
               </button>
 
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
+              <button
+                type="button"
+                className="btn btn-danger"
+                data-dismiss="modal"
+              >
                 Close
               </button>
             </div>

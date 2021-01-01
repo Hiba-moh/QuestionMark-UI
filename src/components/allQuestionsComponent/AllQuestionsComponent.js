@@ -208,10 +208,10 @@ const AllQuestionsComponent = () => {
             <h1 id="page-headingH">ALL QUESTIONS</h1>
             <div className="link-filterH" />
             <img src="" />
-            <div class="allquestions-containerH">
+            <div className="allquestions-containerH">
 
               {currentQuestions.map (question => (
-                <div key={question.id} class="question1H">
+                <div key={question.id} className="question1H">
                   <div className="switch-q">
 
                     {renderSwitch (question.module_id)}
