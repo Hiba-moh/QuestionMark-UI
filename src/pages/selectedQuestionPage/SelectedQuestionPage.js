@@ -79,7 +79,7 @@ function SelectedQuestionPage({match}) {
                 <h3>The Answers: </h3>
                 {pageData_answer.map ((answer, index) => (
                   <div key={index} className="answer-details">
-                    <p id="pAnswers"> {ReactHtmlParse (answer.answer)}</p>
+                    <div id="pAnswers"> {ReactHtmlParse (answer.answer)}</div>
                     <h6>{answer.answer_date}</h6>
                     <h6>answered by:</h6>
                     <hr id="hrBreak" />
