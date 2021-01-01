@@ -27,16 +27,16 @@
 }
 .one-Answered{
     margin: auto;
-    width: 80%;
+    width: 70%;
     background-color: springgreen;
 }
 .one-Answered-question{
     background-color: slategray;
     box-shadow: 3px 3px 3px;
-    margin-bottom: 1rem;
 }
 .one-Answered-answer{
     background-color: teal;
         box-shadow: 3px 3px 3px;
+    margin-bottom: 2rem;
 
 }
