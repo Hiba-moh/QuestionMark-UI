@@ -4,7 +4,7 @@ import {Editor} from '@tinymce/tinymce-react';
 const TextEditor = ({SetAnswer}) => {
   const handleEditorChange = (content, editor) => {
     SetAnswer (content);
-    console.log ('Content was updated:', content);
+    // console.log ('Content was updated:', content);
   };
 
   return (
@@ -18,7 +18,7 @@ const TextEditor = ({SetAnswer}) => {
         plugins: [
           'advlist autolink lists link image charmap print preview anchor',
           'searchreplace visualblocks code codesample fullscreen',
-          'insertdatetime media table paste code help wordcount',
+          'insertdatetime media table code help wordcount',
           'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable',
         ],
         toolbar: 'undo redo | formatselect fontselect fontsizeselect forecolor| bold italic backcolor | \

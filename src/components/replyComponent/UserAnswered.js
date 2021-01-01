@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import Header from '../../components/allQuestionsComponent/Header';
 import Footer from '../../components/footerComponent/Footer';
 import userAnswered from '../replyComponent/userAnswered.css';
+import ReactHtmlParse from 'react-html-parser';
 import EditAnswer from './EditAnswer';
 
 const UserAnswered = () => {
@@ -41,15 +42,13 @@ const UserAnswered = () => {
     answersList ();
   }, []);
 
-  console.log (userAnswers);
-
   return (
     <Fragment>
       <div className="userAnswersContainer">
         <Header />
         <div className="userAnswersBodyContainer">
           <h1>Questions Answered By You</h1>
-          <table class="table table-responsive table-striped table-striped mt-5">
+          <table className="table table-responsive table-striped table-striped mt-5">
             <thead>
               <tr>
                 <th>Question</th>
@@ -59,16 +58,11 @@ const UserAnswered = () => {
               </tr>
             </thead>
             <tbody>
-              {/* <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td> */}
 
               {userAnswers.map (item => (
                 <tr key={item.id}>
                   <td>{item.question}</td>
-                  <td>{item.answer}</td>
+                  <td>{ReactHtmlParse (item.answer)}</td>
                   <td><EditAnswer answerDetails={item} /></td>
                   <td>
                     <button
