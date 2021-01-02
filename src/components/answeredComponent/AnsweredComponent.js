@@ -2,6 +2,13 @@ import React, {useState, useEffect} from 'react';
 import '../answeredComponent/AnsweredComponent.css';
 import {Link, useHistory} from 'react-router-dom';
 import Header from '../allQuestionsComponent/Header';
+import git from '../../assets/images/Icons/git.png';
+import html from '../../assets/images/Icons/html5.png';
+import js from '../../assets/images/Icons/js.png';
+import mango from '../../assets/images/Icons/mango1.png';
+import node from '../../assets/images/Icons/nodejs.png';
+import react from '../../assets/images/Icons/react.png';
+import sql from '../../assets/images/Icons/sql.png';
 
 const AllQuestionsComponent = () => {
   const [answeredList, setAnsweredList] = useState ([]);
@@ -89,6 +96,25 @@ const AllQuestionsComponent = () => {
     setModulequestions (filtered);
   };
 
+  const renderSwitch = param => {
+    switch (param) {
+      case 1:
+        return <img src={git} />;
+      case 2:
+        return <img src={html} />;
+      case 3:
+        return <img src={js} />;
+      case 4:
+        return <img src={react} />;
+      case 5:
+        return <img src={node} />;
+      case 6:
+        return <img src={sql} />;
+      case 7:
+        return <img src={mango} />;
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -142,15 +168,20 @@ const AllQuestionsComponent = () => {
 
               {modulequestions.map (answer => (
                 <div className="one-Answered">
+
                   <div className="one-Answered-question">
+                    <h2>Question : </h2>
+                    {renderSwitch (answer.module_id)}
                     {' '}{answer.question}
-                    <h6>{answer.answer_date}</h6>
-                    <h6>answered by:</h6>
+                    <h6>Date : {answer.question_date}</h6>
+                    {/* <h6>asked by:</h6> */}
                   </div>
+
                   <div className="one-Answered-answer">
+                    <h2>Answer: </h2>
                     {' '}{answer.answer}
-                    <h6>{answer.answer_date}</h6>
-                    <h6>answered by:</h6>
+                    <h6>Date : {answer.answer_date}</h6>
+                    {/* <h6>answered by:</h6> */}
                   </div>
                 </div>
               ))}

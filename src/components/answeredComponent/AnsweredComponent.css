@@ -165,9 +165,23 @@ align-items: center;
     background-color: #F5F5F5;
     padding: 2rem;
 }
+.one-Answered-question h6{
+    font-style: italic;
+    margin-top: 2rem;
+}
+.one-Answered-question h2{
+    text-decoration: underline #d12f2f;
+}
 .one-Answered-answer{
         font-family: 'Abel', sans-serif;
         font-size: 1.5rem;
         background-color: white;
 padding: 2rem;
+}
+.one-Answered-answer h6{
+    font-style: italic;
+    margin-top: 2rem;
+}
+.one-Answered-answer h2{
+    text-decoration: underline #d12f2f;
 }
