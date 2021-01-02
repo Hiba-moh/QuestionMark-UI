@@ -11,6 +11,7 @@
     background-color:silver;
 }
 #Answered-page-heading{
+    text-align: center;
     background-color: palegreen;
 }
 .Answered-bodyContent{
@@ -18,28 +19,58 @@
     margin: auto;
     width: 80%;
     background-color:#575757;
+    border-radius: 2rem 2rem 0 0;
+    margin-top: 2rem;
 }
 .Answered-question-outer-container{
     /* flex */
-margin: auto;
+margin:0;
 margin-top: 2rem;
-    background-color: seagreen;
-    width: 60%;
+    background-color: #d12f2f;
+    width: 70%;
+    margin-top: 3rem;
 }
-.Answered-side-ul{
-    display: flex;
+.Answer-question-outer2-container{
+    padding-top: 2rem;
+    border-radius: 2rem 2rem 0 0;
+    margin: auto;
+    background-color: #f5f5f5;
+    width:70%;
+margin-top: 3rem;
+align-self: center;
+}
+.Answered-side{
     margin:auto;
     margin-top: 4rem;
     background-color: palegoldenrod;
     width:20%;
     height: 100%;
 }
-.Answered-questions-container{
+.Answered-side-ul{
+    display: flex;
+    list-style-type: none;   
+padding: 0;
     margin: auto;
+flex-direction: column;
+align-items: center;
+    background-color: teal;
+    text-align: center;
+   
+}
+.Answered-side-li{
+    text-align: center;
+    background-color: yellow;
+}
+ .Answered-side-li a{
+     background-color: violet;
+   
+} 
+.Answered-questions-container{
+    margin:0;
     margin-top: 4rem;
     /* margin-right: 3rem; */
     background-color: powderblue;
-    width: 80%;
+    width: 100%;
 }
 
 .one-Answered{

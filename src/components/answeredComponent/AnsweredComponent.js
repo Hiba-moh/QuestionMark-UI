@@ -114,40 +114,42 @@ const AllQuestionsComponent = () => {
         </div>
 
       </div>
-      <h1 id="Answered-page-heading">ANSWERED QUESTIONS</h1>
 
       <div className="Answered-side-menu"> side menu </div>
 
       <div className=" d-flex p-2 Answered-bodyContent">
 
-        <div className="Answered-side-ul">
-          <ul className="ul">
-            <li className="li">
+        <div className="Answered-side">
+          <ul className="Answered-side-ul">
+            <li className="Answered-side-li">
               {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
             </li>
             |
-            <li className="li">
+            <li className="Answered-side-li">
               {' '}<Link to="/UnAnswered"> UNANSWERED QUESTIONS </Link>
             </li>
             |
-            <li className="li">
+            <li className="Answered-side-li">
               <Link to="/allquestions">ALL QUESTIONS</Link>
             </li>
           </ul>
 
         </div>
-        <div className=" d-flex p-2 Answered-question-outer-container">
-          <div className="Answered-questions-container">
+        <div className="Answer-question-outer2-container">
+          <h1 id="Answered-page-heading">ANSWERED QUESTIONS</h1>
+          <div className=" d-flex p-2 Answered-question-outer-container">
+            <div className="Answered-questions-container">
 
-            {modulequestions.map (answer => (
-              <div className="one-Answered">
-                <div className="one-Answered-question">
-                  {' '}{answer.question}
+              {modulequestions.map (answer => (
+                <div className="one-Answered">
+                  <div className="one-Answered-question">
+                    {' '}{answer.question}
+                  </div>
+                  <div className="one-Answered-answer"> {answer.answer}</div>
                 </div>
-                <div className="one-Answered-answer"> {answer.answer}</div>
-              </div>
-            ))}
+              ))}
 
+            </div>
           </div>
         </div>
       </div>
