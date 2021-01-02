@@ -144,14 +144,8 @@ const AllQuestionsComponent = () => {
                 <div className="one-Answered">
                   <div className="one-Answered-question">
                     {' '}{answer.question}
-                    <h6>{answer.answer_date}</h6>
-                    <h6>answered by:</h6>
                   </div>
-                  <div className="one-Answered-answer">
-                    {' '}{answer.answer}
-                    <h6>{answer.answer_date}</h6>
-                    <h6>answered by:</h6>
-                  </div>
+                  <div className="one-Answered-answer"> {answer.answer}</div>
                 </div>
               ))}
 
