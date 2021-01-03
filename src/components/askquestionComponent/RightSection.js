@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 import './AskQuestionComponent.css'
 import Modules from './Modules';
 
-// quesObj.question_title,
-//       quesObj.question,
-//       quesObj.module_id,
-//       quesObj.users_id,
-//       quesObj.question_date,
-//       quesObj.answers,
+// What I need to fix in this is the user_id with useParams react hook and actually send the data with heroku link using fetch1
 
 function RightSection()
 {
@@ -58,6 +53,11 @@ function RightSection()
         console.log("-------------------")
         console.log(detailsOfQues);
         console.log("-------------------")
+        fetch("https://question-mark-api.herokuapp.com/modules")
+        .then(data=>data.json())
+        .then(data=>console.log(data))
+        .catch(error=>console.log(error))
+
         setFormAnswers(0);
         setDisplayForm(false);
     }
