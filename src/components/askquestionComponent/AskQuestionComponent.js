@@ -4,6 +4,7 @@ import './AskQuestionComponent.css'
 import LeftSection from './LeftSection';
 import RightSection from './RightSection';
 import Footer from '../footerComponent/Footer';
+import Axios from "axios";
 // import Footer from './components/footerComponent/Footer';
 
 function AskQuestionQuestion()
@@ -21,6 +22,7 @@ function AskQuestionQuestion()
         setExpand(false);
     }
 
+    
     // This is the classname given to overlay Content, if expand variable is true then we give it a class with width as 100% which make the slider visible.
     let overlayclass="";
 
