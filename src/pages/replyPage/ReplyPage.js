@@ -11,7 +11,7 @@ import moment from 'moment';
 import axios from 'axios';
 import '../../components/replyComponent/UserAnswered';
 import '../../components/replyComponent/UserAsked';
-import {withRouter} from 'react-router-dom';
+import {withRouter, useHistory} from 'react-router-dom';
 import {AuthContext} from '../../AuthContext';
 
 function ReplyPage({match}) {
@@ -23,37 +23,102 @@ function ReplyPage({match}) {
   const [isAuthValue, setIsAuthValue] = isAuth;
   const [greetValue, setGreetValue] = greet;
   const [idNumberValue, setIdNumberValue] = idNumber;
+  const history = useHistory ();
 
   const questionToReplyById = axios
     .get (`https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`)
     .then (response => SetQuestionReply (response.data.question[0].question))
     .catch (error => console.log (error));
 
-  const onSubmitForm = async e => {
-    // e.preventDefault ();
-    try {
-      const data = {
-        question_id: id,
-        reply: answer,
-        user_id: 1,
-        date: moment ().format ('YYYY/MM/DD'),
-      };
+    const data1 = {
+          channel: "#questionmark_forum",
+          attachments: [{
+              color: "danger",
+              fields: [{
+                  title: "Question No.5007 username: @user Topic: TESTING123",
+                  value: "Your question has a reply. Please sign in to the question forum to check your answer.",
+                  short: false
+              }]
+          }]
+      }
+      
+      async function handleSlackMessage(){
+          let res = await axios.post(process.env.REACT_APP_API_KEY, JSON.stringify(data1), {
+              withCredentials: false,
+              transformRequest: [(data, headers) => {
+                  delete headers.post["Content-Type"]
+                  return data;
+              }]
+          })
+          res.status === 200 ? (alert('Sent Slack notification...')):(alert('Error sending message'));
+          
+       
+      }
 
-      const response = await fetch (
-        'https://question-mark-api.herokuapp.com/replypage',
-        {
-          method: 'POST',
-          body: JSON.stringify (data),
-          mode: 'cors',
-          // cache: 'no-cache',
-          headers: {'Content-Type': 'application/json'},
-        }
-      );
-      console.log ('ReplyPage-Post-Response: ', response);
-    } catch (err) {
-      console.error (err);
-    }
-  };
+      const onSubmitForm = (e) => {
+        e.preventDefault();
+
+        const data = {
+                question_id: id,
+                reply: answer,
+                user_id: 1,
+                date: moment ().format ('YYYY/MM/DD'),
+              };
+
+              fetch('https://question-mark-api.herokuapp.com/replypage', {
+                method: 'POST',
+                        body: JSON.stringify (data),
+                        mode: 'cors',
+                        // cache: 'no-cache',
+                        headers: {'Content-Type': 'application/json'},
+
+              })
+              .then(response => {
+                return response.json();
+              })
+              .then(data => {
+                console.log(data.answer);
+                if(data.answer){
+                  handleSlackMessage();
+                  history.push('/allquestions');
+                }else{
+                  alert('Oops, something went wrong!');
+                  history.push('/allquestions');
+                }
+              })
+              .catch(err => {
+                console.error(err);
+              })
+
+      }
+
+  // const onSubmitForm = async e => {
+  //   // e.preventDefault ();
+  //   try {
+  //     const data = {
+  //       question_id: id,
+  //       reply: answer,
+  //       user_id: 1,
+  //       date: moment ().format ('YYYY/MM/DD'),
+  //     };
+
+  //     const response = await fetch (
+  //       'https://question-mark-api.herokuapp.com/replypage',
+  //       {
+  //         method: 'POST',
+  //         body: JSON.stringify (data),
+  //         mode: 'cors',
+  //         // cache: 'no-cache',
+  //         headers: {'Content-Type': 'application/json'},
+  //       }
+  //     );
+  //     response.status == 200 ? (handleSlackMessage()) : (alert('error'));
+  //    // console.log ('ReplyPage-Post-Response: ', response);
+  //   } catch (err) {
+  //     console.error (err);
+  //   }
+  // };
+
 
   return (
     <div className="ReplyPageContainer">
@@ -92,3 +157,5 @@ function ReplyPage({match}) {
 }
 
 export default withRouter (ReplyPage);
+
+

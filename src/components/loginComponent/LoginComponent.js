@@ -45,6 +45,7 @@ function LoginComponent (props) {
           localStorage.setItem ('token', JSON.stringify (data)); //stores token in local storage
           setFailedLoginMessage (data.message);
         } else {
+          setIdNumberValue(data.user_id);
           history.push ('/allquestions');
         }
       })
@@ -52,7 +53,7 @@ function LoginComponent (props) {
         console.error (e);
       });
   };
-
+console.log(idNumber);
   const handleLogUsername = e => {
     setLogUsername (e.target.value);
   };
