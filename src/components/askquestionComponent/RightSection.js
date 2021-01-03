@@ -15,8 +15,8 @@ function RightSection()
 
     let [formTitle,setFormTitle]=useState("");
     let [formQues,setFormQues]=useState("");
-    let [formModule_id,setFormModule_id]=useState("");
-    let [formUsers_id,setFormUsers_id]=useState(""); // this I need to tale using react hook useParams.
+    let [formModule_id,setFormModule_id]=useState(1);
+    let [formUsers_id,setFormUsers_id]=useState(1); // this I need to tale using react hook useParams.
     let [formQues_date,setFormQues_date]=useState(today); 
     let [formAnswers,setFormAnswers]=useState(0);
 
@@ -26,12 +26,13 @@ function RightSection()
 
 
     const detailsOfQues={
-        title:formTitle,
-        question: formQues,
-        module_id:formModule_id,
-        users_id:formUsers_id,
-        question_date:formQues_date,
-        answers:formAnswers
+
+        title:          formTitle,
+        question:       formQues,
+        module_id:      formModule_id,
+        users_id:       formUsers_id,
+        question_date:  formQues_date,
+        answers:        formAnswers
     };
 
     const options = {
@@ -48,17 +49,17 @@ function RightSection()
     }
 
     //in this function I should update all the values and call the fetch to submit the data.
-    function submitted()
+    function submitted(e)
     {
-        console.log("-------------------")
-        console.log(detailsOfQues);
-        console.log("-------------------")
-        fetch("https://question-mark-api.herokuapp.com/modules")
+        // console.log("-------------------")
+        // console.log(detailsOfQues);
+        // console.log("-------------------")
+        e.preventDefault();
+        fetch("http://localhost:3000/ask-question",options)
         .then(data=>data.json())
         .then(data=>console.log(data))
         .catch(error=>console.log(error))
 
-        setFormAnswers(0);
         setDisplayForm(false);
     }
 
