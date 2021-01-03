@@ -7,7 +7,7 @@ import {BrowserRouter, Route, Link} from 'react-router-dom';
 import SignUp from './pages/signup/Signup';
 import Login from './pages/login/Login';
 //import ReplyPage from './pages/replyPage/ReplyPage';
-import ReplyPage from './pages/replyPage/ReplyPage'
+import ReplyPage from './pages/replyPage/ReplyPage';
 import SelectedQuestionPage
   from './pages/selectedQuestionPage/SelectedQuestionPage';
 import AllQuestions from './pages/allquestions/AllQuestions';
@@ -38,12 +38,11 @@ function App () {
           <ProtectedRoutes path="/allquestions" component={AllQuestions} />
           <ProtectedRoutes path="/answered" component={Answered} />
           <ProtectedRoutes path="/unAnswered" component={UnAnswered} />
-          <ProtectedRoutes path="/UserAsked" component={UserAsked} />;
-          <ProtectedRoutes path="/UserAnswered" component={UserAnswered} />;
+          <ProtectedRoutes path="/UserAsked" component={UserAsked} />
+          <ProtectedRoutes path="/UserAnswered" component={UserAnswered} />
           <ProtectedRoutes path="/askquestion" component={AskQuestion} />
           <ProtectedRoutes exact path="/replypage/:id" component={ReplyPage} />
           <ProtectedRoutes
-
             exact
             path="/selectedquestionpage/:id"
             component={SelectedQuestionPage}

@@ -110,7 +110,7 @@ const AllQuestionsComponent = () => {
     qAnswers.map (question => {
       doc.text (20, 30, question.question + '\n' + question.answer);
       i += 2;
-      doc.addPage ();
+      doc.addPage ('a3', 'landscape');
     });
 
     doc.setFont ('courier');

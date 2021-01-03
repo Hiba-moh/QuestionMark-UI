@@ -2,18 +2,17 @@ import React, {useContext} from 'react';
 import '../allQuestionsComponent/Header.css';
 import logo3 from '../allQuestionsComponent/logo1.png';
 import {Link} from 'react-router-dom';
-import {AuthContext} from '../../AuthContext'
+import {AuthContext} from '../../AuthContext';
 import {withRouter} from 'react-router-dom';
 
 function Header () {
-
   //const [isAuth, setIsAuth] = useContext (AuthContext);
-  const {isAuth, greet, idNumber} = useContext(AuthContext); //pull all states to be used
-   const [isAuthValue, setIsAuthValue] = isAuth;
-   const [greetValue, setGreetValue] = greet; //equvilent to setGreet
-   const [idNumberValue, setIdNumberValue] = idNumber;
+  const {isAuth, greet, idNumber} = useContext (AuthContext); //pull all states to be used
+  const [isAuthValue, setIsAuthValue] = isAuth;
+  const [greetValue, setGreetValue] = greet; //equvilent to setGreet
+  const [idNumberValue, setIdNumberValue] = idNumber;
 
- console.log(isAuth);
+  console.log (isAuth);
   return (
     <div className="header_containerH">
 
@@ -36,7 +35,7 @@ function Header () {
           </Link>
         </li>
         <li className="lined-list">
-          <Link to="/" onClick={() => setIsAuthValue(false)}>
+          <Link to="/" onClick={() => setIsAuthValue (false)}>
 
             Logout
           </Link>
@@ -44,7 +43,7 @@ function Header () {
       </ul>
 
     </div>
-  );
+  )
 }
 
-export default withRouter(Header);
+export default withRouter (Header)
