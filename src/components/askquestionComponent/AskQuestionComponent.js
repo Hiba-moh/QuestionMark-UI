@@ -7,6 +7,11 @@ import Footer from '../footerComponent/Footer';
 import Axios from "axios";
 // import Footer from './components/footerComponent/Footer';
 
+
+//what is left in this component 
+//is send data to heroku link, it is working on localhost just change that to heroku link.
+// Take the users id using useParams react hook.
+// fetch data from heroku app for the whole page.
 function AskQuestionQuestion()
 {
     // This is used to bring the slider from the side. If it is true then we render the slider on the page (Overlay slider)
