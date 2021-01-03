@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './SignupComponent.css';
 import { useHistory } from 'react-router-dom';
+import NormalHeaderComponent from '../normalHeaderComponent/NormalHeaderComponent';
 
 
 function SignupComponent() {
@@ -77,7 +78,13 @@ function SignupComponent() {
     }
 
     return (
-        <div className="signupComponent_container">
+        <div className="signup_outer_container">
+            
+            <div className="signup_header">
+              <NormalHeaderComponent />
+            </div>
+
+            <div className="signupComponent_container">
              <div className="signup_title">
                <h2>Sign up</h2>
            </div>
@@ -99,6 +106,9 @@ function SignupComponent() {
            
             
         </div>
+
+        </div>
+       
     )
 }
 
