@@ -3,7 +3,7 @@
 }
 .searchbox-only {
   display: flex;
-  width: 20%;
+  width: 40%;
   height: 2.5rem;
   font-size: 1.4rem;
   border-radius: 6px;
@@ -61,8 +61,7 @@
 
 .answered-form-group {
   margin: auto;
-  margin: 4rem 0 8rem 0;
-
+  margin: 4rem 0 2rem 0;
   width: 100%;
 }
 
