@@ -172,7 +172,7 @@ const UnAnsweredComponent = () => {
                     {renderSwitch (answer.module_id)}
                     {' '}{answer.question}
                     <h6>Date : {answer.question_date}</h6>
-                    <h6>asked by:{}</h6>
+                    <h6>asked by:{answer.name}</h6>
                   </div>
                   <div className="UnAnswered_reply_linkH">
                     <Link to={`/replypage/${answer.id}`}>Add reply</Link>
@@ -188,66 +188,5 @@ const UnAnsweredComponent = () => {
     </div>
   );
 };
-
-//   return (
-//     <div>
-//       <div class="search-container">
-//         <div class="form1">
-//           <form>
-//             <input
-//               class="searchbox-only"
-//               name="search"
-//               type="text"
-//               onChange={handleSearch}
-//               placeholder="SEARCH HERE ..."
-//             />
-//             {/* <button class="searchbtn">SEARCH</button> */}
-//           </form>
-//         </div>
-//         <div class="form2" />
-//       </div>
-
-//       <div className="bodyContent">
-//         <h1 id="page-heading">ANSWERED QUESTIONS</h1>
-
-//         <div className="link-filter">
-//           <ul className="ul">
-//             <li className="li">
-//               {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
-//             </li>
-//             |
-//             <li className="li">
-//               {' '}<Link to="/UnAnswered"> UNANSWERED QUESTIONS </Link>
-//             </li>
-//             |
-//             <li className="li">
-//               <Link to="/allquestions">ALL QUESTIONS</Link>
-//             </li>
-//           </ul>
-
-//           <select id="moduleSelector" onChange={changeHandler}>
-//             <option value="default">FILTER BY MODULE</option>
-//             {filter.map (item => {
-//               return <option value={item.id}>{item.module}</option>;
-//             })}
-//           </select>
-//         </div>
-
-//         <div class="allquestions-container">
-//           <div class="allquestions1">
-//             {modulequestions.map (answer => (
-//               <div class="question1">
-//                 <div>
-//                   {' '}  <h3 className="answer-header">  {answer.question}</h3>
-//                 </div>
-//               </div>
-//             ))}
-
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 
 export default UnAnsweredComponent;
