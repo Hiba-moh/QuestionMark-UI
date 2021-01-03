@@ -1,12 +1,27 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import '../allQuestionsComponent/AllQuestionsComponent.css';
 import {Link, useHistory} from 'react-router-dom';
-import SelectedQuestionPage
-  from '../../pages/selectedQuestionPage/SelectedQuestionPage';
 import pdf from '../allQuestionsComponent/download.png';
+import git from '../../assets/images/Icons/git.png';
+import html from '../../assets/images/Icons/html5.png';
+import js from '../../assets/images/Icons/js.png';
+import mango from '../../assets/images/Icons/mango1.png';
+import node from '../../assets/images/Icons/nodejs.png';
+import react from '../../assets/images/Icons/react.png';
+import sql from '../../assets/images/Icons/sql.png';
+
 import jsPDF from 'jspdf';
+import Pagination from '../../components/allQuestionsComponent/Pagination';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import RateComponent from './RateComponent';
 
 const AllQuestionsComponent = () => {
+  const [loading, setLoading] = useState (false);
+  const [currentPage, setCurrentPage] = useState (1);
+  const [questionRate, setQuestionRate] = useState (0);
+  const [questionsPerPage] = useState (5);
   const [list, setList] = useState ([]);
   const [filter, setFilter] = useState ([]);
   const [modulequestions, setModulequestions] = useState ([]);
@@ -14,23 +29,19 @@ const AllQuestionsComponent = () => {
   const [qAnswers, setQAnswers] = useState ([]);
   const history = useHistory ();
   useEffect (() => {
-    fetch (`https://question-mark-api.herokuapp.com/allquestions`)
-      .then (res => {
-        console.log (res);
-        if (!res.ok) {
-          throw Error (res.status + ' _ ' + res.url);
-        }
-        return res.json ();
-      })
-      .then (data => {
-        setModulequestions (data.allquestions);
-        setList (data.allquestions);
-        setFilter (data.filter);
-        setQAnswers (data.q_answers);
-      })
-      .catch (error => {
-        console.error (error);
-      });
+    const fetchQuestions = async () => {
+      setLoading (true);
+      const res = await axios.get (
+        `https://question-mark-api.herokuapp.com/allquestions`
+      );
+
+      setModulequestions (res.data.allquestions);
+      setList (res.data.allquestions);
+      setFilter (res.data.filter);
+      setQAnswers (res.data.q_answers);
+      setLoading (false);
+    };
+    fetchQuestions ();
   }, []);
 
   const changeModulequestions = questionModuleId => {
@@ -44,7 +55,6 @@ const AllQuestionsComponent = () => {
         }
       }
       setModulequestions (filtered);
-      // console.log (modulequestions);
     }
   };
 
@@ -93,86 +103,146 @@ const AllQuestionsComponent = () => {
   };
 
   const jsPDFGenerator = () => {
-    var doc = new jsPDF ('p', 'pt');
+    var doc = new jsPDF ('L', 'pt');
 
     var i = 1;
     var j = 2;
     qAnswers.map (question => {
-      doc.text (20, 30 * i, question.question + '\n' + question.answer);
+      doc.text (20, 30, question.question + '\n' + question.answer);
       i += 2;
+      doc.addPage ('a3', 'landscape');
     });
 
     doc.setFont ('courier');
     doc.save ('AllQuestions');
   };
 
+  // if (loading) {
+  //   return <h2>loading ...</h2>;
+  // }
+
+  // get current questions
+  // index of last question
+  const indexOfLastQuestion = currentPage * questionsPerPage;
+  const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+  const currentQuestions = modulequestions.slice (
+    indexOfFirstQuestion,
+    indexOfLastQuestion
+  );
+
+  //change page
+  const paginate = pageNumber => {
+    setCurrentPage (pageNumber);
+  };
+
+  const renderSwitch = param => {
+    switch (param) {
+      case 1:
+        return <img src={git} />;
+      case 2:
+        return <img src={html} />;
+      case 3:
+        return <img src={js} />;
+      case 4:
+        return <img src={react} />;
+      case 5:
+        return <img src={node} />;
+      case 6:
+        return <img src={sql} />;
+      case 7:
+        return <img src={mango} />;
+    }
+  };
+
   return (
     <div>
-      <div class="search-container">
-        <a href="" onClick={jsPDFGenerator}>
-          <img src={pdf} />
-        </a>
-        <div class="form1">
-          <form>
-            <input
-              class="searchbox-only"
-              name="search"
-              type="text"
-              onChange={handleSearch}
-              placeholder="SEARCH HERE ... "
-            />
-            {/* <button class="searchbtn">SEARCH</button> */}
-          </form>
-        </div>
-        <div class="form2">
-          <form>
-            <button
-              class="askq-btn"
-              onClick={() => {
-                history.push ('/askquestion');
-              }}
-            >
-              ASK QUESTION
-            </button>
-          </form>
-        </div>
+      <div className="search-containerH">
+
+        <input
+          className="searchbox-onlyH"
+          name="search"
+          type="text"
+          onChange={handleSearch}
+          placeholder="SEARCH HERE ... "
+        />
+        {/* <button class="searchbtn">SEARCH</button> */}
+
+        <select id="moduleSelectorH" onChange={changeHandler}>
+          <option value="default">FILTER BY MODULE</option>
+          {filter.map ((item, index) => {
+            return <option key={index} value={item.id}>{item.module}</option>;
+          })}
+        </select>
+
       </div>
 
-      <div className="bodyContent">
-        <h1 id="page-heading">ALL QUESTIONS</h1>
+      <div className="body-containerH">
 
-        <div className="link-filter">
-          <ul className="ul">
-            <li className="li">
-              {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
-            </li>
-            |
-            <li className="li">
-              {' '}<Link to="/UnAnswered"> UNANSWERED QUESTIONS </Link>
-            </li>
-            |
-            <li className="li">
-              <Link to="/allquestions">ALL QUESTIONS</Link>
-            </li>
-          </ul>
+        <a href="" onClick={jsPDFGenerator}>
+          <img id="img-pdf" src={pdf} />
+        </a>
 
-          <select id="moduleSelector" onChange={changeHandler}>
-            <option value="default">FILTER BY MODULE</option>
-            {filter.map (item => {
-              return <option value={item.id}>{item.module}</option>;
-            })}
-          </select>
-        </div>
-        <img src="" />
-        <div class="allquestions-container">
-          <div class="allquestions1">
-            {modulequestions.map (question => (
-              <div class="question1">
-                <Link to={`/selectedquestionpage/${question.id}`}>
-                  {question.question_title}
-                </Link>
-              </div>
-            ))}
+        <div className="col-linksH" />
+        <div className="to-divide-2divs">
+          <div className="col-and-search-containerH">
+            <ul className="ulH">
+              <li className="liH">
+                {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
+              </li>
+              |
+              <li className="liH">
+                {' '}<Link to="/UnAnswered"> UNANSWERED QUESTIONS </Link>
+              </li>
+              |
+              <li className="liH">
+                {' '}<Link to="/allquestions">ALL QUESTIONS</Link>
+              </li>
+              |
+              <li className="liH">
+                <Link to="/askquestion">ASK QUESTION</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="bodyContentH">
+            <h1 id="page-headingH">ALL QUESTIONS</h1>
+            <div className="link-filterH" />
+            <img src="" />
+            <div className="allquestions-containerH">
+
+              {currentQuestions.map ((question, index) => (
+                <div key={index} className="question1H">
+                  <div key={index + 1} className="switch-q">
+
+                    {renderSwitch (question.module_id)}
+
+                    {/* {setQuestionRate(question.rate)} */}
+                    <Link
+                      key={index + 3}
+                      to={`/selectedquestionpage/${question.id}`}
+                    >
+                      {question.question_title}
+                    </Link>
+                  </div>
+                  <div className="questionDetails">
+
+                    {/* rate here */}
+                    <RateComponent keyId={question.id} rate={question.rate} />
+
+                    <h5>Views: {question.views}</h5>
+                  </div>
+                </div>
+              ))}
+
+            </div>
+
+            <div>
+              <Pagination
+                questionsPerPage={questionsPerPage}
+                totalQuestions={modulequestions.length}
+                paginate={paginate}
+              />
+
+            </div>
 
           </div>
         </div>

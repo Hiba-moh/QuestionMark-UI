@@ -1,21 +1,22 @@
-import React from 'react'
+import React from 'react';
 import './TextareaComponent.css';
 
-function TextareaComponent({subtitle, description}) {
-    return (
-        <div className="textarea_container">
-            
-            <form>
-                <div className="textarea_form_label">
-                    <label for="reply" placeholder="Title">{subtitle}</label>
-                </div>
-                    <textarea name="reply" id="reply" rows="10" cols="50" placeholder={description}></textarea>
-            
-            </form>
+function TextareaComponent({subtitle, description, answer}) {
+  return (
+    <div class= 'allsqures'>
+      <div>
+        <div id="q-titleH" placeholder="Title">{subtitle}</div>
+      </div>
 
-        </div>
-        
-    )
+      <div>
+        <dive id="q-descriptionH">{description}</dive>
+      </div>
+
+      <div id = 'q-answerH'>
+        {answer}
+      </div>
+    </div>
+  );
 }
 
-export default TextareaComponent
+export default TextareaComponent;
