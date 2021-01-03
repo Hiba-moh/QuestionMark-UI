@@ -1,8 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import '../allQuestionsComponent/AllQuestionsComponent.css';
+import '../unansweredComponent/UnAnsweredComponent.css';
 import {Link, useHistory} from 'react-router-dom';
+import Header from '../allQuestionsComponent/Header';
+import git from '../../assets/images/Icons/git.png';
+import html from '../../assets/images/Icons/html5.png';
+import js from '../../assets/images/Icons/js.png';
+import mango from '../../assets/images/Icons/mango1.png';
+import node from '../../assets/images/Icons/nodejs.png';
+import react from '../../assets/images/Icons/react.png';
+import sql from '../../assets/images/Icons/sql.png';
 
-const AllQuestionsComponent = () => {
+const UnAnsweredComponent = () => {
   const [unansweredList, setUnansweredList] = useState ([]);
   const [filter, setFilter] = useState ([]);
   const [modulequestions, setModulequestions] = useState ([]);
@@ -86,71 +94,94 @@ const AllQuestionsComponent = () => {
     setModulequestions (filtered);
   };
 
+  const renderSwitch = param => {
+    switch (param) {
+      case 1:
+        return <img src={git} />;
+      case 2:
+        return <img src={html} />;
+      case 3:
+        return <img src={js} />;
+      case 4:
+        return <img src={react} />;
+      case 5:
+        return <img src={node} />;
+      case 6:
+        return <img src={sql} />;
+      case 7:
+        return <img src={mango} />;
+    }
+  };
+
   return (
     <div>
-      <div class="search-container">
-        <div class="form1">
+      <Header />
+      <div className="Answered-side-menu" />
+      <div className=" answered-search-container">
+        <div className="form-group answered-form-group">
           <form>
-            <input
-              class="searchbox-only"
-              name="search"
-              type="text"
-              onChange={handleSearch}
-              placeholder="SEARCH HERE ..."
-            />
-            {/* <button class="searchbtn">SEARCH</button> */}
+            <div className="input-group-prepend input-group mb-3 answered-input-group">
+              <input
+                className=" searchbox-only"
+                name="search"
+                type="text"
+                onChange={handleSearch}
+                placeholder="SEARCH HERE ..."
+              />
+
+              <select id="Answered-moduleSelector" onChange={changeHandler}>
+                <option value="default">FILTER BY MODULE</option>
+                {filter.map (item => {
+                  return <option value={item.id}>{item.module}</option>;
+                })}
+              </select>
+
+            </div>
           </form>
         </div>
-        <div class="form2">
-          <form>
-            <button
-              class="askq-btn"
-              onClick={() => {
-                history.push ('/askquestion');
-              }}
-            >
-              ASK QUESTION
-            </button>
-          </form>
-        </div>
+
       </div>
+      <div className=" d-flex p-2 Answered-bodyContent">
 
-      <div className="bodyContent">
-        <h1 id="page-heading">ANSWERED QUESTIONS</h1>
-
-        <div className="link-filter">
-          <ul className="ul">
-            <li className="li">
+        <div className="Answered-side">
+          <ul className="Answered-side-ul">
+            <li className="Answered-side-li">
               {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
             </li>
             |
-            <li className="li">
+            <li className="Answered-side-li">
               {' '}<Link to="/UnAnswered"> UNANSWERED QUESTIONS </Link>
             </li>
             |
-            <li className="li">
+            <li className="Answered-side-li">
               <Link to="/allquestions">ALL QUESTIONS</Link>
             </li>
           </ul>
 
-          <select id="moduleSelector" onChange={changeHandler}>
-            <option value="default">FILTER BY MODULE</option>
-            {filter.map (item => {
-              return <option value={item.id}>{item.module}</option>;
-            })}
-          </select>
         </div>
+        <div className="Answer-question-outer2-container">
+          <h1 id="Answered-page-heading">UNANSWERED QUESTIONS</h1>
+          <div className=" Answered-question-outer-container">
+            <div className="Answered-questions-container">
 
-        <div class="allquestions-container">
-          <div class="allquestions1">
-            {modulequestions.map (answer => (
-              <div class="question1">
-                <div>
-                  {' '}  <h3 className="answer-header">  {answer.question}</h3>
+              {modulequestions.map (answer => (
+                <div className="one-UnAnswered">
+
+                  <div className="one-Answered-question">
+                    <h2>Question : </h2>
+                    {renderSwitch (answer.module_id)}
+                    {' '}{answer.question}
+                    <h6>Date : {answer.question_date}</h6>
+                    <h6>asked by:{answer.name}</h6>
+                  </div>
+                  <div className="UnAnswered_reply_linkH">
+                    <Link to={`/replypage/${answer.id}`}>Add reply</Link>
+                  </div>
+
                 </div>
-              </div>
-            ))}
+              ))}
 
+            </div>
           </div>
         </div>
       </div>
@@ -158,4 +189,4 @@ const AllQuestionsComponent = () => {
   );
 };
 
-export default AllQuestionsComponent;
+export default UnAnsweredComponent;

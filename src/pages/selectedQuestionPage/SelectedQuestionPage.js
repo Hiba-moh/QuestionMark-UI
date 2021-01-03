@@ -34,7 +34,7 @@ function SelectedQuestionPage({match}) {
         .then (data => {
           setPageData_question (data.question[0]);
           setPageData_answer (data.answer);
-          SetUpdatedViews (data.question[0].views + 1);
+          SetUpdatedViews (data.question[0].views);
         })
         .catch (error => {
           console.error (error);
@@ -46,7 +46,7 @@ function SelectedQuestionPage({match}) {
   try {
     const data4 = {
       id: id,
-      views: updatedViews,
+      views: updatedViews + 1,
     };
     const response = fetch (`https://question-mark-api.herokuapp.com/views`, {
       method: 'PUT',
