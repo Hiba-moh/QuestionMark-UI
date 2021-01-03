@@ -11,16 +11,12 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-<<<<<<< HEAD
-    "axios": "^0.21.1",
-=======
     "@tinymce/tinymce-react": "^3.8.4",
     "axios": "^0.21.1",
     "countapi-js": "^1.0.1",
     "dotenv": "^8.2.0",
     "illuminate-js": "^1.0.0-alpha.2",
     "install": "^0.13.0",
->>>>>>> f2d4cb85582c2ebc7cd60e06d2566eb4501391ac
     "jspdf": "^2.2.0",
     "moment": "^2.29.1",
     "npm": "^7.3.0",
