@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 import './AskQuestionComponent.css'
 
-function Modules({setSelectedModule})
+function Modules({setFormModule_id})
 {
     function handleClick(event)
     {
-        setSelectedModule(event.target.value)
+        setFormModule_id(event.target.value)
     }
     
     //later we will fetch the modules from database and set the modules from there.
