@@ -5,10 +5,11 @@ import Header from '../../components/allQuestionsComponent/Header';
 import countapi from 'countapi-js';
 import LeftSideMenu from '../allquestions/LeftSideMenu';
 import loginImg from '../../assets/images/login.png';
-
 import ReactHtmlParse from 'react-html-parser';
 import {addLanguage, highlight} from 'illuminate-js';
 import {javascript} from 'illuminate-js/lib/languages';
+import pdf from '../../components/allQuestionsComponent/download.png';
+import jsPDF from 'jspdf';
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
@@ -42,6 +43,27 @@ function SelectedQuestionPage({match}) {
   // countapi.visits ().then (result => {
   //   console.log (result.value);
   // });
+
+  const jsPDFGenerator = () => {
+    var doc = new jsPDF ('L', 'pt');
+    doc.text (120, 30, 'Question:');
+    doc.text (
+      30,
+      60,
+      pageData_question.question + '\n' + pageData_question.answer
+    );
+
+    doc.addPage ();
+    doc.text (120, 30, 'Answers:');
+    for (let i = 0; i < pageData_answer.length; i++) {
+      doc.text (30, 60, pageData_answer[i].answer);
+      doc.addPage ();
+    }
+
+    doc.save ('AllQuestions');
+    doc.setFont ('courier');
+  };
+
   return (
     <div>
       <Header />
@@ -57,6 +79,10 @@ function SelectedQuestionPage({match}) {
           </div>
           <div className="selectedQuestionAndAnswers">
             <div className="askedBy-NoAnswers-Reply">
+
+              <a href="" onClick={jsPDFGenerator}>
+                <img id="selected-question-pdf" src={pdf} />
+              </a>
 
               <div id="q-title-answersNo">
                 <div>Asked by: {pageData_question.name}</div>
@@ -81,7 +107,7 @@ function SelectedQuestionPage({match}) {
                   <div key={index} className="answer-details">
                     <div id="pAnswers"> {ReactHtmlParse (answer.answer)}</div>
                     <h6>{answer.answer_date}</h6>
-                    <h6>answered by:</h6>
+                    <h6>answered by: {answer.name}</h6>
                     <hr id="hrBreak" />
                   </div>
                 ))}

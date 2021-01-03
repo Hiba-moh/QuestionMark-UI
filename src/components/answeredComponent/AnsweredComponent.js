@@ -10,6 +10,8 @@ import node from '../../assets/images/Icons/nodejs.png';
 import react from '../../assets/images/Icons/react.png';
 import sql from '../../assets/images/Icons/sql.png';
 
+
+
 const AllQuestionsComponent = () => {
   const [answeredList, setAnsweredList] = useState ([]);
   const [filter, setFilter] = useState ([]);
