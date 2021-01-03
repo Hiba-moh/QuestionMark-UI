@@ -15,6 +15,7 @@ function SelectedQuestionPage({match}) {
   const id = match.params.id;
   const [pageData_question, setPageData_question] = useState ({});
   const [pageData_answer, setPageData_answer] = useState ([]);
+  const [updatedViews, SetUpdatedViews] = useState (0);
 
   addLanguage ('javascript', javascript);
   addLanguage ('js', javascript);
@@ -33,6 +34,7 @@ function SelectedQuestionPage({match}) {
         .then (data => {
           setPageData_question (data.question[0]);
           setPageData_answer (data.answer);
+          SetUpdatedViews (data.question[0].views + 1);
         })
         .catch (error => {
           console.error (error);
@@ -40,6 +42,23 @@ function SelectedQuestionPage({match}) {
     },
     [match]
   );
+
+  try {
+    const data4 = {
+      id: id,
+      views: updatedViews,
+    };
+    const response = fetch (`https://question-mark-api.herokuapp.com/views`, {
+      method: 'PUT',
+      body: JSON.stringify (data4),
+      mode: 'cors',
+      headers: {'Content-Type': 'application/json'},
+    });
+    console.log (response);
+  } catch (err) {
+    console.error (err);
+  }
+
   // countapi.visits ().then (result => {
   //   console.log (result.value);
   // });
@@ -85,9 +104,10 @@ function SelectedQuestionPage({match}) {
               </a>
 
               <div id="q-title-answersNo">
-                <div>Asked by: {pageData_question.name}</div>
                 <div>Date: {pageData_question.question_date}</div>
                 <div>NO.Answers: {pageData_question.answers} </div>
+                <div>Likes: {pageData_question.rate}</div>
+                <div>Views: {pageData_question.views}</div>
 
               </div>
               <div className="selected_reply_linkH">
@@ -99,6 +119,7 @@ function SelectedQuestionPage({match}) {
             <div id="q-descriptionH">
               <h3>The Question:</h3>
               <div>{pageData_question.question}</div>
+              <h6>Asked by: {pageData_question.name}</h6>
             </div>
             {pageData_question.answers > 0 &&
               <div id="q-answerH">
@@ -107,7 +128,7 @@ function SelectedQuestionPage({match}) {
                   <div key={index} className="answer-details">
                     <div id="pAnswers"> {ReactHtmlParse (answer.answer)}</div>
                     <h6>{answer.answer_date}</h6>
-                    <h6>answered by: {answer.name}</h6>
+                    <h6>Answered by: {answer.name}</h6>
                     <hr id="hrBreak" />
                   </div>
                 ))}

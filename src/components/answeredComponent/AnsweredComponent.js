@@ -9,8 +9,8 @@ import mango from '../../assets/images/Icons/mango1.png';
 import node from '../../assets/images/Icons/nodejs.png';
 import react from '../../assets/images/Icons/react.png';
 import sql from '../../assets/images/Icons/sql.png';
-
-
+import pdf from '../allQuestionsComponent/download.png';
+import jsPDF from 'jspdf';
 
 const AllQuestionsComponent = () => {
   const [answeredList, setAnsweredList] = useState ([]);
