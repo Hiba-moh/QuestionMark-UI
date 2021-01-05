@@ -41,7 +41,7 @@ const UserAnswered = () => {
   //get all the questions been answered by specific user by id
 
   const answersList = async () => {
-    const res = await fetch`https://question-mark-api.herokuapp.com/userAnswers/${idNumber}`;
+    const res = await fetch`https://question-mark-api.herokuapp.com/userAnswers/1`;
 
     const resArray = await res.json ();
     SetUserAnswers (resArray);
