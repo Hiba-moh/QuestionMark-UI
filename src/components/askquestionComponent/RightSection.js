@@ -5,7 +5,7 @@ import Modules from './Modules';
 
 // What I need to fix in this is the user_id with useParams react hook and actually send the data with heroku link using fetch1
 
-function RightSection()
+function RightSection({userID})
 {
     // This is a state variable which will store the value selected from drop down menu and then it will be sent to post request.
     // let [selectedModule,setSelectedModule]=useState("");
@@ -16,7 +16,7 @@ function RightSection()
     let [formTitle,setFormTitle]=useState("");
     let [formQues,setFormQues]=useState("");
     let [formModule_id,setFormModule_id]=useState(1);
-    let [formUsers_id,setFormUsers_id]=useState(1); // this I need to tale using react hook useParams.
+    let [formUsers_id,setFormUsers_id]=useState(userID); 
     let [formQues_date,setFormQues_date]=useState(today); 
     let [formAnswers,setFormAnswers]=useState(0);
 
@@ -72,9 +72,9 @@ function RightSection()
             <div className="first-section">
                 <h1 className="heading">Ask Question</h1>
                 
-                <Link to="/allquestions"> 
+                {/* <Link to="/allquestions"> 
                   <button className="logout-btn">Logout</button>
-                </Link>
+                </Link> */}
             </div>
             {displayForm?
                 <form className="second-section" onSubmit={submitted}>
