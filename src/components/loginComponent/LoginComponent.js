@@ -53,7 +53,7 @@ function LoginComponent (props) {
         console.error (e);
       });
   };
-console.log(idNumber);
+//console.log(idNumber);
   const handleLogUsername = e => {
     setLogUsername (e.target.value);
   };
