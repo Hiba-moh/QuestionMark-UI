@@ -1,13 +1,20 @@
 import React, {Fragment} from 'react';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import Header from '../../components/allQuestionsComponent/Header';
 import Footer from '../../components/footerComponent/Footer';
 import userAnswered from '../replyComponent/userAnswered.css';
 import ReactHtmlParse from 'react-html-parser';
 import EditAnswer from './EditAnswer';
+import {AuthContext} from '../../AuthContext';
 
 const UserAnswered = () => {
   // const id = match.params.id;
+
+  const {isAuth, greet, idNumber} = useContext (AuthContext);
+  const [isAuthValue, setIsAuthValue] = isAuth;
+  const [greetValue, setGreetValue] = greet;
+  const [idNumberValue, setIdNumberValue] = idNumber;
+
   const [userAnswers, SetUserAnswers] = useState ([]);
 
   //delete answer function
@@ -31,8 +38,10 @@ const UserAnswered = () => {
     }
   };
 
+  //get all the questions been answered by specific user by id
+
   const answersList = async () => {
-    const res = await fetch`https://question-mark-api.herokuapp.com/userAnswers/1`;
+    const res = await fetch`https://question-mark-api.herokuapp.com/userAnswers/${idNumber}`;
 
     const resArray = await res.json ();
     SetUserAnswers (resArray);
@@ -47,7 +56,7 @@ const UserAnswered = () => {
       <div className="userAnswersContainer">
         <Header />
         <div className="userAnswersBodyContainer">
-          <h1>Questions Answered By You</h1>
+          <h1>Questions Answered By You {greet}</h1>
           <table className="table table-responsive table-striped table-striped mt-5">
             <thead>
               <tr>
