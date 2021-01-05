@@ -23,6 +23,11 @@ function AskQuestionQuestion()
     const [greetValue, setGreetValue] = greet; 
     const [idNumberValue, setIdNumberValue] = idNumber;
 
+    const [fetchedAnsQues,setFetchedAnsQues]=useState();
+    const [fetchedUnAnsQues,setFetchedUnAnsQues]= useState();
+    const [fetchedName, setFetchedName]=useState("");
+
+    console.log(idNumber[0])
     // This is used to bring the slider from the side. If it is true then we render the slider on the page (Overlay slider)
     const [expand,setExpand]=useState(false);
 
@@ -40,25 +45,34 @@ function AskQuestionQuestion()
     // This is the classname given to overlay Content, if expand variable is true then we give it a class with width as 100% which make the slider visible.
     let overlayclass="";
 
+
+
+    fetch(`https://question-mark-api.herokuapp.com/ask-question/${idNumber[0]}`)
+    .then(data=>data.json())
+    .then(data=>{
+        setFetchedName(data.name[0].name)
+        setFetchedAnsQues(data.answeredQuestions) // array of objects
+        setFetchedUnAnsQues(data.unAnsweredQuestions) // array of objects
+        console.log(data.answeredQuestions)
+    })
+    .catch(error=>console.log(error))
+
     // This is the object of the user that has logged in, we will extract user's information and then use it.
-    // We will have to make another function to fetch from API and then store that users data into an object and return it and use it here.
-    let user={}; // this is the object that we will update after fetching from api
-    user.name="iron man";
-    user.answeredQues=["How to use javascript","How to start node","How to start node","How to start node","How to start node"];
-    user.unAnsweredQues=["How to use sql","How to start React","How to start React","How to start React","How to start React"];
+    let user={};
+    user.name=fetchedName;
 
     // These functions set the arrays , data taken from the api will be copied into these state Variable which will then be sent to list of questions component.
     function setAnsweredQUes()
     {
         setSelectedOption("Answered Questions");
         setExpand(true);
-        setListOfQues(user.answeredQues);
+        setListOfQues(fetchedAnsQues);
     }
     function setUnAnsweredQues()
     {
         setSelectedOption("Unanswered Questions");
         setExpand(true);
-        setListOfQues(user.unAnsweredQues);
+        setListOfQues(fetchedUnAnsQues);
     }
 
     // If expand variable is true then we choose the class which has width as 100%, it makes the slider visible on the screen.

@@ -90,7 +90,7 @@ function RightSection()
                 </form>
                 :
                 <div className="ask-another-question-container">
-                    <h1 className="question-posted-heading">Congratulations! </h1>
+                    <h1 className="question-posted-heading">THANK YOU! </h1>
                     <p className="question-posted-message">Your question has been posted! You Will recieve an email when someone responds to your question.</p>
                     <button className="ask-another-question-btn" onClick={askAnother}>Ask Another Question</button>
                 </div>
