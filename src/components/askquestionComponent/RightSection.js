@@ -20,11 +20,6 @@ function RightSection()
     let [formQues_date,setFormQues_date]=useState(today); 
     let [formAnswers,setFormAnswers]=useState(0);
 
-   
-
-    console.log(today)
-
-
     const detailsOfQues={
 
         title:          formTitle,
@@ -51,11 +46,9 @@ function RightSection()
     //in this function I should update all the values and call the fetch to submit the data.
     function submitted(e)
     {
-        // console.log("-------------------")
-        // console.log(detailsOfQues);
-        // console.log("-------------------")
         e.preventDefault();
-        fetch("http://localhost:3000/ask-question",options)
+        fetch("https://question-mark-api.herokuapp.com/ask-question",options) // once the changes have been pushed use this fetch to send to heroku url
+        // fetch("http://localhost:3000/ask-question",options)
         .then(data=>data.json())
         .then(data=>console.log(data))
         .catch(error=>console.log(error))

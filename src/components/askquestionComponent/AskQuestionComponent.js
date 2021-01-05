@@ -1,9 +1,12 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import ListOfQuestions from "./ListOfQuestions"
 import './AskQuestionComponent.css'
 import LeftSection from './LeftSection';
 import RightSection from './RightSection';
 import Footer from '../footerComponent/Footer';
+
+import {withRouter} from 'react-router-dom';
+import {AuthContext} from '../../AuthContext';
 import Axios from "axios";
 // import Footer from './components/footerComponent/Footer';
 
@@ -14,6 +17,12 @@ import Axios from "axios";
 // fetch data from heroku app for the whole page.
 function AskQuestionQuestion()
 {
+
+    const {isAuth, greet, idNumber} = useContext(AuthContext); 
+    const [isAuthValue, setIsAuthValue] = isAuth;
+    const [greetValue, setGreetValue] = greet; 
+    const [idNumberValue, setIdNumberValue] = idNumber;
+
     // This is used to bring the slider from the side. If it is true then we render the slider on the page (Overlay slider)
     const [expand,setExpand]=useState(false);
 
@@ -34,7 +43,7 @@ function AskQuestionQuestion()
     // This is the object of the user that has logged in, we will extract user's information and then use it.
     // We will have to make another function to fetch from API and then store that users data into an object and return it and use it here.
     let user={}; // this is the object that we will update after fetching from api
-    user.name="Iron Man"
+    user.name="iron man";
     user.answeredQues=["How to use javascript","How to start node","How to start node","How to start node","How to start node"];
     user.unAnsweredQues=["How to use sql","How to start React","How to start React","How to start React","How to start React"];
 
@@ -68,4 +77,4 @@ function AskQuestionQuestion()
     )
 }
 
-export default AskQuestionQuestion;
+export default withRouter (AskQuestionQuestion);
