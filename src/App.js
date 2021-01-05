@@ -18,6 +18,7 @@ import ProtectedRoutes from './components/protectedRoutes/ProtectedRoute';
 import {AuthProvider, AuthContext} from './AuthContext';
 import UserAsked from './components/replyComponent/UserAsked';
 import UserAnswered from './components/replyComponent/UserAnswered';
+import Profile from './components/ProfileComponent/Profile';
 
 function App () {
   //const [isAuth, setIsAuth] = useState(true);
@@ -36,6 +37,7 @@ function App () {
           {/* <Route path="/replypage" component={ReplyPage} /> */}
           {/* <Route path="/selectedquestionpage" component={SelectedQuestionPage} /> */}
           <ProtectedRoutes path="/allquestions" component={AllQuestions} />
+          <ProtectedRoutes path="/profile" component={Profile} />;
           <ProtectedRoutes path="/answered" component={Answered} />
           <ProtectedRoutes path="/unAnswered" component={UnAnswered} />
           <ProtectedRoutes path="/UserAsked" component={UserAsked} />

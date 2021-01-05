@@ -13,6 +13,10 @@ import '../../components/replyComponent/UserAnswered';
 import '../../components/replyComponent/UserAsked';
 import {withRouter, useHistory} from 'react-router-dom';
 import {AuthContext} from '../../AuthContext';
+import ReactFile from '../../components/ProfileComponent/ReactFile';
+import SQL from '../../components/ProfileComponent/SQL';
+import Js from '../../components/ProfileComponent/JS';
+import HTML from '../../components/ProfileComponent/HTML';
 
 function ReplyPage({match}) {
   const id = match.params.id;
@@ -60,9 +64,9 @@ function ReplyPage({match}) {
         ],
       }
     );
-    // res.status === 200
-    //   ? alert ('Sent Slack notification...')
-    //   : alert ('Error sending message');
+    res.status === 200
+      ? alert ('Sent Slack notification...')
+      : alert ('Error sending message');
   }
 
   const onSubmitForm = e => {
@@ -128,76 +132,27 @@ function ReplyPage({match}) {
   // };
 
   const renderRepl = subject => {
-    console.log (subject);
     switch (subject) {
       case 1:
         return '';
       case 2:
-        return (
-          <iframe
-            height="100%"
-            width="100%"
-            src="https://repl.it/@HibaMohammed/HTMLCSSJS?lite=true"
-            scrolling="no"
-            frameborder="no"
-            allowtransparency="true"
-            allowfullscreen="true"
-            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
-          />
-        );
+        return <HTML />;
+        break;
       case 3:
-        return (
-          <iframe
-            height="100%"
-            width="100%"
-            src="https://repl.it/@HibaMohammed/JavaScript?lite=true"
-            scrolling="no"
-            frameborder="no"
-            allowtransparency="true"
-            allowfullscreen="true"
-            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
-          />
-        );
+        return <Js />;
+        break;
       case 4:
-        return (
-          <iframe
-            height="100%"
-            width="100%"
-            src="https://repl.it/@HibaMohammed/Empty-react?lite=true"
-            scrolling="no"
-            frameborder="no"
-            allowtransparency="true"
-            allowfullscreen="true"
-            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
-          />
-        );
+        return <ReactFile />;
+        break;
       case 5:
-        return (
-          <iframe
-            height="100%"
-            width="100%"
-            src="https://repl.it/@HibaMohammed/Nodejs?lite=true"
-            scrolling="no"
-            frameborder="no"
-            allowtransparency="true"
-            allowfullscreen="true"
-            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
-          />
-        );
+        return <Node />;
+        break;
       case 6:
-        return (
-          <iframe
-            height="100%"
-            width="100%"
-            src="https://repl.it/@HibaMohammed/SQLite?lite=true"
-            scrolling="no"
-            frameborder="no"
-            allowtransparency="true"
-            allowfullscreen="true"
-            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
-          />
-        );
+        return <SQL />;
+        break;
       case 7:
+        return '';
+      default:
         return '';
     }
   };
@@ -205,22 +160,10 @@ function ReplyPage({match}) {
   return (
     <div className="ReplyPageContainer">
       <Header />
-      <h3>You can Use this REPL IDE to debug your code: </h3>
-
       <div className="reply-container">
         {/* <SidebarComponent /> */}
         <div id="runTime">
           {renderRepl (questionReply.module_id)}
-          {/* <iframe
-            height="100%"
-            width="100%"
-            src="https://repl.it/@HibaMohammed/HTMLCSSJS?lite=true"
-            scrolling="no"
-            frameborder="no"
-            allowtransparency="true"
-            allowfullscreen="true"
-            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
-          /> */}
 
         </div>
         <div className="replyBody">
@@ -236,7 +179,6 @@ function ReplyPage({match}) {
           </h2>
           <form id="ReplyForm" onSubmit={onSubmitForm}>
             <label htmlFor="QuestionReply">Add your reply here ...</label>
-
             <TextEditor SetAnswer={SetAnswer} />
 
             {/* <textarea
