@@ -4,8 +4,14 @@ import './AskQuestionComponent.css'
 import LeftSection from './LeftSection';
 import RightSection from './RightSection';
 import Footer from '../footerComponent/Footer';
+import Axios from "axios";
 // import Footer from './components/footerComponent/Footer';
 
+
+//what is left in this component 
+//is send data to heroku link, it is working on localhost just change that to heroku link.
+// Take the users id using useParams react hook.
+// fetch data from heroku app for the whole page.
 function AskQuestionQuestion()
 {
     // This is used to bring the slider from the side. If it is true then we render the slider on the page (Overlay slider)
@@ -21,6 +27,7 @@ function AskQuestionQuestion()
         setExpand(false);
     }
 
+    
     // This is the classname given to overlay Content, if expand variable is true then we give it a class with width as 100% which make the slider visible.
     let overlayclass="";
 

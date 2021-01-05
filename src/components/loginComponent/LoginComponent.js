@@ -46,6 +46,7 @@ function LoginComponent (props) {
           setFailedLoginMessage (data.message);
         } else {
           setIdNumberValue(data.user_id);
+          setGreetValue(data.message);
           history.push ('/allquestions');
         }
       })

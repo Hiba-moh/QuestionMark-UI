@@ -13,6 +13,10 @@ import '../../components/replyComponent/UserAnswered';
 import '../../components/replyComponent/UserAsked';
 import {withRouter, useHistory} from 'react-router-dom';
 import {AuthContext} from '../../AuthContext';
+import ReactFile from '../../components/ProfileComponent/ReactFile';
+import SQL from '../../components/ProfileComponent/SQL';
+import Js from '../../components/ProfileComponent/JS';
+import HTML from '../../components/ProfileComponent/HTML';
 
 function ReplyPage({match}) {
   const id = match.params.id;
@@ -27,70 +31,78 @@ function ReplyPage({match}) {
 
   const questionToReplyById = axios
     .get (`https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`)
-    .then (response => SetQuestionReply (response.data.question[0].question))
+    .then (response => SetQuestionReply (response.data.question[0]))
     .catch (error => console.log (error));
 
-    const data1 = {
-          channel: "#questionmark_forum",
-          attachments: [{
-              color: "danger",
-              fields: [{
-                  title: "Question No.5007 username: @user Topic: TESTING123",
-                  value: "Your question has a reply. Please sign in to the question forum to check your answer.",
-                  short: false
-              }]
-          }]
+  const data1 = {
+    channel: '#questionmark_forum',
+    attachments: [
+      {
+        color: 'danger',
+        fields: [
+          {
+            title: 'Question No.5007 username: @user Topic: TESTING123',
+            value: 'Your question has a reply. Please sign in to the question forum to check your answer.',
+            short: false,
+          },
+        ],
+      },
+    ],
+  };
+
+  async function handleSlackMessage () {
+    let res = await axios.post (
+      process.env.REACT_APP_API_KEY,
+      JSON.stringify (data1),
+      {
+        withCredentials: false,
+        transformRequest: [
+          (data, headers) => {
+            delete headers.post['Content-Type'];
+            return data;
+          },
+        ],
       }
-      
-      async function handleSlackMessage(){
-          let res = await axios.post(process.env.REACT_APP_API_KEY, JSON.stringify(data1), {
-              withCredentials: false,
-              transformRequest: [(data, headers) => {
-                  delete headers.post["Content-Type"]
-                  return data;
-              }]
-          })
-          res.status === 200 ? (alert('Sent Slack notification...')):(alert('Error sending message'));
-          
-       
-      }
+    );
+    res.status === 200
+      ? alert ('Sent Slack notification...')
+      : alert ('Error sending message');
+  }
 
-      const onSubmitForm = (e) => {
-        e.preventDefault();
+  const onSubmitForm = e => {
+    e.preventDefault ();
 
-        const data = {
-                question_id: id,
-                reply: answer,
-                user_id: 1,
-                date: moment ().format ('YYYY/MM/DD'),
-              };
+    const data = {
+      question_id: id,
+      reply: answer,
+      user_id: 1,
+      date: moment ().format ('YYYY/MM/DD'),
+    };
 
-              fetch('https://question-mark-api.herokuapp.com/replypage', {
-                method: 'POST',
-                        body: JSON.stringify (data),
-                        mode: 'cors',
-                        // cache: 'no-cache',
-                        headers: {'Content-Type': 'application/json'},
-
-              })
-              .then(response => {
-                return response.json();
-              })
-              .then(data => {
-                console.log(data.answer);
-                if(data.answer){
-                  handleSlackMessage();
-                  history.push('/allquestions');
-                }else{
-                  alert('Oops, something went wrong!');
-                  history.push('/allquestions');
-                }
-              })
-              .catch(err => {
-                console.error(err);
-              })
-
-      }
+    fetch ('https://question-mark-api.herokuapp.com/replypage', {
+      method: 'POST',
+      body: JSON.stringify (data),
+      mode: 'cors',
+      // cache: 'no-cache',
+      headers: {'Content-Type': 'application/json'},
+    })
+      .then (response => {
+        return response.json ();
+      })
+      .then (data => {
+        console.log (data.answer);
+        if (data.answer) {
+          handleSlackMessage ();
+          history.push ('/allquestions');
+        } else {
+          alert ('Oops, something went wrong!');
+          history.push ('/allquestions');
+        }
+      })
+      .catch (err => {
+        console.error (err);
+      });
+  };
 
   // const onSubmitForm = async e => {
   //   // e.preventDefault ();
@@ -119,24 +131,54 @@ function ReplyPage({match}) {
   //   }
   // };
 
+  const renderRepl = subject => {
+    switch (subject) {
+      case 1:
+        return '';
+      case 2:
+        return <HTML />;
+        break;
+      case 3:
+        return <Js />;
+        break;
+      case 4:
+        return <ReactFile />;
+        break;
+      case 5:
+        return <Node />;
+        break;
+      case 6:
+        return <SQL />;
+        break;
+      case 7:
+        return '';
+      default:
+        return '';
+    }
+  };
 
   return (
     <div className="ReplyPageContainer">
       <Header />
       <div className="reply-container">
-        <SidebarComponent />
+        {/* <SidebarComponent /> */}
+        <div id="runTime">
+          {renderRepl (questionReply.module_id)}
+
+        </div>
         <div className="replyBody">
           <h2>
             Reply to the question:
             {' '}
             <div>
               {' '}
-              <h4><small className="text-muted">{questionReply}</small></h4>
+              <h4>
+                <small className="text-muted">{questionReply.question}</small>
+              </h4>
             </div>
           </h2>
           <form id="ReplyForm" onSubmit={onSubmitForm}>
             <label htmlFor="QuestionReply">Add your reply here ...</label>
-
             <TextEditor SetAnswer={SetAnswer} />
 
             {/* <textarea
@@ -157,5 +199,3 @@ function ReplyPage({match}) {
 }
 
 export default withRouter (ReplyPage);
-
-
