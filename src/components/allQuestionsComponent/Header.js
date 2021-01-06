@@ -35,6 +35,11 @@ function Header () {
           </Link>
         </li>
         <li className="lined-list">
+          <Link to="/profile">
+            Profile
+          </Link>
+        </li>
+        <li className="lined-list">
           <Link to="/" onClick={() => setIsAuthValue (false)}>
 
             Logout
@@ -43,7 +48,7 @@ function Header () {
       </ul>
 
     </div>
-  )
+  );
 }
 
-export default withRouter (Header)
+export default withRouter (Header);
