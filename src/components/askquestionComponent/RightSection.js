@@ -5,7 +5,7 @@ import Modules from './Modules';
 
 // What I need to fix in this is the user_id with useParams react hook and actually send the data with heroku link using fetch1
 
-function RightSection()
+function RightSection({userID})
 {
     // This is a state variable which will store the value selected from drop down menu and then it will be sent to post request.
     // let [selectedModule,setSelectedModule]=useState("");
@@ -16,14 +16,9 @@ function RightSection()
     let [formTitle,setFormTitle]=useState("");
     let [formQues,setFormQues]=useState("");
     let [formModule_id,setFormModule_id]=useState(1);
-    let [formUsers_id,setFormUsers_id]=useState(1); // this I need to tale using react hook useParams.
+    let [formUsers_id,setFormUsers_id]=useState(userID); 
     let [formQues_date,setFormQues_date]=useState(today); 
     let [formAnswers,setFormAnswers]=useState(0);
-
-   
-
-    console.log(today)
-
 
     const detailsOfQues={
 
@@ -51,11 +46,9 @@ function RightSection()
     //in this function I should update all the values and call the fetch to submit the data.
     function submitted(e)
     {
-        // console.log("-------------------")
-        // console.log(detailsOfQues);
-        // console.log("-------------------")
         e.preventDefault();
-        fetch("http://localhost:3000/ask-question",options)
+        fetch("https://question-mark-api.herokuapp.com/ask-question",options) // once the changes have been pushed use this fetch to send to heroku url
+        // fetch("http://localhost:3000/ask-question",options)
         .then(data=>data.json())
         .then(data=>console.log(data))
         .catch(error=>console.log(error))
@@ -79,9 +72,9 @@ function RightSection()
             <div className="first-section">
                 <h1 className="heading">Ask Question</h1>
                 
-                <Link to="/allquestions"> 
+                {/* <Link to="/allquestions"> 
                   <button className="logout-btn">Logout</button>
-                </Link>
+                </Link> */}
             </div>
             {displayForm?
                 <form className="second-section" onSubmit={submitted}>
@@ -97,7 +90,7 @@ function RightSection()
                 </form>
                 :
                 <div className="ask-another-question-container">
-                    <h1 className="question-posted-heading">Congratulations! </h1>
+                    <h1 className="question-posted-heading">THANK YOU! </h1>
                     <p className="question-posted-message">Your question has been posted! You Will recieve an email when someone responds to your question.</p>
                     <button className="ask-another-question-btn" onClick={askAnother}>Ask Another Question</button>
                 </div>
