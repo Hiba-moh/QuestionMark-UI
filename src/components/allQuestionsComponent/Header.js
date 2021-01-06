@@ -12,7 +12,7 @@ function Header () {
   const [greetValue, setGreetValue] = greet; //equvilent to setGreet
   const [idNumberValue, setIdNumberValue] = idNumber;
 
-  console.log (isAuth);
+  //console.log (isAuth);
   return (
     <div className="header_containerH">
 
