@@ -156,6 +156,10 @@ const UnAnsweredComponent = () => {
             <li className="Answered-side-li">
               <Link to="/allquestions">ALL QUESTIONS</Link>
             </li>
+            |
+            <li className="Answered-side-li">
+              <Link to="/askquestion">ASK QUESTION</Link>
+            </li>
           </ul>
 
         </div>
