@@ -1,0 +1,54 @@
+.profilePageContainer {
+  background-color: #d12f2f;
+}
+.profile-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.profileBody {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: #f5f5f5;
+}
+.profileChoices {
+  color: white;
+  width: 12rem;
+  height: 12rem;
+  background-color: #d12f2f;
+  border-radius: 50%;
+  text-align: center;
+  padding: 5rem 0;
+  margin-bottom: 4rem;
+}
+.profileChoices:hover {
+  background-color: #575757;
+  color: white;
+  cursor: pointer;
+}
+.profileChoices h4 {
+  color: inherit;
+  margin: auto;
+}
+
+#profileChoicesContainer {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 30%;
+  min-width: 12rem;
+  height: 50%;
+  text-align: center;
+  margin-top: 8rem;
+}
+#right-side {
+  width: 12%;
+  height: 100%;
+  background-color: #575757;
+}

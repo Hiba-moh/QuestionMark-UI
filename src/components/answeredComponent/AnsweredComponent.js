@@ -11,6 +11,7 @@ import react from '../../assets/images/Icons/react.png';
 import sql from '../../assets/images/Icons/sql.png';
 import pdf from '../allQuestionsComponent/download.png';
 import jsPDF from 'jspdf';
+import ReactHtmlParse from 'react-html-parser';
 
 const AllQuestionsComponent = () => {
   const [answeredList, setAnsweredList] = useState ([]);
@@ -160,6 +161,10 @@ const AllQuestionsComponent = () => {
             <li className="Answered-side-li">
               <Link to="/allquestions">ALL QUESTIONS</Link>
             </li>
+            |
+            <li className="Answered-side-li">
+              <Link to="/askquestion">ASK QUESTION</Link>
+            </li>
           </ul>
 
         </div>
@@ -181,7 +186,7 @@ const AllQuestionsComponent = () => {
 
                   <div className="one-Answered-answer">
                     <h2>Answer: </h2>
-                    {' '}{answer.answer}
+                    {' '}{ReactHtmlParse (answer.answer)}
                     <h6>Date : {answer.answer_date}</h6>
                     {/* <h6>answered by:</h6> */}
                   </div>
