@@ -1,6 +1,6 @@
-import React,{useState,useContext} from 'react';
-import ListOfQuestions from "./ListOfQuestions"
-import './AskQuestionComponent.css'
+import React, {useState, useContext} from 'react';
+import ListOfQuestions from './ListOfQuestions';
+import './AskQuestionComponent.css';
 import LeftSection from './LeftSection';
 import RightSection from './RightSection';
 import Footer from '../footerComponent/Footer';
@@ -87,6 +87,7 @@ function AskQuestionQuestion()
         </div>
     
     )
+
 }
 
 export default withRouter (AskQuestionQuestion);
