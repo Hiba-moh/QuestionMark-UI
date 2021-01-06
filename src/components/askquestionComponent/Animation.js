@@ -9,7 +9,7 @@ function Animation()
             <div className="animation-text">
               Welcome to CYF Q/A Platform
             </div>
-            <p className="slide-line">____________________</p>
+            <p className="slide-line">_____________________</p>
         </div>
     )
 }

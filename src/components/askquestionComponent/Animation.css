@@ -8,11 +8,16 @@
 
 
   @keyframes slidingLine {
-    0%   {left:250px;  visibility: hidden;}
-    25%  {left:200px; }
-    85%  { left:150px;}
-    93% {left:100px;}
-    100% { left:80px;}
+    0%   {left:500px;  visibility: hidden;}
+    20%  {left:450px; }
+    30%  {left:400px; }
+    40%  {left:350px; }
+    50%  {left:300px; }
+    60%  {left:250px; }
+    70%  {left:200px; }
+    80%  {left:150px; }
+    90%  {left:100px; }
+    100%  {left:40px; }
     }
   
 .slide-line
@@ -21,10 +26,8 @@
   position: relative;
   color:rgb(238, 40, 40);
   animation-name: slidingLine;
-  animation-duration: 2s;
-  /* animation-delay: 4s; */
+  animation-duration: 3s;
   margin:0em auto;
-  /* left:20px; */
   text-align: center;
 }
 
@@ -35,7 +38,7 @@
     position: relative;
     color:rgb(238, 40, 40);
     animation-name: heading;
-    animation-duration: 2.5s;
+    animation-duration: 3s;
     text-align: center;
     width:60%;
     margin:0 auto;
