@@ -7,8 +7,7 @@ function LeftSection({overlayclass,closeNav,selectedOption,listOfQues,user,setAn
     return(
          <div className="left-section">
             <div id="myNav" class={overlayclass}>
-            
-            <button className="closebtn" onClick={closeNav}>&times;</button>
+                <button className="closebtn" onClick={closeNav}>&times;</button>
                 <div className="overlay-content">
                     <h1>List of {selectedOption} </h1>
                     <ListOfQuestions questions={listOfQues} />
