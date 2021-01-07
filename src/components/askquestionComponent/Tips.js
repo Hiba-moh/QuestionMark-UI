@@ -29,6 +29,13 @@ function Tips()
                 <button className="closebtn" onClick={closeNav}>&times;</button>
                 <div className="overlay-content">
                     <h1>Tips for a good ques hahah</h1>
+                    <ul>
+                        <li className="tip"> Explain your question Title clearly </li>
+                        <li className="tip"> Select the right module for your question</li>
+                        <li className="tip"> Explain what you have tried alread</li>
+                        <li className="tip"> Do not forget to paste your code </li>
+                        <li className="tip"> Paste the errors that your code is having</li>
+                    </ul>
                     <p></p>
                 </div>
             </div>

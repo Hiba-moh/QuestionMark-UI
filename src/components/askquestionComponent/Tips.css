@@ -40,6 +40,20 @@
     border:none;
 }
 
+.tips-text:hover{
+    color:rgb(18, 217, 243);
+}
+
+.tip{
+    font: 2rem ubuntu,Verdana,Arial,sans-serif;
+    /* background-color: cornsilk; */
+}
+
+
+
+
+
+
 
 
 /* =======================================================
