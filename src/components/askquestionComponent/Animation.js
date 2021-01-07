@@ -4,12 +4,11 @@ import './Animation.css'
 function Animation()
 {
     return(
-        <div>
-        
+        <div className="animation-heading-container">
             <div className="animation-text">
               Welcome to CYF Q/A Platform
             </div>
-            <p className="slide-line">_____________________</p>
+            <p className="slide-line">_______________</p>
         </div>
     )
 }

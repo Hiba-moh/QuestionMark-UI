@@ -1,16 +1,23 @@
-@keyframes heading {
+/* @keyframes heading {
   0%   {background-color:rgb(155, 148, 148); color:white;left:0px;}
   25%  {background-color:rgb(168, 150, 150); color:rgb(238, 64, 64);left:10px;}
   85%  {background-color:rgb(248, 191, 191); color:rgb(243, 71, 71); left:20px;}
   93% {background-color:rgb(252, 235, 235); color:rgb(236, 12, 12); left:30px;}
   100% {background-color:rgb(255, 255, 255); color:rgb(235, 39, 39); left:40px;}
-  }
+  } */
 
-
+/* 
   @keyframes slidingLine {
     0%   {left:500px;  visibility: hidden;}
     100%  {left:40px; }
     }
+   */
+
+@keyframes slidingLine {
+  0%   {color:rgba(218, 28, 28, 0.2);}
+  50%   {color:rgba(218, 28, 28, 0.4);}
+  100%  {color:rgba(218, 28, 28, 0.9);}
+}
   
 .slide-line
 {
@@ -18,7 +25,7 @@
   position: relative;
   color:rgb(238, 40, 40);
   animation-name: slidingLine;
-  animation-duration: 1s;
+  animation-duration: 3s;
   margin:0em auto;
   text-align: center;
 }
@@ -26,14 +33,21 @@
 
 .animation-text
 {
-    font-size: 4rem;
+  font: 3rem ubuntu,Verdana,Arial,sans-serif;
     position: relative;
     color:rgb(238, 40, 40);
-    animation-name: heading;
-    animation-duration: 1s;
+    animation-name: slidingLine;
+    animation-duration: 3s;
     text-align: center;
     width:60%;
     margin:0 auto;
     margin-top: 2rem;
     left:42px;
+}
+
+
+.animation-heading-container
+{
+  width:80%;
+  /* border:5px solid red; */
 }
