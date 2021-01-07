@@ -21,6 +21,7 @@
     border-radius: 50%;
     margin:1rem 1rem;
     padding: 1rem;
+    border:5px solid rgb(11, 99, 58);
 
     position: relative;
     animation-name: circle;
@@ -44,8 +45,30 @@
     color:rgb(18, 217, 243);
 }
 
+.tips-heading
+{
+    background-color: rgb(201, 55, 55);
+    width:60%;
+    margin:auto;
+    border-radius: 2%;
+    border:5px solid rgb(255, 255, 255);
+    padding: 1rem;
+}
+
+.tips-list
+{
+    background-color: rgb(201, 55, 55);
+    width:60%;
+    margin: 3rem auto;
+    padding:3rem;
+    border:5px solid white;
+    border-radius: 3%;
+    
+}
+
 .tip{
     font: 2rem ubuntu,Verdana,Arial,sans-serif;
+    margin:1rem auto;
     /* background-color: cornsilk; */
 }
 
