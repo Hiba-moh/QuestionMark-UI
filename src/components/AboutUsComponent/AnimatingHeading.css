@@ -29,6 +29,16 @@
   100% {left:0px;}
 }
 
+
+@keyframes appearing-Slogan
+{
+  0% { right :1000px ;visibility: hidden;}
+  25% {right:1000px; visibility:hidden;}
+  50% {right:1000px;}
+  /* 75% {left:1000px;} */
+  100% {right:0px;}
+}
+
 .heading-text
 {
   font: 3.5rem ubuntu,Verdana,Arial,sans-serif;
@@ -60,6 +70,9 @@
 {
   font: 2rem ubuntu,Verdana,Arial,sans-serif;
   color:white;
+  position: relative;
+  animation-name: appearing-Slogan;
+  animation-duration: 2.7s;
 }
 
 .animating-container
