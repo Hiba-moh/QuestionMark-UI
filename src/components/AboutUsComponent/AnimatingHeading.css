@@ -83,7 +83,7 @@
   justify-content: center;
   align-items: center;
   /* background-color: rgb(192, 35, 35);*/
-   background: linear-gradient(#575757,rgb(224, 98, 98),rgb(199, 74, 74),rgb(214, 50, 50));
+   background: linear-gradient(#575757,rgb(114, 63, 63),rgb(214, 50, 50),rgb(224, 98, 98),rgb(255, 255, 255));
 }
 
 
@@ -118,4 +118,5 @@
   position: relative;
   animation-name: sliding-image;
   animation-duration: 4s;
+  top:5rem;
 }
