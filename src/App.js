@@ -19,12 +19,24 @@ import {AuthProvider, AuthContext} from './AuthContext';
 import UserAsked from './components/replyComponent/UserAsked';
 import UserAnswered from './components/replyComponent/UserAnswered';
 import Profile from './components/ProfileComponent/Profile';
+import GoogleLogin from 'react-google-login';
 
 function App () {
   //const [isAuth, setIsAuth] = useState(true);
+  const responseGoogle = response => {
+    console.log (response);
+    console.log (response.profileObj);
+  };
 
   return (
     <AuthProvider>
+      <GoogleLogin
+        clientId="459290032975-jej2ta4pqnes745j8nhohti5qpbifqfn.apps.googleusercontent.com"
+        buttonText="Login"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={'single_host_origin'}
+      />
       <div className="App">
         {/* <Header />
           <Routes />
