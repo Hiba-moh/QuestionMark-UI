@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext,useEffect} from 'react';
 import ListOfQuestions from './ListOfQuestions';
 import './AskQuestionComponent.css';
 import LeftSection from './LeftSection';
@@ -49,14 +49,18 @@ function AskQuestionQuestion()
 
 
     // This fetch will bring the data for the user who us accessing this page.
-    fetch(`https://question-mark-api.herokuapp.com/ask-question/${idNumber[0]}`)
-    .then(data=>data.json())
-    .then(data=>{
-        setFetchedName(data.name[0].name)
-        setFetchedAnsQues(data.answeredQuestions) // array of objects
-        setFetchedUnAnsQues(data.unAnsweredQuestions) // array of objects
-    })
-    .catch(error=>console.log(error))
+   
+
+    useEffect (() => {
+        fetch(`https://question-mark-api.herokuapp.com/ask-question/${idNumber[0]}`)
+        .then(data=>data.json())
+        .then(data=>{
+            setFetchedName(data.name[0].name)
+            setFetchedAnsQues(data.answeredQuestions) // array of objects
+            setFetchedUnAnsQues(data.unAnsweredQuestions) // array of objects
+        })
+        .catch(error=>console.log(error))
+      }, []);
 
     // This is the object of the user that has logged in, we will extract user's name and then use it.
     let user={};
