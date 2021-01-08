@@ -9,6 +9,7 @@ function AboutUsComponent()
         <div>
             <div>
                 <AnimatingHeading/>
+                
             </div>
         </div>
     )
