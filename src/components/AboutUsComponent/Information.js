@@ -4,7 +4,7 @@ function Information()
 {
     return(
         <div>
-
+            Hello Details
         </div>
     )
 }
