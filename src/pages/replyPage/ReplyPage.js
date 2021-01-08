@@ -35,6 +35,31 @@ function ReplyPage({match}) {
       .then (data => SetQuestionReply (data.question[0]))
       .catch (error => console.log (error));
   }, []);
+  console.log(`Email: ${questionReply.email}`);
+  console.log(`Name: ${questionReply.name}`);
+
+  const emailData = {
+    send: true,
+    email: questionReply.email,
+    name: questionReply.name
+  }
+
+  async function handleEmail() {
+    axios.post('https://question-mark-api.herokuapp.com/sendmail',
+     JSON.stringify(emailData),
+     {
+      withCredentials: false,
+      transformRequest: [
+        (data, headers) => {
+          delete headers.post['Content-Type'];
+          return data;
+        },
+      ],
+    }
+   );
+   
+
+  };
 
   const data1 = {
     channel: '#questionmark_forum',
@@ -94,6 +119,7 @@ function ReplyPage({match}) {
       .then (data => {
         console.log (data.answer);
         if (data.answer) {
+          handleEmail();
           handleSlackMessage ();
           history.push ('/allquestions');
         } else {
