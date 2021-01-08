@@ -1,11 +1,15 @@
 import React from "react"
+import AnimatingHeading from "./AnimatingHeading"
 import "./AboutUs.css"
+
 
 function AboutUsComponent()
 {
     return(
         <div>
-            Testing bout us 
+            <div>
+                <AnimatingHeading/>
+            </div>
         </div>
     )
 }
