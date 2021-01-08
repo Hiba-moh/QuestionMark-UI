@@ -24,7 +24,7 @@ function Header() {
                                 textDecoration: 'none',
                                 color: 'black'
                                 }}>Ask a question</Link></p></li>
-                            <li><p><Link to="/aboutus" style={{
+                            <li><p><Link to="/aboutus"  style={{
                                 textDecoration: 'none',
                                 color: 'black'
                                 }}>About</Link></p></li>
