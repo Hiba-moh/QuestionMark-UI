@@ -32,7 +32,6 @@
 .heading-text
 {
   font: 3.5rem ubuntu,Verdana,Arial,sans-serif;
-    /* position: relative; */
     color:rgb(255, 255, 255);
     animation-name: slidingLine;
     animation-duration: 3s;
