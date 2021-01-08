@@ -25,6 +25,7 @@ function RightSection({userID}) {
     module_id: formModule_id,
     users_id: formUsers_id,
     question_date: formQues_date,
+    answers:formAnswers
   };
 
   const options = {
@@ -43,7 +44,7 @@ function RightSection({userID}) {
   function submitted (e) {
     e.preventDefault ();
     fetch ('https://question-mark-api.herokuapp.com/ask-question', options) // once the changes have been pushed use this fetch to send to heroku url
-      // fetch("http://localhost:3000/ask-question",options)
+      // fetch("http://localhost:5000/ask-question",options)
       .then (data => data.json ())
       .then (data => console.log (data))
       .catch (error => console.log (error));

@@ -54,7 +54,7 @@ function SelectedQuestionPage({match}) {
       mode: 'cors',
       headers: {'Content-Type': 'application/json'},
     });
-    console.log (response);
+    // console.log (response);
   } catch (err) {
     console.error (err);
   }
