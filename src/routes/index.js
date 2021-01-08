@@ -13,6 +13,8 @@ import UserAnswered from '../components/replyComponent/UserAnswered';
 import UserAsked from '../components/replyComponent/UserAsked';
 import Profile from '../components/ProfileComponent/Profile';
 
+import AboutUsPage from "../pages/aboutUs/AboutUsPage"
+
 export default () => {
   return (
     <div>
@@ -32,7 +34,7 @@ export default () => {
           path="/selectedquestionpage/:id"
           component={SelectedQuestionPage}
         />
-
+        <Route path="/aboutus" component={AboutUsPage} />
       </BrowserRouter>
     </div>
   );
