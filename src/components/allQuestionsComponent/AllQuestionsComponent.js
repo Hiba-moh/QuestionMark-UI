@@ -42,7 +42,7 @@ const AllQuestionsComponent = () => {
       setList (res.data.allquestions);
       setFilter (res.data.filter);
       setQAnswers (res.data.q_answers);
-      setCount (res.data.count[0].count);
+      setCount (res.data.count.count);
       setLoading (false);
     };
     fetchQuestions ();

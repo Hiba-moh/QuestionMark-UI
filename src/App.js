@@ -19,7 +19,7 @@ import {AuthProvider, AuthContext} from './AuthContext';
 import UserAsked from './components/replyComponent/UserAsked';
 import UserAnswered from './components/replyComponent/UserAnswered';
 import Profile from './components/ProfileComponent/Profile';
-import GoogleLogin from 'react-google-login';
+//import GoogleLogin from 'react-google-login';
 
 function App () {
   //const [isAuth, setIsAuth] = useState(true);
