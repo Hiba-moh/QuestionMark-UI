@@ -29,14 +29,15 @@ function App () {
   };
 
   return (
+    <>
+    <GoogleLogin
+  clientId="459290032975-jej2ta4pqnes745j8nhohti5qpbifqfn.apps.googleusercontent.com"
+  buttonText="Login"
+  onSuccess={responseGoogle}
+  onFailure={responseGoogle}
+  cookiePolicy={'single_host_origin'}
+/>
     <AuthProvider>
-      <GoogleLogin
-        clientId="459290032975-jej2ta4pqnes745j8nhohti5qpbifqfn.apps.googleusercontent.com"
-        buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={'single_host_origin'}
-      />
       <div className="App">
         {/* <Header />
           <Routes />
@@ -66,6 +67,7 @@ function App () {
 
       </div>
     </AuthProvider>
+    </>
   );
 }
 
