@@ -1,11 +1,19 @@
 import React from "react"
+import AnimatingHeading from "./AnimatingHeading"
+import Information from "./Information"
+import Footer from '../footerComponent/Footer';
 import "./AboutUs.css"
+
 
 function AboutUsComponent()
 {
     return(
         <div>
-            Testing bout us 
+            <div>
+                <AnimatingHeading/>
+                <Information/>
+                <Footer/>
+            </div>
         </div>
     )
 }
