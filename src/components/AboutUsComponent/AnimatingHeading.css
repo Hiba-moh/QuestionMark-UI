@@ -73,6 +73,7 @@
   position: relative;
   animation-name: appearing-Slogan;
   animation-duration: 2.7s;
+  margin-top: 3rem;
 }
 
 .animating-container
@@ -104,6 +105,9 @@
   display: flex;
   justify-content: space-between;
   margin: 2rem auto;
+  /* border:5px solid white; */
+  width: 90%;
+  bottom: 0px;
 }
 
 
@@ -113,5 +117,5 @@
   height: auto;
   position: relative;
   animation-name: sliding-image;
-  animation-duration: 2.7s;
+  animation-duration: 4s;
 }
