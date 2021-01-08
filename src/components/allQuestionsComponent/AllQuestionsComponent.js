@@ -28,6 +28,8 @@ const AllQuestionsComponent = () => {
   const [input, setInput] = useState ('');
   const [qAnswers, setQAnswers] = useState ([]);
   const history = useHistory ();
+  const [count, setCount] = useState (0);
+
   useEffect (() => {
     const fetchQuestions = async () => {
       setLoading (true);
@@ -36,9 +38,11 @@ const AllQuestionsComponent = () => {
       );
 
       setModulequestions (res.data.allquestions);
+      setData (res.data.allquestions);
       setList (res.data.allquestions);
       setFilter (res.data.filter);
       setQAnswers (res.data.q_answers);
+      setCount (res.data.count[0].count);
       setLoading (false);
     };
     fetchQuestions ();
@@ -55,6 +59,7 @@ const AllQuestionsComponent = () => {
         }
       }
       setModulequestions (filtered);
+      setCount (filtered.length);
     }
   };
 
@@ -100,6 +105,7 @@ const AllQuestionsComponent = () => {
     );
 
     setModulequestions (filtered);
+    setCount (filtered.length);
   };
 
   const jsPDFGenerator = () => {
@@ -153,25 +159,73 @@ const AllQuestionsComponent = () => {
         return <img src={mango} />;
     }
   };
+  // Sort BY dropdown menu functionality
+  const [data, setData] = useState ([]);
+  const [sortType, setSortType] = useState ();
+  const arrayToSort = modulequestions;
+
+  useEffect (
+    () => {
+      const sortArray = type => {
+        const types = {
+          id: 'id',
+          question_date: 'question_date',
+          views: 'views',
+          rate: 'rate',
+        };
+        const sortProperty = types[type];
+        if (sortProperty == 'question_date') {
+          const sorted = [...arrayToSort].sort (
+            (a, b) => new Date (b[sortProperty]) - new Date (a[sortProperty])
+          );
+          setModulequestions (sorted);
+          console.log ('our array = ', modulequestions);
+        } else {
+          const sorted = [...arrayToSort].sort (
+            (a, b) => b[sortProperty] - a[sortProperty]
+          );
+          setModulequestions (sorted);
+        }
+      };
+
+      sortArray (sortType);
+    },
+    [sortType]
+  );
 
   return (
     <div>
       <div className="search-containerH">
 
         <input
-          className="searchbox-onlyH"
+          className="form-control mx-sm-3 searchbox-onlyH"
           name="search"
           type="text"
           onChange={handleSearch}
           placeholder="SEARCH HERE ... "
         />
         {/* <button class="searchbtn">SEARCH</button> */}
-
-        <select id="moduleSelectorH" onChange={changeHandler}>
+        <select
+          className="custom-select mr-sm-2 sortSelector"
+          // id="moduleSelectorH"
+          onChange={changeHandler}
+        >
           <option value="default">FILTER BY MODULE</option>
           {filter.map ((item, index) => {
             return <option key={index} value={item.id}>{item.module}</option>;
           })}
+        </select>
+
+        <select
+          className="custom-select mr-sm-2 sortSelector"
+          id="inlineFormCustomSelect"
+          onChange={e => setSortType (e.target.value)}
+        >
+          <option value="id">SORT BY</option>
+          <option value="question_date">QUESTION DATE</option>
+          <option value="views">MOST VIEWED</option>
+          <option value="rate">MOST LIKED</option>
+
         </select>
 
       </div>
@@ -205,6 +259,7 @@ const AllQuestionsComponent = () => {
           </div>
           <div className="bodyContentH">
             <h1 id="page-headingH">ALL QUESTIONS</h1>
+            <h5 id="countHeader">{count} QUESTIONS</h5>
             <div className="link-filterH" />
             <img src="" />
             <div className="allquestions-containerH">

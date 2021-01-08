@@ -13,6 +13,10 @@ import '../../components/replyComponent/UserAnswered';
 import '../../components/replyComponent/UserAsked';
 import {withRouter, useHistory} from 'react-router-dom';
 import {AuthContext} from '../../AuthContext';
+import ReactFile from '../../components/ProfileComponent/ReactFile';
+import SQL from '../../components/ProfileComponent/SQL';
+import Js from '../../components/ProfileComponent/JS';
+import HTML from '../../components/ProfileComponent/HTML';
 
 function ReplyPage({match}) {
   const id = match.params.id;
@@ -25,10 +29,12 @@ function ReplyPage({match}) {
   const [idNumberValue, setIdNumberValue] = idNumber;
   const history = useHistory ();
 
-  const questionToReplyById = axios
-    .get (`https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`)
-    .then (response => SetQuestionReply (response.data.question[0].question))
-    .catch (error => console.log (error));
+  useEffect (() => {
+    fetch (`https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`)
+      .then (response => response.json ())
+      .then (data => SetQuestionReply (data.question[0]))
+      .catch (error => console.log (error));
+  }, []);
 
   const data1 = {
     channel: '#questionmark_forum',
@@ -127,22 +133,39 @@ function ReplyPage({match}) {
   //   }
   // };
 
+  const renderRepl = subject => {
+    switch (subject) {
+      case 1:
+        return '';
+      case 2:
+        return <HTML />;
+        break;
+      case 3:
+        return <Js />;
+        break;
+      case 4:
+        return <ReactFile />;
+        break;
+      case 5:
+        return <Node />;
+        break;
+      case 6:
+        return <SQL />;
+        break;
+      case 7:
+        return '';
+      default:
+        return '';
+    }
+  };
+
   return (
     <div className="ReplyPageContainer">
       <Header />
       <div className="reply-container">
         {/* <SidebarComponent /> */}
         <div id="runTime">
-          <iframe
-            height="100%"
-            width="100%"
-            src="https://repl.it/@HibaMohammed/HTMLCSSJS?lite=true"
-            scrolling="no"
-            frameborder="no"
-            allowtransparency="true"
-            allowfullscreen="true"
-            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
-          />
+          {renderRepl (questionReply.module_id)}
 
         </div>
         <div className="replyBody">
@@ -151,13 +174,13 @@ function ReplyPage({match}) {
             {' '}
             <div>
               {' '}
-              <h4><small className="text-muted">{questionReply}</small></h4>
+              <h4>
+                <small className="text-muted">{questionReply.question}</small>
+              </h4>
             </div>
           </h2>
-
           <form id="ReplyForm" onSubmit={onSubmitForm}>
             <label htmlFor="QuestionReply">Add your reply here ...</label>
-
             <TextEditor SetAnswer={SetAnswer} />
 
             {/* <textarea
