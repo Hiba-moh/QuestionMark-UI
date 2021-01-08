@@ -67,7 +67,7 @@ function ReplyPage({match}) {
       }
     );
     res.status === 200
-      ? alert ('Sent Slack notification...')
+      ? alert (`Thank you for your contribution`)
       : alert ('Error sending message');
   }
 
@@ -95,7 +95,7 @@ function ReplyPage({match}) {
         console.log (data.answer);
         if (data.answer) {
           handleSlackMessage ();
-          history.push ('/allquestions');
+          history.push (`/selectedquestionpage/${id}`);
         } else {
           alert ('Oops, something went wrong!');
           history.push ('/allquestions');
