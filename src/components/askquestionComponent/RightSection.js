@@ -54,22 +54,17 @@ function RightSection({userID}) {
 
   function handleTitle (e) {
     setFormTitle (e.target.value);
-    console.log (formTitle);
   }
 
   function handleQuestion (e) {
     setFormQues (e.target.value);
-    console.log (formQues);
   }
 
   return (
     <div className="right-section">
       <div className="first-section">
         <h1 className="heading">Ask Question</h1>
-
-        {/* <Link to="/allquestions"> 
-                  <button className="logout-btn">Logout</button>
-                </Link> */}
+        
       </div>
       {displayForm
         ? <form className="second-section" onSubmit={submitted}>
