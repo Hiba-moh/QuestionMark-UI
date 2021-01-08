@@ -1,26 +1,53 @@
-@keyframes example {
-  0%   {background-color:rgb(155, 148, 148); color:white;}
-  25%  {background-color:rgb(168, 150, 150); color:rgb(238, 64, 64);}
-  /* 35%  {background-color:rgb(182, 162, 162); color:rgb(255, 65, 65);}
-  50%  {background-color:rgb(212, 191, 191); color:rgb(253, 17, 17);}
-  75%  {background-color:rgb(221, 204, 204); color:rgb(221, 13, 13);} */
-  85%  {background-color:rgb(248, 191, 191); color:rgb(243, 71, 71);}
-  93% {background-color:rgb(252, 235, 235); color:rgb(236, 12, 12);}
-  100% {background-color:rgb(255, 255, 255); color:rgb(235, 39, 39);}
-  }
+/* @keyframes heading {
+  0%   {background-color:rgb(155, 148, 148); color:white;left:0px;}
+  25%  {background-color:rgb(168, 150, 150); color:rgb(238, 64, 64);left:10px;}
+  85%  {background-color:rgb(248, 191, 191); color:rgb(243, 71, 71); left:20px;}
+  93% {background-color:rgb(252, 235, 235); color:rgb(236, 12, 12); left:30px;}
+  100% {background-color:rgb(255, 255, 255); color:rgb(235, 39, 39); left:40px;}
+  } */
+
+/* 
+  @keyframes slidingLine {
+    0%   {left:500px;  visibility: hidden;}
+    100%  {left:40px; }
+    }
+   */
+
+@keyframes slidingLine {
+  0%   {color:rgba(218, 28, 28, 0.2);}
+  50%   {color:rgba(218, 28, 28, 0.4);}
+  100%  {color:rgba(218, 28, 28, 0.9);}
+}
+  
+.slide-line
+{
+  font-size: 4rem;
+  position: relative;
+  color:rgb(238, 40, 40);
+  animation-name: slidingLine;
+  animation-duration: 3s;
+  margin:0em auto;
+  text-align: center;
+}
 
 
 .animation-text
 {
-    /* width: 100px; */
-    /* height: 100px; */
-    font-size: 4rem;
-    /* background-color: rgb(121, 88, 88); */
+  font: 3rem ubuntu,Verdana,Arial,sans-serif;
+    position: relative;
     color:rgb(238, 40, 40);
-    animation-name: example;
+    animation-name: slidingLine;
     animation-duration: 3s;
     text-align: center;
     width:60%;
-    margin:3rem auto;
-    /* border:5px solid red; */
+    margin:0 auto;
+    margin-top: 2rem;
+    left:42px;
+}
+
+
+.animation-heading-container
+{
+  width:80%;
+  /* border:5px solid red; */
 }
