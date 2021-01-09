@@ -43,6 +43,7 @@ function ReplyPage({match}) {
     send: true,
     email: questionReply.email,
     name: questionReply.name,
+    text: `Hi ${questionReply.name}, your question has been answered. Please login into the questionmark forum to check your answer.`
   };
 
   async function handleEmail () {
@@ -68,8 +69,8 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: 'Question No.5007 username: @user Topic: TESTING123',
-            value: 'Your question has a reply. Please sign in to the question forum to check your answer.',
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module_id: ${questionReply.module_id}`,
+            value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
         ],
@@ -92,7 +93,7 @@ function ReplyPage({match}) {
       }
     );
     res.status === 200
-      ? alert (`Thank you for your contribution`)
+      ? alert (`Thank you for your contribution 🌹`)
       : alert ('Error sending message');
   }
 
@@ -131,33 +132,6 @@ function ReplyPage({match}) {
         console.error (err);
       });
   };
-
-  // const onSubmitForm = async e => {
-  //   // e.preventDefault ();
-  //   try {
-  //     const data = {
-  //       question_id: id,
-  //       reply: answer,
-  //       user_id: 1,
-  //       date: moment ().format ('YYYY/MM/DD'),
-  //     };
-
-  //     const response = await fetch (
-  //       'https://question-mark-api.herokuapp.com/replypage',
-  //       {
-  //         method: 'POST',
-  //         body: JSON.stringify (data),
-  //         mode: 'cors',
-  //         // cache: 'no-cache',
-  //         headers: {'Content-Type': 'application/json'},
-  //       }
-  //     );
-  //     response.status == 200 ? (handleSlackMessage()) : (alert('error'));
-  //    // console.log ('ReplyPage-Post-Response: ', response);
-  //   } catch (err) {
-  //     console.error (err);
-  //   }
-  // };
 
   const renderRepl = subject => {
     switch (subject) {
@@ -208,15 +182,6 @@ function ReplyPage({match}) {
           <form id="ReplyForm" onSubmit={onSubmitForm}>
             <label htmlFor="QuestionReply">Add your reply here ...</label>
             <TextEditor SetAnswer={SetAnswer} />
-
-            {/* <textarea
-              id="QReply"
-              name="Qreply"
-              rows="10"
-              cols="150"
-              value={answer}
-              onChange={e => SetAnswer (e.target.value)}
-            /> */}
             <input id="ReplySubmitbtn" type="submit" value="Submit" />
           </form>
         </div>

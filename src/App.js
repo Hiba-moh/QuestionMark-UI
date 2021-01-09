@@ -22,6 +22,7 @@ import Profile from './components/ProfileComponent/Profile';
 // import GoogleLogin from 'react-google-login';
 
 import AboutUsPage from "./pages/aboutUs/AboutUsPage"
+import { Profiler } from 'react/cjs/react.development';
 
 function App () {
   //const [isAuth, setIsAuth] = useState(true);
@@ -53,7 +54,7 @@ function App () {
           {/* <Route path="/replypage" component={ReplyPage} /> */}
           {/* <Route path="/selectedquestionpage" component={SelectedQuestionPage} /> */}
           <ProtectedRoutes path="/allquestions" component={AllQuestions} />
-          <ProtectedRoutes path="/profile" component={Profile} />;
+          <ProtectedRoutes path="/profile" component={Profile} />
           <ProtectedRoutes path="/answered" component={Answered} />
           <ProtectedRoutes path="/unAnswered" component={UnAnswered} />
           <ProtectedRoutes path="/UserAsked" component={UserAsked} />
