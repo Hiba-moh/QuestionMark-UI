@@ -43,6 +43,7 @@ function ReplyPage({match}) {
     send: true,
     email: questionReply.email,
     name: questionReply.name,
+    text: `Hi ${questionReply.name}, your question has been answered. Please login into the questionmark forum to check your answer.`
   };
 
   async function handleEmail () {
@@ -92,7 +93,7 @@ function ReplyPage({match}) {
       }
     );
     res.status === 200
-      ? alert (`Thank you for your contribution`)
+      ? alert (`Thank you for your contribution 🌹`)
       : alert ('Error sending message');
   }
 

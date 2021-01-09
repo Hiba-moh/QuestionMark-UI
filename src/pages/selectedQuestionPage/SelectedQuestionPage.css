@@ -105,6 +105,12 @@
   padding-left: 3rem;
   padding-bottom: 8rem;
 }
+.sideMenueContainer a {
+  background-color: #575757;
+}
+.sideMenueContainer a:focus {
+  background-color: #575757;
+}
 
 #q-descriptionH {
   display: flex;
