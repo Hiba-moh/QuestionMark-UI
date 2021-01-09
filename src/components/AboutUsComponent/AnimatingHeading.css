@@ -83,7 +83,7 @@
   justify-content: center;
   align-items: center;
   /* background-color: rgb(192, 35, 35);*/
-   background: linear-gradient(#575757,rgb(114, 63, 63),rgb(167, 82, 82),rgb(224, 98, 98),rgb(255, 255, 255));
+   background: linear-gradient(#575757,rgb(114, 63, 63)m,rgb(167, 82, 82),rgb(224, 98, 98),rgb(255, 255, 255));
 
    /* background: linear-gradient(#c41d1d,#c41d1d,#af3232,rgb(255, 255, 255)); */
 }
