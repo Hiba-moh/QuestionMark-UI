@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './SelectedQuestionPage.css';
-import {Link, withRouter} from 'react-router-dom';
+import {Link, withRouter, useHistory} from 'react-router-dom';
 import Header from '../../components/allQuestionsComponent/Header';
 import LeftSideMenu from '../allquestions/LeftSideMenu';
 import ReactHtmlParse from 'react-html-parser';
@@ -16,6 +16,7 @@ function SelectedQuestionPage({match}) {
   const [pageData_question, setPageData_question] = useState ({});
   const [pageData_answer, setPageData_answer] = useState ([]);
   const [updatedViews, SetUpdatedViews] = useState (0);
+  const history = useHistory ();
 
   addLanguage ('javascript', javascript);
   addLanguage ('js', javascript);
@@ -58,7 +59,8 @@ function SelectedQuestionPage({match}) {
     console.error (err);
   }
 
-  const jsPDFGenerator = () => {
+  const jsPDFGenerator = e => {
+    e.preventDefault ();
     var doc = new jsPDF ('L', 'pt');
     doc.text (120, 30, 'Question:');
     doc.text (
@@ -73,9 +75,9 @@ function SelectedQuestionPage({match}) {
       doc.text (30, 60, pageData_answer[i].answer);
       doc.addPage ();
     }
-
-    doc.save ('AllQuestions');
     doc.setFont ('courier');
+    doc.save ('AllQuestions');
+    return false;
   };
 
   return (
@@ -89,7 +91,7 @@ function SelectedQuestionPage({match}) {
 
         <div className="selected_textareaH">
           <div className="sideMenueContainer">
-            <a href="" onClick={jsPDFGenerator}>
+            <a href="" onClick={e => jsPDFGenerator (e)}>
               <img id="selected-question-pdf" src={pdf} />
             </a>
             <LeftSideMenu />

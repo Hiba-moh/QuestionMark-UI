@@ -60,8 +60,6 @@ function App () {
           <ProtectedRoutes path="/UserAsked" component={UserAsked} />
           <ProtectedRoutes path="/UserAnswered" component={UserAnswered} />
           <ProtectedRoutes path="/askquestion" component={AskQuestion} />
-          <ProtectedRoutes path="/profile" component={Profiler} />;
-
           <ProtectedRoutes exact path="/replypage/:id" component={ReplyPage} />
           <ProtectedRoutes
             exact

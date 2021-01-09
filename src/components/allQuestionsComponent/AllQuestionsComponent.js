@@ -109,7 +109,8 @@ const AllQuestionsComponent = () => {
     setCount (filtered.length);
   };
 
-  const jsPDFGenerator = () => {
+  const jsPDFGenerator = e => {
+    e.preventDefault ();
     var doc = new jsPDF ('L', 'pt');
 
     var i = 1;
@@ -213,7 +214,7 @@ const AllQuestionsComponent = () => {
         >
           <option value="default">FILTER BY MODULE</option>
           {filter.map ((item, index) => {
-            return <option key={index} value={item.id}>{item.module}</option>
+            return <option key={index} value={item.id}>{item.module}</option>;
           })}
         </select>
 
@@ -233,7 +234,7 @@ const AllQuestionsComponent = () => {
 
       <div className="body-containerH">
 
-        <a href="" onClick={jsPDFGenerator}>
+        <a href="" onClick={e => jsPDFGenerator (e)}>
           <img id="img-pdf" src={pdf} />
         </a>
 

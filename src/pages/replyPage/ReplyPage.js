@@ -93,7 +93,7 @@ function ReplyPage({match}) {
       }
     );
     res.status === 200
-      ? alert (`Thank you for your contribution`)
+      ? alert (`Thank you for your contribution 🌹`)
       : alert ('Error sending message');
   }
 
