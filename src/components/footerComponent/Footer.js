@@ -1,13 +1,12 @@
 import React from 'react';
 import './Footer.css';
 
-
-function Footer() {
-    return (
-        <div className="footer_container">
-            <footer className="footer">
-                <div className="logo-container">
-                    <a target="_blank" href="https://www.instagram.com/codeyourfuture_/">
+function Footer () {
+  return (
+    <div className="footer_container">
+      <footer className="footer">
+        {/* <div className="logo-container"> */}
+        {/* <a target="_blank" href="https://www.instagram.com/codeyourfuture_/">
                         <img className="logo"src="https://goldengatexpress.org/wp-content/uploads/2020/05/The_Instagram_Logo.jpg"></img>
                     </a>
                     <a target="_blank" href="https://www.facebook.com/codeyourfuture.io">
@@ -22,12 +21,14 @@ function Footer() {
                     </a>
                     <a target="_blank" href="https://codeyourfuture.io/">
                         <img className="logo" src="https://www.scottishrefugeecouncil.org.uk/wp-content/uploads/2019/10/Code-Your-Future.jpg"></img>
-                    </a>
-                </div>
-                <h5>CYF | West Midlands | Team QuestionMark 2020 | All rights reserved | Registered charity 1174929 | Send website feedback &reg;</h5>
-            </footer>   
-        </div>
-    )
+                    </a> */}
+        {/* </div> */}
+        <h5>
+          CYF | West Midlands | Team QuestionMark 2020 | All rights reserved &reg;
+        </h5>
+      </footer>
+    </div>
+  );
 }
 
 export default Footer;

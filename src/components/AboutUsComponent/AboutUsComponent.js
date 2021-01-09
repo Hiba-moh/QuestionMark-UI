@@ -18,4 +18,4 @@ function AboutUsComponent()
     )
 }
 
-export default AboutUsComponent;
+export default AboutUsComponent
