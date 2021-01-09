@@ -30,7 +30,7 @@ const UserAnswered = () => {
         }
       );
       SetUserAnswers (
-        filter.userAnswers (answer => {
+        userAnswers.filter (answer => {
           answer.id !== id;
         })
       );
@@ -80,7 +80,7 @@ const UserAnswered = () => {
                     <button
                       className="btn-danger"
                       onClick={e => {
-                        history.push ('/profile');
+                        // e.isDefaultPrevented = false;
                         deleteAnswer (item.id);
                       }}
                     >
