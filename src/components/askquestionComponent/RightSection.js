@@ -28,6 +28,14 @@ function RightSection({userID}) {
     answers:formAnswers
   };
 
+
+  const emailObject={
+    send: true,
+    email: "false",
+    users_id:formUsers_id,
+    text:"Your Question has been posted. Thank you for using the platform. You will receive a notification when someone will respond to your question"
+  }
+
   const options = {
     method: 'POST',
     headers: {
@@ -36,40 +44,55 @@ function RightSection({userID}) {
     body: JSON.stringify (detailsOfQues),
   };
 
+
+  const sendingEmail = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify (emailObject),
+  };
+
   function askAnother () {
     setDisplayForm (true);
+  }
+
+
+  function sendEmail()
+  {
+    // fetch("https://question-mark-api.herokuapp.com/sendmail",sendingEmail)
+    fetch("http://localhost:5000/sendmail",sendingEmail)
+    .then(data=>data.json())
+    .then(data=>console.log(data))
+    .catch(error=>console.log(error))
   }
 
   //in this function I should update all the values and call the fetch to submit the data.
   function submitted (e) {
     e.preventDefault ();
-    fetch ('https://question-mark-api.herokuapp.com/ask-question', options) // once the changes have been pushed use this fetch to send to heroku url
-      // fetch("http://localhost:5000/ask-question",options)
+    // fetch ('https://question-mark-api.herokuapp.com/ask-question', options) // once the changes have been pushed use this fetch to send to heroku url
+      fetch("http://localhost:5000/ask-question",options)
       .then (data => data.json ())
       .then (data => console.log (data))
       .catch (error => console.log (error));
 
+      sendEmail();
     setDisplayForm (false);
   }
 
   function handleTitle (e) {
     setFormTitle (e.target.value);
-    console.log (formTitle);
   }
 
   function handleQuestion (e) {
     setFormQues (e.target.value);
-    console.log (formQues);
   }
 
   return (
     <div className="right-section">
       <div className="first-section">
         <h1 className="heading">Ask Question</h1>
-
-        {/* <Link to="/allquestions"> 
-                  <button className="logout-btn">Logout</button>
-                </Link> */}
+        
       </div>
       {displayForm
         ? <form className="second-section" onSubmit={submitted}>

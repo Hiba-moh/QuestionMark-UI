@@ -1,7 +1,13 @@
-*{
+/* *{
     font: 1em ubuntu,Verdana,Arial,sans-serif;
-}
+} */
 
+
+.animation-container
+{
+    display: flex;
+
+}
 
 .first-section{
     display:flex;

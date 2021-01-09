@@ -6,9 +6,11 @@ import userAnswered from '../replyComponent/userAnswered.css';
 import ReactHtmlParse from 'react-html-parser';
 import EditAnswer from './EditAnswer';
 import {AuthContext} from '../../AuthContext';
+import {withRouter, useHistory} from 'react-router-dom';
 
 const UserAnswered = () => {
   // const id = match.params.id;
+  const history = useHistory ();
 
   const {isAuth, greet, idNumber} = useContext (AuthContext);
   const [isAuthValue, setIsAuthValue] = isAuth;
@@ -20,22 +22,18 @@ const UserAnswered = () => {
   //delete answer function
 
   const deleteAnswer = async id => {
-    try {
-      const res = await fetch (
-        `https://question-mark-api.herokuapp.com/userAnswers/${id}`,
-        {
-          method: 'DELETE',
-        }
-      );
-      SetUserAnswers (
-        filter.userAnswers (answer => {
-          answer.id !== id;
-        })
-      );
-      console.log (res);
-    } catch (err) {
-      console.error (err.message);
-    }
+    const res = await fetch (
+      `https://question-mark-api.herokuapp.com/userAnswers/${id}`,
+      {
+        method: 'DELETE',
+      }
+    );
+    SetUserAnswers (
+      userAnswers.filter (answer => {
+        answer.id !== id;
+      })
+    );
+    console.log (res);
   };
 
   //get all the questions been answered by specific user by id
@@ -57,6 +55,7 @@ const UserAnswered = () => {
         <Header />
         <div className="userAnswersBodyContainer">
           <h1>Questions Answered By You {greet}</h1>
+
           <table className="table table-responsive table-striped table-striped mt-5">
             <thead>
               <tr>
@@ -76,7 +75,8 @@ const UserAnswered = () => {
                   <td>
                     <button
                       className="btn-danger"
-                      onClick={() => {
+                      onClick={e => {
+                        // history.push ('/profile');
                         deleteAnswer (item.id);
                       }}
                     >

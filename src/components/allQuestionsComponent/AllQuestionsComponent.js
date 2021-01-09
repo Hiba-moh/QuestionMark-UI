@@ -16,6 +16,7 @@ import Pagination from '../../components/allQuestionsComponent/Pagination';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import RateComponent from './RateComponent';
+import Footer from '../footerComponent/Footer';
 
 const AllQuestionsComponent = () => {
   const [loading, setLoading] = useState (false);
@@ -42,7 +43,7 @@ const AllQuestionsComponent = () => {
       setList (res.data.allquestions);
       setFilter (res.data.filter);
       setQAnswers (res.data.q_answers);
-      setCount (res.data.count[0].count);
+      setCount (res.data.count.count);
       setLoading (false);
     };
     fetchQuestions ();
@@ -108,7 +109,8 @@ const AllQuestionsComponent = () => {
     setCount (filtered.length);
   };
 
-  const jsPDFGenerator = () => {
+  const jsPDFGenerator = e => {
+    e.preventDefault ();
     var doc = new jsPDF ('L', 'pt');
 
     var i = 1;
@@ -232,7 +234,7 @@ const AllQuestionsComponent = () => {
 
       <div className="body-containerH">
 
-        <a href="" onClick={jsPDFGenerator}>
+        <a href="" onClick={e => jsPDFGenerator (e)}>
           <img id="img-pdf" src={pdf} />
         </a>
 
@@ -302,6 +304,7 @@ const AllQuestionsComponent = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
