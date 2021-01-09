@@ -60,8 +60,8 @@ function RightSection({userID}) {
 
   function sendEmail()
   {
-    // fetch("https://question-mark-api.herokuapp.com/sendmail",sendingEmail)
-    fetch("http://localhost:5000/sendmail",sendingEmail)
+    fetch("https://question-mark-api.herokuapp.com/sendmail",sendingEmail)
+    // fetch("http://localhost:5000/sendmail",sendingEmail)
     .then(data=>data.json())
     .then(data=>console.log(data))
     .catch(error=>console.log(error))
@@ -70,8 +70,8 @@ function RightSection({userID}) {
   //in this function I should update all the values and call the fetch to submit the data.
   function submitted (e) {
     e.preventDefault ();
-    // fetch ('https://question-mark-api.herokuapp.com/ask-question', options) // once the changes have been pushed use this fetch to send to heroku url
-      fetch("http://localhost:5000/ask-question",options)
+    fetch ('https://question-mark-api.herokuapp.com/ask-question', options) // once the changes have been pushed use this fetch to send to heroku url
+      // fetch("http://localhost:5000/ask-question",options)
       .then (data => data.json ())
       .then (data => console.log (data))
       .catch (error => console.log (error));
