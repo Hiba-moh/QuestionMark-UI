@@ -6,9 +6,11 @@ import userAnswered from '../replyComponent/userAnswered.css';
 import ReactHtmlParse from 'react-html-parser';
 import EditAnswer from './EditAnswer';
 import {AuthContext} from '../../AuthContext';
+import {withRouter, useHistory} from 'react-router-dom';
 
 const UserAnswered = () => {
   // const id = match.params.id;
+  const history = useHistory ();
 
   const {isAuth, greet, idNumber} = useContext (AuthContext);
   const [isAuthValue, setIsAuthValue] = isAuth;
@@ -77,7 +79,8 @@ const UserAnswered = () => {
                   <td>
                     <button
                       className="btn-danger"
-                      onClick={() => {
+                      onClick={e => {
+                        history.push ('/profile');
                         deleteAnswer (item.id);
                       }}
                     >
