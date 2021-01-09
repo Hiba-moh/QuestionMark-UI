@@ -2,9 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './SelectedQuestionPage.css';
 import {Link, withRouter} from 'react-router-dom';
 import Header from '../../components/allQuestionsComponent/Header';
-import countapi from 'countapi-js';
 import LeftSideMenu from '../allquestions/LeftSideMenu';
-import loginImg from '../../assets/images/login.png';
 import ReactHtmlParse from 'react-html-parser';
 import {addLanguage, highlight} from 'illuminate-js';
 import {javascript} from 'illuminate-js/lib/languages';
@@ -54,14 +52,9 @@ function SelectedQuestionPage({match}) {
       mode: 'cors',
       headers: {'Content-Type': 'application/json'},
     });
-    // console.log (response);
   } catch (err) {
     console.error (err);
   }
-
-  // countapi.visits ().then (result => {
-  //   console.log (result.value);
-  // });
 
   const jsPDFGenerator = () => {
     var doc = new jsPDF ('L', 'pt');

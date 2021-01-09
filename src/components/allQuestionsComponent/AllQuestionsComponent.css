@@ -3,7 +3,6 @@
   font-family: 'Abel', sans-serif;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   margin-top: 4rem;
   justify-content: space-around;
   background-color: #575757;
@@ -77,6 +76,7 @@
   margin: 0 10rem 0rem 10rem;
   border-radius: 2rem 2rem 0 0;
   padding-bottom: 4rem;
+  padding-right: 4rem;
 }
 .sortSelector {
   width: 20%;

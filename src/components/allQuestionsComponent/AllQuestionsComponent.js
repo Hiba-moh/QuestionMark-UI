@@ -16,6 +16,7 @@ import Pagination from '../../components/allQuestionsComponent/Pagination';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import RateComponent from './RateComponent';
+import Footer from '../footerComponent/Footer';
 
 const AllQuestionsComponent = () => {
   const [loading, setLoading] = useState (false);
@@ -212,7 +213,7 @@ const AllQuestionsComponent = () => {
         >
           <option value="default">FILTER BY MODULE</option>
           {filter.map ((item, index) => {
-            return <option key={index} value={item.id}>{item.module}</option>;
+            return <option key={index} value={item.id}>{item.module}</option>
           })}
         </select>
 
@@ -302,6 +303,7 @@ const AllQuestionsComponent = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
