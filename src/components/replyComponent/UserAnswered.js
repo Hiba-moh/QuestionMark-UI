@@ -57,6 +57,7 @@ const UserAnswered = () => {
         <Header />
         <div className="userAnswersBodyContainer">
           <h1>Questions Answered By You {greet}</h1>
+
           <table className="table table-responsive table-striped table-striped mt-5">
             <thead>
               <tr>

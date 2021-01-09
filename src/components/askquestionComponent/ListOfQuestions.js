@@ -9,7 +9,8 @@ function ListOfQuestions({questions})
         <div>
             <ul className="question-list">
                 {questions.map((name, index) => (
-                    <li className="question" key={index}>{name.question_title}</li>
+
+                    <li className="question" key={index}>{name.question_title}</li> // I should change this to name.question_title
                 ))}
             </ul>
         </div>

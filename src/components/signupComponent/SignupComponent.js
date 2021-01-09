@@ -62,7 +62,7 @@ function SignupComponent () {
         if (data.success === true) {
           localStorage.setItem ('token', JSON.stringify (data));
           setSuccessfullyRegistered (data.message);
-          setTimeout (history.push ('/login'), 2000);
+          setTimeout (history.push ('/'), 2000);
         } else {
           console.log (data.errorArray);
           setRegFailedMessage (data.errorArray[0].message);
