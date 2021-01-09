@@ -69,8 +69,8 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: 'Question No.5007 username: @user Topic: TESTING123',
-            value: 'Your question has a reply. Please sign in to the question forum to check your answer.',
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module_id: ${questionReply.module_id}`,
+            value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
         ],
