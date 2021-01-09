@@ -22,22 +22,18 @@ const UserAnswered = () => {
   //delete answer function
 
   const deleteAnswer = async id => {
-    try {
-      const res = await fetch (
-        `https://question-mark-api.herokuapp.com/userAnswers/${id}`,
-        {
-          method: 'DELETE',
-        }
-      );
-      SetUserAnswers (
-        filter.userAnswers (answer => {
-          answer.id !== id;
-        })
-      );
-      console.log (res);
-    } catch (err) {
-      console.error (err.message);
-    }
+    const res = await fetch (
+      `https://question-mark-api.herokuapp.com/userAnswers/${id}`,
+      {
+        method: 'DELETE',
+      }
+    );
+    SetUserAnswers (
+      userAnswers.filter (answer => {
+        answer.id !== id;
+      })
+    );
+    console.log (res);
   };
 
   //get all the questions been answered by specific user by id
@@ -80,7 +76,7 @@ const UserAnswered = () => {
                     <button
                       className="btn-danger"
                       onClick={e => {
-                        history.push ('/profile');
+                        // history.push ('/profile');
                         deleteAnswer (item.id);
                       }}
                     >
