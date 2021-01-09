@@ -9,7 +9,6 @@ function AllQuestions () {
     <div>
       <Header />
       <AllQuestionsComponent />
-      <Footer />
     </div>
   );
 }

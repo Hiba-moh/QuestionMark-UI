@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext,useEffect} from 'react';
 import ListOfQuestions from './ListOfQuestions';
 import './AskQuestionComponent.css';
 import LeftSection from './LeftSection';
@@ -7,6 +7,9 @@ import Footer from '../footerComponent/Footer';
 
 import {withRouter} from 'react-router-dom';
 import {AuthContext} from '../../AuthContext';
+
+import Animation from "./Animation"
+import Tips from "./Tips"
 
 //what is left in this component 
 //is send data to heroku link, it is working on localhost just change that to heroku link.
@@ -46,14 +49,18 @@ function AskQuestionQuestion()
 
 
     // This fetch will bring the data for the user who us accessing this page.
-    fetch(`https://question-mark-api.herokuapp.com/ask-question/${idNumber[0]}`)
-    .then(data=>data.json())
-    .then(data=>{
-        setFetchedName(data.name[0].name)
-        setFetchedAnsQues(data.answeredQuestions) // array of objects
-        setFetchedUnAnsQues(data.unAnsweredQuestions) // array of objects
-    })
-    .catch(error=>console.log(error))
+   
+
+    useEffect (() => {
+        fetch(`https://question-mark-api.herokuapp.com/ask-question/${idNumber[0]}`)
+        .then(data=>data.json())
+        .then(data=>{
+            setFetchedName(data.name[0].name)
+            setFetchedAnsQues(data.answeredQuestions) // array of objects
+            setFetchedUnAnsQues(data.unAnsweredQuestions) // array of objects
+        })
+        .catch(error=>console.log(error))
+      }, []);
 
     // This is the object of the user that has logged in, we will extract user's name and then use it.
     let user={};
@@ -78,6 +85,11 @@ function AskQuestionQuestion()
 
     return(
         <div>
+            <div className="animation-container">
+                <Tips/>
+                <Animation/>
+            </div>
+            
             <div className="ask-question-container">
             <LeftSection overlayclass={overlayclass} closeNav={closeNav} selectedOption={selectedOption} listOfQues={listOfQues} user={user} setAnsweredQUes={setAnsweredQUes} setUnAnsweredQues={setUnAnsweredQues}/>
             <RightSection userID={idNumber[0]}/>

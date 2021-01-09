@@ -30,7 +30,7 @@ function Header () {
           </Link>
         </li>
         <li className="lined-list">
-          <Link to="/askquestion">
+          <Link to="/aboutus">
             About
           </Link>
         </li>
