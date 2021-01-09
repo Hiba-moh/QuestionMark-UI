@@ -100,9 +100,10 @@
 }
 .sideMenueContainer {
   display: flex;
+  flex-direction: column;
   align-self: flex-start;
   padding-left: 3rem;
-  margin-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 #q-descriptionH {
@@ -167,6 +168,7 @@
 }
 
 #selected-question-pdf {
+  margin: auto;
   border: 2px solid #d12f2f;
   padding: 0.7rem;
   margin-top: 2rem;
@@ -176,6 +178,7 @@
   border-radius: 50%;
   background-color: #d12f2f;
   box-shadow: 3px 3px 3px;
+  margin-right: 9rem;
 }
 #selected-question-pdf:hover {
   background-color: #575757;

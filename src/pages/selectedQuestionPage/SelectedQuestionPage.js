@@ -8,6 +8,8 @@ import {addLanguage, highlight} from 'illuminate-js';
 import {javascript} from 'illuminate-js/lib/languages';
 import pdf from '../../components/allQuestionsComponent/download.png';
 import jsPDF from 'jspdf';
+import '../../components/footerComponent/Footer';
+import Footer from '../../components/footerComponent/Footer';
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
@@ -87,14 +89,13 @@ function SelectedQuestionPage({match}) {
 
         <div className="selected_textareaH">
           <div className="sideMenueContainer">
+            <a href="" onClick={jsPDFGenerator}>
+              <img id="selected-question-pdf" src={pdf} />
+            </a>
             <LeftSideMenu />
           </div>
           <div className="selectedQuestionAndAnswers">
             <div className="askedBy-NoAnswers-Reply">
-
-              <a href="" onClick={jsPDFGenerator}>
-                <img id="selected-question-pdf" src={pdf} />
-              </a>
 
               <div id="q-title-answersNo">
                 <div>Date: {pageData_question.question_date}</div>
@@ -129,6 +130,7 @@ function SelectedQuestionPage({match}) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
