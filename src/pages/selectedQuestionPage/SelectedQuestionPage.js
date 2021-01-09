@@ -1,21 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import './SelectedQuestionPage.css';
-import {Link, withRouter} from 'react-router-dom';
+import {Link, withRouter, useHistory} from 'react-router-dom';
 import Header from '../../components/allQuestionsComponent/Header';
-import countapi from 'countapi-js';
 import LeftSideMenu from '../allquestions/LeftSideMenu';
-import loginImg from '../../assets/images/login.png';
 import ReactHtmlParse from 'react-html-parser';
 import {addLanguage, highlight} from 'illuminate-js';
 import {javascript} from 'illuminate-js/lib/languages';
 import pdf from '../../components/allQuestionsComponent/download.png';
 import jsPDF from 'jspdf';
+import '../../components/footerComponent/Footer';
+import Footer from '../../components/footerComponent/Footer';
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
   const [pageData_question, setPageData_question] = useState ({});
   const [pageData_answer, setPageData_answer] = useState ([]);
   const [updatedViews, SetUpdatedViews] = useState (0);
+  const history = useHistory ();
 
   addLanguage ('javascript', javascript);
   addLanguage ('js', javascript);
@@ -54,16 +55,12 @@ function SelectedQuestionPage({match}) {
       mode: 'cors',
       headers: {'Content-Type': 'application/json'},
     });
-    // console.log (response);
   } catch (err) {
     console.error (err);
   }
 
-  // countapi.visits ().then (result => {
-  //   console.log (result.value);
-  // });
-
-  const jsPDFGenerator = () => {
+  const jsPDFGenerator = e => {
+    e.preventDefault ();
     var doc = new jsPDF ('L', 'pt');
     doc.text (120, 30, 'Question:');
     doc.text (
@@ -78,9 +75,9 @@ function SelectedQuestionPage({match}) {
       doc.text (30, 60, pageData_answer[i].answer);
       doc.addPage ();
     }
-
-    doc.save ('AllQuestions');
     doc.setFont ('courier');
+    doc.save ('AllQuestions');
+    return false;
   };
 
   return (
@@ -94,14 +91,13 @@ function SelectedQuestionPage({match}) {
 
         <div className="selected_textareaH">
           <div className="sideMenueContainer">
+            <a href="" onClick={e => jsPDFGenerator (e)}>
+              <img id="selected-question-pdf" src={pdf} />
+            </a>
             <LeftSideMenu />
           </div>
           <div className="selectedQuestionAndAnswers">
             <div className="askedBy-NoAnswers-Reply">
-
-              <a href="" onClick={jsPDFGenerator}>
-                <img id="selected-question-pdf" src={pdf} />
-              </a>
 
               <div id="q-title-answersNo">
                 <div>Date: {pageData_question.question_date}</div>
@@ -136,6 +132,7 @@ function SelectedQuestionPage({match}) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
