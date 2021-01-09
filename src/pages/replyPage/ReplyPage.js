@@ -132,33 +132,6 @@ function ReplyPage({match}) {
       });
   };
 
-  // const onSubmitForm = async e => {
-  //   // e.preventDefault ();
-  //   try {
-  //     const data = {
-  //       question_id: id,
-  //       reply: answer,
-  //       user_id: 1,
-  //       date: moment ().format ('YYYY/MM/DD'),
-  //     };
-
-  //     const response = await fetch (
-  //       'https://question-mark-api.herokuapp.com/replypage',
-  //       {
-  //         method: 'POST',
-  //         body: JSON.stringify (data),
-  //         mode: 'cors',
-  //         // cache: 'no-cache',
-  //         headers: {'Content-Type': 'application/json'},
-  //       }
-  //     );
-  //     response.status == 200 ? (handleSlackMessage()) : (alert('error'));
-  //    // console.log ('ReplyPage-Post-Response: ', response);
-  //   } catch (err) {
-  //     console.error (err);
-  //   }
-  // };
-
   const renderRepl = subject => {
     switch (subject) {
       case 1:
@@ -208,15 +181,6 @@ function ReplyPage({match}) {
           <form id="ReplyForm" onSubmit={onSubmitForm}>
             <label htmlFor="QuestionReply">Add your reply here ...</label>
             <TextEditor SetAnswer={SetAnswer} />
-
-            {/* <textarea
-              id="QReply"
-              name="Qreply"
-              rows="10"
-              cols="150"
-              value={answer}
-              onChange={e => SetAnswer (e.target.value)}
-            /> */}
             <input id="ReplySubmitbtn" type="submit" value="Submit" />
           </form>
         </div>
