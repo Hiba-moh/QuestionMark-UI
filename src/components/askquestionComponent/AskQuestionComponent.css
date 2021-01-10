@@ -66,7 +66,7 @@
     /* border:2px solid blue; */
 }
 
-.text-post
+.text-post-visible
 {
     width: 95%;
     display: flex;
@@ -74,6 +74,11 @@
     padding:1rem;
     margin: auto;
     /* border:2px solid blue; */
+}
+
+.hidden-text-post
+{
+    visibility: hidden;
 }
 
 .ques-text
@@ -196,13 +201,8 @@
     border:2px solid red;
     border-radius: 10%;
 }
-.profile-pic
-{
-    margin:1rem;
-    width:10rem;
-    border-radius:40%;
-    display: block;
-    margin:auto;
+.ask-question-text-editor{
+    visibility:collapse;
 }
 /* =======================================================
  */
@@ -285,15 +285,20 @@
 .question
 {
     background-color: #D12F2F;
+    color:rgb(255, 255, 255);
     width:70%;
     margin:1rem auto;
     padding:1rem;
-    
+    border: 6px solid #ffffff;
 }
 
 .question:hover{
-    color:red;
-    background-color: rgb(39, 218, 173);
+    border: 6px solid #130407;
+    /* background-color: #641d1d; */
+    /* background: linear-gradient(45deg,#575757,red,rgb(255, 255, 255)); */
+    background: linear-gradient(45deg,#837d7d,rgb(209, 39, 39),#ada9a9);
+    animation-name: side-bar-question;
+    animation-duration: 4s;
 }
 
 

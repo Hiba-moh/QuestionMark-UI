@@ -27,6 +27,7 @@ function AskQuestionQuestion()
     const [fetchedAnsQues,setFetchedAnsQues]=useState();
     const [fetchedUnAnsQues,setFetchedUnAnsQues]= useState();
     const [fetchedName, setFetchedName]=useState("");
+    const [textAreaClass,setTextAreaClass]=useState("text-post-visible")
 
     // This is used to bring the slider from the side. If it is true then we render the slider on the page (Overlay slider)
     const [expand,setExpand]=useState(false);
@@ -40,6 +41,7 @@ function AskQuestionQuestion()
     // This is for the close button of the overlay slider.
     function closeNav() {
         setExpand(false);
+        setTextAreaClass("text-post-visible") // This is to hide the text editor, otherwise it comes on the overlay Content
     }
 
     
@@ -71,12 +73,14 @@ function AskQuestionQuestion()
     {
         setSelectedOption("Answered Questions");
         setExpand(true);
+        setTextAreaClass("hidden-text-post") // This is to hide the text editor, otherwise it comes on the overlay Content
         setListOfQues(fetchedAnsQues);
     }
     function setUnAnsweredQues()
     {
         setSelectedOption("Unanswered Questions");
         setExpand(true);
+        setTextAreaClass("hidden-text-post") // This is to hide the text editor, otherwise it comes on the overlay Content
         setListOfQues(fetchedUnAnsQues);
     }
 
@@ -86,13 +90,13 @@ function AskQuestionQuestion()
     return(
         <div>
             <div className="animation-container">
-                <Tips/>
+                <Tips setTextAreaClass={setTextAreaClass}/>
                 <Animation/>
             </div>
             
             <div className="ask-question-container">
             <LeftSection overlayclass={overlayclass} closeNav={closeNav} selectedOption={selectedOption} listOfQues={listOfQues} user={user} setAnsweredQUes={setAnsweredQUes} setUnAnsweredQues={setUnAnsweredQues}/>
-            <RightSection userID={idNumber[0]}/>
+            <RightSection textAreaClass={textAreaClass}userID={idNumber[0]}/>
             </div>
             
             <Footer />

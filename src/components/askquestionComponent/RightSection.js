@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
+import {Editor} from '@tinymce/tinymce-react';
+
 import {Link} from 'react-router-dom';
 import './AskQuestionComponent.css';
 import Modules from './Modules';
 
 // What I need to fix in this is the user_id with useParams react hook and actually send the data with heroku link using fetch1
 
-function RightSection({userID}) {
+function RightSection({userID,textAreaClass}) {
   // This is a state variable which will store the value selected from drop down menu and then it will be sent to post request.
   // let [selectedModule,setSelectedModule]=useState("");
   let [displayForm, setDisplayForm] = useState (true);
@@ -88,6 +90,14 @@ function RightSection({userID}) {
     setFormQues (e.target.value);
   }
 
+  function testing(content,editor)
+  {
+    // console.log(content[0]);
+    // let finalIndex=content.length-7;
+    // var finalContent = content.substr(3, finalIndex);
+    // console.log(finalContent)
+    setFormQues (content);
+  }
   return (
     <div className="right-section">
       <div className="first-section">
@@ -108,14 +118,36 @@ function RightSection({userID}) {
               <Modules setFormModule_id={setFormModule_id} />
             </div>
 
-            <div className="text-post">
-              <input
+            <div className={textAreaClass}>
+              {/* <input
                 className="ques-text"
                 name="title"
                 type="text"
                 placeholder="Type your question here"
                 onChange={handleQuestion}
                 required
+              /> */}
+
+              <Editor 
+                className="ask-question-text-editor"
+                initialValue=" "
+                apiKey="6zfdz2vb9rz2gg2liptwfxsbeeuhuung7rkugyxkfi29o1f3"
+                init={{
+                  selector: 'textarea', // change this value according to your HTML
+                  height: 500,
+                  menubar: false,
+                  plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code codesample fullscreen',
+                    'insertdatetime media table code help wordcount',
+                    'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable',
+                  ],
+                  toolbar: 'undo redo | formatselect fontselect fontsizeselect forecolor| bold italic backcolor | \
+                      alignleft aligncenter alignright alignjustify | \
+                      bullist numlist | removeformat |casechange code codesample help',
+                  menubar: 'tools',
+                }}
+                onEditorChange={testing}
               />
               <input className="post-btn" type="submit" value="Post" />
             </div>
@@ -128,6 +160,7 @@ function RightSection({userID}) {
             <button className="ask-another-question-btn" onClick={askAnother}>
               Ask Another Question
             </button>
+            
           </div>}
 
     </div>
