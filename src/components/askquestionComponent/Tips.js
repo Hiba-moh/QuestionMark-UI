@@ -9,17 +9,19 @@ import "./Tips.css"
 //         </div>
 //     )
 // }
-function Tips()
+function Tips({setTextAreaClass})
 {
     const [expand,setExpand]=useState(false);
     let overlayclass="";
 
     function closeNav() {
         setExpand(false);
+        setTextAreaClass("text-post-visible") 
     }
     function handleClick()
     {
         setExpand(true);
+        setTextAreaClass("hidden-text-post")
     }
 
     expand? (overlayclass="overlay"):(overlayclass="overlay-hidden")

@@ -66,7 +66,7 @@
     /* border:2px solid blue; */
 }
 
-.text-post
+.text-post-visible
 {
     width: 95%;
     display: flex;
@@ -74,6 +74,11 @@
     padding:1rem;
     margin: auto;
     /* border:2px solid blue; */
+}
+
+.hidden-text-post
+{
+    visibility: hidden;
 }
 
 .ques-text
@@ -196,13 +201,8 @@
     border:2px solid red;
     border-radius: 10%;
 }
-.profile-pic
-{
-    margin:1rem;
-    width:10rem;
-    border-radius:40%;
-    display: block;
-    margin:auto;
+.ask-question-text-editor{
+    visibility:collapse;
 }
 /* =======================================================
  */
