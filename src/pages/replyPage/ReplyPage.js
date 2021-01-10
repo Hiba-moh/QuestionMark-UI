@@ -47,19 +47,32 @@ function ReplyPage({match}) {
   };
 
   async function handleEmail () {
-    axios.post (
-      'https://question-mark-api.herokuapp.com/sendmail',
-      JSON.stringify (emailData),
-      {
-        withCredentials: false,
-        transformRequest: [
-          (data, headers) => {
-            delete headers.post['Content-Type'];
-            return data;
-          },
-        ],
-      }
-    );
+    fetch('https://question-mark-api.herokuapp.com/sendmail', {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json"
+      },
+      body: JSON.stringify(emailData)
+
+    })
+    .then(response => {
+      return response.json();
+    }).catch(err => {
+      console.log(err);
+    })
+    // axios.post (
+    //   'https://question-mark-api.herokuapp.com/sendmail',
+    //   JSON.stringify (emailData),
+    //   {
+    //     withCredentials: false,
+    //     transformRequest: [
+    //       (data, headers) => {
+    //         delete headers.post['Content-Type'];
+    //         return data;
+    //       },
+    //     ],
+    //   }
+    // );
   }
 
   const data1 = {
