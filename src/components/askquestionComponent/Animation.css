@@ -14,11 +14,11 @@
    */
 
 @keyframes slidingLine {
-  0%   {color:rgba(218, 28, 28, 0.9);}
-  50%   {color:rgba(218, 28, 28, 0.7);}
+  0%   {color:rgba(218, 28, 28); visibility: 20%;}
+  50%   {color:rgba(218, 28, 28, 0.3);}
   65%   {color:rgba(218, 28, 28, 0.5);}
-  75%   {color:rgba(218, 28, 28, 0.3);}
-  100%  {color:rgba(218, 28, 28, 0.2);}
+  75%   {color:rgba(218, 28, 28, 0.7);}
+  100%  {color:rgba(218, 28, 28, 0.9);}
 }
   
 .slide-line
@@ -38,6 +38,7 @@
   font: 3rem ubuntu,Verdana,Arial,sans-serif;
     position: relative;
     color:rgb(238, 40, 40);
+    opacity: 0.5;
     animation-name: slidingLine;
     animation-duration: 3s;
     text-align: center;
