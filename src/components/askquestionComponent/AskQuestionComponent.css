@@ -285,15 +285,16 @@
 .question
 {
     background-color: #D12F2F;
+    color:rgb(255, 255, 255);
     width:70%;
     margin:1rem auto;
     padding:1rem;
+    border: 5px solid #D12F2F;
     
 }
 
 .question:hover{
-    color:red;
-    background-color: rgb(39, 218, 173);
+    border: 5px solid #ffffff;
 }
 
 
