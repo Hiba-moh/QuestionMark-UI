@@ -289,12 +289,12 @@
     width:70%;
     margin:1rem auto;
     padding:1rem;
-    border: 5px solid #D12F2F;
+    border: 6px solid #D12F2F;
     
 }
 
 .question:hover{
-    border: 5px solid #f3f3f3;
+    border: 6px solid #f3f3f3;
 }
 
 
