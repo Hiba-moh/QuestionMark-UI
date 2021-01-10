@@ -293,9 +293,11 @@
 }
 
 .question:hover{
-    border: 6px solid #93f1cd;
-    background-color: #641d1d;
-    animation-name: circle;
+    border: 6px solid #130407;
+    /* background-color: #641d1d; */
+    /* background: linear-gradient(45deg,#575757,red,rgb(255, 255, 255)); */
+    background: linear-gradient(45deg,#837d7d,rgb(209, 39, 39),#ada9a9);
+    animation-name: side-bar-question;
     animation-duration: 4s;
 }
 
