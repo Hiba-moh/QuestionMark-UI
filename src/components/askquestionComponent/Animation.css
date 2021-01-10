@@ -26,7 +26,6 @@
   font: 3rem ubuntu,Verdana,Arial,sans-serif;
     position: relative;
     color:rgb(238, 40, 40);
-    /* opacity: 0.5; */
     animation-name: slidingLine;
     animation-duration: 2s;
     text-align: center;
