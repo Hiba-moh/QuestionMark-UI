@@ -289,12 +289,14 @@
     width:70%;
     margin:1rem auto;
     padding:1rem;
-    border: 6px solid #D12F2F;
-    
+    border: 6px solid #ffffff;
 }
 
 .question:hover{
-    border: 6px solid #f3f3f3;
+    border: 6px solid #93f1cd;
+    background-color: #641d1d;
+    animation-name: circle;
+    animation-duration: 4s;
 }
 
 
