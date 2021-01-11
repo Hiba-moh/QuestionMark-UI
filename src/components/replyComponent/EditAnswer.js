@@ -1,4 +1,5 @@
 import react, {Fragment, useState} from 'react';
+import ReactHtmlParse from 'react-html-parser';
 
 const EditAnswer = ({answerDetails}) => {
   //Edit text function
@@ -16,6 +17,7 @@ const EditAnswer = ({answerDetails}) => {
         }
       );
       console.log (res);
+      window.location = '/useranswered';
     } catch (err) {
       console.error (err.message);
     }

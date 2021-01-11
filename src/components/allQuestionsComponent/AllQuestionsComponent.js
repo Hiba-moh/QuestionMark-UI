@@ -17,9 +17,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import RateComponent from './RateComponent';
 import Footer from '../footerComponent/Footer';
+import SpinnerPage from './SpinnerPage';
+import rateIcon from '../allQuestionsComponent/rate.png';
 
 const AllQuestionsComponent = () => {
-  const [loading, setLoading] = useState (false);
+  const [loading, setLoading] = useState (true);
   const [currentPage, setCurrentPage] = useState (1);
   const [questionRate, setQuestionRate] = useState (0);
   const [questionsPerPage] = useState (5);
@@ -259,38 +261,47 @@ const AllQuestionsComponent = () => {
               </li>
             </ul>
           </div>
+
           <div className="bodyContentH">
             <h1 id="page-headingH">ALL QUESTIONS</h1>
             <h5 id="countHeader">{count} QUESTIONS</h5>
             <div className="link-filterH" />
             <img src="" />
-            <div className="allquestions-containerH">
 
-              {currentQuestions.map ((question, index) => (
-                <div key={index} className="question1H">
-                  <div key={index + 1} className="switch-q">
+            {!loading
+              ? <div className="allquestions-containerH">
+                  {currentQuestions.map ((question, index) => (
+                    <div key={index} className="question1H">
+                      <div key={index + 1} className="switch-q">
 
-                    {renderSwitch (question.module_id)}
+                        {renderSwitch (question.module_id)}
 
-                    {/* {setQuestionRate(question.rate)} */}
-                    <Link
-                      key={index + 3}
-                      to={`/selectedquestionpage/${question.id}`}
-                    >
-                      {question.question_title}
-                    </Link>
-                  </div>
-                  <div className="questionDetails">
+                        {/* {setQuestionRate(question.rate)} */}
+                        <Link
+                          key={index + 3}
+                          to={`/selectedquestionpage/${question.id}`}
+                        >
+                          {question.question_title}
+                        </Link>
+                      </div>
+                      <div className="questionDetails">
 
-                    {/* rate here */}
-                    <RateComponent keyId={question.id} rate={question.rate} />
+                        {/* rate here */}
+                        {/* <RateComponent
+                          keyId={question.id}
+                          rate={question.rate}
+                        /> */}
+                        <div className="rateAndImg">
+                          <img className="rateIcon" src={rateIcon} />
+                          <h5>{question.rate}</h5>
+                        </div>
+                        <h5>Views: {question.views}</h5>
+                      </div>
+                    </div>
+                  ))}
 
-                    <h5>Views: {question.views}</h5>
-                  </div>
                 </div>
-              ))}
-
-            </div>
+              : <SpinnerPage />}
 
             <div>
               <Pagination
