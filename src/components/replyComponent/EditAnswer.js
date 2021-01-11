@@ -15,7 +15,7 @@ const EditAnswer = ({answerDetails}) => {
           body: JSON.stringify (data),
         }
       );
-      console.log (res);
+      window.location = '/useranswered';
     } catch (err) {
       console.error (err.message);
     }
