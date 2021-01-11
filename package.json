@@ -15,6 +15,7 @@
     "axios": "^0.21.1",
     "countapi-js": "^1.0.1",
     "dotenv": "^8.2.0",
+    "html-react-parser": "^1.1.1",
     "illuminate-js": "^1.0.0-alpha.2",
     "install": "^0.13.0",
     "jspdf": "^2.2.0",
