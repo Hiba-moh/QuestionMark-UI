@@ -193,7 +193,7 @@
   padding: 10rem;
 }
 .spinner-border {
-  padding: 4rem;
+  padding: 2rem;
   border: 1rem dotted #d12f2f;
   transform: scale(1.5);
   transition: ease-in-out;

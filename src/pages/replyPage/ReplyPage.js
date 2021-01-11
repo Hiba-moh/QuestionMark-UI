@@ -82,7 +82,7 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module_id: ${questionReply.module_id}`,
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module_id: ${module_name (questionReply.module_id)}`,
             value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
@@ -167,6 +167,32 @@ function ReplyPage({match}) {
         break;
       case 7:
         return '';
+      default:
+        return '';
+    }
+  };
+
+  const Module_name = subject_id => {
+    switch (subject_id) {
+      case 1:
+        return 'git';
+      case 2:
+        return 'HTML/CSS';
+        break;
+      case 3:
+        return 'JavaScript';
+        break;
+      case 4:
+        return 'React';
+        break;
+      case 5:
+        return 'NodeJs';
+        break;
+      case 6:
+        return 'SQL';
+        break;
+      case 7:
+        return 'MangoDB';
       default:
         return '';
     }

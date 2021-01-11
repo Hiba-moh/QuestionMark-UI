@@ -18,6 +18,7 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import RateComponent from './RateComponent';
 import Footer from '../footerComponent/Footer';
 import SpinnerPage from './SpinnerPage';
+import rateIcon from '../allQuestionsComponent/rate.png';
 
 const AllQuestionsComponent = () => {
   const [loading, setLoading] = useState (true);
@@ -286,11 +287,14 @@ const AllQuestionsComponent = () => {
                       <div className="questionDetails">
 
                         {/* rate here */}
-                        <RateComponent
+                        {/* <RateComponent
                           keyId={question.id}
                           rate={question.rate}
-                        />
-
+                        /> */}
+                        <div className="rateAndImg">
+                          <img className="rateIcon" src={rateIcon} />
+                          <h5>{question.rate}</h5>
+                        </div>
                         <h5>Views: {question.views}</h5>
                       </div>
                     </div>
