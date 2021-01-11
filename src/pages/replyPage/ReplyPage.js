@@ -36,8 +36,7 @@ function ReplyPage({match}) {
       .then (data => SetQuestionReply (data.question[0]))
       .catch (error => console.log (error));
   }, []);
-  console.log (`Email: ${questionReply.email}`);
-  console.log (`Name: ${questionReply.name}`);
+
 
   const emailData = {
     send: true,
@@ -82,7 +81,7 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module_id: ${module_name (questionReply.module_id)}`,
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Subject: ${questionReply.module_id}`,
             value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
