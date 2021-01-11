@@ -43,23 +43,23 @@ function ReplyPage({match}) {
     send: true,
     email: questionReply.email,
     name: questionReply.name,
-    text: `Hi ${questionReply.name}, your question has been answered. Please login into the questionmark forum to check your answer.`
+    text: `Hi ${questionReply.name}, your question has been answered. Please login into the questionmark forum to check your answer.`,
   };
 
   async function handleEmail () {
-    fetch('https://question-mark-api.herokuapp.com/sendmail', {
-      method: "POST",
+    fetch ('https://question-mark-api.herokuapp.com/sendmail', {
+      method: 'POST',
       headers: {
-        "content-Type": "application/json"
+        'content-Type': 'application/json',
       },
-      body: JSON.stringify(emailData)
-
+      body: JSON.stringify (emailData),
     })
-    .then(response => {
-      return response.json();
-    }).catch(err => {
-      console.log(err);
-    })
+      .then (response => {
+        return response.json ();
+      })
+      .catch (err => {
+        console.log (err);
+      });
     // axios.post (
     //   'https://question-mark-api.herokuapp.com/sendmail',
     //   JSON.stringify (emailData),
