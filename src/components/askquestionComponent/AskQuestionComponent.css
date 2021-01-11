@@ -158,7 +158,9 @@
     margin:2rem auto;
     background-color: rgb(102, 86, 86);
     padding:3rem 2rem;
-    background: linear-gradient(rgb(102, 86, 86),rgb(134, 114, 114),white);
+    /* background: linear-gradient(rgb(102, 86, 86),rgb(134, 114, 114),white);
+     */
+     background-color: #575757;
     
 }
 
