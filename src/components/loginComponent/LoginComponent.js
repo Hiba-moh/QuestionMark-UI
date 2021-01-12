@@ -42,9 +42,10 @@ function LoginComponent (props) {
         
          console.log(data);
         if (data.success === false) {
-          localStorage.setItem ('token', JSON.stringify (data)); //stores token in local storage
+          //localStorage.setItem ('token', JSON.stringify (data)); //stores token in local storage
           setFailedLoginMessage (data.message);
         } else {
+          localStorage.setItem('user', true);
           setIdNumberValue(data.user_id);
           setGreetValue(data.message);
           history.push ('/allquestions');
@@ -54,7 +55,7 @@ function LoginComponent (props) {
         console.error (e);
       });
   };
-//console.log(idNumber);
+console.log(isAuth);
   const handleLogUsername = e => {
     setLogUsername (e.target.value);
   };
