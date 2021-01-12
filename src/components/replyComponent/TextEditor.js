@@ -1,5 +1,6 @@
 import React from 'react';
 import {Editor} from '@tinymce/tinymce-react';
+import parse from 'html-react-parser';
 
 const TextEditor = ({SetAnswer}) => {
   const handleEditorChange = (content, editor) => {

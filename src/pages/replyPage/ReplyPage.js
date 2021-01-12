@@ -36,30 +36,29 @@ function ReplyPage({match}) {
       .then (data => SetQuestionReply (data.question[0]))
       .catch (error => console.log (error));
   }, []);
-  console.log (`Email: ${questionReply.email}`);
-  console.log (`Name: ${questionReply.name}`);
+
 
   const emailData = {
     send: true,
     email: questionReply.email,
     name: questionReply.name,
-    text: `Hi ${questionReply.name}, your question has been answered. Please login into the questionmark forum to check your answer.`
+    text: `Hi ${questionReply.name}, your question has been answered. Please login into the questionmark forum to check your answer.`,
   };
 
   async function handleEmail () {
-    fetch('https://question-mark-api.herokuapp.com/sendmail', {
-      method: "POST",
+    fetch ('https://question-mark-api.herokuapp.com/sendmail', {
+      method: 'POST',
       headers: {
-        "content-Type": "application/json"
+        'content-Type': 'application/json',
       },
-      body: JSON.stringify(emailData)
-
+      body: JSON.stringify (emailData),
     })
-    .then(response => {
-      return response.json();
-    }).catch(err => {
-      console.log(err);
-    })
+      .then (response => {
+        return response.json ();
+      })
+      .catch (err => {
+        console.log (err);
+      });
     // axios.post (
     //   'https://question-mark-api.herokuapp.com/sendmail',
     //   JSON.stringify (emailData),
@@ -82,7 +81,7 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module_id: ${questionReply.module_id}`,
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Subject: ${questionReply.module_id}`,
             value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
@@ -167,6 +166,32 @@ function ReplyPage({match}) {
         break;
       case 7:
         return '';
+      default:
+        return '';
+    }
+  };
+
+  const Module_name = subject_id => {
+    switch (subject_id) {
+      case 1:
+        return 'git';
+      case 2:
+        return 'HTML/CSS';
+        break;
+      case 3:
+        return 'JavaScript';
+        break;
+      case 4:
+        return 'React';
+        break;
+      case 5:
+        return 'NodeJs';
+        break;
+      case 6:
+        return 'SQL';
+        break;
+      case 7:
+        return 'MangoDB';
       default:
         return '';
     }

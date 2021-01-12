@@ -18,6 +18,7 @@ const UserAnswered = () => {
   const [idNumberValue, setIdNumberValue] = idNumber;
 
   const [userAnswers, SetUserAnswers] = useState ([]);
+  let filterAfterUserDelete;
 
   //delete answer function
 
@@ -28,11 +29,8 @@ const UserAnswered = () => {
         method: 'DELETE',
       }
     );
-    SetUserAnswers (
-      userAnswers.filter (answer => {
-        answer.id !== id;
-      })
-    );
+    SetUserAnswers (userAnswers.filter (answer => answer.id !== id));
+
     console.log (res);
   };
 
