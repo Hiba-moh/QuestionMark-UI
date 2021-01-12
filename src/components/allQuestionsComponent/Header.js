@@ -15,6 +15,7 @@ function Header () {
   const handleLogout = () => {
     setIsAuthValue(false);
    localStorage.setItem('user', false);
+   localStorage.removeItem("idValue");
   }
 
   return (
