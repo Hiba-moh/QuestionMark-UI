@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../components/selectedQuestionPageComponents/FormDialog.css';
 
 const commentsForm = () => {
   return (
@@ -74,17 +75,17 @@ const commentsForm = () => {
           </div>
 
           //***************************************************************** */
-          <div class="card card-inner">
+          <div class="card card-inner commentCard">
             <div class="card-body">
               <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 ">
                   <img
                     src="https://image.ibb.co/jw55Ex/def_face.jpg"
                     class="img img-rounded img-fluid"
                   />
                   <p class="text-secondary text-center">15 Minutes Ago</p>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                   <p>
                     <a href="https://maniruzzaman-akash.blogspot.com/p/contact.html">
                       <strong>Maniruzzaman Akash</strong>

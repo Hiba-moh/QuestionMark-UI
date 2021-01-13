@@ -168,7 +168,7 @@ const UnAnsweredComponent = () => {
           <div className=" Answered-question-outer-container">
             <div className="Answered-questions-container">
 
-              {modulequestions.map (answer, index => (
+              {modulequestions.map ((answer, index) => (
                 <div className="one-UnAnswered">
 
                   <div className="one-Answered-question" key={index}>
