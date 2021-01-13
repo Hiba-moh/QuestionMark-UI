@@ -189,3 +189,7 @@
 #selected-question-pdf:hover {
   background-color: #575757;
 }
+.oneComment {
+  background-color: red;
+  color: white;
+}

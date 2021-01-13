@@ -168,10 +168,10 @@ const UnAnsweredComponent = () => {
           <div className=" Answered-question-outer-container">
             <div className="Answered-questions-container">
 
-              {modulequestions.map (answer => (
+              {modulequestions.map (answer, index => (
                 <div className="one-UnAnswered">
 
-                  <div className="one-Answered-question">
+                  <div className="one-Answered-question" key={index}>
                     <h2>Question : </h2>
                     {renderSwitch (answer.module_id)}
                     {' '}{answer.question}
