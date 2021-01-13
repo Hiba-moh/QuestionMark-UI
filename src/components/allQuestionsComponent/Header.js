@@ -6,13 +6,18 @@ import {AuthContext} from '../../AuthContext';
 import {withRouter} from 'react-router-dom';
 
 function Header () {
-  //const [isAuth, setIsAuth] = useContext (AuthContext);
   const {isAuth, greet, idNumber} = useContext (AuthContext); //pull all states to be used
   const [isAuthValue, setIsAuthValue] = isAuth;
   const [greetValue, setGreetValue] = greet; //equvilent to setGreet
   const [idNumberValue, setIdNumberValue] = idNumber;
 
-  //console.log (isAuth);
+
+  const handleLogout = () => {
+    setIsAuthValue(false);
+   localStorage.setItem('user', false);
+   localStorage.removeItem("idValue");
+  }
+
   return (
     <div className="header_containerH">
 
@@ -40,7 +45,7 @@ function Header () {
           </Link>
         </li>
         <li className="lined-list">
-          <Link to="/" onClick={() => setIsAuthValue (false)}>
+          <Link to="/" onClick={handleLogout}>
 
             Logout
           </Link>
