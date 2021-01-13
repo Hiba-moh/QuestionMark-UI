@@ -121,13 +121,14 @@ function SelectedQuestionPage({match}) {
       answer_id: answer.id,
       question_id: answer.question_id,
       comment: txtValue,
-      users_id: 1,
+      users_id: idNumber[0],
       date: new Intl.DateTimeFormat ('en-GB', {
         dateStyle: 'full',
         timeStyle: 'long',
       }).format (date),
     };
     console.log ('this is data', data);
+    console.log ('check id = ', idNumber);
     await fetch ('https://question-mark-api.herokuapp.com/comments', {
       method: 'POST',
       body: JSON.stringify (data),
@@ -324,7 +325,7 @@ function SelectedQuestionPage({match}) {
                                 </div>
                                 <div class="col-md-10">
                                   <p>
-                                    <h3>{comment.users_id}</h3>
+                                    <h3>{greet}</h3>
                                   </p>
                                   <p>
                                     {comment.comment}

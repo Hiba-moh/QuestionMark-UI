@@ -30,13 +30,38 @@ function ReplyPage({match}) {
   const [idNumberValue, setIdNumberValue] = idNumber;
   const history = useHistory ();
 
+  const Module_name = subject_id => {
+    switch (subject_id) {
+      case 1:
+        return 'git';
+      case 2:
+        return 'HTML/CSS';
+        break;
+      case 3:
+        return 'JavaScript';
+        break;
+      case 4:
+        return 'React';
+        break;
+      case 5:
+        return 'NodeJs';
+        break;
+      case 6:
+        return 'SQL';
+        break;
+      case 7:
+        return 'MangoDB';
+      default:
+        return '';
+    }
+  };
+
   useEffect (() => {
     fetch (`https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`)
       .then (response => response.json ())
       .then (data => SetQuestionReply (data.question[0]))
       .catch (error => console.log (error));
   }, []);
-
 
   const emailData = {
     send: true,
@@ -115,7 +140,7 @@ function ReplyPage({match}) {
     const data = {
       question_id: id,
       reply: answer,
-      user_id: 1,
+      user_id: idNumber[0],
       date: moment ().format ('YYYY/MM/DD'),
     };
 
@@ -166,32 +191,6 @@ function ReplyPage({match}) {
         break;
       case 7:
         return '';
-      default:
-        return '';
-    }
-  };
-
-  const Module_name = subject_id => {
-    switch (subject_id) {
-      case 1:
-        return 'git';
-      case 2:
-        return 'HTML/CSS';
-        break;
-      case 3:
-        return 'JavaScript';
-        break;
-      case 4:
-        return 'React';
-        break;
-      case 5:
-        return 'NodeJs';
-        break;
-      case 6:
-        return 'SQL';
-        break;
-      case 7:
-        return 'MangoDB';
       default:
         return '';
     }
