@@ -15,6 +15,12 @@ const UserAsked = () => {
 
   const [userQuestions, SetUserQuestions] = useState ([]);
 
+  if(idNumber[0] || greet[0])
+    {
+        localStorage.setItem("userAskedVal",idNumber[0]);
+        localStorage.setItem("userAskedName", greet[0]);
+    }
+
   //delete answer function
 
   const deleteQuestion = async id => {
@@ -38,7 +44,7 @@ const UserAsked = () => {
 
   // get all the questions been asked by specific user by user id
   const questionsList = async () => {
-    const res = await fetch`https://question-mark-api.herokuapp.com/userAsked/3`;
+    const res = await fetch("https://question-mark-api.herokuapp.com/userAsked/" + localStorage.getItem('userAskedVal'));
 
     const resArray = await res.json ();
     SetUserQuestions (resArray);
@@ -53,7 +59,7 @@ const UserAsked = () => {
       <div className="userAnswersContainer">
         <Header />
         <div className="userAnswersBodyContainer">
-          <h1>Questions You Asked {greet}</h1>
+          <h1>Questions You Asked {localStorage.getItem('userAskedName')}</h1>
           <table className="table table-responsive table-striped table-striped mt-5">
             <thead>
               <tr>

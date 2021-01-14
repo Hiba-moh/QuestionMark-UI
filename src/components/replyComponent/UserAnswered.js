@@ -17,6 +17,12 @@ const UserAnswered = () => {
   const [greetValue, setGreetValue] = greet;
   const [idNumberValue, setIdNumberValue] = idNumber;
 
+  if(idNumber[0] || greet[0])
+    {
+        localStorage.setItem("userAnsweredVal",idNumber[0]);
+        localStorage.setItem("userAnsweredName", greet[0]);
+    }
+
   const [userAnswers, SetUserAnswers] = useState ([]);
   let filterAfterUserDelete;
 
@@ -37,7 +43,7 @@ const UserAnswered = () => {
   //get all the questions been answered by specific user by id
 
   const answersList = async () => {
-    const res = await fetch`https://question-mark-api.herokuapp.com/userAnswers/1`;
+    const res = await fetch("https://question-mark-api.herokuapp.com/userAnswers/" + localStorage.getItem('userAnsweredVal'));
 
     const resArray = await res.json ();
     SetUserAnswers (resArray);
@@ -52,7 +58,7 @@ const UserAnswered = () => {
       <div className="userAnswersContainer">
         <Header />
         <div className="userAnswersBodyContainer">
-          <h1>Questions Answered By You {greet}</h1>
+          <h1>Questions Answered By You {localStorage.getItem('userAnsweredName')}</h1>
 
           <table className="table table-responsive table-striped table-striped mt-5">
             <thead>

@@ -10,11 +10,9 @@ import pdf from '../../components/allQuestionsComponent/download.png';
 import jsPDF from 'jspdf';
 import '../../components/footerComponent/Footer';
 import Footer from '../../components/footerComponent/Footer';
-import FormDialog
-  from '..//..//components/selectedQuestionPageComponents/FormDialog';
-import CommentsForm
-  from '..//..//components/selectedQuestionPageComponents/CommentsForm';
 import {AuthContext} from '../../AuthContext';
+
+
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
@@ -30,6 +28,11 @@ function SelectedQuestionPage({match}) {
   const [txtValue, setTxtValue] = useState ('');
   const [open, setOpen] = React.useState (false);
   const [flag, setFlag] = useState (false);
+
+  if(idNumber[0])
+{
+    localStorage.setItem("idValue",idNumber[0]);
+}
 
   let filteredComments = [];
   const history = useHistory ();
@@ -51,7 +54,7 @@ function SelectedQuestionPage({match}) {
         .then (data => {
           setPageData_question (data.question[0]);
           setPageData_answer (data.answer);
-          // SetUpdatedViews (data.question[0].views);
+    
         })
         .catch (error => {
           console.error (error);
@@ -116,19 +119,17 @@ function SelectedQuestionPage({match}) {
   const handlePostSubmit = async (answer, e) => {
     e.preventDefault ();
     const date = Date.now ();
-    console.log ('this is out put', txtValue);
     const data = {
       answer_id: answer.id,
       question_id: answer.question_id,
       comment: txtValue,
-      users_id: idNumber[0],
+      users_id: localStorage.getItem('idValue'),
       date: new Intl.DateTimeFormat ('en-GB', {
         dateStyle: 'full',
         timeStyle: 'long',
       }).format (date),
     };
-    console.log ('this is data', data);
-    console.log ('check id = ', idNumber);
+   
     await fetch ('https://question-mark-api.herokuapp.com/comments', {
       method: 'POST',
       body: JSON.stringify (data),
@@ -139,7 +140,6 @@ function SelectedQuestionPage({match}) {
         return response.json ();
       })
       .then (data => {
-        console.log ('THIS IS THE NEW DATA', data);
         e.target.value = ' ';
       })
       .catch (err => {
@@ -152,7 +152,6 @@ function SelectedQuestionPage({match}) {
   if (!comments) {
     return null;
   } else {
-    console.log ('comments', txtValue);
     return (
       <div>
         <Header />
@@ -193,38 +192,7 @@ function SelectedQuestionPage({match}) {
                 <h6>Asked by: {pageData_question.name}</h6>
               </div>
 
-              {/* <CommentsForm /> */}
-
-              {/* 
-              {pageData_question.answers > 0 &&
-                <div id="q-answerH">
-                  <h3>The Answers: </h3>
-                  {pageData_answer.map ((answer, index) => (
-                    <div key={index} className="answer-details">
-                      <div id="pAnswers"> {ReactHtmlParse (answer.answer)}</div>
-                      <h6>{answer.answer_date}</h6>
-                      <h6>Answered by: {answer.name}</h6>
-                      <hr id="hrBreak" />
-                      <div>
-
-                        {comments.map (comment => <h6>{comment.comment}</h6>)}
-                        {
-                          (filteredComments = comments.filter (comment => {
-                            answer.id == comment.answer_id;
-                          }))
-                        }
-                        {filteredComments.map (comment => (
-                          <div className="oneComment">
-                            <h4>{comment.comment}</h4>
-                            <h6>{comment.comment_date}</h6>
-                          </div>
-                        ))}
-
-                      </div>
-                      <FormDialog answer={answer} />
-                    </div>
-                  ))}
-                </div>} */}
+            
               {pageData_question.answers > 0 &&
                 <div class="container">
                   <h2 class="text-left">
@@ -264,19 +232,10 @@ function SelectedQuestionPage({match}) {
                             <h3>
                               {ReactHtmlParse (answer.answer)}
                             </h3>
-                            <p>
-                              {/* <a class="float-right btn btn-outline-primary ml-2">
-                                {' '}<i class="fa fa-reply" /> Reply
-                              </a>
-                              <a class="float-right btn text-white btn-danger">
-                                {' '}<i class="fa fa-heart" /> Like
-                              </a> */}
-                            </p>
+                           
                           </div>
                         </div>
-                        {/* ************************************************************
-
-                      *************************************************************  */}
+                        
 
                         <div class="col-md-6 comments-section">
                           <div class="row">
@@ -308,7 +267,7 @@ function SelectedQuestionPage({match}) {
                           </div>
                         </div>
 
-                        {/* //*****************************************************************  */}
+              
 
                         {comments.map (comment => (
                           <div class="card card-inner commentCard">
@@ -330,14 +289,7 @@ function SelectedQuestionPage({match}) {
                                   <p>
                                     {comment.comment}
                                   </p>
-                                  <p>
-                                    {/* <a class="float-right btn btn-outline-primary ml-2">
-                                      {' '} <i class="fa fa-reply" /> Reply
-                                    </a>
-                                    <a class="float-right btn text-white btn-danger">
-                                      {' '}<i class="fa fa-heart" /> Like
-                                    </a> */}
-                                  </p>
+                                 
                                 </div>
                               </div>
                             </div>
