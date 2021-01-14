@@ -20,10 +20,10 @@ import HTML from '../../components/ProfileComponent/HTML';
 import Node from '../../components/ProfileComponent/Node';
 
 function ReplyPage({match}) {
+
   const id = match.params.id;
   const [answer, SetAnswer] = useState ('');
   const [questionReply, SetQuestionReply] = useState ('');
-  //const [isAuth, setIsAuth] = useContext(AuthContext);
   const {isAuth, greet, idNumber} = useContext (AuthContext);
   const [isAuthValue, setIsAuthValue] = isAuth;
   const [greetValue, setGreetValue] = greet;
@@ -89,19 +89,7 @@ function ReplyPage({match}) {
       .catch (err => {
         console.log (err);
       });
-    // axios.post (
-    //   'https://question-mark-api.herokuapp.com/sendmail',
-    //   JSON.stringify (emailData),
-    //   {
-    //     withCredentials: false,
-    //     transformRequest: [
-    //       (data, headers) => {
-    //         delete headers.post['Content-Type'];
-    //         return data;
-    //       },
-    //     ],
-    //   }
-    // );
+    
   }
 
   const data1 = {
@@ -111,7 +99,7 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: `Question No.${questionReply.id} Username: ${questionReply.name} Subject: ${questionReply.module_id} Link: https://www.netlify.app`,
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module: ${Module_name(questionReply.module_id)}`,
             value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
@@ -153,7 +141,6 @@ function ReplyPage({match}) {
       method: 'POST',
       body: JSON.stringify (data),
       mode: 'cors',
-      // cache: 'no-cache',
       headers: {'Content-Type': 'application/json'},
     })
       .then (response => {
