@@ -97,19 +97,19 @@ const UnAnsweredComponent = () => {
   const renderSwitch = param => {
     switch (param) {
       case 1:
-        return <img src={git} />;
+        return <img className="switchImg" src={git} />;
       case 2:
-        return <img src={html} />;
+        return <img className="switchImg" src={html} />;
       case 3:
-        return <img src={js} />;
+        return <img className="switchImg" src={js} />;
       case 4:
-        return <img src={react} />;
+        return <img className="switchImg" src={react} />;
       case 5:
-        return <img src={node} />;
+        return <img className="switchImg" src={node} />;
       case 6:
-        return <img src={sql} />;
+        return <img className="switchImg" src={sql} />;
       case 7:
-        return <img src={mango} />;
+        return <img className="switchImg" src={mango} />;
     }
   };
 
