@@ -1,3 +1,8 @@
+.contain_all {
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 3px 3px 5px 6px #ccc; /* Firefox 3.5 - 3.6 */
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
 .search-containerH {
   margin: auto;
   font-family: 'Abel', sans-serif;
@@ -189,9 +194,9 @@
   justify-content: left;
   margin: 0 1rem 0rem 1rem;
 }
-.d-flex {
+/* .d-flex {
   padding: 10rem;
-}
+} */
 .spinner-border {
   padding: 2rem;
   border: 1rem dotted #d12f2f;
@@ -262,7 +267,7 @@
   flex-wrap: wrap;
 }
 
-img {
+.switchImg {
   margin-left: 2rem;
   width: 80px;
   height: auto;
