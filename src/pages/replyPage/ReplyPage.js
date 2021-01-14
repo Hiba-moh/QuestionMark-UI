@@ -30,13 +30,43 @@ function ReplyPage({match}) {
   const [idNumberValue, setIdNumberValue] = idNumber;
   const history = useHistory ();
 
+  if(idNumber[0])
+    {
+        localStorage.setItem("replyVal",idNumber[0]);
+    }
+
+  const Module_name = subject_id => {
+    switch (subject_id) {
+      case 1:
+        return 'git';
+      case 2:
+        return 'HTML/CSS';
+        break;
+      case 3:
+        return 'JavaScript';
+        break;
+      case 4:
+        return 'React';
+        break;
+      case 5:
+        return 'NodeJs';
+        break;
+      case 6:
+        return 'SQL';
+        break;
+      case 7:
+        return 'MangoDB';
+      default:
+        return '';
+    }
+  };
+
   useEffect (() => {
     fetch (`https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`)
       .then (response => response.json ())
       .then (data => SetQuestionReply (data.question[0]))
       .catch (error => console.log (error));
   }, []);
-
 
   const emailData = {
     send: true,
@@ -81,7 +111,7 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: `Question No.${questionReply.id} Username: ${questionReply.name} Subject: ${questionReply.module_id}`,
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Subject: ${questionReply.module_id} Link: https://www.netlify.app`,
             value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
@@ -115,7 +145,7 @@ function ReplyPage({match}) {
     const data = {
       question_id: id,
       reply: answer,
-      user_id: 1,
+      user_id: localStorage.getItem('replyVal'),
       date: moment ().format ('YYYY/MM/DD'),
     };
 
@@ -166,32 +196,6 @@ function ReplyPage({match}) {
         break;
       case 7:
         return '';
-      default:
-        return '';
-    }
-  };
-
-  const Module_name = subject_id => {
-    switch (subject_id) {
-      case 1:
-        return 'git';
-      case 2:
-        return 'HTML/CSS';
-        break;
-      case 3:
-        return 'JavaScript';
-        break;
-      case 4:
-        return 'React';
-        break;
-      case 5:
-        return 'NodeJs';
-        break;
-      case 6:
-        return 'SQL';
-        break;
-      case 7:
-        return 'MangoDB';
       default:
         return '';
     }

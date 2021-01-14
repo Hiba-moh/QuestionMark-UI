@@ -15,6 +15,14 @@ function Header () {
   const handleLogout = () => {
     setIsAuthValue(false);
    localStorage.setItem('user', false);
+   localStorage.removeItem("idValue");
+   localStorage.removeItem('profileVal');
+   localStorage.removeItem('userAskedVal');
+   localStorage.removeItem('userAnsweredVal');
+   localStorage.removeItem('replyVal');
+   localStorage.removeItem('userAskedName');
+   localStorage.removeItem('userAnsweredName');
+
   }
 
   return (
