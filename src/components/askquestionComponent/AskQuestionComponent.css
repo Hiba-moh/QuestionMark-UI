@@ -318,7 +318,7 @@
     }
   }
 
-  @media only screen and (max-width: 1000px) 
+  @media only screen and (max-width: 1200px) 
   {
       .ask-question-container
       {
@@ -327,7 +327,6 @@
       }
 
       .left-section{
-          border:5px solid black;
           margin:auto;
           width:90%;
       }
@@ -336,5 +335,10 @@
       {
           display: flex;
           justify-content: space-evenly;
+      }
+
+      .right-section
+      {
+          width:95%;
       }
   }
