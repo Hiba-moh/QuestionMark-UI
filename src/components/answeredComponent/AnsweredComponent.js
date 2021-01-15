@@ -22,7 +22,7 @@ const AllQuestionsComponent = () => {
   useEffect (() => {
     fetch (`https://question-mark-api.herokuapp.com/answered`)
       .then (res => {
-        console.log (res);
+        
         if (!res.ok) {
           throw Error (res.status + ' _ ' + res.url);
         }
@@ -49,7 +49,7 @@ const AllQuestionsComponent = () => {
         }
       }
       setModulequestions (filtered);
-      // console.log (modulequestions);
+     
     }
   };
 
