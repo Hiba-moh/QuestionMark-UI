@@ -18,7 +18,7 @@
 }
 
 .heading{
-    font-size:3.5rem;
+    font-size:3rem;
 }
 
 .logout-btn{
@@ -199,9 +199,11 @@
 {
     margin:auto;
     width:70%;
-    background-color: beige;
+    background-color: rgb(255, 255, 255);
     border:2px solid red;
-    border-radius: 10%;
+    /* border-radius: 10%;
+     */
+     border-radius: 2rem 2rem 0 0;
 }
 .ask-question-text-editor{
     visibility:collapse;
