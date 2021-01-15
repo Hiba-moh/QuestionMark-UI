@@ -76,8 +76,8 @@ function SignupComponent () {
 
   return (
     <div className="loginContainer">
-      <Header />
-      {/* <NormalHeaderComponent /> */}
+      {/* <Header /> */}
+      <NormalHeaderComponent />
       <div className="errMessage errMessage_custom">
         <div class="container h-100">
           <div class="d-flex justify-content-center h-100">
