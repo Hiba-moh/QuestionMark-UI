@@ -202,7 +202,7 @@ const AllQuestionsComponent = () => {
       <div className="search-containerH">
 
         <input
-          className="form-control mx-sm-3 searchbox-onlyH"
+          className="form-control mr-sm-2 searchbox-onlyH menu-margin"
           name="search"
           type="text"
           onChange={handleSearch}
@@ -210,7 +210,7 @@ const AllQuestionsComponent = () => {
         />
         {/* <button class="searchbtn">SEARCH</button> */}
         <select
-          className="form-control mr-sm-3 answeredFilterSelector"
+          className="custom-select mr-sm-2 sortSelector menu-margin"
           // id="moduleSelectorH"
           onChange={changeHandler}
         >
@@ -221,7 +221,7 @@ const AllQuestionsComponent = () => {
         </select>
 
         <select
-          className="custom-select mr-sm-2 sortSelector"
+          className="custom-select mr-sm-2 sortSelector menu-margin"
           id="inlineFormCustomSelect"
           onChange={e => setSortType (e.target.value)}
         >
@@ -233,85 +233,103 @@ const AllQuestionsComponent = () => {
         </select>
 
       </div>
+      <div className="contain-body-containerH">
+        <div className="body-containerH">
 
-      <div className="body-containerH">
+          <a href="" onClick={e => jsPDFGenerator (e)}>
+            <img id="img-pdf" src={pdf} />
+          </a>
 
-        <a href="" onClick={e => jsPDFGenerator (e)}>
-          <img id="img-pdf" src={pdf} />
-        </a>
-
-        <div className="col-linksH" />
-        <div className="to-divide-2divs">
-          <div className="col-and-search-containerH">
-            <ul className="ulH">
-              <li className="liH">
-                {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
-              </li>
-              |
-              <li className="liH">
-                {' '}<Link to="/UnAnswered"> UNANSWERED QUESTIONS </Link>
-              </li>
-              |
-              <li className="liH">
-                {' '}<Link to="/allquestions">ALL QUESTIONS</Link>
-              </li>
-              |
-              <li className="liH">
-                <Link to="/askquestion">ASK QUESTION</Link>
-              </li>
-            </ul>
+          <div className="AllQuestionsresponsiveLinks">
+            <button
+              className="btn btn-danger"
+              style={{width: '14rem', margin: '3rem 0 0 0'}}
+              onClick={() => (window.location = '/answered')}
+            >
+              ANSWERED QUESTIONS
+            </button>
+            <button
+              className="btn btn-danger"
+              style={{width: '14rem', margin: '3rem 0 0 0'}}
+              onClick={() => (window.location = '/unanswered')}
+            >
+              UNANSWERED QUESTIONS
+            </button>
           </div>
 
-          <div className="bodyContentH">
-            <h1 id="page-headingH">ALL QUESTIONS</h1>
-            <h5 id="countHeader">{count} QUESTIONS</h5>
-            <div className="link-filterH" />
-            <img src="" />
+          {/* <div className="col-linksH" /> */}
+          <div className="to-divide-2divs">
+            <div className="col-and-search-containerH">
+              <ul className="ulH">
+                <li className="liH">
+                  {' '}<Link to="/Answered"> ANSWERED QUESTIONS </Link>
+                </li>
+                |
+                <li className="liH">
+                  {' '}<Link to="/UnAnswered"> UNANSWERED QUESTIONS </Link>
+                </li>
+                |
+                <li className="liH">
+                  {' '}<Link to="/allquestions">ALL QUESTIONS</Link>
+                </li>
+                |
+                <li className="liH">
+                  <Link to="/askquestion">ASK QUESTION</Link>
+                </li>
+              </ul>
+            </div>
 
-            {!loading
-              ? <div className="allquestions-containerH">
-                  {currentQuestions.map ((question, index) => (
-                    <div key={index} className="question1H">
-                      <div key={index + 1} className="switch-q">
+            <div className="bodyContentH">
+              <h1 id="page-headingH">ALL QUESTIONS</h1>
+              <h5 id="countHeader">{count} QUESTIONS</h5>
+              <div className="link-filterH" />
+              <img src="" />
 
-                        {renderSwitch (question.module_id)}
+              {!loading
+                ? <div className="allquestions-containerH">
+                    {currentQuestions.map ((question, index) => (
+                      <div key={index} className="question1H">
+                        <div key={index + 1} className="switch-q">
 
-                        {/* {setQuestionRate(question.rate)} */}
-                        <Link
-                          key={index + 3}
-                          to={`/selectedquestionpage/${question.id}`}
-                        >
-                          {question.question_title}
-                        </Link>
-                      </div>
-                      <div className="questionDetails">
+                          {renderSwitch (question.module_id)}
 
-                        {/* rate here */}
-                        {/* <RateComponent
+                          {/* {setQuestionRate(question.rate)} */}
+                          <Link
+                            key={index + 3}
+                            to={`/selectedquestionpage/${question.id}`}
+                          >
+                            {question.question_title}
+                          </Link>
+                        </div>
+                        <div className="questionDetails">
+
+                          {/* rate here */}
+                          {/* <RateComponent
                           keyId={question.id}
                           rate={question.rate}
                         /> */}
-                        <div className="rateAndImg">
-                          <img className="rateIcon" src={rateIcon} />
-                          <h5>{question.rate}</h5>
+                          <div className="rateAndImg">
+                            <img className="rateIcon" src={rateIcon} />
+                            <h5>{question.rate}</h5>
+                          </div>
+                          <h5 id="views">Views: {question.views}</h5>
                         </div>
-                        <h5>Views: {question.views}</h5>
                       </div>
-                    </div>
-                  ))}
+                    ))}
 
-                </div>
-              : <SpinnerPage />}
+                  </div>
+                : <SpinnerPage />}
 
-            <div>
-              <Pagination
-                questionsPerPage={questionsPerPage}
-                totalQuestions={modulequestions.length}
-                paginate={paginate}
-              />
+              <div>
+                <Pagination
+                  questionsPerPage={questionsPerPage}
+                  totalQuestions={modulequestions.length}
+                  paginate={paginate}
+                />
+
+              </div>
 
             </div>
-
           </div>
         </div>
       </div>
