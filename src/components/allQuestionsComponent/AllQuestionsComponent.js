@@ -210,7 +210,7 @@ const AllQuestionsComponent = () => {
         />
         {/* <button class="searchbtn">SEARCH</button> */}
         <select
-          className="custom-select mr-sm-2 sortSelector"
+          className="form-control mr-sm-3 answeredFilterSelector"
           // id="moduleSelectorH"
           onChange={changeHandler}
         >
