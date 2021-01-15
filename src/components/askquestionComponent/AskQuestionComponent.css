@@ -340,5 +340,12 @@
       .right-section
       {
           width:95%;
+          margin: auto;
       }
+  }
+
+
+  @media only screen and (max-width: 900px) 
+  {
+      
   }
