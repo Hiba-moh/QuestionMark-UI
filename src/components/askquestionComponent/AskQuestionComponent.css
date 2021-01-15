@@ -169,6 +169,7 @@
     width:18%;
     color:white;
     font: 2rem ubuntu,Verdana,Arial,sans-serif;
+    /* border:5px solid black; */
     
 }
 
@@ -315,4 +316,25 @@
       top: 15px;
       right: 35px;
     }
+  }
+
+  @media only screen and (max-width: 1000px) 
+  {
+      .ask-question-container
+      {
+          display: flex;
+          flex-direction: column;
+      }
+
+      .left-section{
+          border:5px solid black;
+          margin:auto;
+          width:90%;
+      }
+
+      .button-holder
+      {
+          display: flex;
+          justify-content: space-evenly;
+      }
   }
