@@ -12,8 +12,6 @@ import '../../components/footerComponent/Footer';
 import Footer from '../../components/footerComponent/Footer';
 import {AuthContext} from '../../AuthContext';
 
-
-
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
   const {isAuth, greet, idNumber} = useContext (AuthContext);
@@ -29,10 +27,9 @@ function SelectedQuestionPage({match}) {
   const [open, setOpen] = React.useState (false);
   const [flag, setFlag] = useState (false);
 
-  if(idNumber[0])
-{
-    localStorage.setItem("idValue",idNumber[0]);
-}
+  if (idNumber[0]) {
+    localStorage.setItem ('idValue', idNumber[0]);
+  }
 
   let filteredComments = [];
   const history = useHistory ();
@@ -54,7 +51,6 @@ function SelectedQuestionPage({match}) {
         .then (data => {
           setPageData_question (data.question[0]);
           setPageData_answer (data.answer);
-    
         })
         .catch (error => {
           console.error (error);
@@ -123,13 +119,13 @@ function SelectedQuestionPage({match}) {
       answer_id: answer.id,
       question_id: answer.question_id,
       comment: txtValue,
-      users_id: localStorage.getItem('idValue'),
+      users_id: localStorage.getItem ('idValue'),
       date: new Intl.DateTimeFormat ('en-GB', {
         dateStyle: 'full',
         timeStyle: 'long',
       }).format (date),
     };
-   
+
     await fetch ('https://question-mark-api.herokuapp.com/comments', {
       method: 'POST',
       body: JSON.stringify (data),
@@ -192,7 +188,6 @@ function SelectedQuestionPage({match}) {
                 <h6>Asked by: {pageData_question.name}</h6>
               </div>
 
-            
               {pageData_question.answers > 0 &&
                 <div class="container">
                   <h2 class="text-left">
@@ -232,10 +227,9 @@ function SelectedQuestionPage({match}) {
                             <h3>
                               {ReactHtmlParse (answer.answer)}
                             </h3>
-                           
+
                           </div>
                         </div>
-                        
 
                         <div class="col-md-6 comments-section">
                           <div class="row">
@@ -267,8 +261,6 @@ function SelectedQuestionPage({match}) {
                           </div>
                         </div>
 
-              
-
                         {comments.map (comment => (
                           <div class="card card-inner commentCard">
                             <div class="card-body">
@@ -289,7 +281,7 @@ function SelectedQuestionPage({match}) {
                                   <p>
                                     {comment.comment}
                                   </p>
-                                 
+
                                 </div>
                               </div>
                             </div>

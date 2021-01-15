@@ -20,7 +20,6 @@ import HTML from '../../components/ProfileComponent/HTML';
 import Node from '../../components/ProfileComponent/Node';
 
 function ReplyPage({match}) {
-
   const id = match.params.id;
   const [answer, SetAnswer] = useState ('');
   const [questionReply, SetQuestionReply] = useState ('');
@@ -30,10 +29,9 @@ function ReplyPage({match}) {
   const [idNumberValue, setIdNumberValue] = idNumber;
   const history = useHistory ();
 
-  if(idNumber[0])
-    {
-        localStorage.setItem("replyVal",idNumber[0]);
-    }
+  if (idNumber[0]) {
+    localStorage.setItem ('replyVal', idNumber[0]);
+  }
 
   const Module_name = subject_id => {
     switch (subject_id) {
@@ -89,7 +87,6 @@ function ReplyPage({match}) {
       .catch (err => {
         console.log (err);
       });
-    
   }
 
   const data1 = {
@@ -99,7 +96,7 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module: ${Module_name(questionReply.module_id)}`,
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module: ${Module_name (questionReply.module_id)}`,
             value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
@@ -133,7 +130,7 @@ function ReplyPage({match}) {
     const data = {
       question_id: id,
       reply: answer,
-      user_id: localStorage.getItem('replyVal'),
+      user_id: localStorage.getItem ('replyVal'),
       date: moment ().format ('YYYY/MM/DD'),
     };
 
