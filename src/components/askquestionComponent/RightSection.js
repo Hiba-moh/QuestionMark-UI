@@ -119,14 +119,6 @@ function RightSection({userID,textAreaClass}) {
             </div>
 
             <div className={textAreaClass}>
-              {/* <input
-                className="ques-text"
-                name="title"
-                type="text"
-                placeholder="Type your question here"
-                onChange={handleQuestion}
-                required
-              /> */}
 
               <Editor 
                 className="ask-question-text-editor"
