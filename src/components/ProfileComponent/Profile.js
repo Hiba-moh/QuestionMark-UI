@@ -23,6 +23,11 @@ function Profile () {
   const [idNumberValue, setIdNumberValue] = idNumber;
   const history = useHistory ();
 
+  
+    
+     
+    
+
   return (
     <div className="profilePageContainer">
       <Header />

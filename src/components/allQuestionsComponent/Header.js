@@ -16,12 +16,27 @@ function Header () {
     setIsAuthValue(false);
    localStorage.setItem('user', false);
    localStorage.removeItem("idValue");
+   localStorage.removeItem('profileVal');
+   localStorage.removeItem('userAskedVal');
+   localStorage.removeItem('userAnsweredVal');
+   localStorage.removeItem('replyVal');
+   localStorage.removeItem('userAskedName');
+   localStorage.removeItem('userAnsweredName');
+
+   localStorage.clear("idValue");
+   localStorage.clear('profileVal');
+   localStorage.clear('userAskedVal');
+   localStorage.clear('userAnsweredVal');
+   localStorage.clear('replyVal');
+   localStorage.clear('userAskedName');
+   localStorage.clear('userAnsweredName');
+
   }
 
   return (
     <div className="header_containerH">
 
-      <img src={logo3} alt="logo" />
+      <img src={logo3} alt="logo" width="200px" />
 
       <ul className="ul-lined-list">
         <li className="lined-list">

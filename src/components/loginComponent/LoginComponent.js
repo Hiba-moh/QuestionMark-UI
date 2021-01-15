@@ -4,14 +4,15 @@ import {useHistory, Link, withRouter} from 'react-router-dom';
 import NormalHeaderComponent
   from '../normalHeaderComponent/NormalHeaderComponent';
 import {AuthContext} from '../../AuthContext';
-import loginImg from '../../assets/images/login.png'
+import loginImg from '../../assets/images/login.png';
+import Footer from '../footerComponent/Footer';
+import Header from '..//..//components/allQuestionsComponent/Header';
 
 function LoginComponent (props) {
-  //const [isAuth, setIsAuth] = useContext (AuthContext);
-  const {isAuth, greet, idNumber} = useContext(AuthContext); 
-   const [isAuthValue, setIsAuthValue] = isAuth;
-   const [greetValue, setGreetValue] = greet; 
-   const [idNumberValue, setIdNumberValue] = idNumber;
+  const {isAuth, greet, idNumber} = useContext (AuthContext);
+  const [isAuthValue, setIsAuthValue] = isAuth;
+  const [greetValue, setGreetValue] = greet;
+  const [idNumberValue, setIdNumberValue] = idNumber;
 
   const [logUsername, setLogUsername] = useState ('');
   const [logPassword, setLogPassword] = useState ('');
@@ -31,23 +32,19 @@ function LoginComponent (props) {
     body: JSON.stringify (details),
   };
 
-    const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault ();
-   await fetch ('https://question-mark-api.herokuapp.com/login', options)
+    await fetch ('https://question-mark-api.herokuapp.com/login', options)
       .then (response => {
-        return response.json();
-    
+        return response.json ();
       })
       .then (data => {
-        
-         console.log(data);
         if (data.success === false) {
-          //localStorage.setItem ('token', JSON.stringify (data)); //stores token in local storage
           setFailedLoginMessage (data.message);
         } else {
-          localStorage.setItem('user', true);
-          setIdNumberValue(data.user_id);
-          setGreetValue(data.message);
+          localStorage.setItem ('user', true);
+          setIdNumberValue (data.user_id);
+          setGreetValue (data.message);
           history.push ('/allquestions');
         }
       })
@@ -55,7 +52,7 @@ function LoginComponent (props) {
         console.error (e);
       });
   };
-console.log(isAuth);
+
   const handleLogUsername = e => {
     setLogUsername (e.target.value);
   };
@@ -65,62 +62,116 @@ console.log(isAuth);
   };
 
   const handleAuth = () => {
-    setIsAuthValue(true);
+    setIsAuthValue (true);
   };
 
   return (
-    <>
-    <NormalHeaderComponent />
-    <div className="login_outer_container">
-    
+    <div className="loginContainer">
+      <Header />
+      {/* <NormalHeaderComponent /> */}
+      <div className="errMessage">
+        <div class="container h-100">
+          <div class="d-flex justify-content-center h-100">
+            <div class="user_card">
+              <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                  <img
+                    src="https://proofthatblog.com/wp-content/uploads/2013/06/question-mark.jpg"
+                    class="brand_logo"
+                    alt="Logo"
+                  />
+                </div>
+              </div>
 
-      <div className="login_form">
-        <img src={loginImg} id='loginImg'></img>
-        <h2>Log In</h2>
+              <div class="d-flex justify-content-center form_container">
+                <form onSubmit={handleSubmit}>
+                  <div class="input-group mb-3">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="fas fa-user" />
+                      </span>
+                    </div>
+                    <input
+                      type="username"
+                      name="username"
+                      class="form-control input_user"
+                      placeholder="username"
+                      onChange={handleLogUsername}
+                      required
+                    />
+                  </div>
+                  <div class="input-group mb-2">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="fas fa-key" />
+                      </span>
+                    </div>
+                    <input
+                      type="password"
+                      name="password"
+                      class="form-control input_pass"
+                      placeholder="password"
+                      onChange={handleLogPassword}
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                      <input
+                        type="checkbox"
+                        class="custom-control-input"
+                        id="customControlInline"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="customControlInline"
+                      >
+                        Remember me
+                      </label>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center mt-3 login_container">
+                    <button
+                      name="button"
+                      class="btn login_btn"
+                      onClick={handleAuth}
+                      type="submit"
+                    >
+                      Login
+                    </button>
+                  </div>
+                </form>
 
-        <form onSubmit={handleSubmit}>
-          <div class="form-group">
-            <input
-              name="username"
-              type="username"
-              placeholder="Username"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              onChange={handleLogUsername}
-              required
-            />
-            <input
-              name="password"
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              placeholder="Password"
-              onChange={handleLogPassword}
-              required
-            />
-           
-              <button id='loginBTN' className="btn btn-danger" onClick={handleAuth} type="submit">
-                Login
-              </button>
-            
+              </div>
 
-              <p id="signup_link">
-                <Link to="/signup">Sign up | Forgot password?</Link>
-              </p>
-           
+              <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                  Don't have an account? <Link to="/signup"> Sign Up</Link>
+                </div>
+                <div class="d-flex justify-content-center links">
+                  <Link to="/signup"> Forgot your password? </Link>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          <div className="login_response_message">
+            <p>{failedLoginMessage}</p>
           </div>
 
-        </form>
-        <div className="login_response_message">
-          <p>{failedLoginMessage}</p>
         </div>
 
       </div>
-
+     
+      <Footer />
     </div>
-    </>
   );
+
+  
+    
+  
 }
 
 export default withRouter (LoginComponent);

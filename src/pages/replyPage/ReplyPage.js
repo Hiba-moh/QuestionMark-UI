@@ -20,15 +20,46 @@ import HTML from '../../components/ProfileComponent/HTML';
 import Node from '../../components/ProfileComponent/Node';
 
 function ReplyPage({match}) {
+
   const id = match.params.id;
   const [answer, SetAnswer] = useState ('');
   const [questionReply, SetQuestionReply] = useState ('');
-  //const [isAuth, setIsAuth] = useContext(AuthContext);
   const {isAuth, greet, idNumber} = useContext (AuthContext);
   const [isAuthValue, setIsAuthValue] = isAuth;
   const [greetValue, setGreetValue] = greet;
   const [idNumberValue, setIdNumberValue] = idNumber;
   const history = useHistory ();
+
+  if(idNumber[0])
+    {
+        localStorage.setItem("replyVal",idNumber[0]);
+    }
+
+  const Module_name = subject_id => {
+    switch (subject_id) {
+      case 1:
+        return 'git';
+      case 2:
+        return 'HTML/CSS';
+        break;
+      case 3:
+        return 'JavaScript';
+        break;
+      case 4:
+        return 'React';
+        break;
+      case 5:
+        return 'NodeJs';
+        break;
+      case 6:
+        return 'SQL';
+        break;
+      case 7:
+        return 'MangoDB';
+      default:
+        return '';
+    }
+  };
 
   useEffect (() => {
     fetch (`https://question-mark-api.herokuapp.com/selectedquestionpage/${id}`)
@@ -36,7 +67,6 @@ function ReplyPage({match}) {
       .then (data => SetQuestionReply (data.question[0]))
       .catch (error => console.log (error));
   }, []);
-
 
   const emailData = {
     send: true,
@@ -56,22 +86,10 @@ function ReplyPage({match}) {
       .then (response => {
         return response.json ();
       })
-      .catch (err => {
-        console.log (err);
+      .catch ((err) => {
+        console.error (err);
       });
-    // axios.post (
-    //   'https://question-mark-api.herokuapp.com/sendmail',
-    //   JSON.stringify (emailData),
-    //   {
-    //     withCredentials: false,
-    //     transformRequest: [
-    //       (data, headers) => {
-    //         delete headers.post['Content-Type'];
-    //         return data;
-    //       },
-    //     ],
-    //   }
-    // );
+    
   }
 
   const data1 = {
@@ -81,7 +99,7 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: `Question No.${questionReply.id} Username: ${questionReply.name} Subject: ${questionReply.module_id}`,
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module: ${Module_name(questionReply.module_id)}`,
             value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
@@ -115,7 +133,7 @@ function ReplyPage({match}) {
     const data = {
       question_id: id,
       reply: answer,
-      user_id: 1,
+      user_id: localStorage.getItem('replyVal'),
       date: moment ().format ('YYYY/MM/DD'),
     };
 
@@ -123,14 +141,13 @@ function ReplyPage({match}) {
       method: 'POST',
       body: JSON.stringify (data),
       mode: 'cors',
-      // cache: 'no-cache',
       headers: {'Content-Type': 'application/json'},
     })
       .then (response => {
         return response.json ();
       })
       .then (data => {
-        console.log (data.answer);
+        //console.log (data.answer);
         if (data.answer) {
           handleEmail ();
           handleSlackMessage ();
@@ -140,7 +157,7 @@ function ReplyPage({match}) {
           history.push ('/allquestions');
         }
       })
-      .catch (err => {
+      .catch ((err) => {
         console.error (err);
       });
   };
@@ -166,32 +183,6 @@ function ReplyPage({match}) {
         break;
       case 7:
         return '';
-      default:
-        return '';
-    }
-  };
-
-  const Module_name = subject_id => {
-    switch (subject_id) {
-      case 1:
-        return 'git';
-      case 2:
-        return 'HTML/CSS';
-        break;
-      case 3:
-        return 'JavaScript';
-        break;
-      case 4:
-        return 'React';
-        break;
-      case 5:
-        return 'NodeJs';
-        break;
-      case 6:
-        return 'SQL';
-        break;
-      case 7:
-        return 'MangoDB';
       default:
         return '';
     }

@@ -12,6 +12,12 @@ function SidebarComponent () {
   const [greetValue, setGreetValue] = greet;
   const [idNumberValue, setIdNumberValue] = idNumber;
 
+  if(greet[0]){
+    localStorage.setItem("profileVal", greet[0]);
+  }
+  
+  
+
   const [selectedFile, setSelectedFile] = useState (null);
   const handleFileChange = event => {
     setSelectedFile (event.target.files[0]);
@@ -21,7 +27,7 @@ function SidebarComponent () {
   };
   return (
     <div className="sidebar_container">
-      <h2>Welcome {greet}</h2>
+      <h2>Welcome {localStorage.getItem('profileVal')}</h2>
       <img id="userImg" src={Avatar} alt="avatar" />
 
       <div className="sidebar_links">

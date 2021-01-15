@@ -16,10 +16,10 @@ const UnAnsweredComponent = () => {
   const [modulequestions, setModulequestions] = useState ([]);
   const [input, setInput] = useState ('');
   const history = useHistory ();
+
   useEffect (() => {
     fetch (`https://question-mark-api.herokuapp.com/unanswered`)
       .then (res => {
-        console.log (res);
         if (!res.ok) {
           throw Error (res.status + ' _ ' + res.url);
         }
@@ -46,7 +46,7 @@ const UnAnsweredComponent = () => {
         }
       }
       setModulequestions (filtered);
-      // console.log (modulequestions);
+      
     }
   };
 
@@ -97,19 +97,19 @@ const UnAnsweredComponent = () => {
   const renderSwitch = param => {
     switch (param) {
       case 1:
-        return <img src={git} />;
+        return <img className="switchImg" src={git} />;
       case 2:
-        return <img src={html} />;
+        return <img className="switchImg" src={html} />;
       case 3:
-        return <img src={js} />;
+        return <img className="switchImg" src={js} />;
       case 4:
-        return <img src={react} />;
+        return <img className="switchImg" src={react} />;
       case 5:
-        return <img src={node} />;
+        return <img className="switchImg" src={node} />;
       case 6:
-        return <img src={sql} />;
+        return <img className="switchImg" src={sql} />;
       case 7:
-        return <img src={mango} />;
+        return <img className="switchImg" src={mango} />;
     }
   };
 
@@ -168,10 +168,10 @@ const UnAnsweredComponent = () => {
           <div className=" Answered-question-outer-container">
             <div className="Answered-questions-container">
 
-              {modulequestions.map (answer => (
+              {modulequestions.map ((answer, index) => (
                 <div className="one-UnAnswered">
 
-                  <div className="one-Answered-question">
+                  <div className="one-Answered-question" key={index}>
                     <h2>Question : </h2>
                     {renderSwitch (answer.module_id)}
                     {' '}{answer.question}
