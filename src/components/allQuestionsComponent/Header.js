@@ -36,7 +36,7 @@ function Header () {
   return (
     <div className="header_containerH">
 
-      <img src={logo3} alt="logo" width="200px"/>
+      <img src={logo3} alt="logo" width="200px" />
 
       <ul className="ul-lined-list">
         <li className="lined-list">

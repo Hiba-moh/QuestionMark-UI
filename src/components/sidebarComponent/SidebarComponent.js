@@ -12,7 +12,6 @@ function SidebarComponent () {
   const [greetValue, setGreetValue] = greet;
   const [idNumberValue, setIdNumberValue] = idNumber;
 
-  console.log(greet);
   if(greet[0]){
     localStorage.setItem("profileVal", greet[0]);
   }

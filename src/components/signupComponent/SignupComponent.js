@@ -39,7 +39,6 @@ function SignupComponent () {
     setName (e.target.value);
   };
   const handlePassword = e => {
-    console.log (e.target.value);
     setPassword (e.target.value);
   };
   const handleConfirm = e => {
@@ -52,7 +51,7 @@ function SignupComponent () {
     setRole (e.target.value);
   };
 
-  // https://lowly-foam-badger.glitch.me/creatures
+ 
   const handleSubmit = e => {
     e.preventDefault ();
     fetch ('https://question-mark-api.herokuapp.com/register', options)
@@ -192,78 +191,7 @@ function SignupComponent () {
       <Footer />
     </div>
   );
-  // <div className="signup_outer_container">
-
-  //   <div className="signup_header">
-  //     <NormalHeaderComponent />
-  //   </div>
-
-  //   <div className="signupComponent_container">
-
-  //     <h2>Sign up</h2>
-
-  //     <div className="form-group">
-  //       <form onSubmit={handleSubmit}>
-  //         <input
-  //           name="username"
-  //           className="form-control"
-  //           id="validationCustom01"
-  //           type="text"
-  //           placeholder="Username"
-  //           onChange={handleName}
-  //           required
-  //         />
-  //         <input
-  //           name="email"
-  //           className="form-control"
-  //           id="validationCustom02"
-  //           type="email"
-  //           placeholder="email"
-  //           onChange={handleEmail}
-  //           required
-  //         />
-  //         <input
-  //           name="password"
-  //           id="validationCustom03"
-  //           className="form-control"
-  //           type="password"
-  //           placeholder="Password"
-  //           onChange={handlePassword}
-  //           required
-  //         />
-  //         <input
-  //           name="confirm"
-  //           className="form-control"
-  //           id="validationCustom04"
-  //           type="password"
-  //           placeholder="Confirm password"
-  //           onChange={handleConfirm}
-  //           required
-  //         />
-  //         {/* <input name="role" type="text" placeholder="Student/Teacher" onChange={handleRole} required/> */}
-  //         <div className="signup_form_btn">
-  //           <button
-  //             id="signUpBtn"
-  //             type="submit"
-  //             className="btn btn-danger form-control"
-  //           >
-  //             Register
-  //           </button>
-
-  //           <Link id="loginLink" to="/">
-  //             Already have account? login here
-  //           </Link>
-
-  //         </div>
-  //       </form>
-  //     </div>
-  //     <div className="signup_successfull_message">
-  //       <p>{regFailedMessage}</p>
-  //     </div>
-
-  //   </div>
-
-  // </div>
+  
 }
 
 export default SignupComponent;

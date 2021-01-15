@@ -86,8 +86,8 @@ function ReplyPage({match}) {
       .then (response => {
         return response.json ();
       })
-      .catch (err => {
-        console.log (err);
+      .catch ((err) => {
+        console.error (err);
       });
     
   }
@@ -147,7 +147,7 @@ function ReplyPage({match}) {
         return response.json ();
       })
       .then (data => {
-        console.log (data.answer);
+        //console.log (data.answer);
         if (data.answer) {
           handleEmail ();
           handleSlackMessage ();
@@ -157,7 +157,7 @@ function ReplyPage({match}) {
           history.push ('/allquestions');
         }
       })
-      .catch (err => {
+      .catch ((err) => {
         console.error (err);
       });
   };

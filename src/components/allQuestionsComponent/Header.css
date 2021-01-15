@@ -28,7 +28,7 @@
     
     
     .ul-lined-list{
-       border: 1px solid blue;
+     
         display: flex;
         height: 3rem;
         justify-content: space-evenly;
