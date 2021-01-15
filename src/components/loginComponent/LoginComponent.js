@@ -67,8 +67,8 @@ function LoginComponent (props) {
 
   return (
     <div className="loginContainer">
-      <Header />
-      {/* <NormalHeaderComponent /> */}
+      {/* <Header /> */}
+      <NormalHeaderComponent />
       <div className="errMessage">
         <div class="container h-100">
           <div class="d-flex justify-content-center h-100">
