@@ -101,10 +101,32 @@ function ReplyPage({match}) {
     ],
   };
 
+
+  // const option = {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify(data1)
+
+  // }
+
+  // const handleSlackMessage = async () => {
+  //  let res=  await fetch(process.env.REACT_APP_API_KEY, option)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(object)
+  //   }).catch(err => {
+  //     console.error(err);
+  //   })
+
+    
+  // }
+
   async function handleSlackMessage () {
     let res = await axios.post (
       process.env.REACT_APP_API_KEY,
-      JSON.stringify (data1),
+      [JSON.stringify (data1)],
       {
         withCredentials: false,
         transformRequest: [
