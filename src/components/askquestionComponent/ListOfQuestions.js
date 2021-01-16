@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 // This component contains the list of questions that has been passed as a parameter.
 function ListOfQuestions({questions})
 {
-    // console.log("+++------")
     questions=Array.from(questions);//converting object to array in order to use map.
 
     return(
