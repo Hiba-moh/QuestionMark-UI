@@ -1,10 +1,11 @@
 import React, {useEffect, useContext, useState} from 'react';
+import axios from 'axios';
 import './ReplyPage.css';
 import TextEditor from '../../components/replyComponent/TextEditor';
 import Header from '../../components/allQuestionsComponent/Header';
 import Footer from '../../components/footerComponent/Footer';
 import moment from 'moment';
-import axios from 'axios';
+
 import '../../components/replyComponent/UserAnswered';
 import '../../components/replyComponent/UserAsked';
 import {withRouter, useHistory} from 'react-router-dom';
@@ -129,7 +130,6 @@ function ReplyPage({match}) {
       [JSON.stringify (data1)],
       {
         withCredentials: false,
-        crossDomain: true,
         transformRequest: [
           (data, headers) => {
             delete headers.post['Content-Type'];
@@ -142,7 +142,7 @@ function ReplyPage({match}) {
       return response.json();
     });
     res.status === 200
-      ? (console.log('before alert'), alert (`Thank you for your contribution 🌹`))
+      ?  alert (`Thank you for your contribution 🌹`)
       : alert ('Error sending message');
   }
 
