@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Profiler} from 'react';
 import './App.css';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import SignUp from './pages/signup/Signup';
@@ -16,7 +16,7 @@ import UserAsked from './components/replyComponent/UserAsked';
 import UserAnswered from './components/replyComponent/UserAnswered';
 import Profile from './components/ProfileComponent/Profile';
 import AboutUsPage from "./pages/aboutUs/AboutUsPage"
-import { Profiler } from 'react/cjs/react.development';
+//import { Profiler } from 'react/cjs/react.development';
 
 function App () {
   const responseGoogle = response => {
