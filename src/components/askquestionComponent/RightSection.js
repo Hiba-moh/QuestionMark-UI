@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {Editor} from '@tinymce/tinymce-react';
 
+
 import {Link} from 'react-router-dom';
 import './AskQuestionComponent.css';
 import Modules from './Modules';
+import ReactHtmlParse from 'react-html-parser'
 
 // What I need to fix in this is the user_id with useParams react hook and actually send the data with heroku link using fetch1
 
@@ -119,7 +121,6 @@ function RightSection({userID,textAreaClass}) {
             </div>
 
             <div className={textAreaClass}>
-
               <Editor 
                 className="ask-question-text-editor"
                 initialValue=" "
@@ -128,6 +129,7 @@ function RightSection({userID,textAreaClass}) {
                   selector: 'textarea', // change this value according to your HTML
                   height: 500,
                   menubar: false,
+                  forced_root_block : false,
                   plugins: [
                     'advlist autolink lists link image charmap print preview anchor',
                     'searchreplace visualblocks code codesample fullscreen',
