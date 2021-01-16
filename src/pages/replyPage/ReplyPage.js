@@ -132,7 +132,7 @@ function ReplyPage({match}) {
   async function handleSlackMessage () {
     let res = await axios.post (
       process.env.REACT_APP_API_KEY,
-      JSON.stringify (data1),
+      [JSON.stringify (data1)],
       {
         withCredentials: false,
         transformRequest: [
