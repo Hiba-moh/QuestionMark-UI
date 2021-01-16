@@ -55,14 +55,12 @@
 
 .slogan{
   font: 2rem ubuntu,Verdana,Arial,sans-serif;
-    /* position: relative; */
     color:rgb(255, 255, 255);
     animation-name: slidingLine;
     animation-duration: 3s;
     text-align: center;
     margin:0 auto;
     margin-bottom: 3rem;
-    /* left:42px; */
     width:100%;
 }
 
