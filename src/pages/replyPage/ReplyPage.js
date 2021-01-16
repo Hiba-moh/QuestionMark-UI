@@ -129,9 +129,10 @@ function ReplyPage({match}) {
       [JSON.stringify (data1)],
       {
         withCredentials: false,
+        crossDomain: true,
         transformRequest: [
           (data, headers) => {
-           // delete headers.post['Content-Type'];
+            delete headers.post['Content-Type'];
             return data;
           },
         ],
