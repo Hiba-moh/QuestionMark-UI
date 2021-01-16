@@ -16,6 +16,7 @@ const TextEditor = ({SetAnswer}) => {
         selector: 'textarea', // change this value according to your HTML
         height: 500,
         menubar: false,
+        forced_root_block: false,
         plugins: [
           'advlist autolink lists link image charmap print preview anchor',
           'searchreplace visualblocks code codesample fullscreen',
