@@ -136,9 +136,12 @@ function ReplyPage({match}) {
           },
         ],
       }
-    );
+    ).then(response => {
+      console.log(response);
+      return response.json();
+    });
     res.status === 200
-      ? alert (`Thank you for your contribution 🌹`)
+      ? (console.log('before alert'), alert (`Thank you for your contribution 🌹`))
       : alert ('Error sending message');
   }
 
@@ -164,8 +167,8 @@ function ReplyPage({match}) {
       .then (data => {
         //console.log (data.answer);
         if (data.answer) {
-          handleEmail ();
           handleSlackMessage ();
+          handleEmail ();
           history.push (`/selectedquestionpage/${id}`);
         } else {
           alert ('Oops, something went wrong!');
