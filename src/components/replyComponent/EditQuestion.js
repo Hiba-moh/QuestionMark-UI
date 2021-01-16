@@ -16,6 +16,7 @@ const EditQuestion = ({questionDetails}) => {
         }
       );
       console.log (res);
+      window.location = '/userasked';
     } catch (err) {
       console.error (err.message);
     }
