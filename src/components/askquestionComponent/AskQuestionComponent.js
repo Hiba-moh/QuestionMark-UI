@@ -20,8 +20,6 @@ function AskQuestionQuestion()
     const [idNumberValue, setIdNumberValue] = idNumber;
 
     // console.log("-----------------------")
-    // console.log(idNumber)
-
     if(idNumber[0])
     {
         localStorage.setItem("idValue",idNumber[0]);
