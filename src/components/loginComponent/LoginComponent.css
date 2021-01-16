@@ -24,6 +24,10 @@
 .App {
   /* text-align: center; */
 }
+.justify-content-center a {
+  color: rgb(238, 206, 206);
+  margin-left: 0.3rem;
+}
 
 .App-logo {
   height: 40vmin;

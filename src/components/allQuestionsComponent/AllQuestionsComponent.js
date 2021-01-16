@@ -304,14 +304,14 @@ const AllQuestionsComponent = () => {
                         <div className="questionDetails">
 
                           {/* rate here */}
-                          {/* <RateComponent
-                          keyId={question.id}
-                          rate={question.rate}
-                        /> */}
-                          <div className="rateAndImg">
+                          <RateComponent
+                            keyId={question.id}
+                            rate={question.rate}
+                          />
+                          {/* <div className="rateAndImg">
                             <img className="rateIcon" src={rateIcon} />
                             <h5>{question.rate}</h5>
-                          </div>
+                          </div> */}
                           <h5 id="views">Views: {question.views}</h5>
                         </div>
                       </div>
