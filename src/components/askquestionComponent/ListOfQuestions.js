@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 function ListOfQuestions({questions})
 {
     questions=Array.from(questions);//converting object to array in order to use map.
-
     return(
         <div>
             <ul className="question-list">
