@@ -131,7 +131,7 @@ function ReplyPage({match}) {
         withCredentials: false,
         transformRequest: [
           (data, headers) => {
-            delete headers.post['Content-Type'];
+           // delete headers.post['Content-Type'];
             return data;
           },
         ],
