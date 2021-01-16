@@ -107,24 +107,44 @@ function ReplyPage({match}) {
     ],
   };
 
-  async function handleSlackMessage () {
-    let res = await axios.post (
-      process.env.REACT_APP_API_KEY,
-      JSON.stringify (data1),
-      {
-        withCredentials: false,
-        transformRequest: [
-          (data, headers) => {
-            delete headers.post['Content-Type'];
-            return data;
-          },
-        ],
-      }
-    );
-    res.status === 200
-      ? alert (`Thank you for your contribution 🌹`)
-      : alert ('Error sending message');
+  const option = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data1)
   }
+
+  const handleSlackMessage = async () => {
+   let res=  await fetch('https://hooks.slack.com/services/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', option)
+    .then(response => response.json())
+    .then(data => {
+      console.log(object)
+    }).catch(err => {
+      console.error(err);
+    })
+
+    
+  }
+
+  // async function handleSlackMessage () {
+  //   let res = await axios.post (
+  //     process.env.REACT_APP_API_KEY,
+  //     JSON.stringify (data1),
+  //     {
+  //       withCredentials: false,
+  //       transformRequest: [
+  //         (data, headers) => {
+  //           delete headers.post['Content-Type'];
+  //           return data;
+  //         },
+  //       ],
+  //     }
+  //   );
+  //   res.status === 200
+  //     ? alert (`Thank you for your contribution 🌹`)
+  //     : alert ('Error sending message');
+  // }
 
   const onSubmitForm = e => {
     e.preventDefault ();
