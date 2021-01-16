@@ -24,7 +24,7 @@ function AskQuestionQuestion()
         localStorage.setItem("idValue",idNumber[0]);
     }
   
-    //these variables will contain the information from fetched ur.
+    //these variables will contain the information from fetched url.
     const [fetchedAnsQues,setFetchedAnsQues]=useState();
     const [fetchedUnAnsQues,setFetchedUnAnsQues]= useState();
     const [fetchedName, setFetchedName]=useState("");
@@ -52,16 +52,12 @@ function AskQuestionQuestion()
 
 
     // This fetch will bring the data for the user who us accessing this page.
-
-   
-
     useEffect (() => {
         fetch(`https://question-mark-api.herokuapp.com/ask-question/${localStorage.getItem("idValue")}`)
         .then(data=>data.json())
         .then(data=>{
             // console.log("++++----")
             // console.log(data)
-            // console.log("++++----")
             setFetchedName(data.name[0].name)
             setFetchedAnsQues(data.answeredQuestions) // array of objects
             setFetchedUnAnsQues(data.unAnsweredQuestions) // array of objects
