@@ -97,7 +97,6 @@ function RightSection({userID,textAreaClass}) {
     // console.log(content[0]);
     // let finalIndex=content.length-7;
     // var finalContent = content.substr(3, finalIndex);
-    // console.log(finalContent)
     setFormQues (content);
   }
   return (
