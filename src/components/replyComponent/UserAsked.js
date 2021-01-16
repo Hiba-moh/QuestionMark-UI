@@ -15,11 +15,10 @@ const UserAsked = () => {
 
   const [userQuestions, SetUserQuestions] = useState ([]);
 
-  if(idNumber[0] || greet[0])
-    {
-        localStorage.setItem("userAskedVal",idNumber[0]);
-        localStorage.setItem("userAskedName", greet[0]);
-    }
+  if (idNumber[0] || greet[0]) {
+    localStorage.setItem ('userAskedVal', idNumber[0]);
+    localStorage.setItem ('userAskedName', greet[0]);
+  }
 
   //delete answer function
 
@@ -31,11 +30,7 @@ const UserAsked = () => {
           method: 'DELETE',
         }
       );
-      SetUserQuestions (
-        filter.userQuestions (question => {
-          question.id !== id;
-        })
-      );
+      SetUserQuestions (userQuestions.filter (question => question.id !== id));
       console.log (res);
     } catch (err) {
       console.error (err.message);
@@ -44,7 +39,9 @@ const UserAsked = () => {
 
   // get all the questions been asked by specific user by user id
   const questionsList = async () => {
-    const res = await fetch("https://question-mark-api.herokuapp.com/userAsked/" + localStorage.getItem('userAskedVal'));
+    const res = await fetch (
+      'https://question-mark-api.herokuapp.com/userAsked/3'
+    );
 
     const resArray = await res.json ();
     SetUserQuestions (resArray);
@@ -59,7 +56,7 @@ const UserAsked = () => {
       <div className="userAnswersContainer">
         <Header />
         <div className="userAnswersBodyContainer">
-          <h1>Questions You Asked {localStorage.getItem('userAskedName')}</h1>
+          <h1>Questions You Asked {localStorage.getItem ('userAskedName')}</h1>
           <table className="table table-responsive table-striped table-striped mt-5">
             <thead>
               <tr>
@@ -79,7 +76,7 @@ const UserAsked = () => {
                   <td>
                     <button
                       className="btn-danger"
-                      onClick={() => {
+                      onClick={e => {
                         deleteQuestion (item.id);
                       }}
                     >
