@@ -237,7 +237,7 @@ function SelectedQuestionPage({match}) {
                           <div class="col-md-10">
                             <p>
                               <h4>{answer.name}</h4>
-                              <span class="float-right">
+                              {/* <span class="float-right">
                                 <i class="text-warning fa fa-star" />
                               </span>
                               <span class="float-right">
@@ -248,7 +248,7 @@ function SelectedQuestionPage({match}) {
                               </span>
                               <span class="float-right">
                                 <i class="text-warning fa fa-star" />
-                              </span>
+                              </span> */}
 
                             </p>
                             <div class="clearfix" />
