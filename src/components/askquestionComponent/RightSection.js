@@ -9,7 +9,6 @@ import ReactHtmlParse from 'react-html-parser'
 
 function RightSection({userID,textAreaClass}) {
   // This is a state variable which will store the value selected from drop down menu and then it will be sent to post request.
-  // let [selectedModule,setSelectedModule]=useState("");
   let [displayForm, setDisplayForm] = useState (true);
 
   let today = new Date ().toISOString ().slice (0, 10);
