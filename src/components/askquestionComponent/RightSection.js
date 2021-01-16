@@ -70,7 +70,6 @@ function RightSection({userID,textAreaClass}) {
   function submitted (e) {
     e.preventDefault ();
     fetch ('https://question-mark-api.herokuapp.com/ask-question', options) // once the changes have been pushed use this fetch to send to heroku url
-      // fetch("http://localhost:5000/ask-question",options)
       .then (data => data.json ())
       .then (data => console.log (data))
       .catch (error => console.log (error));
