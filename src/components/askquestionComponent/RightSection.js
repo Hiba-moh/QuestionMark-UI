@@ -7,8 +7,6 @@ import './AskQuestionComponent.css';
 import Modules from './Modules';
 import ReactHtmlParse from 'react-html-parser'
 
-// What I need to fix in this is the user_id with useParams react hook and actually send the data with heroku link using fetch1
-
 function RightSection({userID,textAreaClass}) {
   // This is a state variable which will store the value selected from drop down menu and then it will be sent to post request.
   // let [selectedModule,setSelectedModule]=useState("");
