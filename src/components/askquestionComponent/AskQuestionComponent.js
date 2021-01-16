@@ -56,7 +56,6 @@ function AskQuestionQuestion()
         fetch(`https://question-mark-api.herokuapp.com/ask-question/${localStorage.getItem("idValue")}`)
         .then(data=>data.json())
         .then(data=>{
-            // console.log("++++
             setFetchedName(data.name[0].name)
             setFetchedAnsQues(data.answeredQuestions) // array of objects
             setFetchedUnAnsQues(data.unAnsweredQuestions) // array of objects
