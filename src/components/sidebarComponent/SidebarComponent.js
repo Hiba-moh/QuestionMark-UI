@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import './SidebarComponent.css';
 import {Link} from 'react-router-dom';
 import Avatar from '../../assets/images/user.png';
-import {useState, useContext} from 'react/cjs/react.development';
 import axios from 'axios';
 import {AuthContext} from '../../AuthContext';
 
