@@ -1,369 +1,326 @@
-
-.animation-container
-{
-    display: flex;
-
+* {
+  font-family: 'Abel', sans-serif;
+}
+#askTitle {
+  width: 50%;
+}
+.animation-container {
+  display: flex;
 }
 
-.first-section{
-    display:flex;
-    justify-content: space-evenly;
-    width:95%;
-    margin:auto;
+.first-section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 95%;
+  margin: auto;
 }
 
-.heading{
-    font-size:3rem;
+.heading {
+  font-size: 3rem;
 }
 
-.logout-btn{
-    background-color: #D12F2F;
-    width:6rem;
-    height:2.3rem;
-    margin:auto 0;
-    color:white;
-    font-size: 1.2rem;
-    border:#D12F2F;
+.logout-btn {
+  background-color: #d12f2f;
+  width: 6rem;
+  height: 2.3rem;
+  margin: auto 0;
+  color: white;
+  font-size: 1.2rem;
+  border: #d12f2f;
 }
 
-.second-section{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width:100%;
-    margin:5rem auto;
-    padding:1rem;
+.second-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 5rem auto;
+  padding: 1rem;
 }
 
-#modules
-{
-    font-size:2rem;
-    background-color: #D12F2F;
-    border-color:#d3cece;
-    color:rgb(252, 253, 253);
-    padding: 0.5rem;
+#modules {
+  font-size: 2rem;
+  background-color: #d12f2f;
+  border-color: #d3cece;
+  color: rgb(252, 253, 253);
+  padding: 0.5rem;
 }
 
-.title
-{
-    border-color:#F6F3F3;
-    font-size:2rem;
-    background-color: #F6F3F3;
-    width:60%;
+.title {
+  border-color: #f6f3f3;
+  font-size: 2rem;
+  background-color: #f6f3f3;
+  width: 60%;
 }
 
-.title-module
-{
-    width:100%;
-    display: flex;
-    justify-content: space-evenly;
+.title-module {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.text-post-visible
-{
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    padding:1rem;
-    margin: auto;
+.text-post-visible {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: auto;
 }
 
-.hidden-text-post
-{
-    visibility: hidden;
+.hidden-text-post {
+  visibility: hidden;
 }
 
-.ques-text
-{
-    border-color:#b8b6b6;
-    font-size:2rem;
-    background-color: #F6F3F3;
-    height:19rem;   
+.ques-text {
+  border-color: #b8b6b6;
+  font-size: 2rem;
+  background-color: #f6f3f3;
+  height: 19rem;
 }
 
-.post-btn
-{
-    background-color: #D12F2F;
-    width:6rem;
-    height:2.3rem;
-    margin:auto 0;
-    color:white;
-    font-size: 1.2rem;
-    border:#D12F2F;
-    margin:1rem auto;
+.post-btn {
+  background-color: #d12f2f;
+  width: 6rem;
+  height: 2.3rem;
+  margin: auto 0;
+  color: white;
+  font-size: 1.2rem;
+  border: #d12f2f;
+  margin: 1rem auto;
 }
 
-
-.ask-another-question-container
-{
-    background-color: #D12F2F;
-    height:30em;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
+.ask-another-question-container {
+  background-color: #d12f2f;
+  height: 30em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.question-posted-heading
-{
-    
-    color:white;
-    margin:0.5rem auto;
-    font: 3rem ubuntu,Verdana,Arial,sans-serif;
-} 
-
-.question-posted-message{
-    
-    color:white;
-    margin:0.5rem auto;
-    width:80%;
-    font: 2rem ubuntu,Verdana,Arial,sans-serif;
+.question-posted-heading {
+  color: white;
+  margin: 0.5rem auto;
+  font: 3rem ubuntu, Verdana, Arial, sans-serif;
 }
 
-.ask-another-question-btn
-{
-    background-color: #D12F2F;
-    color:white;
-    border:2px solid white;
-    width:30%;
-    margin:1em auto;
-    font: 2rem ubuntu,Verdana,Arial,sans-serif;
+.question-posted-message {
+  color: white;
+  margin: 0.5rem auto;
+  width: 80%;
+  font: 2rem ubuntu, Verdana, Arial, sans-serif;
 }
 
-.ask-another-question-btn:hover{
-    background-color: rgb(18, 217, 243);
-    color: #D12F2F;
-    border:2px solid rgb(107, 10, 10);
+.ask-another-question-btn {
+  background-color: #d12f2f;
+  color: white;
+  border: 2px solid white;
+  width: 30%;
+  margin: 1em auto;
+  font: 2rem ubuntu, Verdana, Arial, sans-serif;
 }
 
-.ask-question-container
-{
-    display :flex;
-    flex-direction: row;    
-    margin: 7rem 10rem 0rem 10rem;
-    border-radius: 2rem 2rem 0 0;
-    padding-bottom: 4rem;
-
-    width:90%;
-    margin:2rem auto;
-    background-color: rgb(102, 86, 86);
-    padding:3rem 2rem;
-     background-color: #575757;
-    
+.ask-another-question-btn:hover {
+  background-color: rgb(18, 217, 243);
+  color: #d12f2f;
+  border: 2px solid rgb(107, 10, 10);
 }
 
-.left-section{
-
-    width:18%;
-    color:white;
-    font: 2rem ubuntu,Verdana,Arial,sans-serif;
-    
+.ask-question-container {
+  display: flex;
+  flex-direction: row;
+  margin: 7rem 10rem 0rem 10rem;
+  border-radius: 2rem 2rem 0 0;
+  padding-bottom: 4rem;
+  width: 90%;
+  margin: 2rem auto;
+  background-color: rgb(102, 86, 86);
+  padding: 3rem 2rem;
+  background-color: #575757;
 }
 
-
-.ask-question-user-name
-{
-    text-align: center;
+.left-section {
+  width: 18%;
+  color: white;
+  font: 2rem ubuntu, Verdana, Arial, sans-serif;
 }
 
-.side-button
-{
-    background-color: #D12F2F;
-    border:none;
-    font: 1.4rem/1.56 ubuntu,Verdana,Arial,sans-serif;
-    color: white;
-    width: 12rem;
-    height: 12rem;
-      border: 3px solid #D12F2F;
-    border-radius: 50%;
-    margin:1em 1em;
+.ask-question-user-name {
+  text-align: center;
 }
 
-.side-button:hover{
-    color:rgb(18, 217, 243);
-    background-color: #7a1313;
+.side-button {
+  background-color: #d12f2f;
+  border: none;
+  /* font: 1.4rem/1.56 ubuntu, Verdana, Arial, sans-serif; */
+  color: white;
+  width: 12rem;
+  height: 12rem;
+  border: 3px solid #d12f2f;
+  border-radius: 50%;
+  margin: 1em 1em;
 }
-.right-section
-{
-    margin:auto;
-    width:70%;
-    background-color: rgb(255, 255, 255);
-    border:2px solid red;
-     border-radius: 2rem 2rem 0 0;
+
+.side-button:hover {
+  color: black;
+  background-color: white;
 }
-.ask-question-text-editor{
-    visibility:collapse;
+.right-section {
+  margin: auto;
+  width: 70%;
+  background-color: rgb(255, 255, 255);
+  /* border: 2px solid red; */
+  border-radius: 2rem 2rem 0 0;
+}
+.ask-question-text-editor {
+  visibility: collapse;
 }
 
 .overlay {
-    height: 100%;
-    width: 100%;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    background-color: rgb(156, 137, 137); /* Black fallback color */
-    background-color: rgba(63, 57, 57, 0.9); /* Black w/opacity */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-  }
+  height: 100%;
+  width: 100%;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(156, 137, 137); /* Black fallback color */
+  background-color: rgba(63, 57, 57, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
 
+.overlay-hidden {
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0); /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
 
-  .overlay-hidden {
-    height: 100%;
-    width: 0;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-  }
-  
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 5%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  color: white;
+}
 
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
 
-  /* Position the content inside the overlay */
-  .overlay-content {
-    position: relative;
-    top: 5%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-    color:white;
-  }
-  
-  /* The navigation links inside the overlay */
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+.question-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.question {
+  background-color: #d12f2f;
+  color: rgb(255, 255, 255);
+  width: 70%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 6px solid #ffffff;
+}
+
+.question:hover {
+  border: 6px solid #130407;
+  background: linear-gradient(45deg, #837d7d, rgb(209, 39, 39), #ada9a9);
+  animation-name: side-bar-question;
+  animation-duration: 4s;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
   .overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block; /* Display block instead of inline */
-    transition: 0.3s; /* Transition effects on hover (color) */
+    font-size: 20px;
   }
-  
-  /* When you mouse over the navigation links, change their color */
-  .overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
-  }
-  
-  /* Position the close button (top right corner) */
   .overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
   }
-  
+}
 
-
-.question-list
-{
-    list-style-type: none;
+@media only screen and (max-width: 1200px) {
+  .ask-question-container {
     display: flex;
     flex-direction: column;
+    width: 95%;
+  }
+
+  .left-section {
+    margin: auto;
+    width: 90%;
+  }
+
+  .button-holder {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .right-section {
+    width: 95%;
+    margin: auto;
+  }
 }
 
-.question
-{
-    background-color: #D12F2F;
-    color:rgb(255, 255, 255);
-    width:70%;
-    margin:1rem auto;
-    padding:1rem;
-    border: 6px solid #ffffff;
+@media only screen and (max-width: 900px) {
+  .title-module {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1rem;
+  }
+  .title {
+    font-size: 1rem;
+    width: 90%;
+  }
+  #modules {
+    font-size: 1rem;
+  }
+  .heading {
+    font-size: 2rem;
+  }
 }
 
-.question:hover{
-    border: 6px solid #130407;
-    /* background-color: #641d1d; */
-    /* background: linear-gradient(45deg,#575757,red,rgb(255, 255, 255)); */
-    background: linear-gradient(45deg,#837d7d,rgb(209, 39, 39),#ada9a9);
-    animation-name: side-bar-question;
-    animation-duration: 4s;
+@media only screen and (max-width: 700px) {
+  .side-button {
+    font: 1rem/1.56 ubuntu, Verdana, Arial, sans-serif;
+    /* color: white; */
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .ask-question-container {
+    width: 80%;
+  }
 }
-
-
-
-
-
-  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-  @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-      font-size: 40px;
-      top: 15px;
-      right: 35px;
-    }
-  }
-
-  @media only screen and (max-width: 1200px) 
-  {
-      .ask-question-container
-      {
-          display: flex;
-          flex-direction: column;
-          width:95%;
-      }
-
-      .left-section{
-          margin:auto;
-          width:90%;
-      }
-
-      .button-holder
-      {
-          display: flex;
-          justify-content: space-evenly;
-     
-        }
-
-      .right-section
-      {
-          width:95%;
-          margin: auto;
-      }
-  }
-
-
-  @media only screen and (max-width: 900px) 
-  {
-    .title-module
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        font-size: 1rem;
-    }
-    .title
-    {
-        font-size:1rem;
-        width: 90%;
-    }
-    #modules
-    {
-        font-size: 1rem;
-    }
-    .heading{
-        font-size:2rem;
-    }
-  }
-
-  @media only screen and (max-width:700px)
-  {
-      .side-button
-      {
-        font: 1rem/1.56 ubuntu,Verdana,Arial,sans-serif;
-        /* color: white; */
-        width: 7rem;
-        height: 7rem;
-      }
-
-      .ask-question-container
-      {
-          width:95%;
-      }
-  }
-  

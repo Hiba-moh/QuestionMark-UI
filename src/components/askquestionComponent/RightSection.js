@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import {Editor} from '@tinymce/tinymce-react';
 
-
 import {Link} from 'react-router-dom';
 import './AskQuestionComponent.css';
 import Modules from './Modules';
-import ReactHtmlParse from 'react-html-parser'
+import ReactHtmlParse from 'react-html-parser';
 
-function RightSection({userID,textAreaClass}) {
+function RightSection({userID, textAreaClass}) {
   // This is a state variable which will store the value selected from drop down menu and then it will be sent to post request.
   let [displayForm, setDisplayForm] = useState (true);
 
@@ -26,16 +25,15 @@ function RightSection({userID,textAreaClass}) {
     module_id: formModule_id,
     users_id: formUsers_id,
     question_date: formQues_date,
-    answers:formAnswers
+    answers: formAnswers,
   };
 
-
-  const emailObject={
+  const emailObject = {
     send: true,
-    email: "false",
-    users_id:formUsers_id,
-    text:"Your Question has been posted. Thank you for using the platform. You will receive a notification when someone will respond to your question"
-  }
+    email: 'false',
+    users_id: formUsers_id,
+    text: 'Your Question has been posted. Thank you for using the platform. You will receive a notification when someone will respond to your question',
+  };
 
   const options = {
     method: 'POST',
@@ -44,7 +42,6 @@ function RightSection({userID,textAreaClass}) {
     },
     body: JSON.stringify (detailsOfQues),
   };
-
 
   const sendingEmail = {
     method: 'POST',
@@ -58,13 +55,11 @@ function RightSection({userID,textAreaClass}) {
     setDisplayForm (true);
   }
 
-
-  function sendEmail()
-  {
-    fetch("https://question-mark-api.herokuapp.com/sendmail",sendingEmail)
-    .then(data=>data.json())
-    .then(data=>console.log(data))
-    .catch(error=>console.log(error))
+  function sendEmail () {
+    fetch ('https://question-mark-api.herokuapp.com/sendmail', sendingEmail)
+      .then (data => data.json ())
+      .then (data => console.log (data))
+      .catch (error => console.log (error));
   }
 
   function submitted (e) {
@@ -74,7 +69,7 @@ function RightSection({userID,textAreaClass}) {
       .then (data => console.log (data))
       .catch (error => console.log (error));
 
-      sendEmail();
+    sendEmail ();
     setDisplayForm (false);
   }
 
@@ -86,21 +81,21 @@ function RightSection({userID,textAreaClass}) {
     setFormQues (e.target.value);
   }
 
-  function testing(content,editor)
-  {
+  function testing (content, editor) {
     setFormQues (content);
   }
   return (
     <div className="right-section">
       <div className="first-section">
         <h1 className="heading">Ask Question</h1>
-        
+
       </div>
       {displayForm
         ? <form className="second-section" onSubmit={submitted}>
             <div className="title-module">
               <input
-                className="title"
+                className="form-control mr-sm-2 searchbox-onlyH menu-margin"
+                id="askTitle"
                 name="title"
                 type="text"
                 placeholder="Title of the question"
@@ -111,7 +106,7 @@ function RightSection({userID,textAreaClass}) {
             </div>
 
             <div className={textAreaClass}>
-              <Editor 
+              <Editor
                 className="ask-question-text-editor"
                 initialValue=" "
                 apiKey="6zfdz2vb9rz2gg2liptwfxsbeeuhuung7rkugyxkfi29o1f3"
@@ -119,7 +114,7 @@ function RightSection({userID,textAreaClass}) {
                   selector: 'textarea', // change this value according to your HTML
                   height: 500,
                   menubar: false,
-                  forced_root_block : false,
+                  forced_root_block: false,
                   plugins: [
                     'advlist autolink lists link image charmap print preview anchor',
                     'searchreplace visualblocks code codesample fullscreen',
@@ -144,7 +139,7 @@ function RightSection({userID,textAreaClass}) {
             <button className="ask-another-question-btn" onClick={askAnother}>
               Ask Another Question
             </button>
-            
+
           </div>}
 
     </div>

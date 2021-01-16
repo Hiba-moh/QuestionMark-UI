@@ -26,7 +26,7 @@
   border: 1px solid #d12f2f;
 }
 .profileChoices:hover {
-  background-color: #575757;
+  background-color: #d12f2f;
   color: white;
   cursor: pointer;
 }
