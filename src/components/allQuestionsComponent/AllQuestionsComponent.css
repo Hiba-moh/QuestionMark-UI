@@ -174,11 +174,12 @@
   margin-left: 4rem;
 }
 .ulH {
+  font-family: 'Abel', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 .ulH .liH {
   display: flex;
@@ -304,6 +305,7 @@
 }
 
 .paginationUl {
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -353,9 +355,23 @@
   .col-and-search-containerH {
     display: none;
   }
+  .body-containerH {
+    margin: auto;
+    padding: 0;
+  }
   .AllQuestionsresponsiveLinks {
     display: flex;
     flex-wrap: wrap;
+  }
+  .search-containerH {
+    width: 85%;
+  }
+  #img-pdf {
+    width: 9%;
+    margin-top: 0.1rem;
+  }
+  .contain-body-containerH {
+    border-radius: 0;
   }
 }
 @media only screen and (max-width: 1220px) {

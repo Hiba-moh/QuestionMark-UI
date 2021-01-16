@@ -158,13 +158,36 @@ function SelectedQuestionPage({match}) {
           </div>
 
           <div className="selected_textareaH">
+
             <div className="sideMenueContainer">
-              <a href="" onClick={e => jsPDFGenerator (e)}>
-                <img id="selected-question-pdf" src={pdf} />
-              </a>
-              <LeftSideMenu />
+              <div id="leftMenu">
+                <a href="" onClick={e => jsPDFGenerator (e)}>
+                  <img id="selected-question-pdf" src={pdf} />
+                </a>
+                <div class="leftLinksOnly">
+                  <LeftSideMenu />
+                </div>
+              </div>
+
             </div>
             <div className="selectedQuestionAndAnswers">
+              <div className="selectedQuestionresponsiveLinks">
+                <button
+                  className="btn btn-danger"
+                  style={{width: '14rem', margin: '3rem 0 0 0'}}
+                  onClick={() => (window.location = '/answered')}
+                >
+                  ANSWERED QUESTIONS
+                </button>
+                <button
+                  className="btn btn-danger"
+                  style={{width: '14rem', margin: '3rem 0 0 0'}}
+                  onClick={() => (window.location = '/unanswered')}
+                >
+                  UNANSWERED QUESTIONS
+                </button>
+              </div>
+
               <div className="askedBy-NoAnswers-Reply">
 
                 <div id="q-title-answersNo">
@@ -183,8 +206,8 @@ function SelectedQuestionPage({match}) {
 
               </div>
               <div id="q-descriptionH">
-                <h3>The Question:</h3>
-                <div>{pageData_question.question}</div>
+                <h2>The Question:</h2>
+                <h3>{pageData_question.question}</h3>
                 <h6>Asked by: {pageData_question.name}</h6>
               </div>
 
