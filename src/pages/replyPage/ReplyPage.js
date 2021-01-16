@@ -137,10 +137,7 @@ function ReplyPage({match}) {
           },
         ],
       }
-    ).then(response => {
-      console.log(response);
-      return response.json();
-    });
+    );
     res.status === 200
       ?  alert (`Thank you for your contribution 🌹`)
       : alert ('Error sending message');
