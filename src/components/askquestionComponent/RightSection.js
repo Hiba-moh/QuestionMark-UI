@@ -94,7 +94,6 @@ function RightSection({userID,textAreaClass}) {
 
   function testing(content,editor)
   {
-    // console.log(content[0]);
     setFormQues (content);
   }
   return (
