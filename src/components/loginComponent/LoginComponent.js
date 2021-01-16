@@ -9,7 +9,6 @@ import Footer from '../footerComponent/Footer';
 import Header from '..//..//components/allQuestionsComponent/Header';
 
 function LoginComponent (props) {
-  //const [isAuth, setIsAuth] = useContext (AuthContext);
   const {isAuth, greet, idNumber} = useContext (AuthContext);
   const [isAuthValue, setIsAuthValue] = isAuth;
   const [greetValue, setGreetValue] = greet;
@@ -40,9 +39,7 @@ function LoginComponent (props) {
         return response.json ();
       })
       .then (data => {
-        console.log (data);
         if (data.success === false) {
-          //localStorage.setItem ('token', JSON.stringify (data)); //stores token in local storage
           setFailedLoginMessage (data.message);
         } else {
           localStorage.setItem ('user', true);
@@ -55,7 +52,7 @@ function LoginComponent (props) {
         console.error (e);
       });
   };
-  console.log (isAuth);
+
   const handleLogUsername = e => {
     setLogUsername (e.target.value);
   };
@@ -70,8 +67,8 @@ function LoginComponent (props) {
 
   return (
     <div className="loginContainer">
-      <Header />
-      {/* <NormalHeaderComponent /> */}
+      {/* <Header /> */}
+      <NormalHeaderComponent />
       <div className="errMessage">
         <div class="container h-100">
           <div class="d-flex justify-content-center h-100">
@@ -167,63 +164,14 @@ function LoginComponent (props) {
         </div>
 
       </div>
-      {/* <NormalHeaderComponent /> */}
+     
       <Footer />
     </div>
   );
 
-  {
-    /* <NormalHeaderComponent />
-    <div className="login_outer_container">
+  
     
-
-      <div className="login_form">
-        <img src={loginImg} id='loginImg'></img>
-        <h2>Log In</h2>
-
-        <form onSubmit={handleSubmit}>
-          <div class="form-group">
-            <input
-              name="username"
-              type="username"
-              placeholder="Username"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              onChange={handleLogUsername}
-              required
-            />
-            <input
-              name="password"
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              placeholder="Password"
-              onChange={handleLogPassword}
-              required
-            />
-           
-              <button id='loginBTN' className="btn btn-danger" onClick={handleAuth} type="submit">
-                Login
-              </button>
-            
-
-              <p id="signup_link">
-                <Link to="/signup">Sign up | Forgot password?</Link>
-              </p>
-           
-          </div>
-
-        </form>
-        <div className="login_response_message">
-          <p>{failedLoginMessage}</p>
-        </div>
-
-      </div>
-
-    </div>
-    </> */
-  }
+  
 }
 
 export default withRouter (LoginComponent);

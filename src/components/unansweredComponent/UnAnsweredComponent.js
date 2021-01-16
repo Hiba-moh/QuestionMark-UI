@@ -16,10 +16,10 @@ const UnAnsweredComponent = () => {
   const [modulequestions, setModulequestions] = useState ([]);
   const [input, setInput] = useState ('');
   const history = useHistory ();
+
   useEffect (() => {
     fetch (`https://question-mark-api.herokuapp.com/unanswered`)
       .then (res => {
-        console.log (res);
         if (!res.ok) {
           throw Error (res.status + ' _ ' + res.url);
         }
@@ -46,7 +46,7 @@ const UnAnsweredComponent = () => {
         }
       }
       setModulequestions (filtered);
-      // console.log (modulequestions);
+      
     }
   };
 
