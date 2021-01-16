@@ -62,7 +62,6 @@ function RightSection({userID,textAreaClass}) {
   function sendEmail()
   {
     fetch("https://question-mark-api.herokuapp.com/sendmail",sendingEmail)
-    // fetch("http://localhost:5000/sendmail",sendingEmail)
     .then(data=>data.json())
     .then(data=>console.log(data))
     .catch(error=>console.log(error))
