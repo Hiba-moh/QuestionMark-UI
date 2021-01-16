@@ -1,11 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useContext,useState} from 'react';
 import './ReplyPage.css';
 import SidebarComponent
   from '../../components/sidebarComponent/SidebarComponent';
 import TextEditor from '../../components/replyComponent/TextEditor';
 import Header from '../../components/allQuestionsComponent/Header';
 import Footer from '../../components/footerComponent/Footer';
-import {useState, useContext} from 'react/cjs/react.development';
 import {mockComponent} from 'react-dom/test-utils';
 import moment from 'moment';
 import axios from 'axios';
