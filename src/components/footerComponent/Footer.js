@@ -6,7 +6,7 @@ function Footer () {
     <div className="footer_container">
       <footer className="footer">
         <h5>
-          CYF | West Midlands | Team QuestionMark 2020 | All rights reserved &reg;
+          CYF | West Midlands | Team QuestionMark 2021 | All rights reserved &reg;
         </h5>
       </footer>
     </div>
