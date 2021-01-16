@@ -6,7 +6,7 @@ function Footer () {
     <div className="footer_container">
       <footer className="footer">
         <h5>
-          Copyright question-mark | All reserved |Powered by CYF-team QuestionMark
+          © Copyright question-mark | All reserved |Powered by CYF-team QuestionMark
         </h5>
       </footer>
     </div>
