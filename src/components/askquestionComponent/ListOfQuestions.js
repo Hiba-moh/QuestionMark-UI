@@ -6,7 +6,6 @@ function ListOfQuestions({questions})
 {
     // console.log("+++------")
     // console.log(questions)
-    // console.log("+++------")
     questions=Array.from(questions);//converting object to array in order to use map.
 
     return(
