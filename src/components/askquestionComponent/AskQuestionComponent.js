@@ -19,7 +19,6 @@ function AskQuestionQuestion()
     const [greetValue, setGreetValue] = greet; 
     const [idNumberValue, setIdNumberValue] = idNumber;
 
-    // console.log("-----------------------")
     if(idNumber[0])
     {
         localStorage.setItem("idValue",idNumber[0]);
