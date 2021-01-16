@@ -69,8 +69,7 @@ function AskQuestionQuestion()
     //   .then(data=>{
     //       console.log("----------------")
     //       console.log(data)
-    //       console.log("--------------------------------------")
-    //   })
+    //     
 
     // This is the object of the user that has logged in, we will extract user's name and then use it.
     let user={};
