@@ -1,14 +1,6 @@
 import React,{useState} from "react"
 import "./Tips.css"
 
-// function Tips()
-// {
-//     return (
-//         <div className="tips-circle">
-//             <p className="tips-text">Tips For asking a good question</p>
-//         </div>
-//     )
-// }
 function Tips({setTextAreaClass})
 {
     const [expand,setExpand]=useState(false);

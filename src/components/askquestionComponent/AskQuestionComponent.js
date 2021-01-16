@@ -11,10 +11,6 @@ import {AuthContext} from '../../AuthContext';
 import Animation from "./Animation"
 import Tips from "./Tips"
 
-//what is left in this component 
-//is send data to heroku link, it is working on localhost just change that to heroku link.
-// Take the users id using useParams react hook.
-// fetch data from heroku app for the whole page.
 function AskQuestionQuestion()
 {
 
@@ -23,16 +19,12 @@ function AskQuestionQuestion()
     const [greetValue, setGreetValue] = greet; 
     const [idNumberValue, setIdNumberValue] = idNumber;
 
-    // console.log("-----------------------")
-    // console.log(idNumber)
-    // console.log("-----------------------")
-
     if(idNumber[0])
     {
         localStorage.setItem("idValue",idNumber[0]);
     }
   
-    //these variables will contain the information from fetched ur.
+    //these variables will contain the information from fetched url.
     const [fetchedAnsQues,setFetchedAnsQues]=useState();
     const [fetchedUnAnsQues,setFetchedUnAnsQues]= useState();
     const [fetchedName, setFetchedName]=useState("");
@@ -60,31 +52,16 @@ function AskQuestionQuestion()
 
 
     // This fetch will bring the data for the user who us accessing this page.
-
-   
-
     useEffect (() => {
         fetch(`https://question-mark-api.herokuapp.com/ask-question/${localStorage.getItem("idValue")}`)
         .then(data=>data.json())
         .then(data=>{
-            // console.log("++++----")
-            // console.log(data)
-            // console.log("++++----")
             setFetchedName(data.name[0].name)
             setFetchedAnsQues(data.answeredQuestions) // array of objects
             setFetchedUnAnsQues(data.unAnsweredQuestions) // array of objects
         })
         .catch(error=>console.log(error))
       }, []);
-
-
-    //   fetch("https://question-mark-api.herokuapp.com/modules")
-    //   .then(data=>data.json())
-    //   .then(data=>{
-    //       console.log("----------------")
-    //       console.log(data)
-    //       console.log("--------------------------------------")
-    //   })
 
     // This is the object of the user that has logged in, we will extract user's name and then use it.
     let user={};

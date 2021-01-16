@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import {Editor} from '@tinymce/tinymce-react';
 
+
 import {Link} from 'react-router-dom';
 import './AskQuestionComponent.css';
 import Modules from './Modules';
-
-// What I need to fix in this is the user_id with useParams react hook and actually send the data with heroku link using fetch1
+import ReactHtmlParse from 'react-html-parser'
 
 function RightSection({userID,textAreaClass}) {
   // This is a state variable which will store the value selected from drop down menu and then it will be sent to post request.
-  // let [selectedModule,setSelectedModule]=useState("");
   let [displayForm, setDisplayForm] = useState (true);
 
   let today = new Date ().toISOString ().slice (0, 10);
@@ -63,17 +62,14 @@ function RightSection({userID,textAreaClass}) {
   function sendEmail()
   {
     fetch("https://question-mark-api.herokuapp.com/sendmail",sendingEmail)
-    // fetch("http://localhost:5000/sendmail",sendingEmail)
     .then(data=>data.json())
     .then(data=>console.log(data))
     .catch(error=>console.log(error))
   }
 
-  //in this function I should update all the values and call the fetch to submit the data.
   function submitted (e) {
     e.preventDefault ();
     fetch ('https://question-mark-api.herokuapp.com/ask-question', options) // once the changes have been pushed use this fetch to send to heroku url
-      // fetch("http://localhost:5000/ask-question",options)
       .then (data => data.json ())
       .then (data => console.log (data))
       .catch (error => console.log (error));
@@ -92,10 +88,6 @@ function RightSection({userID,textAreaClass}) {
 
   function testing(content,editor)
   {
-    // console.log(content[0]);
-    // let finalIndex=content.length-7;
-    // var finalContent = content.substr(3, finalIndex);
-    // console.log(finalContent)
     setFormQues (content);
   }
   return (
@@ -119,15 +111,6 @@ function RightSection({userID,textAreaClass}) {
             </div>
 
             <div className={textAreaClass}>
-              {/* <input
-                className="ques-text"
-                name="title"
-                type="text"
-                placeholder="Type your question here"
-                onChange={handleQuestion}
-                required
-              /> */}
-
               <Editor 
                 className="ask-question-text-editor"
                 initialValue=" "
@@ -136,6 +119,7 @@ function RightSection({userID,textAreaClass}) {
                   selector: 'textarea', // change this value according to your HTML
                   height: 500,
                   menubar: false,
+                  forced_root_block : false,
                   plugins: [
                     'advlist autolink lists link image charmap print preview anchor',
                     'searchreplace visualblocks code codesample fullscreen',

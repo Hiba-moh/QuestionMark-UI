@@ -18,7 +18,7 @@
 }
 
 .heading{
-    font-size:3.5rem;
+    font-size:3rem;
 }
 
 .logout-btn{
@@ -48,6 +48,7 @@
     background-color: #D12F2F;
     border-color:#d3cece;
     color:rgb(252, 253, 253);
+    padding: 0.5rem;
 }
 
 .title
@@ -158,8 +159,6 @@
     margin:2rem auto;
     background-color: rgb(102, 86, 86);
     padding:3rem 2rem;
-    /* background: linear-gradient(rgb(102, 86, 86),rgb(134, 114, 114),white);
-     */
      background-color: #575757;
     
 }
@@ -200,9 +199,11 @@
 {
     margin:auto;
     width:70%;
-    background-color: beige;
+    background-color: rgb(255, 255, 255);
     border:2px solid red;
-    border-radius: 10%;
+    /* border-radius: 10%;
+     */
+     border-radius: 2rem 2rem 0 0;
 }
 .ask-question-text-editor{
     visibility:collapse;
@@ -318,16 +319,16 @@
     }
   }
 
-  @media only screen and (max-width: 1000px) 
+  @media only screen and (max-width: 1200px) 
   {
       .ask-question-container
       {
           display: flex;
           flex-direction: column;
+          width:95%;
       }
 
       .left-section{
-          border:5px solid black;
           margin:auto;
           width:90%;
       }
@@ -336,5 +337,54 @@
       {
           display: flex;
           justify-content: space-evenly;
+     
+        }
+
+      .right-section
+      {
+          width:95%;
+          margin: auto;
       }
   }
+
+
+  @media only screen and (max-width: 900px) 
+  {
+    .title-module
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 1rem;
+    }
+    .title
+    {
+        font-size:1rem;
+        width: 90%;
+    }
+    #modules
+    {
+        font-size: 1rem;
+    }
+    .heading{
+        font-size:2rem;
+    }
+  }
+
+  @media only screen and (max-width:700px)
+  {
+      .side-button
+      {
+        font: 1rem/1.56 ubuntu,Verdana,Arial,sans-serif;
+        /* color: white; */
+        width: 7rem;
+        height: 7rem;
+      }
+
+      .ask-question-container
+      {
+          width:95%;
+      }
+  }
+  
