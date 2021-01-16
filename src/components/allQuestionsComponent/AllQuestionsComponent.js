@@ -127,12 +127,6 @@ const AllQuestionsComponent = () => {
     doc.save ('AllQuestions');
   };
 
-  // if (loading) {
-  //   return <h2>loading ...</h2>;
-  // }
-
-  // get current questions
-  // index of last question
   const indexOfLastQuestion = currentPage * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
   const currentQuestions = modulequestions.slice (
@@ -208,10 +202,8 @@ const AllQuestionsComponent = () => {
           onChange={handleSearch}
           placeholder="SEARCH HERE ... "
         />
-        {/* <button class="searchbtn">SEARCH</button> */}
         <select
           className="custom-select mr-sm-2 sortSelector menu-margin"
-          // id="moduleSelectorH"
           onChange={changeHandler}
         >
           <option value="default">FILTER BY MODULE</option>
@@ -257,7 +249,6 @@ const AllQuestionsComponent = () => {
             </button>
           </div>
 
-          {/* <div className="col-linksH" /> */}
           <div className="to-divide-2divs">
             <div className="col-and-search-containerH">
               <ul className="ulH">

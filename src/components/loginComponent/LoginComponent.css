@@ -1,11 +1,24 @@
 .loginContainer {
+  /* background-image: url('..//..//assets/images/Icons/q2.jpg'); */
   /* margin: auto; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* width: 100%; */
   height: 100vh;
-  /* background-color: #575757; */
+}
+.backgroundOpacity {
+  display: flex;
+  position: relative;
+}
+.backgroundOpacity::before {
+  content: '';
+  background-size: auto;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.2;
 }
 
 .errMessage {
@@ -21,9 +34,7 @@
   display: flex;
   height: 60vh;
 }
-.App {
-  /* text-align: center; */
-}
+
 .justify-content-center a {
   color: rgb(238, 206, 206);
   margin-left: 0.3rem;
@@ -133,87 +144,3 @@
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #d12f2f !important;
 }
-
-/* .login_outer_container {
-  font-family: 'Abel', sans-serif;
-  display: flex;
-  height: 100vh;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 20rem;
-  margin-top: 3rem;
-}
-
-.login_form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 40%;
-  margin: auto;
-  padding-bottom: 8%;
-}
-#loginImg {
-  width: 3rem;
-  height: auto;
-  margin-bottom: 2rem;
-  padding-right: 1rem;
-}
-
-#exampleInputEmail1 {
-  margin: 1rem 0 1rem 0;
-}
-#loginBTN {
-  align-self: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  width: 100%;
-}
-
-#signup_link {
-  align-self: center;
-}
-
-.login_title > h2 {
-  font-weight: 400;
-  margin-bottom: -0px;
-}
-
-
-@media screen and (max-width: 800px) {
-  #signup_link {
-    font-size: 12px;
-  }
-  .login_btn_links > p {
-    width: 8rem;
-  }
-  .login_form_btn > button {
-    width: 4rem;
-    font-size: 0.9rem;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .login_btn_links > p {
-    width: 6rem;
-  }
-  .login_form_btn > button {
-    width: 4rem;
-    font-size: 0.8rem;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  #signup_link {
-    font-size: 10px;
-  }
-  .login_btn_links > p {
-    width: 4rem;
-  }
-  .login_form_btn > button {
-    height: 1.2rem;
-    font-size: 0.8rem;
-  }
-} */

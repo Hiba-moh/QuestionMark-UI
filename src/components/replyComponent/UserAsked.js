@@ -89,7 +89,6 @@ const UserAsked = () => {
             </tbody>
           </table>
         </div>
-        {/* <Footer /> */}
       </div>
     </Fragment>
   );

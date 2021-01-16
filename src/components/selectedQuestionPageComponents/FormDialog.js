@@ -25,12 +25,6 @@ export default function FormDialog({answer}) {
   const classes = useStyles ();
   const [value, setValue] = useState ('Controlled');
 
-  // const handleChange = event => {
-  //   // setTxtValue (event.target.value);
-  //   setValue (event.target.value);
-  //   console.log (txtValue);
-  // };
-
   const handleClickOpen = () => {
     setOpen (true);
   };
@@ -41,7 +35,6 @@ export default function FormDialog({answer}) {
 
   const handleSubmit = e => {
     const date = Date.now ();
-    // e.preventDefault ();
     console.log ('this is out put', txtValue);
     const data = {
       answer_id: answer.id,

@@ -34,36 +34,7 @@
   justify-content: space-around;
   width: 98%;
 }
-/* .searchbox-only:focus {
-  border: none;
-}
-.searchbox-only:focus-within {
-  background-color: white;
-  box-shadow: 2px 2px 2px 2px #575757;
-} */
-/* #Answered-moduleSelector {
-  display: flex;
-  width: 14rem;
-  height: 40px;
-  text-align: center;
-  color: black;
-  border-radius: 6px;
-  outline: none;
-  padding: 0 4rem 0 4rem;
-  text-align: center;
-  text-decoration: none;
-  outline-style: none;
-  font-size: 1rem;
-  cursor: pointer;
-} */
-/* #Answered-moduleSelector:hover {
-  background-color: white;
-  border: 1px solid #bbbbbb;
-  color: black;
-}
-#Answered-moduleSelector:focus-within {
-  background-color: #f5f5f5;
-} */
+
 .form1H {
   text-align: center;
   justify-content: center;
@@ -84,7 +55,6 @@
   margin-left: 3rem;
 }
 .Answered-bodyContent {
-  /* flex */
   font-family: 'Abel', sans-serif;
   margin: auto;
   width: 85%;

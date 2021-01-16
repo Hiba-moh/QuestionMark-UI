@@ -22,16 +22,12 @@
   height: auto;
 }
 
-.logo:hover {
-  /* border:2px solid red; */
-  /* box-shadow: 2px 2px 4px rgb(70, 62, 62); */
-}
+
 
 footer > h5 {
   font: 1.5em ubuntu, Verdana, Arial, sans-serif;
   color: rgb(155, 25, 25);
   width: 50%;
-  /* border:2px solid red; */
   margin: auto;
   margin-top: 20px;
 }
