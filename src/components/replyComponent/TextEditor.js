@@ -5,7 +5,6 @@ import {Editor} from '@tinymce/tinymce-react';
 const TextEditor = ({SetAnswer}) => {
   const handleEditorChange = (content, editor) => {
     SetAnswer (content);
-    // console.log ('Content was updated:', content);
   };
 
   return (

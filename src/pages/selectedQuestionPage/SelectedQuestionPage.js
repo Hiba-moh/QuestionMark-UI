@@ -11,6 +11,8 @@ import jsPDF from 'jspdf';
 import '../../components/footerComponent/Footer';
 import Footer from '../../components/footerComponent/Footer';
 import {AuthContext} from '../../AuthContext';
+import RateComponent
+  from '../../components/allQuestionsComponent/RateComponent';
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
@@ -197,6 +199,9 @@ function SelectedQuestionPage({match}) {
                   <div>Views: {pageData_question.views}</div>
 
                 </div>
+                {/* rate here */}
+                {/* <RateComponent keyId={id} rate={pageData_question.rate} /> */}
+
                 <div className="selected_reply_linkH">
 
                   <Link to={`/replypage/${pageData_question.id}`}>

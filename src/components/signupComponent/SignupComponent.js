@@ -187,7 +187,6 @@ function SignupComponent () {
         </div>
 
       </div>
-      {/* <NormalHeaderComponent /> */}
       <Footer />
     </div>
   );

@@ -14,9 +14,7 @@ import {AuthContext} from '../../AuthContext'
   }
 
 function ProtectedRoutes({component: Component, ...rest}) {
-   
-   // const [isAuth, setIsAuth] = useContext(AuthContext);
-   const {isAuth, greet, idNumber} = useContext(AuthContext); //pull all states to be used
+      const {isAuth, greet, idNumber} = useContext(AuthContext); //pull all states to be used
    const [isAuthValue, setIsAuthValue] = isAuth;
    const [greetValue, setGreetValue] = greet; //equvilent to setGreet
    const [idNumberValue, setIdNumberValue] = idNumber;

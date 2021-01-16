@@ -66,6 +66,8 @@ function LoginComponent (props) {
   };
 
   return (
+    <>
+    <div className='backgroundOpacity'></div>
     <div className="loginContainer">
       {/* <Header /> */}
       <NormalHeaderComponent />
@@ -164,14 +166,11 @@ function LoginComponent (props) {
         </div>
 
       </div>
-     
+
       <Footer />
     </div>
+    </>
   );
-
-  
-    
-  
 }
 
 export default withRouter (LoginComponent);
