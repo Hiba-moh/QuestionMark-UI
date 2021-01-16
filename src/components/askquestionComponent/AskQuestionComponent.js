@@ -21,7 +21,6 @@ function AskQuestionQuestion()
 
     // console.log("-----------------------")
     // console.log(idNumber)
-    // console.log("-----------------------")
 
     if(idNumber[0])
     {
