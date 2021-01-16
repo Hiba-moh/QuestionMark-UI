@@ -14,28 +14,29 @@
    */
 
 @keyframes slidingLine {
-  0%   {color:rgb(199, 33, 33); opacity: 0.1;}
+  0%   {color:rgb(199, 33, 33); opacity: 0.1; }
   50%   {color:rgb(199, 33, 33); opacity: 0.4;}
   65%   {color:rgb(199, 33, 33); opacity: 0.6;}
   75%   {color:rgb(199, 33, 33); opacity: 0.8;}
   100%  {color:rgb(199, 33, 33); opacity: 0.9;}
 }
 
-.animation-text
+.animation-figure
 {
-  font: 3rem ubuntu,Verdana,Arial,sans-serif;
-    position: relative;
-    color:rgb(238, 40, 40);
     animation-name: slidingLine;
     animation-duration: 2s;
-    text-align: center;
-    width:60%;
-    margin:0 auto;
-    margin-top: 2rem;
-    left:42px;
+    position: relative;
+    top:6px;
+    display: flex;
+    justify-content: flex-end;
+    width:80%;
+    margin: auto;
 }
 
-
+.holding-hands-img
+{
+  width:20rem;
+}
 .animation-heading-container
 {
   width:80%;
