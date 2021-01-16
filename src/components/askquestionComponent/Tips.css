@@ -2,9 +2,9 @@
 @keyframes circle {
     0%   {left:900px; }
     45%  {left:0px; }
-    65%  { background-color: rgb(28, 185, 93); color:rgb(78, 25, 25);}
+    65%  { background-color: rgb(223, 163, 163); color:rgb(78, 25, 25);}
     75%  { background-color: rgb(214, 35, 29); color:rgb(135, 252, 187);}
-    85%  { background-color: rgb(28, 185, 93); color:rgb(78, 25, 25);}
+    85%  { background-color: rgb(206, 141, 133); color:rgb(78, 25, 25);}
 }
 
 .tips-circle
@@ -21,7 +21,7 @@
     border-radius: 50%;
     margin:1rem 1rem;
     padding: 1rem;
-    border:5px solid rgb(31, 36, 34);
+    border:3px solid rgb(80, 83, 82);
 
     position: relative;
     animation-name: circle;
