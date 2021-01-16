@@ -95,6 +95,7 @@
   animation-name: slidingLine;
   animation-duration: 3s;
   margin: 3rem auto;
+  padding:0.4rem;
 }
 
 .image-slogan-container
@@ -118,7 +119,16 @@
   top:5rem;
 }
 
-@media only screen and (max-width: 700px) 
+@media only screen and (max-width: 800px) 
 {
-
+  .heading-text
+  {
+    font-size:2rem;
+  }
+  .slogan,.slogan-2{
+    font-size: 1rem;
+  }
+  .cyf-image{
+    width:20rem;
+  }
 }
