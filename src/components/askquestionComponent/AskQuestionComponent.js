@@ -65,7 +65,7 @@ function AskQuestionQuestion()
 
 
     //   fetch("https://question-mark-api.herokuapp.com/modules")
-    //   .then(data=>data.json())
+
     // This is the object of the user that has logged in, we will extract user's name and then use it.
     let user={};
     user.name=fetchedName;
