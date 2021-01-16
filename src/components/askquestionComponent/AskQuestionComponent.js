@@ -11,8 +11,7 @@ import {AuthContext} from '../../AuthContext';
 import Animation from "./Animation"
 import Tips from "./Tips"
 
-//what is left in this component 
-//is send data to heroku link, it is working on localhost just change that to heroku link.
+//what is left in this component .
 function AskQuestionQuestion()
 {
 
