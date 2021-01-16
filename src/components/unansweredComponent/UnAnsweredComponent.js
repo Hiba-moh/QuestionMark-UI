@@ -116,31 +116,46 @@ const UnAnsweredComponent = () => {
   return (
     <div>
       <Header />
-      <div className="Answered-side-menu" />
-      <div className=" answered-search-container">
-        <div className="form-group answered-form-group">
-          <form>
-            <div className="input-group-prepend input-group mb-3 answered-input-group">
-              <input
-                className=" searchbox-only"
-                name="search"
-                type="text"
-                onChange={handleSearch}
-                placeholder="SEARCH HERE ..."
-              />
+      <div className="searchAndFilter">
+        <div className=" mb-3 answered-input-group">
+          <input
+            className="form-control mr-sm-2 AnsweredSearchBox"
+            name="search"
+            type="text"
+            onChange={handleSearch}
+            placeholder="SEARCH HERE ..."
+          />
 
-              <select id="Answered-moduleSelector" onChange={changeHandler}>
-                <option value="default">FILTER BY MODULE</option>
-                {filter.map (item => {
-                  return <option value={item.id}>{item.module}</option>;
-                })}
-              </select>
+          <select
+            className="form-control mr-sm-2 AnsweredSearchBox"
+            onChange={changeHandler}
+          >
+            <option value="default">FILTER BY MODULE</option>
+            {filter.map (item => {
+              return <option value={item.id}>{item.module}</option>;
+            })}
+          </select>
 
-            </div>
-          </form>
         </div>
-
       </div>
+
+      <div className="responsiveLinks">
+        <button
+          className="btn btn-danger"
+          style={{width: '14rem'}}
+          onClick={() => (window.location = '/allquestions')}
+        >
+          ALL QUESTIONS
+        </button>
+        <button
+          className="btn btn-danger"
+          style={{width: '14rem'}}
+          onClick={() => (window.location = '/unanswered')}
+        >
+          UNANSWERED QUESTIONS
+        </button>
+      </div>
+
       <div className=" d-flex p-2 Answered-bodyContent">
 
         <div className="Answered-side">
