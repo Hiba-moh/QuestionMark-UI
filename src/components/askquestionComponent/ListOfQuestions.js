@@ -9,8 +9,7 @@ function ListOfQuestions({questions})
         <div>
             <ul className="question-list">
                 {questions.map((name, index) => (
-                    <Link to={`/selectedquestionpage/${name.id}`} > <li className="question" key={index}>{name.question_title}</li>  </Link>// I should change this to name.question_title
-
+                    <Link to={`/selectedquestionpage/${name.id}`} > <li className="question" key={index}>{name.question_title}</li>  </Link>
                 ))}
             </ul>
             
