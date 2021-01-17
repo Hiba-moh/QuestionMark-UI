@@ -5,6 +5,10 @@
   width: 50%;
 }
 
+.animation-container
+{
+  display: flex;
+}
 .heading{
     font-family: 'Abel', sans-serif;
     font-size:3rem;

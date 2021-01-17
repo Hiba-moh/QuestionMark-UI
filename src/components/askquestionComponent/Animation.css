@@ -9,13 +9,10 @@
 
 .animation-figure
 {
-    /* animation-name: slidingLine; */
-    /* animation-duration: 2s; */
     position: relative;
     top:6px;
     display: flex;
     justify-content: flex-end;
-    /* width:80%; */
     margin: auto;
 }
 
@@ -25,6 +22,7 @@
 }
 .animation-heading-container
 {
+  display: flex;
   width:80%;
 }
 
