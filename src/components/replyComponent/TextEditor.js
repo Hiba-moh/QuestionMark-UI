@@ -5,7 +5,6 @@ import {Editor} from '@tinymce/tinymce-react';
 const TextEditor = ({SetAnswer}) => {
   const handleEditorChange = (content, editor) => {
     SetAnswer (content);
-    // console.log ('Content was updated:', content);
   };
 
   return (
@@ -16,6 +15,7 @@ const TextEditor = ({SetAnswer}) => {
         selector: 'textarea', // change this value according to your HTML
         height: 500,
         menubar: false,
+        forced_root_block: false,
         plugins: [
           'advlist autolink lists link image charmap print preview anchor',
           'searchreplace visualblocks code codesample fullscreen',

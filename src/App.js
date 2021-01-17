@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
-//import Header from './components/header/Header';
-//import Footer from './components/footer/Footer'
-//import Routes from './routes/index';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import SignUp from './pages/signup/Signup';
 import Login from './pages/login/Login';
-//import ReplyPage from './pages/replyPage/ReplyPage';
 import ReplyPage from './pages/replyPage/ReplyPage';
 import SelectedQuestionPage
   from './pages/selectedQuestionPage/SelectedQuestionPage';
@@ -19,13 +15,10 @@ import {AuthProvider, AuthContext} from './AuthContext';
 import UserAsked from './components/replyComponent/UserAsked';
 import UserAnswered from './components/replyComponent/UserAnswered';
 import Profile from './components/ProfileComponent/Profile';
-// import GoogleLogin from 'react-google-login';
-
 import AboutUsPage from "./pages/aboutUs/AboutUsPage"
 import { Profiler } from 'react/cjs/react.development';
 
 function App () {
-  //const [isAuth, setIsAuth] = useState(true);
   const responseGoogle = response => {
     console.log (response);
     console.log (response.profileObj);
@@ -34,25 +27,11 @@ function App () {
   return (
     <>
     <AuthProvider>
-{/* 
-      <GoogleLogin
-  clientId="459290032975-jej2ta4pqnes745j8nhohti5qpbifqfn.apps.googleusercontent.com"
-  buttonText="Login"
-  onSuccess={responseGoogle}
-  onFailure={responseGoogle}
-  cookiePolicy={'single_host_origin'}
-/> */}
-      <div className="App">
-        {/* <Header />
-          <Routes />
-          <Footer /> */}
 
+      <div className="App">
         <BrowserRouter>
           <Route path="/signup" component={SignUp} />
-
           <Route exact path="/" component={Login} />
-          {/* <Route path="/replypage" component={ReplyPage} /> */}
-          {/* <Route path="/selectedquestionpage" component={SelectedQuestionPage} /> */}
           <ProtectedRoutes path="/allquestions" component={AllQuestions} />
           <ProtectedRoutes path="/profile" component={Profile} />
           <ProtectedRoutes path="/answered" component={Answered} />

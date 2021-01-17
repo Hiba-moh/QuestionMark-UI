@@ -1,5 +1,5 @@
-import React from "react"
-import './Animation.css'
+import React from 'react';
+import './Animation.css';
 
 function Animation()
 {
@@ -11,5 +11,4 @@ function Animation()
         </div>
     )
 }
-
 export default Animation;

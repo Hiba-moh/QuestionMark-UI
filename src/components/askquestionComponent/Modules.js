@@ -30,7 +30,11 @@ function Modules({setFormModule_id}) {
     <div>
       <form className="module-drop-down">
         <label htmlFor="modules" />
-        <select onChange={handleClick} name="modules" id="modules">
+        <select
+          onChange={handleClick}
+          name="modules"
+          className="custom-select mr-sm-2 sortSelector menu-margin"
+        >
           {modules.map ((element, index) => (
             <option key={index} value={element.module}>{element.module}</option>
           ))}

@@ -1,19 +1,15 @@
-import React from 'react'
+import React from 'react';
 import './NormalHeaderComponent.css';
-import logo3 from '../allQuestionsComponent/logo1.png';
+import logo3 from '../../assets/images/logo4.png';
 
-function NormalHeaderComponent() {
-    return (
-        <div className="header_containerH">
+function NormalHeaderComponent () {
+  return (
+    <div className="header_containerH">
 
+      <img src={logo3} alt="logo" width="200px" />
 
-        <img src={logo3} alt="logo" width="200px" />
-  
-       
-  
-      </div>
-
-    )
+    </div>
+  );
 }
 
-export default NormalHeaderComponent
+export default NormalHeaderComponent;

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import '../allQuestionsComponent/Header.css';
-import logo3 from '../allQuestionsComponent/logo1.png';
+import logo3 from '../../assets/images/logo4.png';
 import {Link} from 'react-router-dom';
 import {AuthContext} from '../../AuthContext';
 import {withRouter} from 'react-router-dom';
@@ -11,27 +11,25 @@ function Header () {
   const [greetValue, setGreetValue] = greet; //equvilent to setGreet
   const [idNumberValue, setIdNumberValue] = idNumber;
 
-
   const handleLogout = () => {
-    setIsAuthValue(false);
-   localStorage.setItem('user', false);
-   localStorage.removeItem("idValue");
-   localStorage.removeItem('profileVal');
-   localStorage.removeItem('userAskedVal');
-   localStorage.removeItem('userAnsweredVal');
-   localStorage.removeItem('replyVal');
-   localStorage.removeItem('userAskedName');
-   localStorage.removeItem('userAnsweredName');
+    setIsAuthValue (false);
+    localStorage.setItem ('user', false);
+    localStorage.removeItem ('idValue');
+    localStorage.removeItem ('profileVal');
+    localStorage.removeItem ('userAskedVal');
+    localStorage.removeItem ('userAnsweredVal');
+    localStorage.removeItem ('replyVal');
+    localStorage.removeItem ('userAskedName');
+    localStorage.removeItem ('userAnsweredName');
 
-   localStorage.clear("idValue");
-   localStorage.clear('profileVal');
-   localStorage.clear('userAskedVal');
-   localStorage.clear('userAnsweredVal');
-   localStorage.clear('replyVal');
-   localStorage.clear('userAskedName');
-   localStorage.clear('userAnsweredName');
-
-  }
+    localStorage.clear ('idValue');
+    localStorage.clear ('profileVal');
+    localStorage.clear ('userAskedVal');
+    localStorage.clear ('userAnsweredVal');
+    localStorage.clear ('replyVal');
+    localStorage.clear ('userAskedName');
+    localStorage.clear ('userAnsweredName');
+  };
 
   return (
     <div className="header_containerH">

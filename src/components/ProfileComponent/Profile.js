@@ -1,4 +1,4 @@
-import React, {useEffect,useContext,useState} from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 import '../ProfileComponent/Profile.css';
 import SidebarComponent
   from '../../components/sidebarComponent/SidebarComponent';
@@ -22,11 +22,6 @@ function Profile () {
   const [greetValue, setGreetValue] = greet;
   const [idNumberValue, setIdNumberValue] = idNumber;
   const history = useHistory ();
-
-  
-    
-     
-    
 
   return (
     <div className="profilePageContainer">

@@ -1,11 +1,8 @@
-import React, {useEffect,useContext,useState} from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 import './ReplyPage.css';
-import SidebarComponent
-  from '../../components/sidebarComponent/SidebarComponent';
 import TextEditor from '../../components/replyComponent/TextEditor';
 import Header from '../../components/allQuestionsComponent/Header';
 import Footer from '../../components/footerComponent/Footer';
-import {mockComponent} from 'react-dom/test-utils';
 import moment from 'moment';
 import axios from 'axios';
 import '../../components/replyComponent/UserAnswered';
@@ -19,7 +16,6 @@ import HTML from '../../components/ProfileComponent/HTML';
 import Node from '../../components/ProfileComponent/Node';
 
 function ReplyPage({match}) {
-
   const id = match.params.id;
   const [answer, SetAnswer] = useState ('');
   const [questionReply, SetQuestionReply] = useState ('');
@@ -29,10 +25,9 @@ function ReplyPage({match}) {
   const [idNumberValue, setIdNumberValue] = idNumber;
   const history = useHistory ();
 
-  if(idNumber[0])
-    {
-        localStorage.setItem("replyVal",idNumber[0]);
-    }
+  if (idNumber[0]) {
+    localStorage.setItem ('replyVal', idNumber[0]);
+  }
 
   const Module_name = subject_id => {
     switch (subject_id) {
@@ -85,10 +80,9 @@ function ReplyPage({match}) {
       .then (response => {
         return response.json ();
       })
-      .catch ((err) => {
+      .catch (err => {
         console.error (err);
       });
-    
   }
 
   const data1 = {
@@ -98,7 +92,7 @@ function ReplyPage({match}) {
         color: 'danger',
         fields: [
           {
-            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module: ${Module_name(questionReply.module_id)}`,
+            title: `Question No.${questionReply.id} Username: ${questionReply.name} Module: ${Module_name (questionReply.module_id)}`,
             value: `Hi ${questionReply.name}, your question has a reply. Please sign in to the question forum to check your answer. An email notification has also been sent to ${questionReply.email}`,
             short: false,
           },
@@ -107,10 +101,32 @@ function ReplyPage({match}) {
     ],
   };
 
+
+  // const option = {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify(data1)
+
+  // }
+
+  // const handleSlackMessage = async () => {
+  //  let res=  await fetch(process.env.REACT_APP_API_KEY, option)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(object)
+  //   }).catch(err => {
+  //     console.error(err);
+  //   })
+
+    
+  // }
+
   async function handleSlackMessage () {
     let res = await axios.post (
       process.env.REACT_APP_API_KEY,
-      JSON.stringify (data1),
+      [JSON.stringify (data1)],
       {
         withCredentials: false,
         transformRequest: [
@@ -120,9 +136,12 @@ function ReplyPage({match}) {
           },
         ],
       }
-    );
+    ).then(response => {
+      console.log(response);
+      return response.json();
+    });
     res.status === 200
-      ? alert (`Thank you for your contribution 🌹`)
+      ? (console.log('before alert'), alert (`Thank you for your contribution 🌹`))
       : alert ('Error sending message');
   }
 
@@ -132,7 +151,7 @@ function ReplyPage({match}) {
     const data = {
       question_id: id,
       reply: answer,
-      user_id: localStorage.getItem('replyVal'),
+      user_id: localStorage.getItem ('replyVal'),
       date: moment ().format ('YYYY/MM/DD'),
     };
 
@@ -148,15 +167,15 @@ function ReplyPage({match}) {
       .then (data => {
         //console.log (data.answer);
         if (data.answer) {
-          handleEmail ();
           handleSlackMessage ();
+          handleEmail ();
           history.push (`/selectedquestionpage/${id}`);
         } else {
           alert ('Oops, something went wrong!');
           history.push ('/allquestions');
         }
       })
-      .catch ((err) => {
+      .catch (err => {
         console.error (err);
       });
   };
