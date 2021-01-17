@@ -4,8 +4,14 @@
 #askTitle {
   width: 50%;
 }
-.animation-container {
+
+.animation-container
+{
   display: flex;
+}
+.heading{
+    font-family: 'Abel', sans-serif;
+    font-size:3rem;
 }
 
 .first-section {

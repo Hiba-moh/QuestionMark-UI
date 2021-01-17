@@ -1,24 +1,31 @@
 @keyframes circle {
-  0% {
-    left: 900px;
-  }
-  45% {
-    left: 0px;
-  }
-  65% {
-    background-color: #575757;
-    color: white;
-  }
-  75% {
-    background-color: rgb(214, 35, 29);
-    color: rgb(135, 252, 187);
-  }
-  85% {
-    color: black;
-    background-color: white;
-  }
+    0%   {left:900px; }
+    45%  {left:0px; }
+    65%  { background-color: rgb(223, 163, 163); color:rgb(78, 25, 25);}
+    75%  { background-color: rgb(214, 35, 29); color:rgb(135, 252, 187);}
+    85%  { background-color: rgb(206, 141, 133); color:rgb(78, 25, 25);}
 }
 
+.tips-circle
+{
+    background-color: #D12F2F;
+    font: 1rem ubuntu,Verdana,Arial,sans-serif;
+    color: white;
+    width: 9rem;
+    height: 9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #D12F2F;
+    border-radius: 50%;
+    margin:1rem 1rem;
+    padding: 1rem;
+    border:3px solid rgb(80, 83, 82);
+
+    position: relative;
+    animation-name: circle;
+    animation-duration: 4s;
+}
 .tips-circle {
   background-color: #d12f2f;
   font: 1rem ubuntu, Verdana, Arial, sans-serif;
