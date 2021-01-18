@@ -15,8 +15,8 @@ function LeftSection({overlayclass,closeNav,selectedOption,listOfQues,user,setAn
             </div>
             <p className="ask-question-user-name">Welcome {user.name}</p>
             <div className="button-holder">
-                <button className="side-button" onClick={setAnsweredQUes}>Answered question</button>
-                <button className="side-button" onClick={setUnAnsweredQues}>UnAnswered Question</button>
+                <button className="side-button" onClick={() => (window.location = '/userasked')}>Answered question</button>
+                <button className="side-button" onClick={() => (window.location = '/useranswered')}>UnAnswered Question</button>
             </div>
            
         </div>
