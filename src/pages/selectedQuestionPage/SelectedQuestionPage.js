@@ -289,7 +289,9 @@ function SelectedQuestionPage({match}) {
                           </div>
                         </div>
 
-                        {comments.map (comment => (
+                     {comments
+                          .filter (item => item.answer_id == answer.id)
+                          .map (comment => (
                           <div class="card card-inner commentCard">
                             <div class="card-body">
                               <div class="row">
