@@ -12,7 +12,7 @@ import sql from '../../assets/images/Icons/sql.png';
 import pdf from '../allQuestionsComponent/download.png';
 import jsPDF from 'jspdf';
 import ReactHtmlParse from 'react-html-parser';
-import SimpleAccordion from '../answeredComponent/SimpleAccordion';
+import SimpleAccordion from './SimpleAccordion';
 
 const AllQuestionsComponent = () => {
   const [answeredList, setAnsweredList] = useState ([]);
@@ -199,13 +199,6 @@ const AllQuestionsComponent = () => {
                     {/* <h6>asked by:</h6> */}
                   </div>
 
-                  <div className="one-Answered-answer">
-                    <h2>Answer: </h2>
-                    {' '}{ReactHtmlParse (answer.answer)}
-                    <h6>Date : {answer.answer_date}</h6>
-                    {/* <h6>answered by:</h6> */}
-                  </div>
-
                   <SimpleAccordion
                     answers={modulequestions
                       .filter (item => item.question_id == answer.question_id)
@@ -223,7 +216,6 @@ const AllQuestionsComponent = () => {
                       ))}
                     counter={answer.answers}
                   />
-
                 </div>
               ))}
 

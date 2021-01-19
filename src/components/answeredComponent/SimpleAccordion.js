@@ -28,7 +28,11 @@ export default function SimpleAccordion({answers, counter}) {
           id="panel1a-header"
         >
           <Typography className={classes.heading}>
-            <h4>{counter} Answers</h4>
+            <h4>.then((result) => {
+              
+            }).catch((err) => {
+              
+            }); Answers</h4>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
