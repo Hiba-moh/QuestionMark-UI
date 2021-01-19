@@ -12,6 +12,7 @@ import sql from '../../assets/images/Icons/sql.png';
 import pdf from '../allQuestionsComponent/download.png';
 import jsPDF from 'jspdf';
 import ReactHtmlParse from 'react-html-parser';
+import SimpleAccordion from '../answeredComponent/SimpleAccordion';
 
 const AllQuestionsComponent = () => {
   const [answeredList, setAnsweredList] = useState ([]);
