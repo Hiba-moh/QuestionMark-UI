@@ -22,7 +22,6 @@ const AllQuestionsComponent = () => {
   useEffect (() => {
     fetch (`https://question-mark-api.herokuapp.com/answered`)
       .then (res => {
-        
         if (!res.ok) {
           throw Error (res.status + ' _ ' + res.url);
         }
@@ -49,7 +48,6 @@ const AllQuestionsComponent = () => {
         }
       }
       setModulequestions (filtered);
-     
     }
   };
 
@@ -206,6 +204,25 @@ const AllQuestionsComponent = () => {
                     <h6>Date : {answer.answer_date}</h6>
                     {/* <h6>answered by:</h6> */}
                   </div>
+
+                  <SimpleAccordion
+                    answers={modulequestions
+                      .filter (item => item.question_id == answer.question_id)
+                      .map (answer => (
+                        <div className="one-Answered-answer">
+                          <h2>Answer: </h2>
+
+                          {ReactHtmlParse (answer.answer)}
+                          <h6>Date : {answer.answer_date}</h6>
+
+                          {/* {' '}{ReactHtmlParse (answer.answer)} */}
+                          {/* <h6>Date : {answer.answer_date}</h6> */}
+                          {/* <h6>answered by:</h6> */}
+                        </div>
+                      ))}
+                    counter={answer.answers}
+                  />
+
                 </div>
               ))}
 
