@@ -13,6 +13,7 @@ import Footer from '../../components/footerComponent/Footer';
 import {AuthContext} from '../../AuthContext';
 import RateComponent
   from '../../components/allQuestionsComponent/RateComponent';
+import Moment from 'moment';
 
 function SelectedQuestionPage({match}) {
   const id = match.params.id;
@@ -289,34 +290,38 @@ function SelectedQuestionPage({match}) {
                           </div>
                         </div>
 
-                     {comments
+                        {comments
                           .filter (item => item.answer_id == answer.id)
                           .map (comment => (
-                          <div class="card card-inner commentCard">
-                            <div class="card-body">
-                              <div class="row">
-                                <div class="col-md-2">
-                                  <img
-                                    src="https://image.ibb.co/jw55Ex/def_face.jpg"
-                                    class="img img-rounded img-fluid"
-                                  />
-                                  <p class="text-secondary text-center">
-                                    {comment.comment_date}
-                                  </p>
-                                </div>
-                                <div class="col-md-10">
-                                  <p>
-                                    <h3>{greet}</h3>
-                                  </p>
-                                  <p>
-                                    {comment.comment}
-                                  </p>
+                            <div class="card card-inner commentCard">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-2">
+                                    <img
+                                      src="https://image.ibb.co/jw55Ex/def_face.jpg"
+                                      class="img img-rounded img-fluid"
+                                    />
+                                    <p class="text-secondary text-center">
+                                      {/* {Moment (dt).format ('d MMM')} */}
 
+                                      {Moment (comment.comment_date).format (
+                                        'd MMM hh:mm:ss A'
+                                      )}
+                                    </p>
+                                  </div>
+                                  <div class="col-md-10">
+                                    <p>
+                                      <h3>{greet}</h3>
+                                    </p>
+                                    <p>
+                                      {comment.comment}
+                                    </p>
+
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
                       </div>
                     </div>
                   ))}
