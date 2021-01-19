@@ -20,6 +20,7 @@
     "illuminate-js": "^1.0.0-alpha.2",
     "install": "^0.13.0",
     "jspdf": "^2.2.0",
+    "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.29.1",
     "nodemailer": "^6.4.17",
     "npm": "^7.3.0",
