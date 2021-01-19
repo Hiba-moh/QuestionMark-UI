@@ -13,8 +13,8 @@ import Footer from '../../components/footerComponent/Footer';
 import {AuthContext} from '../../AuthContext';
 import RateComponent
   from '../../components/allQuestionsComponent/RateComponent';
-
 function SelectedQuestionPage({match}) {
+  let filteredComments = [];
   const id = match.params.id;
   const {isAuth, greet, idNumber} = useContext (AuthContext);
   const [isAuthValue, setIsAuthValue] = isAuth;
@@ -25,6 +25,7 @@ function SelectedQuestionPage({match}) {
   const [pageData_answer, setPageData_answer] = useState ([]);
   const [updatedViews, SetUpdatedViews] = useState (0);
   const [comments, setComments] = useState ([]);
+  const [answerComments, setAnswerComments] = useState ([]);
   const [txtValue, setTxtValue] = useState ('');
   const [open, setOpen] = React.useState (false);
   const [flag, setFlag] = useState (false);
@@ -33,7 +34,7 @@ function SelectedQuestionPage({match}) {
     localStorage.setItem ('idValue', idNumber[0]);
   }
 
-  let filteredComments = [];
+  // let filteredComments = [];
   const history = useHistory ();
 
   addLanguage ('javascript', javascript);
@@ -288,33 +289,42 @@ function SelectedQuestionPage({match}) {
                             </div>
                           </div>
                         </div>
+                        {/* {filteredCommentsFunction (comments, answer.id)} */}
+                        {/* {
+                          (filteredComments = comments.filter (comment => {
+                            comment.answer_id == answer.id;
+                          }))
+                        } */}
+                        {/* { SetUserQuestions (userQuestions.filter (question => question.id !== id))} */}
 
-                        {comments.map (comment => (
-                          <div class="card card-inner commentCard">
-                            <div class="card-body">
-                              <div class="row">
-                                <div class="col-md-2">
-                                  <img
-                                    src="https://image.ibb.co/jw55Ex/def_face.jpg"
-                                    class="img img-rounded img-fluid"
-                                  />
-                                  <p class="text-secondary text-center">
-                                    {comment.comment_date}
-                                  </p>
-                                </div>
-                                <div class="col-md-10">
-                                  <p>
-                                    <h3>{greet}</h3>
-                                  </p>
-                                  <p>
-                                    {comment.comment}
-                                  </p>
+                        {comments
+                          .filter (item => item.answer_id == answer.id)
+                          .map (comment => (
+                            <div class="card card-inner commentCard">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-2">
+                                    <img
+                                      src="https://image.ibb.co/jw55Ex/def_face.jpg"
+                                      class="img img-rounded img-fluid"
+                                    />
+                                    <p class="text-secondary text-center">
+                                      {comment.comment_date}
+                                    </p>
+                                  </div>
+                                  <div class="col-md-10">
+                                    <p>
+                                      <h3>{greet}</h3>
+                                    </p>
+                                    <p>
+                                      {comment.comment}
+                                    </p>
 
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
                       </div>
                     </div>
                   ))}

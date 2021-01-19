@@ -77,8 +77,8 @@ const UserAnswered = () => {
             </thead>
             <tbody>
 
-              {userAnswers.map (item => (
-                <tr key={item.id}>
+              {userAnswers.map ((item, index) => (
+                <tr key={index}>
                   <td>{item.question}</td>
                   <td>{ReactHtmlParse (item.answer)}</td>
                   <td><EditAnswer answerDetails={item} /></td>

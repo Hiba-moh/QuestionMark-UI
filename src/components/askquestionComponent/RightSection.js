@@ -62,9 +62,12 @@ function RightSection({userID, textAreaClass}) {
       .catch (error => console.log (error));
   }
 
-  function submitted (e) {
+  async function submitted (e) {
     e.preventDefault ();
-    fetch ('https://question-mark-api.herokuapp.com/ask-question', options) // once the changes have been pushed use this fetch to send to heroku url
+    await fetch (
+      'https://question-mark-api.herokuapp.com/ask-question',
+      options
+    ) // once the changes have been pushed use this fetch to send to heroku url
       .then (data => data.json ())
       .then (data => console.log (data))
       .catch (error => console.log (error));
