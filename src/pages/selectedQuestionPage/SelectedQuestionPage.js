@@ -302,11 +302,7 @@ function SelectedQuestionPage({match}) {
                                       class="img img-rounded img-fluid"
                                     />
                                     <p class="text-secondary text-center">
-                                      {/* {Moment (dt).format ('d MMM')} */}
-
-                                      {Moment (comment.comment_date).format (
-                                        'd MMM hh:mm:ss A'
-                                      )}
+                                      {comment.comment_date}
                                     </p>
                                   </div>
                                   <div class="col-md-10">
